@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { AllProjectsComponent } from './all-projects/all-projects.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'side-menubar', component: SideMenubarComponent},
   { path: 'dashboard', component: DashboardComponent},
-  { path: 'footer', component: FooterComponent}
+ 
+  { path: 'footer', component: FooterComponent},
+  { path: 'all-projects', component: AllProjectsComponent},
+
 ];
 
 @NgModule({

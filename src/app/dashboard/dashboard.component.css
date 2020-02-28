@@ -1,3 +1,13 @@
 .bl{
     border-left: 4px solid red;;
 }
+.br{
+    border: 1px solid lightgray;
+}
+.newbtn{
+    background-color: #3A77DF;height: 70%;border-radius: 25px;color: white;
+}
+.newimg{
+    width: 25px !important;
+    height: 25px !important;
+}

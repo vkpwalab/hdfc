@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { AllProjectsComponent } from './all-projects/all-projects.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
     SideMenubarComponent,
     DashboardComponent,
     FooterComponent,
+    AllProjectsComponent,
 
   ],
   imports: [
