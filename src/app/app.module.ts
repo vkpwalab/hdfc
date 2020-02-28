@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SideMenubarComponent } from './side-menubar/side-menubar.component';
     AppComponent,
     LoginComponent,
     SideMenubarComponent,
+    DashboardComponent,
 
   ],
   imports: [
