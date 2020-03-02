@@ -11,7 +11,9 @@ import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
-
+import { ChartsModule } from 'ng2-charts';
+import { DashboardLoanComponent } from './dashboard-loan/dashboard-loan.component';
+import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,12 @@ import { AllProjectsComponent } from './all-projects/all-projects.component';
     DashboardComponent,
     FooterComponent,
     AllProjectsComponent,
+    DashboardLoanComponent,
+    DashboardProjectsComponent,
 
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     AppRoutingModule,
     [BrowserAnimationsModule],

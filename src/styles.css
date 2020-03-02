@@ -30,3 +30,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .fs-14{
   font-size: 14px !important;
 }
+.line{
+  border-bottom: 1px solid lightgrey !important;
+  position: relative;
+  left: 15px;
+  width: 84%;
+}
+.bl{
+  border-left: 4px solid red;;
+}
