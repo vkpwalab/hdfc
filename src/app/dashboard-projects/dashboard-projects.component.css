@@ -18,13 +18,22 @@
 .cgray{
     color: gray !important; 
 }
+.cred{
+    color: red !important; 
+
+}
+/* .fs-20{
+    font-size: 20px !important;
+} */
+
 
 
 @media(min-width:300px) and (max-width:500px){
-    .text-right{
-        text-align: left !important;
+    .pl-15{
+        padding-left: 15px !important;
     }
-    .pl-5{
-        padding-left: 0px !important;
-    }
+    /* .ml-8{
+        margin-left: 8px !important;
+    } */
+   
 }

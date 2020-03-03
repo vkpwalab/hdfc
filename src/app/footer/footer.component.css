@@ -1,5 +1,5 @@
-@media screen and (min-width:360px) and (max-width: 576px){
-.footer{position: fixed;bottom: 0;left: 0;border-top: 1px solid grey;}
+@media screen and (min-width:300px) and (max-width: 576px){
+.footer{background-color: #ffffff;position: fixed;bottom: 0;left: 0;border-top: 1px solid grey;z-index: 999999 !important;}
 .list{display: inline-flex;}
 .dash{height: 100%; color: grey;}
 .dash h6{font-size: 10px;}
@@ -8,7 +8,7 @@
 }
 
 @media screen and (min-width:576px) and (max-width: 2000px){
-    .footer {display: none;}
+    .footer {display: none;position: fixed;z-index: 999999 !important;}
     .footer-desktop{position: fixed;bottom: 0;width: 100%;right: 0;left: 0;}
     .footer-web{font-size: 8px;color: grey;}
 }
