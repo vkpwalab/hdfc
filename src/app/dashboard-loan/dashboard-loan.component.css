@@ -9,9 +9,29 @@ hr {
     width: 94%;
     margin-bottom: 0px !important;
   }
+  .mainimg{
+    width: 67px !important;
+    height: 45px !important;
+}
+.cred{
+    color: red !important; 
+}
+.newbtn{
+    background-color: red;height: 70%;border-radius: 25px;color: white;
+}
+
+@media(min-width:300px) and (max-width:450px){
+    .mart-18{
+        margin-top: 18px !important;
+    }
+
+}
   @media(min-width:500px) and (max-width:2000px){
     .disflex{
         display: inline-flex !important;
+    }
+    .ml-62{
+        margin-left: 62px !important;
     }
 
 }

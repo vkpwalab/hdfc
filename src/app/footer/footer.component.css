@@ -8,8 +8,8 @@
 }
 
 @media screen and (min-width:576px) and (max-width: 2000px){
-    .footer {display: none;position: fixed;z-index: 999999 !important;}
-    .footer-desktop{position: fixed;bottom: 0;width: 100%;right: 0;left: 0;}
+    .footer {display: none;}
+    .footer-desktop{position: fixed;bottom: 0;width: 100%;right: 0;left: 0;z-index: 1!important;padding-top: 5px;}
     .footer-web{font-size: 8px;color: grey;}
 }
 

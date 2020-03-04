@@ -45,3 +45,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .br{
   border: 1px solid lightgray !important;
 }
+.scrollbar
+ {
+    height: 258px;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-bottom: 30px;
+    /* padding-right: 30px !important; */
+    padding-top: 0px;
+    padding-left: 0px;
+
+ }
+
+ .scrollbar::-webkit-scrollbar {
+    width: 2px;
+    }
+.scrollbar::-webkit-scrollbar-thumb {
+    background: lightgray;
+  
+ }
+ .newbtn{
+  background-color: #3A77DF;height: 70%;border-radius: 25px;color: white;
+}
