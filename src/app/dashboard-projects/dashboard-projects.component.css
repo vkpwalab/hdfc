@@ -1,0 +1,39 @@
+
+.br{
+    border: 1px solid lightgray;
+}
+.newbtn{
+    background-color: #3A77DF;height: 70%;border-radius: 25px;color: white;
+}
+.newimg{
+    width: 10px !important;
+    height: 10px !important;
+}
+.b-radius{
+    border-radius: 9px !important;
+}
+.ls{
+    letter-spacing: 2px !important;
+}
+.cgray{
+    color: gray !important; 
+}
+.cred{
+    color: red !important; 
+
+}
+/* .fs-20{
+    font-size: 20px !important;
+} */
+
+
+
+@media(min-width:300px) and (max-width:500px){
+    .pl-15{
+        padding-left: 15px !important;
+    }
+    /* .ml-8{
+        margin-left: 8px !important;
+    } */
+   
+}

@@ -1,0 +1,27 @@
+.bl{
+    border-left: 4px solid red;;
+}
+
+.newbtn{
+    background-color: #3A77DF;height: 70%;border-radius: 25px;color: white;
+}
+.newimg{
+    width: 10px !important;
+    height: 10px !important;
+}
+.b-radius{
+    border-radius: 9px !important;
+}
+.ls{
+    letter-spacing: 2px !important;
+}
+.cgray{
+    color: gray !important; 
+}
+
+@media(min-width:500px) and (max-width:2000px){
+    .padl{
+        padding-left: 0px !important;
+    }
+
+}
