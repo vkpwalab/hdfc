@@ -1,0 +1,10 @@
+.mb-footer{
+    margin-bottom: 3% !important;
+}
+
+@media(min-width:320px) and (max-width: 576px){
+    .mb-footer{
+        margin-bottom: 20% !important;
+    }
+
+}

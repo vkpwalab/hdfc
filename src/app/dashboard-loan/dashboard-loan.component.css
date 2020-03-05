@@ -31,11 +31,13 @@ hr {
 .agm-map {
     height: 300px;
   }
-@media(min-width:300px) and (max-width:450px){
+@media(min-width:300px) and (max-width:576px){
     .mart-18{
         margin-top: 18px !important;
     }
-
+    .pr-mob{
+        padding-right: 0 !important;
+    }
 }
   @media(min-width:500px) and (max-width:2000px){
     .disflex{
