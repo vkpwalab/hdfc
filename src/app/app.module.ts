@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
+import { UpdateWorkComponent } from './update-work/update-work.component';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { AllProjectsComponent } from './all-projects/all-projects.component';
     SideMenubarComponent,
     FooterComponent,
     AllProjectsComponent,
+    UpdateWorkComponent,
 
   ],
   imports: [
@@ -26,7 +29,14 @@ import { AllProjectsComponent } from './all-projects/all-projects.component';
     AppRoutingModule,
     [BrowserAnimationsModule],
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   
   ],
   providers: [],

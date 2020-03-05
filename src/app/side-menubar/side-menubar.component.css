@@ -45,12 +45,12 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-@media screen and (min-width: 500px) and (max-width: 1500px){
+@media screen and (min-width: 500px) and (max-width: 2000px){
     .sidenav {
         height: 100%;
         width: 200px;
         position: fixed;
-        z-index: 1;
+        z-index: 99;
         top: 0;
         left: 0;
         background-color:rgb(221, 6, 6);

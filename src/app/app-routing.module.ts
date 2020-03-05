@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
+import { UpdateWorkComponent } from './update-work/update-work.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'side-menubar', component: SideMenubarComponent},
   { path: 'footer', component: FooterComponent},
   { path: 'all-projects', component: AllProjectsComponent},
+  { path: 'update-work', component: UpdateWorkComponent},
+
 
 ];
 
