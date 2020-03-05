@@ -4,10 +4,22 @@
         <div class="col-lg-5 col-3 pl-0 pr-0">
             <p class="fs-12 bl font-weight-bold pl-2">Total Loan</p>
         </div>
-        <div class="col-lg-7 col-9  pr-0 text-right">
-            <span class="fs-12 font-weight-bold">Weekly</span>
+        <div class="col-lg-7 col-9  pr-0">
+            <ul class="nav nav-pills justify-content-end">
+                <li class="nav-item fs-12 font-weight-bold">
+                  <a class="nav-link cblack" href="#">Weekly</a>
+                </li>
+                <li class="nav-item fs-12 font-weight-bold">
+                  <a class="nav-link cblack" href="#">Monthly</a>
+                </li>
+                <li class="nav-item fs-12 ">
+                  <a class="nav-link cwhite newbtn pt-1 pb-1 mt-1" href="#">Yearly</a>
+                </li>
+              
+              </ul>
+            <!-- <span class="fs-12 font-weight-bold">Weekly</span>
             <span class="fs-12 font-weight-bold pl-4">Monthly</span>
-            <span class="fs-12 pl-4 text-center fs-12 newbtn pr-4 pt-1 pb-1 font-weight-normal ml-3">Yearly</span>
+            <span class="fs-12 pl-4 text-center fs-12 newbtn pr-4 pt-1 pb-1 font-weight-normal ml-3">Yearly</span> -->
         </div>
        </div>
         <canvas id="chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
