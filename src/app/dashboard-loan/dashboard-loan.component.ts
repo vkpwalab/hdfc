@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-
 @Component({
   selector: 'app-dashboard-loan',
   templateUrl: './dashboard-loan.component.html',
   styleUrls: ['./dashboard-loan.component.css']
 })
 export class DashboardLoanComponent implements OnInit {
+  
   public barChartOptions: ChartOptions = {
     responsive: true,
     scales: {
@@ -26,8 +26,11 @@ export class DashboardLoanComponent implements OnInit {
     },
     legend: {
       display: false,
+      
     },
     
+     
+  
   };
   
   public barChartLabels: Label[] = ['Project1', 'Project2', 'Project3', 'Project4', 'Project5', 'Project6', 'Project7'];
@@ -52,7 +55,9 @@ export class DashboardLoanComponent implements OnInit {
         'blue'
       ],
       barThickness: 20,
-
+      // hoverBorderWidth: 20,
+      label: "Loan Amount"
+      
 
     },
 

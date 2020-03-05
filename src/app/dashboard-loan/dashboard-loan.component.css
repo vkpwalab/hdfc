@@ -19,7 +19,18 @@ hr {
 .newbtn{
     background-color: red;height: 70%;border-radius: 25px;color: white;
 }
-
+.cwhite{
+    color: white !important;
+}
+.cblack{
+    color: black !important;
+}
+.bred{
+    background-color: red !important;
+}
+.agm-map {
+    height: 300px;
+  }
 @media(min-width:300px) and (max-width:450px){
     .mart-18{
         margin-top: 18px !important;
