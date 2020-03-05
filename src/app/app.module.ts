@@ -15,8 +15,9 @@ import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { UpdateWorkComponent } from './update-work/update-work.component';
 
 import { ChartsModule } from 'ng2-charts';
-import { DashboardLoanComponent } from './dashboard-loan/dashboard-loan.component';
-import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
+import { DashboardLoanComponent } from './dashboard/dashboard-loan/dashboard-loan.component';
+import { DashboardProjectsComponent } from './dashboard/dashboard-projects/dashboard-projects.component';
+import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DashboardProjectsComponent } from './dashboard-projects/dashboard-proje
     UpdateWorkComponent,
     DashboardLoanComponent,
     DashboardProjectsComponent,
+    ProjectOverviewComponent,
 
   ],
   imports: [
