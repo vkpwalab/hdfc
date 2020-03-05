@@ -5,7 +5,8 @@
 
 .input[type="text"]:focus,
 .input[type="password"]:focus,
-.input[type="email"]:focus{
+.input[type="email"]:focus
+.input[type="search"]:focus{
   outline: 0 none;
 }
 
@@ -14,16 +15,84 @@
     display: flex;
     margin: 8% auto 5% auto; 
     outline: none;
-    /* border-bottom: 1px solid grey */
   }
 
 .span{font-size: 12px;}
 
-.login-box{ background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 20px 7px #ed1c2421;}
+.login-box{ background-color: white;border-radius: 10px;box-shadow: 0px 4px 20px 7px #ed1c2421;}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+@media screen and (min-width:576px) and (max-width: 2000px){
+
+  .whole{padding-right: 40px;}
+  
+  /* --------------------BREAD CRUM-----FOR DESKTOP----------------- */
+
+  .breadcrumb{background: none!important;font-size: 10px;}
+  .breadcrumb-item a {color: black;}
+  .breadcrumb-item::before{content: ">"!important;padding-right: 1px!important;}
+    .home::before{content: none!important;}
+
+  /* --------------------TITLE-----FOR DESKTOP----------------- */
+  .list{display: inline-flex;}
+  .list .badge{height: 18px;border-radius: 10px;width: 35px;}
+  .list h5{color: rgb(221, 6, 6)}
+
+  input{border: none;padding: 0px;margin-left: 10px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+  input:focus{outline: none;}
+
+  /* ----------------------Search bar----------------- */
+  .search{border-bottom: 1px solid rgb(192, 190, 190);}
+  .search-bar{padding-right: 0px !important;}
+  .Q-ser{margin-left: 25px;}
+  .cell{display: none;}
+
+
+  /* ------------------BUTTON----------------- */
+  .main_btn_log{
+    text-align: center;
+    border-radius: 50px;
+    background-color: #f72805;
+    color: white;
+    display: block;
+    font-size: 13px;
+    height: 35px;
+    cursor: pointer;
+    padding: 8px;
+    box-shadow: 1px 3px 8px #ed1c2452;
+  }
+
+    .i-con {padding-left: 0px!important;}
+    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute;padding: 2px;}
+    .icons{color:rgb(108, 108, 214); background-color: rgb(199, 217, 223);border-radius: 50%;position: relative;}
+
+}
+
+
+/* ---------------------------FOR MOBILE-------------------------- */
+
+@media screen and (min-width:320px) and (max-width: 576px){
+  .breadcrumb{display: none;}
+  .list{display:none}
+  .search-bar{margin-top: 10px;}
+  input{border: none;padding: 0px;margin-left: 10px;width: 80%!important;font-size: 15px;padding-top: 4px;}
+  input:focus{outline: none;}
+  .form-inline {padding-bottom: 5px;}
+  .main_btn_log{ display: none;}
+  .search{border-bottom: 1px solid rgb(192, 190, 190);}
+  .cell{font-size: 18px;}
+
+              /* MAIN CONTENT  */
+  .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
+   p{font-size: 12px;}
+   label, span{font-size: 10px;}
+  .tick{padding-left: 15px!important;padding-right: 0px !important;}
+  .icons{color: rgb(108, 108, 214); background-color: rgb(199, 217, 223);border-radius: 50%;padding: 4px;height: 25px;width: 25px;font-size: 15px;}
+  .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute;padding: 2px;}
+}
 .fs-12{
   font-size: 12px !important;
 }

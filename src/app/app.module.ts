@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
+import { UpdateWorkComponent } from './update-work/update-work.component';
+
 import { ChartsModule } from 'ng2-charts';
 import { DashboardLoanComponent } from './dashboard-loan/dashboard-loan.component';
 import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
@@ -23,6 +26,7 @@ import { DashboardProjectsComponent } from './dashboard-projects/dashboard-proje
     DashboardComponent,
     FooterComponent,
     AllProjectsComponent,
+    UpdateWorkComponent,
     DashboardLoanComponent,
     DashboardProjectsComponent,
 
@@ -33,7 +37,14 @@ import { DashboardProjectsComponent } from './dashboard-projects/dashboard-proje
     AppRoutingModule,
     [BrowserAnimationsModule],
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   
   ],
   providers: [],
