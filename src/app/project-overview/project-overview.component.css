@@ -1,4 +1,21 @@
-.overviewimage{
-    width: 80px;
-    height: 80px;
+
+.newbtn{
+    background-color: #3A77DF;height: 70%;border-radius: 25px;color: white;
+}
+.overviewimage img{
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+}
+.mt-10{
+    margin-top: -10px !important;
+}
+.fs-21{
+    font-size: 21px !important;
+}
+
+@media screen and (min-width:576px) and (max-width: 2000px){
+    .disflex{
+        display: inline-flex !important;
+    }
 }
