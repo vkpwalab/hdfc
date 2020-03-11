@@ -29,7 +29,7 @@
                     <h6 class="m-0 fs-12 font-weight-bold pt-2">Raj Grandeur<span
                             class="text-center fs-12 newbtn pl-3 pr-3 pt-1 pb-1 font-weight-normal ml-4">Residential</span>
                     </h6>
-                    <i class="fa fa-map-marker" aria-hidden="true"></i><span class="m-0 fs-12 pl-1 font-italic">Andheri
+                    <i style="color: red !important;" class="fa fa-map-marker" aria-hidden="true"></i><span class="m-0 fs-12 pl-1 font-italic">Andheri
                         Kurla</span>
 
                 </div>
@@ -51,7 +51,7 @@
                     <p class="fs-12 m-0 cgray">Total Disbursed</p>
                     <div style="height: 25px;" class="progress mt-1">
                         <div class="progress-bar" role="progressbar"
-                            style="width: 40%; color: black; background-color: lightskyblue;l" aria-valuenow="25"
+                            style="width: 40%; color: black; background-color: rgb(194,237,253);" aria-valuenow="25"
                             aria-valuemin="0" aria-valuemax="100">60 Crores</div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         <div class="col-lg-8 col-7 px-0">
                             <div style="height: 7px;width:80%" class="progress mt-1">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 60%; color: black; background-color: darkgoldenrod;"
+                                    style="width: 60%; color: black; background-color: rgb(250,194,62);"
                                     aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
 
@@ -90,7 +90,7 @@
                         <div class="col-lg-8 col-7 px-0">
                             <div style="height: 7px;width:80%" class="progress mt-1">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 25%; color: black; background-color: darkgoldenrod;"
+                                    style="width: 25%; color: black; background-color: rgb(250,194,62);"
                                     aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
 
@@ -107,8 +107,9 @@
                         <div class="col-lg-8 col-7 px-0">
                             <div style="height: 7px;width:80%" class="progress mt-1">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 10%; color: black; background-color: darkgoldenrod;"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    style="width: 10%; color: black; background-color: rgb(250,194,62);"
+                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                </div>
                             </div>
 
                         </div>
@@ -121,4 +122,43 @@
             </div>
         </div>
     </div>
+
+    <div class="col-lg-12 col-12 px-0 mt-2">
+        <!-- <ul class="nav nav-pills nav-justified rounded-top">
+            <li class="nav-item">
+                <a class="nav-link p-2 active active-size" data-toggle="tab" href="#progress">Project Progress</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2 active-size" data-toggle="tab" href="#documents">List Of Documents</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2 active-size" data-toggle="tab" href="#queries">Queries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2 active-size" data-toggle="tab" href="#leads">Leads/Clients</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2 active-size" data-toggle="tab" href="#records">Disbursement Records</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2 active-size" data-toggle="tab" href="#assistance">Project Assistance</a>
+            </li>
+        </ul> -->
+        <mat-tab-group>
+            <mat-tab label="Project Progress"><app-project-progress></app-project-progress></mat-tab>
+            <mat-tab label="List Of Documents"><app-list-of-documents></app-list-of-documents>
+            </mat-tab>
+            <mat-tab label="Queries">
+            <app-queries></app-queries>
+            </mat-tab>
+            <mat-tab label="Leads/Clients"><app-leads></app-leads>
+            </mat-tab>
+            <mat-tab label="Disbursement Records"><app-disbursement-records></app-disbursement-records>
+            </mat-tab>
+            <mat-tab label="Project Assistance"><app-project-assistance></app-project-assistance>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+   
+    
 </div>

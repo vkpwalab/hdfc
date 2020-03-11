@@ -23,6 +23,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 @media screen and (min-width:576px) and (max-width: 2000px){
+  .btn-secondary{
+    width: 38% !important;
+  }
+  .mat-tab-label{
+    padding:0 45px !important;
+  }
   .padl{
     padding-left: 0px !important;
 }
@@ -74,6 +80,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* ---------------------------FOR MOBILE-------------------------- */
 
 @media screen and (min-width:320px) and (max-width: 576px){
+  
   .breadcrumb{display: none;}
   .list{display:none}
   .search-bar{margin-top: 10px;}
@@ -95,6 +102,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .cgray
 {
   color: lightgray !important;
+}
+.wcolor{
+  color: white !important;
 }
 .fs-10{
   font-size: 10px !important;
@@ -141,4 +151,38 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
  }
  .newbtn{
   background-color: #3A77DF;height: 70%;border-radius: 25px;color: white;
+}
+.mat-tab-label .mat-tab-label-content{
+  color: white !important;
+}
+
+.badge {
+  border-radius: 2.25em!important;
+  font-size: 108%!important;
+  padding: 0.28em .6em!important;
+  border: 1px solid transparent !important;
+  background-color: lightblue !important;
+}
+.mat-tab-header-pagination-chevron{
+  border-color: white !important;
+}
+.mat-tab-header{
+  background-color: black !important;
+  border-bottom: none !important;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+}
+.btn-secondary{
+  color: black !important;
+  background-color: white !important;
+  border: 1px solid lightgray  !important;
+  font-size: 12px !important;
+  font-weight: bold;
+  
+}
+.dropdown-toggle::after{
+  margin-left: 28px !important;
+  font-size: 16px !important;
+  padding-top: 0;
+  vertical-align: 1px;
 }
