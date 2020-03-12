@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartOptions, ChartType, ChartDataSets, Chart } from 'chart.js';
+import { Component, OnInit } from '@angular/core';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 @Component({
   selector: 'app-project-progress',
@@ -29,22 +29,16 @@ export class ProjectProgressComponent implements OnInit {
       display: false,
 
     },
-
-
-
-
   };
-  public barChartLabels: Label[] = ['0%', '20%', '40%', '60%', '80%', '100%'];
+  public barChartLabels: Label[] = ['WingA', 'WingB', 'WingC'];
   public barChartType: ChartType = 'horizontalBar';
 
   public barChartLegend = true;
   public barChartPlugins = [];
 
   public barChartData: ChartDataSets[] = [
-
-    // { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' }
     {
-      data: [10, 30, 60],
+      data: [60, 20, 10],
 
       backgroundColor: [
         'rgb(253,194,52)',
@@ -52,7 +46,7 @@ export class ProjectProgressComponent implements OnInit {
         'rgb(253,194,52)'
 
       ],
-      barThickness: 20,
+      barThickness: 10,
       // hoverBorderWidth: 20,
       label: "Loan Amount"
 
@@ -74,23 +68,7 @@ export class ProjectProgressComponent implements OnInit {
   public lineChartLabels: Label[] = ['WingA', 'WingB', 'WingC'];
   public lineChartOptions: {
     responsive: true,
-    scales: {
-      xAxes: [{
-
-        gridLines: {
-
-          display: false,
-        }
-      }],
-      yAxes: [{
-
-        gridLines: {
-
-          display: false
-        }
-      }]
-    },
-  };
+   };
 
   public lineChartColors: Color[] = [
     {
@@ -103,8 +81,6 @@ export class ProjectProgressComponent implements OnInit {
   public lineChartPlugins = [];
   constructor() { }
 
-  ngOnInit(): void {
-  
-  }
+  ngOnInit(): void {}
 
 }

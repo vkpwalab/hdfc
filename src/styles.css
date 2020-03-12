@@ -80,7 +80,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* ---------------------------FOR MOBILE-------------------------- */
 
 @media screen and (min-width:320px) and (max-width: 576px){
-  
+  .padlr{padding-left: 0px !important;padding-right: 0px !important;}
   .breadcrumb{display: none;}
   .list{display:none}
   .search-bar{margin-top: 10px;}

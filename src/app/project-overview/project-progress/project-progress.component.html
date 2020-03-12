@@ -1,45 +1,64 @@
 <div class="col-lg-12 col-12 mt-4">
-    <div class="col-lg-12 col-12 d-inline-flex px-0">
-        <div class="col-lg-2 col-6">
-            <i class="fa fa-plus myicon" aria-hidden="true"></i>
-            <span class="fs-10 pl-2">Add Update</span>
-        </div>
-        <div class="col-lg-3 offset-lg-7 col-6 text-right">
-            <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Yearly
-                </a>
-              
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-        </div>
+  <div class="col-lg-12 col-12 d-inline-flex px-0">
+    <div class="col-lg-2 col-6 padlr">
+      <i class="fa fa-plus myicon" aria-hidden="true"></i>
+      <span class="fs-10 pl-2">Add Update</span>
     </div>
-    <div class="col-lg-12 col-12 mt-2 d-inline-flex px-0">
-        <div class="col-lg-4 col-12">
-            <h6 class="font-weight-bold">Wing-wise Progress</h6>
-            <canvas id="chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
-             </canvas>
-        </div>
-        <div class="col-lg-4 col-4">
+    <div class="col-lg-3 offset-lg-7 col-6 text-right">
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle " href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Yearly
+        </a>
 
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-        <div class="col-lg-4 col-12">
-            <div style="display: block;">
-                <canvas baseChart width="400" height="400"
-                  [datasets]="lineChartData"
-                  [labels]="lineChartLabels"
-                  [options]="lineChartOptions"
-                  [colors]="lineChartColors"
-                  [legend]="lineChartLegend"
-                  [chartType]="lineChartType"
-                  [plugins]="lineChartPlugins">
-                </canvas>
-              </div>
-        </div>
+      </div>
     </div>
+  </div>
+  <div class="col-lg-12 col-12 mt-2 row px-0">
+    <div class="col-lg-8 col-12 padlr">
+      <div class="col-lg-12 col-12 row">
+        <div class="col-lg-6 col-6">
+          <h6 class="font-weight-bold">Wing-wise Progress</h6>
+          <!-- <canvas id="chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+          </canvas> -->
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolores voluptatum saepe id. </p>
+        </div>
+        <div class="col-lg-6 col-6">
+          <div class="shadow bg-white rounded p-2 mt-5">
+            <div class="w-0 h-0"
+              style="border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 22px solid #fff;position:absolute;left: 1%;transform: skewX(22deg);">
+            </div>
+            <p class="fs-10 cgray mb-0">As on 04 Sep'19</p>
+            <p class="fs-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis accusantium nemo
+              aspernatur saepe eaque sunt hic repudiandae veniam quibusdam sed voluptatibus iste sit quasi ipsam, soluta
+              accusamus eveniet optio iure!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+   
+    <!-- <div class="col-lg-4 col-12">
+     
+        <div style="display: block;">
+          <canvas baseChart width="400" height="400"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+
+     
+    </div> -->
+  </div>
 </div>
