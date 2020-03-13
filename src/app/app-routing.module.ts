@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { UpdateWorkComponent } from './update-work/update-work.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent},
   { path: 'all-projects', component: AllProjectsComponent},
   { path: 'update-work', component: UpdateWorkComponent},
+  { path: 'add-project', component: AddProjectComponent},
   { path: 'project-overview', component: ProjectOverviewComponent}
 
 

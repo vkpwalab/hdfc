@@ -1,0 +1,109 @@
+<div class="col-lg-12 whole">
+
+    <!-- ----------------BREADCRUM----------->
+    <div class="col-lg-12 pl-0">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-1 pl-0">
+                <li class="breadcrumb-item home px-0"><a href="#">Home</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">Projects</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">Manage</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">List All Projects</a></li>
+            </ol>
+        </nav>
+    </div>
+    <!-- ----------------TITLE----------->
+
+    <div class="col-lg-12 row px-0 first-line ">
+        <div class="col-lg-7 mx-0 mt-2 list">
+            <span [routerLink]="['/all-projects']">
+                <h4><i class="fa fa-chevron-left" aria-hidden="true"></i></h4>
+            </span>
+            <h5 class="ml-2">Add Project</h5>
+        </div>
+
+    </div>
+
+    <!-- --------------------------TAB BAR---------------------------- -->
+
+    <div class="col-lg-12  card-top shadow mt-2">
+        <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-1" role="tab"
+                    aria-controls="pills-home" aria-selected="true">1</a>
+                <h6>Projects Details</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-2" role="tab"
+                    aria-controls="pills-profile" aria-selected="false">2</a>
+                <h6>Address Details</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-3" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">3</a>
+                <h6>Projcets Features</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-4" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">4</a>
+                <h6>RERA Details</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-5" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">5</a>
+                <h6>Builders Bank a/c</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-6" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">6</a>
+                <h6>Upload Docx.</h6>
+            </li>
+        </ul>
+
+    </div>
+
+    <!--------------- BOTTOM CARD -------------- -->
+
+    <div class="col-lg-12 card-bottom shadow px-0">
+
+        <div class="tab-content" id="pills-tabContent">
+ <!-- _________________________________________NO-1________________________________ -->
+
+            <div class="col-lg-12 px-0 mt-2 tab-pane fade show active" id="pills-1" role="tabpanel"
+                aria-labelledby="pills-home-tab">
+             <app-project-details></app-project-details>
+            </div>
+
+<!-- _________________________________________NO-2________________________________ -->
+
+            <div class="col-lg-12 px-0 address tab-pane fade" id="pills-2" role="tabpanel"
+                aria-labelledby="pills-profile-tab">
+                <app-address-details></app-address-details>
+            </div>
+
+<!-- _________________________________________NO-3________________________________ -->    
+
+            <div class="col-lg-12 px-0 feature  tab-pane fade" id="pills-3" role="tabpanel"
+                aria-labelledby="pills-contact-tab">
+                <app-project-features></app-project-features>
+            </div>
+   <!-- _________________________________________NO-4________________________________ -->  
+            
+            <div class=" col-lg-12 px-0 PERA tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-contact-tab">
+              <app-rera-details></app-rera-details> 
+            </div>
+ <!-- _________________________________________NO-5________________________________ -->  
+
+            <div class="col-lg-12 px-0 bank tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-contact-tab">
+               <app-builders-bank></app-builders-bank>
+            </div>
+  <!-- _________________________________________NO-6________________________________ -->  
+
+            <div class="col-lg-12 px-0 upload tab-pane fade" id="pills-6" role="tabpanel"
+                aria-labelledby="pills-contact-tab">
+              <app-upload-docx></app-upload-docx>
+            </div>
+        </div>
+    </div>
+
+</div>
+
