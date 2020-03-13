@@ -22,8 +22,8 @@ import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { UpdateWorkComponent } from './update-work/update-work.component';
 
 import { ChartsModule } from 'ng2-charts';
-import { DashboardLoanComponent } from './dashboard-loan/dashboard-loan.component';
-import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
+// import { DashboardLoanComponent } from './dashboard-loan/dashboard-loan.component';
+// import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { ProjectDetailsComponent } from './add-project/project-details/project-details.component';
 import { AddressDetailsComponent } from './add-project/address-details/address-details.component';
@@ -79,11 +79,8 @@ import { ProjectAssistanceComponent } from './project-overview/project-assistanc
     MatNativeDateModule,
     NgxFileDropModule,
     MatFormFieldModule,
-<<<<<<< HEAD
     DragDropModule,
-=======
     MatTabsModule,
->>>>>>> 8c2554c1cee1df1cb61f28ec5862a24dc9f2a87d
     MatInputModule,NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,

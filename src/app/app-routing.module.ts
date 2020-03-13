@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent},
   { path: 'all-projects', component: AllProjectsComponent},
   { path: 'update-work', component: UpdateWorkComponent},
-  { path: 'add-project', component: AddProjectComponent}
+  { path: 'add-project', component: AddProjectComponent},
   { path: 'project-overview', component: ProjectOverviewComponent}
 
 

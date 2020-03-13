@@ -14,12 +14,4 @@ export class AddProjectComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  showProgress(id){
-    if($('#progress'+id).is(':visible')){
-      $('#progress'+id).hide();
-    }else{
-     $('#progress'+id).show();
-    }
-  }
-
 }

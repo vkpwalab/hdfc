@@ -1,0 +1,14 @@
+.project{display: inline-flex; }
+.mat-form-field{font-size: 12px;width: 100%;}
+/* .mat-label {padding-bottom: 10px;} */
+.drop{margin-top: 11px;}
+.six{width: 100%;}
+.button {display: inline-flex;padding-bottom: 5%;}
+.draft {background-color: white;color: red;border-color: red;box-shadow: none;border: 1px solid red;}
+/* .radio {width: 25px !important;} */
+.btn-radio{color: grey;font-size: 12px;}
+.para{margin-bottom: 0px !important;}
+@media screen and (min-width:320px) and (max-width: 576px){
+    .project{display: block;padding-left: 0px !important;}
+    .mat-form-field{width: 100%;}
+}

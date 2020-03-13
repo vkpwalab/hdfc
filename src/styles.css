@@ -22,8 +22,8 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-
 @media screen and (min-width:576px) and (max-width: 2000px){
+  
   .btn-secondary{
     width: 38% !important;
   }
@@ -170,13 +170,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white !important;
 }
 
-.badge {
-  border-radius: 2.25em!important;
-  font-size: 108%!important;
-  padding: 0.28em .6em!important;
-  border: 1px solid transparent !important;
-  background-color: lightblue !important;
-}
 .mat-tab-header-pagination-chevron{
   border-color: white !important;
 }
