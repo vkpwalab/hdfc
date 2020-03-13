@@ -41,18 +41,19 @@
     height: 20px!important;}
 
   .main_btn_log{
-    text-align: center;
-    margin-top: 30px;
-    border-radius: 50px;
-    background-color: #f72805;
+    text-align: center !important;
+    margin-top: 30px !important;
+    border-radius: 50px !important;
+    background-color: #f72805 !important;
     color: white;
-    display: block;
-    padding: 10px 40px;
-    font-weight: 600;
-    font-size: 20px;
-    min-width: 250px;
-    cursor: pointer;
-    box-shadow: 0px 5px 14px 6px #ed1c2452;
+    display: block!important;
+    padding: 10px 40px!important;
+    font-weight: 600!important;
+    font-size: 20px!important;
+    min-width: 250px!important;
+    cursor: pointer!important;
+    box-shadow: 0px 5px 14px 6px #ed1c2452!important;
+    height: 50px !important;
   }
   .box1{
     margin: 20px;

@@ -1,0 +1,693 @@
+<div class="col-lg-12 whole">
+
+    <!-- ----------------BREADCRUM----------->
+    <div class="col-lg-12 pl-0">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-1 pl-0">
+                <li class="breadcrumb-item home px-0"><a href="#">Home</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">Projects</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">Manage</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">List All Projects</a></li>
+            </ol>
+        </nav>
+    </div>
+    <!-- ----------------TITLE----------->
+
+    <div class="col-lg-12 row px-0 first-line ">
+        <div class="col-lg-7 mx-0 mt-2 list">
+            <span [routerLink]="['/all-projects']">
+                <h4><i class="fa fa-chevron-left" aria-hidden="true"></i></h4>
+            </span>
+            <h5 class="ml-2">Add Project</h5>
+        </div>
+
+    </div>
+
+    <!-- --------------------------TAB BAR---------------------------- -->
+
+    <div class="col-lg-12  card-top shadow mt-2">
+        <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-1" role="tab"
+                    aria-controls="pills-home" aria-selected="true">1</a>
+                <h6>Projects Details</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-2" role="tab"
+                    aria-controls="pills-profile" aria-selected="false">2</a>
+                <h6>Address Details</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-3" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">3</a>
+                <h6>Projcets Features</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-4" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">4</a>
+                <h6>RERA Details</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-5" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">5</a>
+                <h6>Builders Bank a/c</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-6" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">6</a>
+                <h6>Upload Docx.</h6>
+            </li>
+        </ul>
+
+    </div>
+
+    <!--------------- BOTTOM CARD -------------- -->
+
+    <div class="col-lg-12 card-bottom shadow px-0">
+
+        <div class="tab-content" id="pills-tabContent">
+ <!-- _________________________________________NO-1________________________________ -->
+
+            <div class="col-lg-12 px-0 mt-2 tab-pane fade show active" id="pills-1" role="tabpanel"
+                aria-labelledby="pills-home-tab">
+                <div class="col-lg-12 project">
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>PROJECT NAME<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop">
+                            <mat-label>HDFC BRANCH<span class="text-danger">*</span></mat-label>
+                            <mat-select>
+                              <mat-option>
+                                MY NAME
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop">
+                            <mat-label>PRODUCT CATEGORY<span class="text-danger">*</span></mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop">
+                            <mat-label>PROJECT TYPE</mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+
+            </div>
+            <div class="col-lg-12 mt-2 project">
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop">
+                            <mat-label>STATE OF CONSTRUCTION</mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>PROJECT LAUNCH DATE</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>WORK COMMENCEMENT DATE</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>EXPECTED COMPLETION DATE</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+
+            </div> 
+            <div class="col-lg-12 mt-2 project">
+                <div class="col-lg-6">
+                    <mat-form-field class="drop six">
+                        <mat-label>DEVELOPER NAME</mat-label>
+                        <mat-select>
+                          <mat-option>
+                            food
+                          </mat-option>
+                          <mat-option>
+                            food
+                          </mat-option>
+                           <mat-option>
+                            food
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field appearance="standard" class="six">
+                        <mat-label>WEBSITE</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+        </div>
+        
+        <div class="col-lg-12 mt-2 project">
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard" class="six">
+                    <mat-label>REMARK</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class=" col-lg-6 col-12 button mt-4">
+            <div class="text-center col-lg-4 "> 
+                <span class="main_btn_log">Next</span>
+            </div>
+            <div class="text-center col-lg-4"> 
+                <span class="main_btn_log draft">Draft</span>
+            </div>
+        </div>
+            </div>
+
+<!-- _________________________________________NO-2________________________________ -->
+
+            <div class="col-lg-12 px-0 address tab-pane fade" id="pills-2" role="tabpanel"
+                aria-labelledby="pills-profile-tab">
+                
+                <div class="col-lg-12 project">
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>S.NO/CTS NO</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>PLOT NO</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>ADDRESS<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>POPULAR LANDMARK<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+
+            </div>
+            <div class="col-lg-12 mt-2 project">
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>LOCATION</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop six">
+                            <mat-label>STATE<span class="text-danger">*</span></mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop six">
+                            <mat-label>CITY<span class="text-danger">*</span></mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>PIN CODE<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+
+            </div> 
+            <div class="col-lg-12 mt-2 project">
+                <div class="col-lg-6">
+                    <mat-form-field class="drop six">
+                        <mat-label>PLOT THE PROJECT ON MAP<span class="text-danger">*</span>
+                            LATITUDE
+                        </mat-label>
+                        <mat-select>
+                          <mat-option>
+                            food
+                          </mat-option>
+                          <mat-option>
+                            food
+                          </mat-option>
+                           <mat-option>
+                            food
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field appearance="standard" class="six">
+                        <mat-label>LONGITUDE</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+        </div>
+        <div class=" col-lg-6 col-12 button mt-4">
+            <div class="text-center col-lg-4 "> 
+                <span class="main_btn_log">Next</span>
+            </div>
+            <div class="text-center col-lg-4"> 
+                <span class="main_btn_log draft">Draft</span>
+            </div>
+        </div>
+            </div>
+
+<!-- _________________________________________NO-3________________________________ -->    
+
+            <div class="col-lg-12 px-0 feature  tab-pane fade" id="pills-3" role="tabpanel"
+                aria-labelledby="pills-contact-tab">
+                
+                <div class="col-lg-12 project">
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>PLOT AREA (IN SQMTR)<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>TOTAL NUMBER OF BUILDINGS<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>TOTAL BUILD-UP AREA(IN SQMTR)</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>PROJECT COST IN CRS.(APPX)</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+
+            </div>
+            <div class="col-lg-12 mt-2 project">
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>UNITS ALLOTED TO LANDOWNER TOTAL NUMBERS<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                   
+                    <div class="col-lg-3">
+                      <mat-form-field appearance="standard">
+                        <mat-label> MENTION SPECFIC DETAILS(UNDER DEYAILS)<span class="text-danger">*</span></mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    </div>
+                    
+                    <div class="col-lg-6 btn-radio">
+                      <p class="para">UNITS ALLOTED TO LANDOWNER IS THE PROJECT MORTGAGED WITH ANY FINANCIAL INSTITUDE<span class="text-danger">*</span></p>
+                      <form >
+                        <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button value="1">YES</mat-radio-button>
+                            <mat-radio-button value="2" class="ml-3">NO</mat-radio-button>
+                          </mat-radio-group>
+                      </form>
+                    </div>
+            </div> 
+            <div class="col-lg-12 mt-2 project">
+                
+                <div class="col-lg-6">
+                    <mat-form-field appearance="standard" class="six">
+                        <mat-label>FINANCIAL INSTITUDE NAME<span class="text-danger">*</span></mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+        </div>
+        <div class=" col-lg-6 col-12 button mt-4">
+            <div class="text-center col-lg-4 "> 
+                <span class="main_btn_log">Next</span>
+            </div>
+            <div class="text-center col-lg-4"> 
+                <span class="main_btn_log draft">Draft</span>
+            </div>
+        </div>
+            </div>
+   <!-- _________________________________________NO-4________________________________ -->  
+            
+            <div class=" col-lg-12 px-0 PERA tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="col-lg-12 project">
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop six">
+                            <mat-label>RERA REGISTRATION STATUS</mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop six">
+                            <mat-label>RERA APPLICATION DATE</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>RERA REGISTRATION NUMBER</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop six">
+                            <mat-label>VALID FROM DATE</mat-label>
+                            <input matInput [matDatepicker]="picker2">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+
+            </div>
+            <div class="col-lg-12 mt-2 project">
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop six">
+                            <mat-label>VALID TO DATE</mat-label>
+                            <input matInput [matDatepicker]="picker3">
+                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                            <mat-datepicker #picker3></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                   
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>PROJECT LAUNCH DATE</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+            </div> 
+        <div class=" col-lg-6 col-12 button mt-4">
+            <div class="text-center col-lg-4 "> 
+                <span class="main_btn_log">Next</span>
+            </div>
+            <div class="text-center col-lg-4"> 
+                <span class="main_btn_log draft">Draft</span>
+            </div>
+        </div>
+                
+            </div>
+ <!-- _________________________________________NO-5________________________________ -->  
+
+            <div class="col-lg-12 px-0 bank tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="col-lg-12 project">
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>BUILDER NAME<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop six">
+                            <mat-label>HDFC BRANCH<span class="text-danger">*</span></mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>ACCOUNT NUMBER<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="drop six">
+                            <mat-label>BANK ACCOUNT TYPE<span class="text-danger">*</span></mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+
+            </div>
+            <div class="col-lg-12 mt-2 project">
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>IFSC<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>MOBILE NUMBER<span class="text-danger">*</span></mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field appearance="standard">
+                            <mat-label>EMAIL ID</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+            </div> 
+            <div class="col-lg-12 mt-2 project">
+                <div class="col-lg-6">
+                    <mat-form-field appearance="standard" class="six">
+                        <mat-label>REMARK</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+        <div class=" col-lg-6 col-12 button mt-4">
+            <div class="text-center col-lg-4 "> 
+                <span class="main_btn_log">Next</span>
+            </div>
+            <div class="text-center col-lg-4"> 
+                <span class="main_btn_log draft">Draft</span>
+            </div>
+        </div>
+
+            </div>
+  <!-- _________________________________________NO-6________________________________ -->  
+
+            <div class="col-lg-12 px-0 upload tab-pane fade" id="pills-6" role="tabpanel"
+                aria-labelledby="pills-contact-tab">
+              <div class="col-lg-12">
+                  <h6><span class="badge badge-danger pr-1">1</span> Property Documents</h6>
+                  <div class="col-lg-12 col-12 px-0 last">
+                 <div class="col-lg-3 cell-box col-6">
+                        <div class="col-12 hide-box">
+                <div class="container px-0">
+                    <p class="p-h mt-1"><b>Allotment Letter</b></p>
+                    
+                      <ngx-file-drop dropZoneLabel="Drop files here">
+                          <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                     <p>Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                          </ng-template>
+                      </ngx-file-drop>
+
+                
+                </div>
+                <!-- <div id="progress1" class="progress-div"> -->
+                    <div class="col-12 mt-2 typ">
+                        <mat-form-field class="drop six">
+                            <mat-label>DOCUMENT TYPE<span class="text-danger">*</span></mat-label>
+                            <mat-select>
+                              <mat-option>
+                                food
+                              </mat-option>
+                              <mat-option>
+                                food
+                              </mat-option>
+                               <mat-option>
+                                food
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                       </div>
+                       <div class="col-12 area px-0 mt-2">
+                        <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
+                       </div>
+                       <div class="text-center col-lg-12 mb-2"> 
+                        <span class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1" aria-hidden="true"></i>Upload</span>
+                    </div>
+                <!-- </div> -->
+                      </div>
+                     
+                    </div>
+                    <div class="col-lg-3 cell-box col-6">
+                      <div class="col-12 hide-box">
+              <div class="container px-0" (click)="showProgress(2)">
+                  <p class="p-h mt-1"><b>No-Objection Certificate</b></p>
+                  <!-- <div class="col-12 text-center browse mb-2">
+                   <span class="font-italic text-secondary"><span class="text-primary">browse</span> to add files</span>
+                  </div>
+              </div>
+              <div id="progress2" class="progress-div">
+                  <div class="col-12 mt-2 typ">
+                      <mat-form-field class="drop six">
+                          <mat-label>DOCUMENT TYPE<span class="text-danger">*</span></mat-label>
+                          <mat-select>
+                            <mat-option>
+                              food
+                            </mat-option>
+                            <mat-option>
+                              food
+                            </mat-option>
+                             <mat-option>
+                              food
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                     </div>
+                     <div class="col-12 area px-0 mt-2">
+                      <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
+                     </div>
+                     <div class="text-center col-lg-12 mb-1"> 
+                      <span class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1" aria-hidden="true"></i>Upload</span>
+                  </div> -->
+
+               <!-- -----------------------AFTER UPLOAD--------------------->
+               <div class="col-12 px-0 mb-2 img-c">
+                 <div class="col-4 px-0">
+                   <img src="./assets/images/pro.png">
+                 </div>
+                 <div class="col-8 px-0 pt-3 cet">
+                   <p class="font"><b>Certificate_001.jpg</b></p>
+                   <span class="text-secondary">50 kb</span>
+                 </div>
+               </div>
+               <div class="col-12 px-0 cet-2">
+                 <p class="font-italic font"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></p>
+               </div>
+              </div>
+                    </div>
+                   
+                  </div>
+                  </div>
+              </div>
+              <!-- <div class=" col-lg-6 col-12 button mt-5">
+                <div class="text-center col-lg-4 "> 
+                    <span class="main_btn_log">Next</span>
+                </div>
+                <div class="text-center col-lg-4"> 
+                    <span class="main_btn_log draft">Draft</span>
+                </div>
+            </div> -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- <mat-form-field appearance="standard">
+    <mat-label>PROJECT NAME*</mat-label>
+    <input matInput>
+</mat-form-field> -->
+
+
+<!-- <mat-form-field>
+    <mat-label>Favorite food</mat-label>
+    <mat-select>
+      <mat-option>
+        food
+      </mat-option>
+      <mat-option>
+        food
+      </mat-option>
+       <mat-option>
+        food
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->

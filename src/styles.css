@@ -19,6 +19,7 @@
 
 .span{font-size: 12px;}
 
+
 .login-box{ background-color: white;border-radius: 10px;box-shadow: 0px 4px 20px 7px #ed1c2421;}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -41,7 +42,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .list .badge{height: 18px;border-radius: 10px;width: 35px;}
   .list h5{color: rgb(221, 6, 6)}
 
-  input{border: none;padding: 0px;margin-left: 10px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+  input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
   input:focus{outline: none;}
 
   /* ----------------------Search bar----------------- */
@@ -70,7 +71,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .icons{color:rgb(108, 108, 214); background-color: rgb(199, 217, 223);border-radius: 50%;position: relative;}
 
 }
-
+.ngx-file-drop__drop-zone{height:40px !important;margin:auto;border:1px dotted #a7a9aa !important;border-radius:9px !important}
+.ngx-file-drop__content{height:40px !important;color:grey !important;font-size: 12px !important;}
 
 /* ---------------------------FOR MOBILE-------------------------- */
 
@@ -81,7 +83,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   input{border: none;padding: 0px;margin-left: 10px;width: 80%!important;font-size: 15px;padding-top: 4px;}
   input:focus{outline: none;}
   .form-inline {padding-bottom: 5px;}
-  .main_btn_log{ display: none;}
+  /* .main_btn_log{ display: none;} */
+  .main_btn_log{
+    /* text-align: center; */
+    border-radius: 50px;
+    background-color: #f72805;
+    color: white;
+    display: block;
+    font-size: 13px;
+    /* height: 35px; */
+    cursor: pointer;
+    padding: 8px;
+    box-shadow: 1px 3px 8px #ed1c2452;
+  }
   .search{border-bottom: 1px solid rgb(192, 190, 190);}
   .cell{font-size: 18px;}
 
