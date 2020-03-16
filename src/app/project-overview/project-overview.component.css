@@ -37,6 +37,8 @@
     .disflex{
         display: inline-flex !important;
     }
-    
+    .padl{
+        padding-left: 0px !important;
+    }
 
 }
