@@ -13,6 +13,13 @@
 .fs-21{
     font-size: 21px !important;
 }
+.badge {
+    border-radius: 2.25em!important;
+    font-size: 108%!important;
+    padding: 0.28em .6em!important;
+    border: 1px solid transparent !important;
+    background-color: lightblue !important;
+  }
 /* .nav-pills .nav-link {color: white;}
 .nav-pills{background-color: black}
 .nav-pills .nav-link.active {

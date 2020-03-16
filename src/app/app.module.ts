@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -71,6 +72,7 @@ import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
 
   ],
   imports: [
+    MatSlideToggleModule,
     ChartsModule,
     BrowserModule,
     AppRoutingModule,
