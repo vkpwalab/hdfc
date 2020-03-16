@@ -8,6 +8,7 @@ import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { UpdateWorkComponent } from './update-work/update-work.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
+import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'all-projects', component: AllProjectsComponent},
   { path: 'update-work', component: UpdateWorkComponent},
   { path: 'add-project', component: AddProjectComponent},
-  { path: 'project-overview', component: ProjectOverviewComponent}
+  { path: 'project-overview', component: ProjectOverviewComponent},
+  { path: 'customer-lead', component: CustomerLeadComponent}
 
 
 ];
