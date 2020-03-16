@@ -2,6 +2,7 @@
     .cell{text-align: -webkit-right}
     .Q-ser{display: inline-flex;}
     .btn{display: none;}
+    input{border: none;width: 90% !important;}
 
                                 /* MAIN CONTENT*/
 
@@ -45,7 +46,7 @@
 @media screen and (min-width:576px) and (max-width: 2000px){
     .first-line{display: inline-flex;}
     .Q-ser{display: inline-flex;}
-
+    input{border: none;font-size: 12px;width: 90% !important;}
     .ltd{padding-left: 0px !important;}
     .top{padding-top: 15px;}
     .first-line{margin-right: 0px !important;margin-bottom: -10px !important;}
