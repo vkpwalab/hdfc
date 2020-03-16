@@ -41,6 +41,7 @@ import { QueriesComponent } from './project-overview/queries/queries.component';
 import { LeadsComponent } from './project-overview/leads/leads.component';
 import { DisbursementRecordsComponent } from './project-overview/disbursement-records/disbursement-records.component';
 import { ProjectAssistanceComponent } from './project-overview/project-assistance/project-assistance.component';
+import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ProjectAssistanceComponent } from './project-overview/project-assistanc
     LeadsComponent,
     DisbursementRecordsComponent,
     ProjectAssistanceComponent,
+    CustomerLeadComponent,
 
   ],
   imports: [
