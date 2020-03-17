@@ -35,7 +35,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .btn-secondary{
     width: 38% !important;
   }
-  #mattabs .mat-tab-label{
+  #matnewtabs .mat-tab-label{
     padding:0 45px !important;
   }
   /* .padl{
@@ -182,16 +182,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
  .newbtn{
   background-color: #3A77DF;height: 70%;border-radius: 25px;color: white;
 }
-#mattabs .mat-tab-label .mat-tab-label-content{
-  color: white !important;
+#matnewtabs .mat-tab-label .mat-tab-label-content{
+  color: white;
 }
 
 
-#mattabs .mat-tab-header-pagination-chevron{
+#matnewtabs .mat-tab-header-pagination-chevron{
   border-color: white !important;
 }
-#mattabs .mat-tab-header{
-  background-color: black !important;
+#matnewtabs .mat-tab-header{
+  background-color: black;
   border-bottom: none !important;
   border-top-left-radius: 5px !important;
   border-top-right-radius: 5px !important;
@@ -210,38 +210,38 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding-top: 0;
   vertical-align: 1px;
 }
-#mattabs .mat-form-field-appearance-legacy .mat-form-field-underline{
+#matnewtabs .mat-form-field-appearance-legacy .mat-form-field-underline{
   background-color: lightgray !important;
   bottom: 34px !important;
 }
 /* .mat-form-field-underline{
   width: 311% !important;
 } */
-#mattabs .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb{
+#matnewtabs .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb{
   background-color: rgb(246,54,20) !important;
 }
-#mattabs .mat-slide-toggle.mat-checked .mat-slide-toggle-bar{
+#matnewtabs .mat-slide-toggle.mat-checked .mat-slide-toggle-bar{
   background-color: gray !important;
 }
-#mattabs .mat-slide-toggle-thumb {
+#matnewtabs .mat-slide-toggle-thumb {
   height: 15px !important;
   width: 15px !important;
   border-radius: 50%;
   margin-top: 4px;
 }
-#mattabs .mat-slide-toggle-bar {
+#matnewtabs .mat-slide-toggle-bar {
   position: relative;
   width: 31px !important;
   height: 18px !important;
   flex-shrink: 0;
   border-radius: 8px;
 }
-#mattabs .mat-input-element {
+#matnewtabs .mat-input-element {
   caret-color: gray !important
 }
-#mattabs .mat-form-field-infix{
+#matnewtabs .mat-form-field-infix{
   padding: 15px 0 !important;
 }
-#mattabs .mat-form-field{
+#matnewtabs .mat-form-field{
   display: block !important;
 }
