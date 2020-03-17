@@ -16,5 +16,15 @@
     .btn1{
         padding: 0.375rem 1rem !important;;
     }
+    .padlr{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .padl{
+        padding-left: 0px !important;
+    }
+    .padr{
+        padding-right: 0px !important;
+    }
     
 }

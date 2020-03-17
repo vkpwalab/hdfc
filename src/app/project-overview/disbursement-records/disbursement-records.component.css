@@ -1,0 +1,20 @@
+@media(min-width: 300px) and (max-width: 576px)
+{
+    .textr{
+        text-align: right !important;
+    }
+    
+   
+    .padlr{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .padl{
+        padding-left: 0px !important;
+    }
+    .padr{
+        padding-right: 0px !important;
+    }
+    
+
+}

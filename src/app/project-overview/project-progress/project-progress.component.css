@@ -4,3 +4,17 @@
     border-radius: 100%;
     padding: 7px 8px;
 }
+.mart-5{
+    margin-top: 48px !important;
+}
+
+@media(min-width: 300px) and (max-width: 576px)
+{
+   .mart-5{
+       margin-top: 24px !important;
+   }
+   .padr{
+       padding-right: 0 !important;
+   }
+  .padlr{padding-left: 0px !important;padding-right: 0px !important;}
+}

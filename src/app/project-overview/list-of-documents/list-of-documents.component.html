@@ -1,1 +1,231 @@
-<p>list-of-documents works!</p>
+<!-- <p>list-of-documents works!</p> -->
+<div class="col-lg-12 col-12 px-0" id="submit">
+  <mat-tab-group mat-align-tabs="end" id="submit">
+    <div class="col-lg-12 col-12">
+      <mat-tab label="All"></mat-tab>
+      <mat-tab label="Uploaded"></mat-tab>
+      <mat-tab label="Pending"></mat-tab>
+    </div>
+  </mat-tab-group>
+</div>
+<div class="col-lg-12 col-12 px-0">
+
+  <div class="col-lg-12 col-12 padlr">
+    <div class="mt-2">
+      <span class="badge badge-danger">1</span><span class="fs-16 pl-2 font-weight-bold">Property Documents</span></div>
+    <div class="col-lg-12 col-12 px-0 row m-0">
+      <div class="col-lg-3 col-6 pt-2 padl">
+        <div class="col-12 hide-box">
+          <div class="container px-0">
+            <p class="p-h mt-1"><b>Allotment Letter</b></p>
+
+            <ngx-file-drop dropZoneLabel="Drop files here">
+              <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+              </ng-template>
+            </ngx-file-drop>
+
+
+          </div>
+          <!-- <div id="progress1" class="progress-div"> -->
+          <div class="col-12 mt-2 typ">
+            <mat-form-field class="drop six">
+              <mat-label>DOCUMENT TYPE<span class="text-danger">*</span></mat-label>
+              <mat-select>
+                <mat-option>
+                  food
+                </mat-option>
+                <mat-option>
+                  food
+                </mat-option>
+                <mat-option>
+                  food
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 px-0 mt-2">
+            <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
+          </div>
+          <div class="text-center col-lg-12 mb-2">
+            <span class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1"
+                aria-hidden="true"></i>Upload</span>
+          </div>
+
+          <!-- -----------------------AFTER UPLOAD--------------------->
+          <!-- <div class="col-12 px-0 mb-2 img-c">
+                    <div class="col-6 px-0">
+                      <img src="./assets/images/pro.png">
+                    </div>
+                    <div class="col-6 pt-3 pl-0 cet">
+                      <p class=""><b>Certificate_001.jpg</b></p>
+                      <span class="text-secondary">1000 kb</span>
+                    </div>
+                  </div>
+                  <div class="col-12 px-0 cet-2">
+                    <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></p>
+                  </div> -->
+          <!-- -----------------------AFTER UPLOAD--------------------->
+
+          <!-- </div> -->
+        </div>
+
+      </div>
+
+      <div class="col-lg-3  col-6 pt-2 padr">
+        <div class="col-12 hide-box">
+          <p class="p-h mt-1"><b>No Objection Certificate</b></p>
+
+          <!-- <div class="container px-0">
+
+            <ngx-file-drop dropZoneLabel="Drop files here">
+              <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+              </ng-template>
+            </ngx-file-drop>
+
+
+          </div> -->
+          <!-- <div id="progress1" class="progress-div"> -->
+          <!-- <div class="col-12 mt-2 typ">
+            <mat-form-field class="drop six">
+              <mat-label>DOCUMENT TYPE<span class="text-danger">*</span></mat-label>
+              <mat-select>
+                <mat-option>
+                  food
+                </mat-option>
+                <mat-option>
+                  food
+                </mat-option>
+                <mat-option>
+                  food
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div> -->
+          <!-- <div class="col-12 px-0 mt-2">
+            <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
+          </div> -->
+          <!-- <div class="text-center col-lg-12 mb-2">
+            <span class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1"
+                aria-hidden="true"></i>Upload</span>
+          </div> -->
+
+          <!-- -----------------------AFTER UPLOAD--------------------->
+          <div class="col-12 px-0 mb-2 img-c">
+            <div class="col-6 px-0">
+              <img src="./assets/images/pro.png">
+            </div>
+            <div class="col-6 pt-3 pl-0 cet">
+              <p class=""><b>Certificate_001.jpg</b></p>
+              <span class="text-secondary">1000 kb</span>
+            </div>
+          </div>
+          <div class="col-12 px-0 cet-2">
+            <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit
+                amet, consectetur adipisicing elit.</b></p>
+          </div>
+          <!-- -----------------------AFTER UPLOAD--------------------->
+
+          <!-- </div> -->
+        </div>
+
+      </div>
+      <div class="col-lg-3  col-6 pt-2 padl">
+        <div class="col-12 hide-box">
+          <div class="container px-0 pb-2">
+            <p class="p-h mt-1"><b>Sale Agreement</b></p>
+
+            <ngx-file-drop dropZoneLabel="Drop files here">
+              <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+              </ng-template>
+            </ngx-file-drop>
+
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12 col-12 padlr mt-4">
+    <div class="mt-2">
+      <span class="badge badge-danger">2</span><span class="fs-16 pl-2 font-weight-bold">Financial Documents</span>
+    </div>
+    <div class="col-lg-12 col-12 px-0 m-0 row">
+      <div class="col-lg-3 col-6 pt-2 padl">
+        <div class="col-12 hide-box">
+          <div class="container px-0 pb-2">
+            <p class="p-h mt-1"><b>Sale Agreement</b></p>
+
+            <ngx-file-drop dropZoneLabel="Drop files here">
+              <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+              </ng-template>
+            </ngx-file-drop>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-3 col-6 pt-2 padr">
+        <div class="col-12 hide-box">
+          <div class="container px-0 pb-2">
+            <p class="p-h mt-1"><b>Sale Agreement</b></p>
+
+            <ngx-file-drop dropZoneLabel="Drop files here">
+              <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+              </ng-template>
+            </ngx-file-drop>
+
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-lg-3 col-6 pt-2 padl">
+        <div class="col-12 hide-box">
+          <div class="container px-0 pb-2">
+            <p class="p-h mt-1"><b>Sale Agreement</b></p>
+
+            <ngx-file-drop dropZoneLabel="Drop files here">
+              <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+              </ng-template>
+            </ngx-file-drop>
+
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-lg-3 col-6 pt-2 padr">
+        <div class="col-12 hide-box">
+          <div class="container px-0 pb-2">
+            <p class="p-h mt-1"><b>Sale Agreement</b></p>
+
+            <ngx-file-drop dropZoneLabel="Drop files here">
+              <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+              </ng-template>
+            </ngx-file-drop>
+
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
