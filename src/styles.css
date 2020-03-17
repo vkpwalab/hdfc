@@ -1,4 +1,4 @@
-.input{font-size: 15px;border: 0;}
+
 
 .input[type="text"]:focus,
 .input[type="password"]:focus,
@@ -6,7 +6,8 @@
 .input[type="search"]:focus{
   outline: 0 none;
 }
-
+input{outline: none !important;}
+textarea{outline: none !important;}
 .form-type {width: 100%; 
     height: 40px;
     display: flex;
@@ -55,7 +56,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .list .badge{height: 18px;border-radius: 10px;width: 35px;}
   .list h5{color: rgb(221, 6, 6)} 
 
-  input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
   input:focus{outline: none;}
 
   /* ----------------------Search bar----------------- */
@@ -94,7 +94,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .breadcrumb{display: none;}
   .list{display:none}
   .search-bar{margin-top: 10px;}
-  input{border: none;padding: 0px;margin-left: 10px;width: 80%!important;font-size: 15px;padding-top: 4px;}
   input:focus{outline: none;}
   .form-inline {padding-bottom: 5px;}
   /* .main_btn_log{ display: none;} */
@@ -121,7 +120,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .icons{color: rgb(108, 108, 214); background-color: rgb(199, 217, 223);border-radius: 50%;padding: 4px;height: 25px;width: 25px;font-size: 15px;}
   .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute;padding: 2px;}
 
-  #submit .mat-tab-label{padding: 0 30px !important;}
+
 
 
 }
