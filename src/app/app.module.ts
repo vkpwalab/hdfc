@@ -43,6 +43,7 @@ import { DisbursementRecordsComponent } from './project-overview/disbursement-re
 import { ProjectAssistanceComponent } from './project-overview/project-assistance/project-assistance.component';
 import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
 import { ProjectDistursementComponent } from './project-distursement/project-distursement.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { ProjectDistursementComponent } from './project-distursement/project-dis
     ProjectAssistanceComponent,
     CustomerLeadComponent,
     ProjectDistursementComponent,
+    CalculatorComponent,
 
   ],
   imports: [

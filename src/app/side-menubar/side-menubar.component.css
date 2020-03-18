@@ -59,8 +59,11 @@
         padding-top: 20px;
       }
       .sidenav .closebtn {display: none;}
-      .sidenav a {font-size: 12px;padding: 8px 8px 10px 10px;}
-      
+      .sidenav a {font-size: 12px;padding: 8px 8px 10px 23px;}
+      .newimg{
+        width: 146px;
+        /* height: 48px; */
+      }
 }
 
 .menu{height: 40px;margin-top: 0px;}
@@ -70,3 +73,6 @@
 .head{height: 40px;background-color:rgb(221, 6, 6);position: sticky !important;z-index: 1;top: 0;}
 .title {font-size: 15;color: white;padding-top: 10px;}
 
+.w-10{
+  width: 10px;
+}
