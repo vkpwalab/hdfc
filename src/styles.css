@@ -25,9 +25,9 @@ textarea{outline: none !important;}
 #submit .mat-tab-label .mat-tab-label-content{
   color: black !important;
 }
-#submit .mat-form-field-infix{
+/* #submit .mat-form-field-infix{
   padding:0 !important;
-}
+} */
 #submit .mat-form-field-appearance-fill .mat-form-field-flex{
   background-color: white;
 }
@@ -249,9 +249,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 #matnewtabs .mat-input-element {
   caret-color: gray !important
 }
-#matnewtabs .mat-form-field-infix{
+/* #matnewtabs .mat-form-field-infix{
   padding: 15px 0;
-}
+} */
 #matnewtabs .mat-form-field{
   display: block !important;
 }
