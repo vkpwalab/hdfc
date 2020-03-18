@@ -11,7 +11,7 @@
 .browse {border: 0.5px solid grey;border-style: dashed;border-radius: 8px;font-size: 12px;height: 30px;padding: 15px 30px 30px 30px;cursor: pointer;}
 
 #upload-photo {opacity: 0;position: absolute;}
-.typ {border: 0.5px solid grey;border-radius: 8px;}
+.typ {border: 0.5px solid grey;border-radius: 8px;border-top: 1px solid gray !important;}
 .textarea{width: 100% !important;font-size: 10px !important;border-radius: 8px;padding: 5px}
 /* .main_btn_log{border-radius: 9px !important;} */
 .hide-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);}
