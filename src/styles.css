@@ -167,6 +167,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .br{
   border: 1px solid lightgray !important;
 }
+.brnew{
+  border-radius: 9px !important;
+}
 .scrollbar
  {
     height: 258px;
@@ -200,8 +203,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 #matnewtabs .mat-tab-header{
   background-color: black;
   border-bottom: none !important;
-  border-top-left-radius: 5px !important;
-  border-top-right-radius: 5px !important;
+  border-top-left-radius: 9px !important;
+  border-top-right-radius: 9px !important;
 }
 .btn-secondary{
   color: black !important;
