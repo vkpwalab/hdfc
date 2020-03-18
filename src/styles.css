@@ -158,6 +158,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   left: 15px;
   width: 84%;
 }
+.mat-tab-nav-bar, .mat-tab-header {
+  border-bottom: none !important;
+}
 .bl{
   border-left: 4px solid red !important;
 }

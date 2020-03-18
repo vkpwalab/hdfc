@@ -63,22 +63,10 @@
       
 }
 
-.menu{height: 30px;margin-top: 0px;}
-.menu a{float: right}
-.menu .fa {float: right;padding-top: 9px;font-size: 17px;}
-
-.head h6 {font-size: 17px;padding-top: 11px; color: white;}
-.head{height: 44px;background-color:rgb(221, 6, 6);position: sticky !important;z-index: 1;top: 0;}
-
-.icon .fa {float: right;padding: 12px 0px 0px 0px;font-size: 20px; color: white;}
+.menu{height: 40px;margin-top: 0px;}
 
 
 
+.head{height: 40px;background-color:rgb(221, 6, 6);position: sticky !important;z-index: 1;top: 0;}
+.title {font-size: 15;color: white;padding-top: 10px;}
 
-.dropdown-item{color: rgb(133, 128, 128);}
-
-.dropdown-menu {margin-right:75px !important ;margin-top: 20px !important;}
-.dropdown-menu .dropdown-item:hover{color: blue;}
-
-.badge{right: 39px;
-    border-radius: 50%;top:8px}

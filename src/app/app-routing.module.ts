@@ -9,10 +9,11 @@ import { UpdateWorkComponent } from './update-work/update-work.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
+import { ProjectDistursementComponent } from './project-distursement/project-distursement.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: '', component: DashboardComponent},
   { path: 'login', component: LoginComponent},
   { path: 'side-menubar', component: SideMenubarComponent},
   { path: 'dashboard', component: DashboardComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'update-work', component: UpdateWorkComponent},
   { path: 'add-project', component: AddProjectComponent},
   { path: 'project-overview', component: ProjectOverviewComponent},
-  { path: 'customer-lead', component: CustomerLeadComponent}
+  { path: 'customer-lead', component: CustomerLeadComponent},
+  { path: 'project-disbursement', component: ProjectDistursementComponent}
 
 
 ];

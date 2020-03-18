@@ -1,0 +1,38 @@
+@media screen and (min-width:320px) and (max-width: 576px){
+            /* MAIN CONTAIN  */
+            .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
+            .main_btn_log{ display: none;}
+            .Q-ser{display: inline-flex;}
+            .circle p{font-size: 12px;}
+            .app-cir {display: inline-flex;}
+            
+            .i-con{top: 0;position: absolute;right: 0;padding-top: 10px!important;}
+              p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
+              input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+
+}
+
+
+@media screen and (min-width:576px) and (max-width: 2000px){
+              /* MAIN CONTENT  */
+    .main-list{border: 0.5px solid #dfdede;font-size: 12px;display: inline-flex;border-radius: 10px;box-shadow: 0px 0px 1.5px 0px rgb(167, 166, 166);margin-top: 20px;}
+    .Q-ser{display: inline-flex;}
+    .main-list:hover{border: 1px solid rgb(70, 70, 228);box-shadow: 0px 2px 2px grey;}
+     .search-result{border: 1px solid;display: inline-flex;}
+     .res {font-size: 10px;}
+     .badge{font-weight: normal !important;}
+
+
+
+
+    .circle{width: 80%;}
+    .i-con{font-size: 20px;}
+    .i-con .badge {right: 8%;}
+    .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}
+    .top{padding-top: 15px;}
+    .fa-comments{float: right;padding-top: 5px;padding-right: 8px!important;right: 8%;}
+    .first-line{margin-right: 0px !important;display: inline-flex;}
+    input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+
+
+}
