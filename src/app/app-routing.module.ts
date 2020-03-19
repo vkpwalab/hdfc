@@ -11,6 +11,7 @@ import { ProjectOverviewComponent } from './project-overview/project-overview.co
 import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
 import { ProjectDistursementComponent } from './project-distursement/project-distursement.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'add-project', component: AddProjectComponent},
   { path: 'project-overview', component: ProjectOverviewComponent},
   { path: 'customer-lead', component: CustomerLeadComponent},
-  { path: 'project-disbursement', component: ProjectDistursementComponent}
+  { path: 'project-disbursement', component: ProjectDistursementComponent},
+  { path: 'raise-demand', component: RaiseDemandComponent}
 
 
 ];
