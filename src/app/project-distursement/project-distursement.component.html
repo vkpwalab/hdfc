@@ -17,7 +17,7 @@
         <div class="col-lg-7 pl-0 mx-0 mt-2 list">
             <h5>Project Disbursement</h5>
         </div>
-        <div class="col-lg-5 col-sm-12 search-bar pl-0">
+        <div class="col-lg-5 col-sm-12 search-bar px-0">
             <div class="col-lg-12 col-12 Q-ser pr-0 pl-0">
                 <div class="col-lg-8 col-10 px-0 py-0 mt-2 search">
                     <form class="form-inline mx-0">
@@ -28,7 +28,7 @@
                 <div class="col-2 cell px-0 ml-2 mt-2 pl-2">
                     <div class="col-2"><i class="fa fa-sliders" aria-hidden="true"></i></div>
                 </div>
-                <div class="col-lg-4 px-0 ml-2">
+                <div class="col-lg-4 px-0">
                     <div class="col-lg-10 pl-0">
                         <div class="text-center">
                             <span class="main_btn_log"><i class="fa fa-filter" aria-hidden="true"></i> Filter</span>
@@ -41,14 +41,15 @@
 
     <!-- -------------------------------HEAD TITLE ENDS HERE------------------------------------- -->
 
-    <div class="col-lg-12 search-result">
+    <div class="col-lg-12 pl-0 search-result">
         <div class="col-lg-1 px-0 res">
             <p class="font-italic text-secondary mb-0 pt-1">15 Result Found</p>
         </div>
         <div class="col-lg-11">
             <a href="#" class="badge badge-danger ml-1"><i class="fa fa-building pr-1" aria-hidden="true"></i>Raj Anderson<i class="fa fa-times pl-1" aria-hidden="true"></i></a>
-            <a href="#" class="badge badge-danger ml-1"><i class="fa fa-building pr-1" aria-hidden="true"></i>Gusnam Shirgopal Venkatraman<i class="fa fa-times pl-1" aria-hidden="true"></i></a>
+            <a href="#" class="badge badge-danger ml-1"><i class="fa fa-building pr-1" aria-hidden="true"></i>Gusnam<i class="fa fa-times pl-1" aria-hidden="true"></i></a>
             <a href="#" class="badge badge-danger ml-1"><i class="fa fa-building pr-1" aria-hidden="true"></i>Raj Anderson yoyo<i class="fa fa-times pl-1" aria-hidden="true"></i></a>
+            <a href="#" class="badge badge-danger ml-1"><i class="fa fa-building pr-1" aria-hidden="true"></i>Gusnam Shirgopal Venkatraman<i class="fa fa-times pl-1" aria-hidden="true"></i></a>
         </div>
 
     </div>
@@ -60,14 +61,14 @@
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 pb-2 main-list mt-3 px-0" data-toggle="modal" data-target="#exampleModal">
 
         <div class="col-xl-3 col-8 pr-0 mb-0 name">
-            <p class="top"><b>Gusnam Shirgopal Venkatraman</b>
+            <p class="top mb-0"><b>Gusnam Shirgopal Venkatraman</b>
             </p>
         </div>
         <div class="col-xl-3 col-8 pr-0 mb-0 address">
-            <p class="top"><b>C-114/First floor</b>
+            <p class="top mb-0"><b>C-114/First floor</b>
             </p>
         </div>
         <div class="col-xl-5 col-10 pt-2 circle">
@@ -86,3 +87,83 @@
 
 
 </div>
+
+
+<!-- -----------------------MODAL---------------------- -->
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-building pr-1 text-danger" aria-hidden="true"></i>Raj Anderson (C-114/First floor)</h5>
+          <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body px-0">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">DISBMT NO</th>
+                    <th scope="col">DISBMT DATE</th>
+                    <th scope="col">PAYEE NAME</th>
+                    <th scope="col">CHEQUE/UTR NO</th>
+                    <th scope="col">DISBMT AMT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>3770</td>
+                    <td>15 Dec'18</td>
+                    <td>Gaurav Mirchandani</td>
+                    <td>1001</td>
+                    <td>$ 25,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>3770</td>
+                    <td>15 Dec'18</td>
+                    <td>Gaurav Mirchandani</td>
+                    <td>1001</td>
+                    <td>$ 45,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>3770</td>
+                    <td>15 Dec'18</td>
+                    <td>Gaurav Mirchandani</td>
+                    <td>1001</td>
+                    <td>$ 5,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>3770</td>
+                    <td>15 Dec'18</td>
+                    <td>Gaurav Mirchandani</td>
+                    <td>1001</td>
+                    <td>$ 75,00,000</td>
+                  </tr>
+                  <tr>
+                    <td>3770</td>
+                    <td>15 Dec'18</td>
+                    <td>Gaurav Mirchandani</td>
+                    <td>1001</td>
+                    <td>$ 55,00,000</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="modal-footer">
+           <div class="col-12">
+             <div class="col-4 col-10 px-0 float-right footer">
+               <div class="col-8 px-0">TOTAL DISBURSEMENT</div>
+               <div class="col-4 px-0">$ 100,00,00,000</div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>

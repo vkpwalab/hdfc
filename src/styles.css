@@ -131,7 +131,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
-
+#calendar .mat-form-field-flex {padding-top: 9px !important;}
 
 .cgray
 {
