@@ -1,7 +1,8 @@
 @media screen and (min-width:320px) and (max-width: 576px){
             /* MAIN CONTAIN  */
             .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
-            .main_btn_log{ display: none;}
+      
+            .web-b {display: none;}
             .badge{font-weight: normal !important;border-radius: 10px;padding:5px 10px 5px 10px}
             .Q-ser{display: inline-flex;}
             .i-con{top: 0;position: absolute;right: 0;padding-top: 10px!important;}
@@ -26,7 +27,10 @@
      .search-result{display: inline-flex;}
      .res {font-size: 10px;}
      .badge{font-weight: normal !important;border-radius: 10px;padding:5px 10px 5px 10px}
-
+     .circle span {font-size: 10px;}
+     .bar-1 {background-color: rgb(72, 177, 212);}
+     .bar-2 {background-color: green;}
+     .bar-3 {background-color: blue;}
 
     .i-con{font-size: 20px;}
     .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}
