@@ -44,6 +44,7 @@ import { ProjectAssistanceComponent } from './project-overview/project-assistanc
 import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
 import { ProjectDistursementComponent } from './project-distursement/project-distursement.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
 import { AddProjectUpdateComponent } from './add-project-update/add-project-update.component';
 
 @NgModule({
@@ -74,6 +75,7 @@ import { AddProjectUpdateComponent } from './add-project-update/add-project-upda
     CustomerLeadComponent,
     ProjectDistursementComponent,
     CalculatorComponent,
+    RaiseDemandComponent,
     AddProjectUpdateComponent,
 
   ],
