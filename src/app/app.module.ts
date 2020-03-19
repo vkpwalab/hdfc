@@ -45,6 +45,7 @@ import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
 import { ProjectDistursementComponent } from './project-distursement/project-distursement.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
+import { AddProjectUpdateComponent } from './add-project-update/add-project-update.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
     ProjectDistursementComponent,
     CalculatorComponent,
     RaiseDemandComponent,
+    AddProjectUpdateComponent,
 
   ],
   imports: [
