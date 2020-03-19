@@ -15,6 +15,7 @@
 
             display: false
           }
+        
         }],
         yAxes: [{
           gridLines: {

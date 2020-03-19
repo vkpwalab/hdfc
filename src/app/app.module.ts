@@ -44,6 +44,7 @@ import { ProjectAssistanceComponent } from './project-overview/project-assistanc
 import { CustomerLeadComponent } from './customer-lead/customer-lead.component';
 import { ProjectDistursementComponent } from './project-distursement/project-distursement.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { AddProjectUpdateComponent } from './add-project-update/add-project-update.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
     CustomerLeadComponent,
     ProjectDistursementComponent,
     CalculatorComponent,
+    AddProjectUpdateComponent,
 
   ],
   imports: [

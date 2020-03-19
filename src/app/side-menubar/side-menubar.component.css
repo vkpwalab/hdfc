@@ -60,10 +60,7 @@
       }
       .sidenav .closebtn {display: none;}
       .sidenav a {font-size: 12px;padding: 8px 8px 10px 23px;}
-      .newimg{
-        width: 146px;
-        /* height: 48px; */
-      }
+      
 }
 
 .menu{height: 40px;margin-top: 0px;}
@@ -75,4 +72,8 @@
 
 .w-10{
   width: 10px;
+}
+.newimg{
+  width: 146px;
+  /* height: 48px; */
 }
