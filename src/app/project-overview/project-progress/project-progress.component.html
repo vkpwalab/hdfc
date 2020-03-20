@@ -1,8 +1,9 @@
 <div class="col-lg-12 col-12 mt-4 padlr">
   <div class="col-lg-12 col-12 d-inline-flex px-0">
-    <div class="col-lg-2 col-6 padlr">
+    <div class="col-lg-2 col-6 padlr" data-toggle="modal" data-target="#exampleModal">
       <i class="fa fa-plus myicon" aria-hidden="true"></i>
       <span class="fs-10 pl-2">Add Update</span>
+
     </div>
     <div class="col-lg-3 offset-lg-7 col-6 text-right padr">
       <div class="dropdown show">
@@ -47,42 +48,54 @@
       <h6 class="font-weight-bold">Slabs Completed</h6>
 
       <div style="display: block;">
-        <canvas baseChart
-        [datasets]="bubbleChartData"
-        [options]="bubbleChartOptions"
-        
-        [legend]="bubbleChartLegend"
-        [chartType]="bubbleChartType">
-      </canvas>
+        <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend"
+          [chartType]="bubbleChartType">
+        </canvas>
       </div>
     </div>
-</div>
+  </div>
   <div class="col-lg-12 col-12 row m-0 px-0">
     <div class="col-lg-4 col-12 mt-4 padlr">
       <h6 class="font-weight-bold">Construction Stage</h6>
-     
-       
-          <canvas baseChart
-            [datasets]="bubbleChartData"
-            [options]="bubbleChartOptions"
-            
-            [legend]="bubbleChartLegend"
-            [chartType]="bubbleChartType">
-          </canvas>
-    
+
+
+      <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend"
+        [chartType]="bubbleChartType">
+      </canvas>
+
     </div>
     <div class="col-lg-8 col-12 mt-4 padlr">
       <h6 class="font-weight-bold">Document Status</h6>
 
       <div style="display: block;">
-        <canvas baseChart 
-        [options]="doughnutChartOptions"
-          [data]="doughnutChartData"
-          [labels]="doughnutChartLabels"
+        <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
           [chartType]="doughnutChartType">
         </canvas>
       </div>
-      
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="col-lg-12 col-12">
+        <div class="col-lg-12 col-12 row m-0">
+          <div class="col-lg-8 col-8">
+            <h5 class="text-center">Add Project Update</h5>
+
+          </div>
+          <div class="col-lg-4 col-4">
+            <div class="w-20 close text-right" data-dismiss="modal" aria-label="Close">
+
+              <img src="./assets/images/cross.png" alt="" width="100%">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
