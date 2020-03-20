@@ -10,7 +10,8 @@
   z-index: 9999;
   top: 0;
   left: 0;
-  background-color:rgb(221, 6, 6);
+  /* background-color:rgb(221, 6, 6); */
+  background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);
   overflow-x: hidden;
   transition: 0.2s;
   padding-top: 20px;
@@ -53,7 +54,8 @@
         z-index: 99;
         top: 0;
         left: 0;
-        background-color:rgb(221, 6, 6);
+        /* background-color:rgb(221, 6, 6); */
+        background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);
         overflow-x: visible;
         transition: 0.2s;
         padding-top: 20px;
@@ -67,7 +69,7 @@
 
 
 
-.head{height: 40px;background-color:rgb(221, 6, 6);position: sticky !important;z-index: 1;top: 0;}
+.head{height: 40px;background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);position: sticky !important;z-index: 1;top: 0;}
 .title {font-size: 15;color: white;padding-top: 10px;}
 
 .w-10{

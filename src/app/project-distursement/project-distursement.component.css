@@ -3,7 +3,7 @@
             .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
       
             .web-b {display: none;}
-            .badge{font-weight: normal !important;border-radius: 10px;padding:5px 10px 5px 10px}
+            .badge{font-weight: normal !important;border-radius: 10px;padding:5px 10px 5px 10px;background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);}
             .Q-ser{display: inline-flex;}
             .i-con{top: 0;position: absolute;right: 0;padding-top: 10px!important;}
               input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
@@ -26,7 +26,7 @@
     .main-list:hover{border: 1px solid rgb(70, 70, 228);box-shadow: 0px 2px 2px grey;}
      .search-result{display: inline-flex;}
      .res {font-size: 10px;}
-     .badge{font-weight: normal !important;border-radius: 10px;padding:5px 10px 5px 10px}
+     .badge{font-weight: normal !important;border-radius: 10px;padding:5px 10px 5px 10px;background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);}
      .circle span {font-size: 10px;}
      .bar-1 {background-color: rgb(72, 177, 212);}
      .bar-2 {background-color: green;}
@@ -46,4 +46,6 @@
      .modal-body {font-size: 12px;}
      .modal-footer {background-color: rgb(243, 241, 241);}
      .footer {display: inline-flex;text-align: end;font-size: 12px;}
+     .close {padding: 15px !important;margin-top: -20px;}
 }
+.fa-times{cursor: pointer;}
