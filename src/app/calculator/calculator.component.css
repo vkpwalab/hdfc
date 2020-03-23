@@ -3,6 +3,9 @@
     .padl{
         padding-left: 0px !important;
     }
+    .padr{
+        padding-right: 0px !important;
+    }
 
 }
 
@@ -21,6 +24,6 @@
     }
 }
 .mainimg{
-    width: 50px !important;
+    width: 80px !important;
    
 }
