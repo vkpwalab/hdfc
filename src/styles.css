@@ -323,4 +323,6 @@ html, body { height: 100%; }
   display: block !important;
 }
 #matnewtabs .mat-tab-group.mat-primary .mat-ink-bar{background-color: red;}
-
+.modal-content{
+  border: none !important;
+}

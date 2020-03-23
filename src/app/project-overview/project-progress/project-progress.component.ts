@@ -7,6 +7,7 @@ import {MultiDataSet, Color, Label } from 'ng2-charts';
   styleUrls: ['./project-progress.component.css']
 })
 export class ProjectProgressComponent implements OnInit {
+  
   times = [
     "handover",
     "Completion Stage",
