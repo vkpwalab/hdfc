@@ -1,0 +1,36 @@
+@media screen and (min-width:320px) and (max-width: 576px){
+    /* MAIN CONTAIN  */
+      input{border: none;padding  : 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+      .mb-0 {display: flex;}
+      .card-h5 {padding-top: 10px;font-size: 12px;}
+      .card {border: 1px solid rgb(204, 203, 203) !important;border-radius: 9px !important;}
+      .accordion {border: none;}
+      .new {display: inline-flex;}
+      .new img {height: 18px;}
+      label {font-size: 10px;padding-top: 4px;}
+      .pr-2{padding-right: 2px !important;}
+      .card-body {padding-left: 4px !important;padding-right:0px !important}
+      .q-se{padding-right: 4px !important;padding-left: 6px !important;}
+      .User {display: block !important;}
+    }
+
+
+
+input{border: none;padding-bottom: 4px;width: 90%!important;font-size: 12px;padding-top: 4px;}
+.mb-0 {display: flex;}
+.card-h5 {padding-top: 10px;font-size: 12px;}
+.first-line{margin-right: 0px !important;}
+.card {border: 1px solid rgb(204, 203, 203) !important;border-radius: 9px !important;}
+.accordion {border: none;}
+.icon img {height: 20px;}
+.search {border-bottom: 1px solid rgb(204, 203, 203)}
+.add {display: inline-flex;}
+.new img {height: 25px;}
+label {font-size: 12px;}
+.User {display: inline-flex;}
+.inner-user{display: inline-flex;border: 1px solid rgb(204, 203, 203);border-radius: 9px;}
+.pen {font-size: 12px;}
+.main-box {padding-left: 8px !important;padding-right: 8px !important;}
+.fa-pencil ,.fa-trash {cursor: pointer;}
+
+

@@ -46,6 +46,7 @@ import { ProjectDistursementComponent } from './project-distursement/project-dis
 import { CalculatorComponent } from './calculator/calculator.component';
 import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
 import { AddProjectUpdateComponent } from './add-project-update/add-project-update.component';
+import { SettingComponent } from './setting/setting.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { AddProjectUpdateComponent } from './add-project-update/add-project-upda
     CalculatorComponent,
     RaiseDemandComponent,
     AddProjectUpdateComponent,
+    SettingComponent,
 
   ],
   imports: [
