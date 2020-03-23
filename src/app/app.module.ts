@@ -47,6 +47,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
 import { AddProjectUpdateComponent } from './add-project-update/add-project-update.component';
 import { AgmCoreModule } from '@agm/core';
+import { SettingComponent } from './setting/setting.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { AgmCoreModule } from '@agm/core';
     CalculatorComponent,
     RaiseDemandComponent,
     AddProjectUpdateComponent,
+    SettingComponent,
 
   ],
   imports: [

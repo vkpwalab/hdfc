@@ -55,6 +55,7 @@
     .main-list:hover{border: 1px solid rgb(70, 70, 228);box-shadow: 0px 2px 2px grey;}
    
     .tick{font-size: 10px;}
+    .fa-cloud-upload {cursor: pointer;}
     .i-con .badge {right: -5px;top: 0px;}
     .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}
      label{font-size: 10px;}
