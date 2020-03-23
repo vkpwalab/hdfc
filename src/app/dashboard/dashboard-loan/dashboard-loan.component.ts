@@ -46,13 +46,14 @@ export class DashboardLoanComponent implements OnInit {
       data: [250, 400, 500, 600, 700, 800, 680],
 
       backgroundColor: [
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'blue',
-        'blue'
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)'
+        
       ],
       barThickness: 20,
       // hoverBorderWidth: 20,

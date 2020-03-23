@@ -72,15 +72,27 @@ textarea{outline: none !important;}
   background-color:white!important;
   color: black;
 }
-#submit .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
+#submit1 .mat-tab-header{
+  background-color:white!important;
+  color: black;
+}
+#submit .mat-tab-group.mat-primary .mat-ink-bar{background-color: red;}
+#submit1 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
 #submit .mat-ink-bar {height: 4px !important;}
+#submit1 .mat-ink-bar {height: 4px !important;}
 #submit .mat-tab-label .mat-tab-label-content{
+  color: black !important;
+}
+#submit1 .mat-tab-label .mat-tab-label-content{
   color: black !important;
 }
 /* #submit .mat-form-field-infix{
   padding:0 !important;
 } */
 #submit .mat-form-field-appearance-fill .mat-form-field-flex{
+  background-color: white;
+}
+#submit1 .mat-form-field-appearance-fill .mat-form-field-flex{
   background-color: white;
 }
 .login-box{ background-color: white;border-radius: 10px;box-shadow: 0px 4px 20px 7px #ed1c2421;}
@@ -304,8 +316,13 @@ html, body { height: 100%; }
 #forassistance .mat-form-field-infix{
   padding: 15px 0;
 }
+#submit1 .mat-form-field-infix{
+  padding: 15px 0;
+}
 #matnewtabs .mat-form-field{
   display: block !important;
 }
 #matnewtabs .mat-tab-group.mat-primary .mat-ink-bar{background-color: red;}
-
+.modal-content{
+  border: none !important;
+}
