@@ -13,7 +13,7 @@
     <a routerLink="customer-lead" routerLinkActive="active"><img class="w-10" src="./assets/images/submit_customer_lead.png" alt=""><span class="fs-12 pl-2">Submit Customer Lead</span></a>
     <a routerLink="project-disbursement" routerLinkActive="active"><img class="w-10" src="./assets/images/project_disbursement.png" alt=""><span class="fs-12 pl-2">Project Disbursement</span></a>
     <a routerLink="/calculator" routerLinkActive="active"><img class="w-10" src="./assets/images/project_disbursement.png" alt=""><span class="fs-12 pl-2">Calculators</span></a>
-    <a routerLink="/" routerLinkActive="active"><img class="w-10" src="./assets/images/Settings.png" alt=""><span class="fs-12 pl-2">Settings</span></a>
+    <a routerLink="setting" routerLinkActive="active"><img class="w-10" src="./assets/images/Settings.png" alt=""><span class="fs-12 pl-2">Settings</span></a>
     <a routerLink="/" routerLinkActive="active"><img class="w-10" src="./assets/images/ContactUs.png" alt=""><span class="fs-12 pl-2">Reach Us</span></a>
     
   </div>
@@ -25,7 +25,7 @@
       <div class="col-3 menu pr-2 pt-1">
         <span style="font-size:20px;cursor:pointer" (click)="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>
       </div>
-      <div class="col-6 title text-center px-0"><h6>DASHBOARD</h6></div>
+      <div class="col-6 title text-center px-0"><h6>{{ header_title }}</h6></div>
     
     </div>
   </div>

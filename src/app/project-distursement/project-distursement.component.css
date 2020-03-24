@@ -29,8 +29,8 @@
      .badge{font-weight: normal !important;border-radius: 10px;padding:5px 10px 5px 10px;background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);}
      .circle span {font-size: 10px;}
      .bar-1 {background-color: rgb(72, 177, 212);}
-     .bar-2 {background-color: green;}
-     .bar-3 {background-color: blue;}
+     .bar-2 {background-color: rgb(53, 218, 53);}
+     .bar-3 {background-color: rgb(53, 53, 230);}
 
     .i-con{font-size: 20px;}
     .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-update-work',
@@ -8,11 +9,12 @@ import $ from 'jquery';
 })
 export class UpdateWorkComponent implements OnInit {
   // show_progress:boolean;
-  constructor() {
+  constructor(private shared: ServiceService) {
     // this.show_progress=false;
    }
 
   ngOnInit(): void {
+    this.shared.headerTitle('Project Progress');
   }
    showProgress(id){
      if($('#progress'+id).is(':visible')){

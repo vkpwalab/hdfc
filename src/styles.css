@@ -133,7 +133,7 @@ html, body { height: 100%; }
   /* ----------------------Search bar----------------- */
   .search{border-bottom: 1px solid rgb(192, 190, 190);}
   .search-bar{padding-right: 0px !important;}
-  .Q-ser{margin-left: 25px;}
+  /* .Q-ser{margin-left: 25px;} */
   .cell{display: none;}
 
 

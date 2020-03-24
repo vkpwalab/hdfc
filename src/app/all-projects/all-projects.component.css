@@ -2,11 +2,13 @@
             /* MAIN CONTAIN  */
             .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
             .main_btn_log{ display: none;}
-            .Q-ser{margin-left: 35px;}
             .circle {display:inline-flex;position: absolute;right: 0;top:60%}
             .circle p{font-size: 12px;}
             .app-cir {display: inline-flex;}
-            
+            .cell {display: inline-flex;}
+            .cell img {height: 20px;}
+            .Q-ser{display: inline-flex;}
+            .f-btn{display:none}
             .i-con{top: 0;position: absolute;right: 0;padding-top: 10px!important;padding-left: 20px;max-width: 38%;}
               p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
               input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
@@ -25,6 +27,8 @@
     .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}
     .top{padding-top: 15px;}
     .fa-comments{float: right;padding-top: 5px;padding-right: 8px!important;right: 8%;}
-    .first-line{margin-right: 0px !important;}
+    .first-line{margin-right: 0px !important;display: inline-flex;}
+    .Q-ser{display: inline-flex;}
+    .f-btn{display: inline-flex;}
     input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
 }
