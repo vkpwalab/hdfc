@@ -21,7 +21,8 @@ export class DashboardLoanComponent implements OnInit {
         gridLines: {
 
           display: false
-        }
+        },
+        ticks: {min: 0, max:1000}
       }]
     },
     legend: {

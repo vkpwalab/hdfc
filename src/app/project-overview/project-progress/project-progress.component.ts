@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import {MultiDataSet, Color, Label } from 'ng2-charts';
+import { MultiDataSet, Color, Label } from 'ng2-charts';
 @Component({
   selector: 'app-project-progress',
   templateUrl: './project-progress.component.html',
   styleUrls: ['./project-progress.component.css']
 })
 export class ProjectProgressComponent implements OnInit {
-  
+
   times = [
     "handover",
     "Completion Stage",
@@ -17,7 +17,7 @@ export class ProjectProgressComponent implements OnInit {
     "Base Stage",
   ];
   times1 = [
-    "Wing A","Wing B","Wing C"
+    "Wing A", "Wing B", "Wing C"
   ]
   // for bar chart //
   public barChartOptions: ChartOptions = {
@@ -63,8 +63,8 @@ export class ProjectProgressComponent implements OnInit {
       // hoverBorderWidth: 20,
       label: "Loan Amount"
     },
-];
-// for bar chart //
+  ];
+  // for bar chart //
 
 
   // for line chart //
@@ -76,7 +76,7 @@ export class ProjectProgressComponent implements OnInit {
   public lineChartLabels: Label[] = ['WingA', 'WingB', 'WingC'];
   public lineChartOptions: {
     responsive: true,
-   };
+  };
 
   public lineChartColors: Color[] = [
     {
@@ -93,13 +93,13 @@ export class ProjectProgressComponent implements OnInit {
   // for bubble chart //
 
   public bubbleChartOptions: ChartOptions = {
- 
-    
+
+
     responsive: true,
     scales: {
       xAxes: [{
         ticks: {
-        
+
           callback: value => this.times1[value]
         },
         gridLines: {
@@ -109,7 +109,7 @@ export class ProjectProgressComponent implements OnInit {
       }],
       yAxes: [{
         ticks: {
-        
+
           callback: value => this.times[value]
         },
         gridLines: {
@@ -122,8 +122,8 @@ export class ProjectProgressComponent implements OnInit {
       display: false,
 
     },
-   
-   
+
+
   };
   public bubbleChartType: ChartType = 'bubble';
   public bubbleChartLegend = true;
@@ -131,13 +131,13 @@ export class ProjectProgressComponent implements OnInit {
   public bubbleChartData: ChartDataSets[] = [
     {
       data: [
-        { x: 7, y: 0},
-      { x: 10, y: 1},
-      { x: 15, y: 2 },
-      { x: 26, y: 3},
-      { x: 26, y: 3 },
-      { x: 26, y: 3},
-      { x: 26, y: 3 }
+        { x: 7, y: 0 },
+        { x: 10, y: 1 },
+        { x: 15, y: 2 },
+        { x: 26, y: 3 },
+        { x: 26, y: 3 },
+        { x: 26, y: 3 },
+        { x: 26, y: 3 }
       ],
       label: 'Series A',
     },
@@ -149,15 +149,15 @@ export class ProjectProgressComponent implements OnInit {
   }
   public doughnutChartLabels: Label[] = ['150 uploaded', '65 documents approved', '145 Documents Pending'];
   public doughnutChartData: MultiDataSet = [
-   
-    [50, 150, 120],
-    
-    
-  ];
-  
-  public doughnutChartType: ChartType = 'doughnut';
-constructor() { }
 
-  ngOnInit(): void {}
+    [50, 150, 120],
+
+
+  ];
+
+  public doughnutChartType: ChartType = 'doughnut';
+  constructor() { }
+
+  ngOnInit(): void { }
 
 }

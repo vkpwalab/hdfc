@@ -95,6 +95,9 @@ textarea{outline: none !important;}
 #submit1 .mat-form-field-appearance-fill .mat-form-field-flex{
   background-color: white;
 }
+#submit1 .mat-form-field{
+  display: block;
+}
 .login-box{ background-color: white;border-radius: 10px;box-shadow: 0px 4px 20px 7px #ed1c2421;}
 html, body { height: 100%; }
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
@@ -316,9 +319,7 @@ html, body { height: 100%; }
 #forassistance .mat-form-field-infix{
   padding: 15px 0;
 }
-#submit1 .mat-form-field-infix{
-  padding: 15px 0;
-}
+
 #matnewtabs .mat-form-field{
   display: block !important;
 }
