@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-all-projects',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private shared : ServiceService) { }
 
   ngOnInit(): void {
+    this.shared.headerTitle('List All Projects');
   }
 
 }
