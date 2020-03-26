@@ -12,7 +12,9 @@
             .i-con{top: 0;position: absolute;right: 8%;padding-top: 10px!important;padding-left: 20px;text-align: end;}
               p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
               input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
-
+              .w-01 {width: 30px;}
+              .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: -5%;}
+              .fa-comments{float: right;padding-top: 6px;font-size: 20px;}
 }
 
 
@@ -22,11 +24,10 @@
     .main-list:hover{border: 1px solid rgb(70, 70, 228);box-shadow: 0px 2px 2px grey;}
     
     .circle{display: inline-flex;}
-    .i-con{font-size: 20px;}
-    .i-con .badge {right: 8%;}
-    .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}
+    .w-01 {height: 30px;}
+    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 5%;}
     .top{padding-top: 15px;}
-    .fa-comments{float: right;padding-top: 5px;padding-right: 8px!important;right: 8%;}
+    .fa-comments{float: right;padding-top: 4px;right: 8%;font-size: 20px;}
     .first-line{margin-right: 0px !important;display: inline-flex;}
     .Q-ser{display: inline-flex;}
     .f-btn{display: inline-flex;}
