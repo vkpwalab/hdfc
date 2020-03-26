@@ -3,7 +3,7 @@
     border: 1px solid lightgray;
 }
 .newbtn{
-    background-color: rgb(64,151,255);height: 70%;border-radius: 25px;color: white;
+    background-color: rgb(64,151,255);height: 50%;border-radius: 25px;color: white;
 }
 .newimg{
     width: 10px !important;
@@ -26,6 +26,9 @@
     font-size: 20px !important;
 } */
 
+/* ______________________MUDASSIR___________ */
+
+.progress {height: 20px;padding: 2px;text-align: center;background-color: rgb(201, 236, 250);}
 
 
 @media(min-width:300px) and (max-width:500px){
