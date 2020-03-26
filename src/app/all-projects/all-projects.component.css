@@ -9,7 +9,7 @@
             .cell img {height: 20px;}
             .Q-ser{display: inline-flex;}
             .f-btn{display:none}
-            .i-con{top: 0;position: absolute;right: 0;padding-top: 10px!important;padding-left: 20px;max-width: 38%;}
+            .i-con{top: 0;position: absolute;right: 8%;padding-top: 10px!important;padding-left: 20px;text-align: end;}
               p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
               input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
 
