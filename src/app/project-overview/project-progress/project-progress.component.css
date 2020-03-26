@@ -1,8 +1,10 @@
 .myicon{
-    color: white !important;
+    /* color: white !important;
     background-color: red;
     border-radius: 100%;
-    padding: 7px 8px;
+    padding: 7px 8px; */
+    width: 30px;
+    height: 30px;
 }
 .mart-5{
     margin-top: 48px !important;
@@ -24,14 +26,17 @@
   .btn1{
     padding: 0.375rem 1.75rem !important;
     border-radius: 9px !important;
-    font-size: 12px !important;
+    font-size: 13px !important;
     color: white !important;
-    background-color: rgb(248,8,7) !important;
+    background-color: #f72805 !important;
+    box-shadow: 1px 3px 8px #ed1c2452 !important;
+
 }
 .btn2{
     padding: 0.375rem 1.75rem !important;
-    border-radius: 25px !important;
-    font-size: 12px !important;
+    border-radius: 50px !important;
+    font-size: 13px !important;
     color: white !important;
-    background-color: rgb(248,8,7) !important;
+    background-color: #f72805 !important;
+    box-shadow: 1px 3px 8px #ed1c2452 !important;
 }

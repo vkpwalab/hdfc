@@ -7,11 +7,11 @@ import { ServiceService } from '../service.service';
   styleUrls: ['./project-overview.component.css']
 })
 export class ProjectOverviewComponent implements OnInit {
+ 
 
   constructor(private shared : ServiceService) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Overview');
   }
-
 }
