@@ -2,6 +2,11 @@
     width: 15px !important;
     height: 15px !important;
 }
+.active-link{
+
+    color: #514944 !important;
+    font-weight: bold !important;
+  }
 hr {
     height: 2px;
     margin-left: 16px;
@@ -36,6 +41,9 @@ hr {
   }
   .new:hover{ 
     color:rgb(132,183,228) !important;
+}
+.mt-5{
+    margin-top: -5px !important;
 }
 @media(min-width:300px) and (max-width:576px){
     .mart-18{
