@@ -7,8 +7,9 @@
                                 /* MAIN CONTENT*/
 
     .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
-    .i-con{top: 0;position: absolute;right: 2%;padding-top: 0px !important;}
-    .i-con .badge {top: -5px;}
+    .w-01 {width: 30px;}
+    .i-con {position: absolute;top: -10%;right: 0;}
+    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 12%;}
     .tick p {font-size: 10px;}
     p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
      .name{padding-left: 6px !important;}
@@ -56,10 +57,11 @@
    
     .tick{font-size: 10px;}
     .fa-cloud-upload {cursor: pointer;}
-    .i-con .badge {right: -5px;top: 0px;}
-    .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}
      label{font-size: 10px;}
     .head{display: inline-flex;}
+    .w-01 {width: 30px;}
+    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 0%;}
+    
 
     /* --------------------------------Bottom------------------------ */
      .wise{color: white;width: 14%;border-top-right-radius:30px ;font-size: 10px;height: 18px;padding: 2px;

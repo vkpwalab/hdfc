@@ -4,8 +4,8 @@
 
     .web-b {display: none;}
     .Q-ser{display: inline-flex;}
-    .i-con{top: 0;position: absolute;right: 0;padding-top: 10px!important;padding-left: 50px !important;
-    padding-right: 0px !important;}
+    .i-con{top: 0;position: absolute;right: 2%;padding-top: 10px!important;padding-left: 50px !important;
+    padding-right: 0px !important;text-align: end;}
       input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
     .search-result{font-weight: 600;}
     .w-01 {width: 30px;}
@@ -31,7 +31,8 @@
 .first-line{margin-right: 0px !important;display: inline-flex;}
 input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
 .name {padding-top: 12px;font-size: 15px;}
-.w-01 {width: 35px;}
-.w-02 {width: 20px;}
+.w-01 {height: 35px;}
+.w-02 {height: 20px;}
 .fa-circle {font-size: 7px;}
+.i-con{display: inline-flex;}
 }
