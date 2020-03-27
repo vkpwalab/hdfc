@@ -227,7 +227,7 @@ html, body { height: 100%; }
   border-bottom: none !important;
 }
 .bl{
-  border-left: 4px solid red !important;
+  border-left: 4px solid #e3310d !important;
 }
 .br{
   border: 1px solid lightgray !important;
