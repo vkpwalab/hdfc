@@ -1,5 +1,9 @@
 @media(min-width: 300px) and (max-width: 576px)
 {
+    .hide{
+        display: none !important;
+    }
+    
     .textr{
         text-align: right !important;
     }
@@ -15,6 +19,50 @@
     .padr{
         padding-right: 0px !important;
     }
+       
+     
+    .cell{text-align: -webkit-right}
+    .Q-ser{display: inline-flex;}
+   
+    input{border: none;width: 90% !important;}
+
+                                /* MAIN CONTENT*/
+
+    .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
+    .w-01 {width: 30px;}
+    .i-con {position: absolute;top: -10%;right: 0;}
+    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 12%;}
+    .tick p {font-size: 10px;}
+    p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
+     .name{padding-left: 6px !important;}
+     .address{padding-left: 6px !important;}
+     .ltd {padding-left: 6px !important;}
+     .tick {padding-left: 6px !important;}
+                                  /* Bottom */
+    .wise{color: white;width: 95%;border-top-right-radius:30px;padding: 4px;font-size: 10px;margin-top: 5px;
+        position: relative;top: 5px;z-index: 1;top: 15px;}
+    
+    .bottom{border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-bottom: 0.5px solid rgb(175, 173, 173);padding-left: 6px !important;padding-right: 4px !important;background-color: rgb(250, 249, 249);padding-top: 15px;}
+    
+    .inner-side{padding-left: 4px !important;padding-right: 0px !important;font-size: 10px;padding-top: 4px !important;}
+    .inner-side span{ font-size: 10px;}
+
+    .box {display: inline-flex;}
+    .box label {font-size: 10px ;}
+    .last-box {border-right: none;}
+    .third {padding-left: 0px !important;}
+    .view-d{text-align: center;
+        border-radius: 4px;
+        background-color: #f72805;
+        color: white;
+        display: block;
+        font-size: 10px;
+        height: 25px;
+        cursor: pointer;
+        padding: 4px;
+        box-shadow: 1px 3px 8px #ed1c2452;
+    }
+
     
 
 }
@@ -28,9 +76,53 @@
     box-shadow: 1px 3px 8px #ed1c2452 !important;
 
 }
-.mt-22{
-    margin-top: -22px !important;
-}
+
 .v-align{
-    vertical-align: text-bottom !important;
+    vertical-align:  text-top!important;
 }
+
+
+@media screen and (min-width:576px) and (max-width: 2000px){
+    .mt-22{
+        margin-top: -22px !important;
+    }
+    .padlnew{
+        padding-left: 0px !important;
+    }
+    .badge{font-weight: normal !important;border-radius: 10px;padding:5px 10px 5px 10px;background: linear-gradient(90deg, #e3310d 0%, #e3310d 52%, #e3310d 100%);}
+
+    .first-line{display: inline-flex;}
+    .Q-ser{display: inline-flex;}
+    input{border: none;font-size: 12px;width: 90% !important;}
+    .ltd{padding-left: 0px !important;}
+    .top{padding-top: 15px;}
+    .first-line{margin-right: 0px !important;margin-bottom: -10px !important;}
+
+    .main-list{border: 0.5px solid rgb(230, 229, 229);font-size: 12px;border-radius: 10px;box-shadow: 0px 0px 1.5px 0px rgb(167, 166, 166);}
+    .main-list:hover{border: 1px solid rgb(70, 70, 228);box-shadow: 0px 2px 2px grey;}
+   
+    .tick{font-size: 10px;}
+    .fa-cloud-upload {cursor: pointer;}
+     label{font-size: 10px;}
+    .head{display: inline-flex;}
+    .w-01 {width: 30px;}
+    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 0%;}
+    
+
+    /* --------------------------------Bottom------------------------ */
+     .wise{color: white;width: 14%;border-top-right-radius:30px ;font-size: 10px;height: 18px;padding: 2px;
+    position: relative;top: 5px;z-index: 1;top: 15px;}
+    
+     .bottom{display: inline-flex;border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-bottom: 0.5px solid rgb(175, 173, 173);background-color: rgb(250, 249, 249);padding-top: 15px;}
+    
+     .box {border-right:0.5px solid rgb(196, 194, 194) ;display: inline-flex;}
+    .box label {font-size: 10px ;}
+    .last-box {border-right: none;}
+    .view {display: none;}
+    
+    
+
+       
+}
+
+.search-result{display: inline-flex;}

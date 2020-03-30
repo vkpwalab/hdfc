@@ -296,16 +296,32 @@ html, body { height: 100%; }
   background-color: lightgray !important;
   bottom: 34px !important;
 }
+#forreachus .mat-form-field-appearance-legacy .mat-form-field-underline{
+  background-color: lightgray !important;
+  bottom: 34px !important;
+}
 /* .mat-form-field-underline{
   width: 311% !important;
 } */
 #matnewtabs .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb{
   background-color: rgb(246,54,20) !important;
 }
+#forreachus1 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb{
+  background-color: rgb(246,54,20) !important;
+}
 #matnewtabs .mat-slide-toggle.mat-checked .mat-slide-toggle-bar{
   background-color: gray !important;
 }
+#forreachus1 .mat-slide-toggle.mat-checked .mat-slide-toggle-bar{
+  background-color: gray !important;
+}
 #matnewtabs .mat-slide-toggle-thumb {
+  height: 15px !important;
+  width: 15px !important;
+  border-radius: 50%;
+  margin-top: 4px;
+}
+#forreachus1 .mat-slide-toggle-thumb {
   height: 15px !important;
   width: 15px !important;
   border-radius: 50%;
@@ -318,17 +334,31 @@ html, body { height: 100%; }
   flex-shrink: 0;
   border-radius: 8px;
 }
+#forreachus1 .mat-slide-toggle-bar {
+  position: relative;
+  width: 31px !important;
+  height: 18px !important;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
 #matnewtabs .mat-input-element {
+  caret-color: gray !important
+}
+#forreachus1 .mat-input-element {
   caret-color: gray !important
 }
 #forassistance .mat-form-field-infix{
   padding: 15px 0 !important;
 }
-#forreachus .mat-form-field-infix{
+#forreachus1 .mat-form-field-infix{
   padding: 15px 0 !important;
 }
 
+
 #matnewtabs .mat-form-field{
+  display: block !important;
+}
+#forreachus .mat-form-field{
   display: block !important;
 }
 #matnewtabs .mat-tab-group.mat-primary .mat-ink-bar{background-color: #e3310d;}
@@ -348,3 +378,7 @@ html, body { height: 100%; }
 
 #submit .ngx-file-drop__drop-zone{height:40px !important;margin:auto;border:1px dotted #a7a9aa !important;border-radius:9px !important}
 #submit .ngx-file-drop__content{height:40px !important;color:grey !important;font-size: 12px !important;}
+
+/* #matnewtabs .mat-tab-group{
+  font-family: 'Titillium Web' !important;
+} */

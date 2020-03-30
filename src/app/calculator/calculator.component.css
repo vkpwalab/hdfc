@@ -6,7 +6,9 @@
     .padr{
         padding-right: 0px !important;
     }
-
+    .mainimg{
+        width: 114px !important;
+    }
 }
 
 @media(min-width: 300px) and (max-width: 576px)
@@ -22,8 +24,8 @@
     .padrnew{
         padding-right: 0px !important;
     }
-}
-.mainimg{
-    width: 80px !important;
-   
+    .mainimg{
+        width: 80px !important;
+       
+    }
 }
