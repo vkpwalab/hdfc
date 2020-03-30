@@ -2,11 +2,11 @@
     width: 15px !important;
     height: 15px !important;
 }
-.active-link{
+/* .active-link{
 
     color: #514944 !important;
     font-weight: bold !important;
-  }
+  } */
 hr {
     height: 2px;
     margin-left: 16px;
@@ -19,11 +19,11 @@ hr {
     height: 45px !important;
 }
 .cred{
-    color: rgb(217,50,20) !important; 
+    color: #e3310d !important; 
 }
-.newbtn{
+/* .newbtn{
     background-color:#e3310d;height: 70%;border-radius: 25px;color: white;
-}
+} */
 .cwhite{
     color: white !important;
 }
@@ -62,3 +62,21 @@ hr {
     }
 
 }
+
+
+.nav-pills .nav-link {
+    color: black;
+    background-color: #fff;
+  }
+
+  .nav-pills .nav-link.active {
+    /* color: rgb(10, 219, 219);
+    font-weight: bold;
+    border-bottom: 1px solid #dee2e6 !important;
+    border-bottom-width: 4px !important;
+    border-bottom-style: solid !important;
+    border-bottom-color: rgb(10, 219, 219) !important;
+    border-radius: 0%; */
+    background-color:#e3310d;border-radius: 25px;color: white;
+
+  }

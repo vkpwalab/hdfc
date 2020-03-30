@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   /* background-color:rgb(221, 6, 6); */
-  background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);
+  background: linear-gradient(90deg, #e3310d 0%, #e3310d 52%, #e3310d 100%);
   overflow-x: hidden;
   transition: 0.2s;
   padding-top: 20px;
@@ -55,7 +55,7 @@
         top: 0;
         left: 0;
         /* background-color:rgb(221, 6, 6); */
-        background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);
+        background: linear-gradient(90deg, #e3310d 0%, #e3310d 52%, #e3310d 100%);
         overflow-x: visible;
         transition: 0.2s;
         padding-top: 20px;
