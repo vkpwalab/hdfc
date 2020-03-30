@@ -1,13 +1,13 @@
 <div class="col-lg-12 project">
     <div class="col-lg-3">
         <mat-form-field appearance="standard">
-            <mat-label>BUILDER NAME<span class="text-danger">*</span></mat-label>
+            <mat-label>PAYEE NAME<span class="text-danger">*</span></mat-label>
             <input matInput>
         </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
-            <mat-label>HDFC BRANCH<span class="text-danger">*</span></mat-label>
+            <mat-label>BANK NAME<span class="text-danger">*</span></mat-label>
             <mat-select>
               <mat-option value="option">Option</mat-option>
               <mat-option value="option">m1</mat-option>
@@ -16,13 +16,13 @@
     </div>
     <div class="col-lg-3">
         <mat-form-field appearance="standard">
-            <mat-label>ACCOUNT NUMBER<span class="text-danger">*</span></mat-label>
+            <mat-label>BANK ACCOUNT NO<span class="text-danger">*</span></mat-label>
             <input matInput>
         </mat-form-field>
     </div>
     <div class="col-lg-3">
           <mat-form-field appearance="standard">
-            <mat-label>BANK ACCOUNT TYPE<span class="text-danger">*</span></mat-label>
+            <mat-label>ACCOUNT TYPE<span class="text-danger">*</span></mat-label>
             <mat-select>
               <mat-option value="option">Option</mat-option>
               <mat-option value="option">m1</mat-option>
@@ -34,24 +34,33 @@
 <div class="col-lg-12 mt-2 project">
     <div class="col-lg-3">
         <mat-form-field appearance="standard">
-            <mat-label>IFSC<span class="text-danger">*</span></mat-label>
+            <mat-label>IFSC CODE<span class="text-danger">*</span></mat-label>
             <input matInput>
         </mat-form-field>
     </div>
     <div class="col-lg-3">
         <mat-form-field appearance="standard">
-            <mat-label>MOBILE NUMBER<span class="text-danger">*</span></mat-label>
+            <mat-label>BANK BRANCH<span class="text-danger">*</span></mat-label>
             <input matInput>
         </mat-form-field>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-6">
         <mat-form-field appearance="standard">
-            <mat-label>EMAIL ID</mat-label>
+            <mat-label>PAYMENT FOR</mat-label>
             <input matInput>
         </mat-form-field>
     </div>
 </div> 
 <div class="col-lg-12 mt-2 project">
+    <div class="col-lg-6 btn-radio">
+        <p class="para">RERA COLLECTION ACCOUNT<span class="text-danger">*</span></p>
+        <form >
+          <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1">YES</mat-radio-button>
+              <mat-radio-button value="2" class="ml-3">NO</mat-radio-button>
+            </mat-radio-group>
+        </form>
+      </div>
 <div class="col-lg-6">
     <mat-form-field appearance="standard" class="six">
         <mat-label>REMARK</mat-label>

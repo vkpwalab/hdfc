@@ -21,9 +21,13 @@
         position: relative;top: 5px;z-index: 1;top: 15px;}
     
     .bottom{border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-bottom: 0.5px solid rgb(175, 173, 173);padding-left: 6px !important;padding-right: 4px !important;background-color: rgb(250, 249, 249);padding-top: 15px;}
+    .bar-green {background-color: #00cc43;}    
+    .bar-yellow {background-color: #f9c344;}
+    .bar-red {background-color: #e3310d;}
     
-    .inner-side{padding-left: 4px !important;padding-right: 0px !important;font-size: 10px;padding-top: 4px !important;}
+    .inner-side{padding-left: 2px !important;padding-right: 0px !important;font-size: 10px;padding-top: 4px !important;}
     .inner-side span{ font-size: 10px;}
+    .m-01 {width: 15px;padding-left: 2px !important;}
 
     .box {display: inline-flex;}
     .box label {font-size: 10px ;}
@@ -61,8 +65,9 @@
     .head{display: inline-flex;}
     .w-01 {width: 30px;}
     .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 0%;}
-    
-
+    .bar-green {background-color: #00cc43;}    
+    .bar-yellow {background-color: #f9c344;}
+    .bar-red {background-color: #e3310d;}  
     /* --------------------------------Bottom------------------------ */
      .wise{color: white;width: 14%;border-top-right-radius:30px ;font-size: 10px;height: 18px;padding: 2px;
     position: relative;top: 5px;z-index: 1;top: 15px;}
@@ -73,6 +78,7 @@
     .box label {font-size: 10px ;}
     .last-box {border-right: none;}
     .view {display: none;}
+    .m-01 {width: 25px;height: 15px;}
     
     
 

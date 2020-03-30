@@ -102,10 +102,10 @@ textarea{outline: none !important;}
 #forresopnd .mat-form-field{
   display: block !important;
 }
-#forresopnd .btn{
+/* #forresopnd .btn{ */
   /* border: none !important; */
   /* border-radius: unset !important; */
-}
+/* } */
 .login-box{ background-color: white;border-radius: 10px;box-shadow: 0px 4px 20px 7px #ed1c2421;}
 html, body { height: 100%; }
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

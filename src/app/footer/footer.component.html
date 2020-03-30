@@ -14,7 +14,7 @@
 
             <h6 [ngClass]="allprojects.isActive ? 'active' : ''" >All Projects</h6>
         </div>
-        <div class="col-3 dash text-center px-0" routerLinkActive #workprogress="routerLinkActive">
+        <div [routerLink]="['/update-work']" class="col-3 dash text-center px-0" routerLinkActive #workprogress="routerLinkActive">
             <!-- <i class="fa fa-repeat" aria-hidden="true"></i> -->
             <img class="w-20" src="{{ workprogress.isActive ? workprogress_img_active : workprogress_img }}">
 

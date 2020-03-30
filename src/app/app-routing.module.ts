@@ -16,6 +16,7 @@ import { SettingComponent } from './setting/setting.component';
 import { ReachUsComponent } from './reach-us/reach-us.component';
 
 
+
 const routes: Routes = [
   { path: '', component: DashboardComponent},
   { path: 'login', component: LoginComponent},

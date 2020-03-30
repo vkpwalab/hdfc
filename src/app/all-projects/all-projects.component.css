@@ -14,7 +14,7 @@
               input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
               .w-01 {width: 30px;}
               .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: -5%;}
-              .fa-comments{float: right;padding-top: 6px;font-size: 20px;}
+              .fa-comments{float: right;padding-top: 6px;height: 25px;width: 35px;}
 }
 
 
@@ -25,11 +25,12 @@
     
     .circle{display: inline-flex;}
     .w-01 {height: 30px;}
-    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 5%;}
+    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 6%;}
     .top{padding-top: 15px;}
-    .fa-comments{float: right;padding-top: 4px;right: 8%;font-size: 20px;}
+    .fa-comments{float: right;padding-top: 4px;right: 8%;height: 26px;}
     .first-line{margin-right: 0px !important;display: inline-flex;}
     .Q-ser{display: inline-flex;}
     .f-btn{display: inline-flex;}
     input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+    .app {color: #6dcc8d;}
 }

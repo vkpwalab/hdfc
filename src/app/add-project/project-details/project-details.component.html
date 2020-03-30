@@ -45,21 +45,27 @@
           </mat-form-field>
     </div>
     <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-          <mat-label>PROJECT LAUNCH DATE</mat-label>
-          <input matInput>
+      <mat-form-field id="calendar">
+        <mat-label>PROJECT LAUNCH DATE</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
     <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-          <mat-label>WORK COMMENCEMENT DATE</mat-label>
-          <input matInput>
+      <mat-form-field id="calendar">
+        <mat-label>WORK COMMENCEMENT DATE</mat-label>
+        <input matInput [matDatepicker]="picker2">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
     </div>
     <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-          <mat-label>EXPECTED COMPLETION DATE</mat-label>
-          <input matInput>
+      <mat-form-field id="calendar">
+        <mat-label>EXPECTED COMPLETION DATE</mat-label>
+        <input matInput [matDatepicker]="picker3">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
     </div>
 
