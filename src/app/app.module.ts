@@ -48,6 +48,7 @@ import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
 import { AddProjectUpdateComponent } from './add-project-update/add-project-update.component';
 import { AgmCoreModule } from '@agm/core';
 import { SettingComponent } from './setting/setting.component';
+import { ReachUsComponent } from './reach-us/reach-us.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { SettingComponent } from './setting/setting.component';
     RaiseDemandComponent,
     AddProjectUpdateComponent,
     SettingComponent,
+    ReachUsComponent,
 
   ],
   imports: [

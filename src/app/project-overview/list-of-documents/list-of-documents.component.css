@@ -4,7 +4,7 @@
 .drop{margin-top: 11px;}
 .six{width: 100%;}
 .button {display: inline-flex;padding-bottom: 5%;}
-.draft {background-color: white;color: red;border-color: red;box-shadow: none;border: 1px solid red;}
+.draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 .badge{font-size: 80%;}
 
 .inner-1 { display: inline-flex;}
