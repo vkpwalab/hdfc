@@ -20,7 +20,7 @@
 
             <h6 [ngClass]="workprogress.isActive ? 'active' : ''" >Work Progress</h6>
         </div>
-        <div class="col-3 dash text-center px-0" routerLinkActive #reachus="routerLinkActive">
+        <div [routerLink]="['/reach-us']" class="col-3 dash text-center px-0" routerLinkActive #reachus="routerLinkActive">
             <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
             <img class="w-20" src="{{ reachus.isActive ? reachus_img_active : reachus_img }}">
 
@@ -34,6 +34,6 @@
 
 <div class="footer-desktop">
     <div class="col-12 text-center footer-web">
-        <p class="mb-1"><i class="fa fa-copyright" aria-hidden="true"></i>Copyright 2019 .HDFC.All Rights Reserved</p>
+        <p class="mb-1"><i class="fa fa-copyright" aria-hidden="true"></i>Copyright 2020 .HDFC.All Rights Reserved</p>
     </div>
 </div>

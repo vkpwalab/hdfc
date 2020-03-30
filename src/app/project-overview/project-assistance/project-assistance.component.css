@@ -28,9 +28,14 @@
     box-shadow: 1px 3px 8px #ed1c2452 !important;
 
 }
+
+.v-align{
+    vertical-align: text-bottom !important;
+}
+@media(min-width: 576px) and (max-width: 2000px)
+{
 .mt-22{
     margin-top: -22px !important;
 }
-.v-align{
-    vertical-align: text-bottom !important;
+
 }
