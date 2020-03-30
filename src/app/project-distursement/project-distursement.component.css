@@ -8,7 +8,7 @@
             .i-con{top: 0;position: absolute;right: 0;padding-top: 10px!important;}
               input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
             .res p {font-size: 10px;}
-            .search-result{display: inline-flex;}
+            .w-01 {width: 30px;}
 
             .modal-body {font-size: 8px;}
             .modal-body .table td {padding-left: 5px !important;padding-right: 5px !important;}
@@ -31,7 +31,7 @@
      .bar-1 {background-color: rgb(72, 177, 212);}
      .bar-2 {background-color: rgb(53, 218, 53);}
      .bar-3 {background-color: rgb(53, 53, 230);}
-
+     .w-01 {width: 30px;}
     .i-con{font-size: 20px;}
     .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}
     .top{padding-top: 15px;}

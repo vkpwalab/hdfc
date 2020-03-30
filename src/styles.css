@@ -2,7 +2,7 @@
   font-family: 'Titillium Web';
   font-style: normal;
   font-weight: 300;
-  src: url('/fonts/titillium-web-v7-latin-300.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/titillium-web-v7-latin-300.eot'); /* IE9 Compat Modes */
   src: local('Titillium Web Light'), local('TitilliumWeb-Light'),
        url('/assets/fonts/titillium-web-v7-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('/assets/fonts/titillium-web-v7-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
