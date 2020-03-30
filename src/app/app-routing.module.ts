@@ -13,6 +13,7 @@ import { ProjectDistursementComponent } from './project-distursement/project-dis
 import { CalculatorComponent } from './calculator/calculator.component';
 import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
 import { SettingComponent } from './setting/setting.component';
+import { ReachUsComponent } from './reach-us/reach-us.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'customer-lead', component: CustomerLeadComponent},
   { path: 'project-disbursement', component: ProjectDistursementComponent},
   { path: 'raise-demand', component: RaiseDemandComponent},
-  { path: 'setting', component: SettingComponent}
+  { path: 'setting', component: SettingComponent},
+  { path: 'reach-us', component: ReachUsComponent}
 
 
 ];

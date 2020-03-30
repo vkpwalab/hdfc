@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard-loan',
   templateUrl: './dashboard-loan.component.html',
@@ -56,6 +57,15 @@ export class DashboardLoanComponent implements OnInit {
         'rgb(64,151,255)'
         
       ],
+      hoverBackgroundColor: [
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)',
+        'rgb(64,151,255)'
+      ],
       barThickness: 20,
       // hoverBorderWidth: 20,
       label: "Loan Amount"
@@ -69,7 +79,8 @@ export class DashboardLoanComponent implements OnInit {
   lat: number = -23.8779431;
   lng: number = -49.8046873;
   zoom: number = 15;
-  constructor() { }
+
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
   }

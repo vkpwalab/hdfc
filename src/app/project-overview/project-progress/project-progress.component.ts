@@ -59,6 +59,11 @@ export class ProjectProgressComponent implements OnInit {
         'rgb(253,194,52)'
 
       ],
+      hoverBackgroundColor: [
+        'rgb(253,194,52)',
+        'rgb(253,194,52)',
+        'rgb(253,194,52)'
+      ],
       barThickness: 10,
       // hoverBorderWidth: 20,
       label: "Loan Amount"

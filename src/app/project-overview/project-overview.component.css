@@ -28,7 +28,7 @@
     border-radius: 50px !important;
     font-size: 13px !important;
     color: white !important;
-    background-color: #f72805 !important;
+    background-color: #e3310d !important;
     box-shadow: 1px 3px 8px #ed1c2452 !important;
 
 }
@@ -37,9 +37,21 @@
     border-radius: 50px !important;
     font-size: 13px !important;
     color: white !important;
-    background-color: #f72805 !important;
+    background-color: #e3310d !important;
     box-shadow: 1px 3px 8px #ed1c2452 !important;
 
+}
+.btn3{
+    padding: 0.375rem 2rem !important;
+    /* border-radius: 50px !important; */
+    font-size: 13px !important;
+    color: white !important;
+    background-color: #e3310d !important;
+    box-shadow: 1px 3px 8px #ed1c2452 !important;
+
+}
+.mt-13{
+    margin-top: 13px !important;
 }
 /* .nav-pills .nav-link {color: white;}
 .nav-pills{background-color: black}
@@ -65,17 +77,11 @@
 
 }
 
-
-.project{display: inline-flex; }
-.mat-form-field{font-size: 12px;width: 100%;}
-.button {display: inline-flex;padding-bottom: 5%;}
-.draft {background-color: white;color: red;border-color: red;box-shadow: none;border: 1px solid red;}
-.chos {position: absolute;top: 0;right: -3px;opacity: 0;width: 20%;}
-#chos .main_btn_log {width: 20%;position: absolute;top: -8px;right: 0%;height: 30px !important;z-index: -1;}
-@media screen and (min-width:320px) and (max-width: 576px){
-    .project{display: block;padding-left: 0px !important;padding-right: 0px !important;}
-    .mat-form-field{width: 100%;}
-    #chos .main_btn_log {width: 30%;}
-    .chos {right: 15px;}
-
+@media(min-width: 300px) and (max-width: 576px)
+{
+    .btn3{
+        padding: 0.375rem 1rem !important;
+    }
+    
+    
 }
