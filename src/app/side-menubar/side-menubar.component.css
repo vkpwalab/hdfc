@@ -46,10 +46,19 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-@media screen and (min-width: 500px) and (max-width: 2000px){
+@media screen and (min-width: 300px) and (max-width: 576px){
+
+  .w-10{
+    margin-bottom: 0%;
+  }
+}
+
+
+
+@media screen and (min-width: 800px) and (max-width: 2500px){
     .sidenav {
         height: 100%;
-        width: 200px;
+        width: 15%;
         position: fixed;
         z-index: 99;
         top: 0;
@@ -62,6 +71,7 @@
       }
       .sidenav .closebtn {display: none;}
       .sidenav a {font-size: 12px;padding: 8px 8px 10px 23px;}
+  
       
 }
 
@@ -73,7 +83,8 @@
 .title {font-size: 15;color: white;padding-top: 10px;}
 
 .w-10{
-  width: 10px;
+  width: 12px;
+  margin-bottom: 2%;
 }
 .newimg{
   width: 146px;
