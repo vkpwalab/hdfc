@@ -27,7 +27,7 @@
     .cell{text-align: -webkit-right}
     .Q-ser{display: inline-flex;}
    
-    input{border: none;width: 90% !important;}
+    input{border: none;width: 90% !important;font-size: 12px !important;}
 
                                 /* MAIN CONTENT*/
 
