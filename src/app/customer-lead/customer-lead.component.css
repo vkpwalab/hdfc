@@ -6,7 +6,7 @@
 .chos {position: absolute;top: 0;right: -3px;opacity: 0;width: 20%;}
 #chos .main_btn_log {width: 20%;position: absolute;top: -8px;right: 0%;height: 30px !important;z-index: -1;}
 .para:hover{cursor: pointer;text-decoration: underline;}
-.para {font-family: 'Titillium Web' !important}
+.para {font-family: 'Titillium Web' !important;font-size: 14px;}
 @media screen and (min-width:320px) and (max-width: 576px){
     .project{display: block;padding-left: 0px !important;padding-right: 0px !important;}
     .mat-form-field{width: 100%;}
@@ -14,5 +14,6 @@
     .chos {right: 15px;}
     .next {border: 1px solid red;}
     .sample {padding-right: 0px !important;}
+
 
 }
