@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-reach-us',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReachUsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private shared : ServiceService) { }
 
   ngOnInit(): void {
+    this.shared.headerTitle('Reach Us');
+
   }
 
 }
