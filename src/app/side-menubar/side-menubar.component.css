@@ -46,12 +46,12 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-@media screen and (min-width: 300px) and (max-width: 576px){
+/* @media screen and (min-width: 300px) and (max-width: 576px){
 
   .w-10{
     margin-bottom: 0%;
   }
-}
+} */
 
 
 
@@ -84,7 +84,7 @@
 
 .w-10{
   width: 12px;
-  margin-bottom: 2%;
+  /* margin-bottom: 2%; */
 }
 .newimg{
   width: 146px;
