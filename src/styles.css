@@ -58,6 +58,7 @@ html, body {font-family: 'Titillium Web'!important;}
 .input[type="search"]:focus{
   outline: 0 none;
 }
+.mat-tab-label {font-family: 'Titillium Web'!important;}
 input{outline: none !important;}
 textarea{outline: none !important;}
 .form-type {width: 100%; 
