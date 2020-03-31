@@ -1,5 +1,8 @@
 @media(min-width: 300px) and (max-width: 576px)
 {
+    .text-c{
+        text-align: center !important;
+    }
     .hide{
         display: none !important;
     }
