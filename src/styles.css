@@ -388,3 +388,5 @@ html, body { height: 100%; }
 /* #matnewtabs .mat-tab-group{
   font-family: 'Titillium Web' !important;
 } */
+
+.mat-tab-group{font-family: 'Titillium Web'!important;}
