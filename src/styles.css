@@ -376,6 +376,21 @@ html, body { height: 100%; }
 #forresopnd .ngx-file-drop__content{
   justify-content: left !important;
 }
+#forresopnd .mat-form-field-appearance-legacy .mat-form-field-underline{
+  height: 0px !important;
+  padding-bottom: 0px !important;
+
+}
+#forresopnd .mat-form-field-appearance-legacy .mat-form-field-wrapper{
+ padding-bottom: 0px !important;
+}
+#forresopnd .mat-form-field-underline{
+ padding-bottom: 0px !important;
+
+}
+#forresopnd .mat-form-field-appearance-legacy .mat-form-field-ripple{
+  height: 0 !important;
+}
 
 #submit .ngx-file-drop__drop-zone{height:40px !important;margin:auto;border:1px dotted #a7a9aa !important;border-radius:9px !important}
 #submit .ngx-file-drop__content{height:40px !important;color:grey !important;font-size: 12px !important;}
