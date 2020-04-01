@@ -1,13 +1,13 @@
 
 .mat-form-field{font-size: 12px;width: 100%;}
 .button {display: inline-flex;padding-bottom: 5%;}
-.draft {background-color: white;color: red;border-color: red;box-shadow: none;border: 1px solid red;}
+.draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 .badge{font-size: 80%;}
 .last{display: inline-flex;}
 .last-one{display: inline-flex;}
 .inner-1 { display: inline-flex;}
 .browse {border: 0.5px solid grey;border-style: dashed;border-radius: 8px;font-size: 12px;height: 30px;padding: 15px 30px 30px 30px;cursor: pointer;}
-
+.mat-form-field {font-family: 'Titillium Web' !important;}
 #upload-photo {opacity: 0;position: absolute;}
 .typ {border: 0.5px solid grey;border-radius: 8px;}
 .textarea{width: 100% !important;font-size: 10px !important;border-radius: 8px;padding: 5px}
