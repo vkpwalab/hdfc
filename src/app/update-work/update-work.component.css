@@ -9,10 +9,10 @@
     .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
     .w-01 {width: 30px;}
     .i-con {position: absolute;top: -10%;right: 0;}
-    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 12%;}
+    .i-con .badge {position: absolute;right: 5px;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
     .tick p {font-size: 10px;}
     p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
-     .name{padding-left: 6px !important;}
+     .name{padding-left: 2px !important;}
      .address{padding-left: 6px !important;}
      .ltd {padding-left: 6px !important;}
      .tick {padding-left: 6px !important;}
@@ -35,7 +35,7 @@
     .third {padding-left: 0px !important;}
     .view-d{text-align: center;
         border-radius: 4px;
-        background-color: #f72805;
+        background-color: #e3310d;
         color: white;
         display: block;
         font-size: 10px;
@@ -44,6 +44,7 @@
         padding: 4px;
         box-shadow: 1px 3px 8px #ed1c2452;
     }
+    .span-50 {margin-top:8px;}
 
 }
 
@@ -56,26 +57,27 @@
     .top{padding-top: 15px;}
     .first-line{margin-right: 0px !important;margin-bottom: -10px !important;}
 
-    .main-list{border: 0.5px solid rgb(230, 229, 229);font-size: 12px;border-radius: 10px;box-shadow: 0px 0px 1.5px 0px rgb(167, 166, 166);}
+    .main-list{border: 0.5px solid rgb(230, 229, 229);font-size: 13px;border-radius: 10px;box-shadow: 0px 0px 1.5px 0px rgb(167, 166, 166);}
     .main-list:hover{border: 1px solid rgb(70, 70, 228);box-shadow: 0px 2px 2px grey;}
    
-    .tick{font-size: 10px;}
+    .tick{font-size: 12px;}
     .fa-cloud-upload {cursor: pointer;}
-     label{font-size: 10px;}
+     label{font-size: 12px;}
     .head{display: inline-flex;}
     .w-01 {width: 30px;}
-    .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 0%;}
+    .i-con .badge {position: absolute;right: 0;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
+    /* .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 0%;} */
     .bar-green {background-color: #00cc43;}    
     .bar-yellow {background-color: #f9c344;}
     .bar-red {background-color: #e3310d;}  
     /* --------------------------------Bottom------------------------ */
-     .wise{color: white;width: 14%;border-top-right-radius:30px ;font-size: 10px;height: 18px;padding: 2px;
+     .wise{color: white;width: 14%;border-top-right-radius:30px ;font-size: 12px;height: 20px;padding: 2px;
     position: relative;top: 5px;z-index: 1;top: 15px;}
     
      .bottom{display: inline-flex;border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-bottom: 0.5px solid rgb(175, 173, 173);background-color: rgb(250, 249, 249);padding-top: 15px;}
-    
+    .inner-side {padding-right: 4px !important;}
      .box {border-right:0.5px solid rgb(196, 194, 194) ;display: inline-flex;}
-    .box label {font-size: 10px ;}
+    .box label {font-size: 12px ;}
     .last-box {border-right: none;}
     .view {display: none;}
     .m-01 {width: 25px;height: 15px;}

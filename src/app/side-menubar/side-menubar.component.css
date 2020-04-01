@@ -46,12 +46,12 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-@media screen and (min-width: 300px) and (max-width: 576px){
+/* @media screen and (min-width: 300px) and (max-width: 576px){
 
   .w-10{
     margin-bottom: 0%;
   }
-}
+} */
 
 
 
@@ -70,7 +70,7 @@
         padding-top: 20px;
       }
       .sidenav .closebtn {display: none;}
-      .sidenav a {font-size: 12px;padding: 8px 8px 10px 23px;}
+      .sidenav a {font-size: 13px;padding: 8px 8px 10px 23px;}
   
       
 }
@@ -79,12 +79,12 @@
 
 
 
-.head{height: 40px;background: linear-gradient(90deg, #f83514 0%, #f72400 52%, #f83514 100%);position: sticky !important;z-index: 1;top: 0;}
+.head{height: 40px;background: linear-gradient(90deg, #e3310d 0%, #e3310d 52%, #e3310d 100%);position: sticky !important;z-index: 1;top: 0;}
 .title {font-size: 15;color: white;padding-top: 10px;}
 
 .w-10{
   width: 12px;
-  margin-bottom: 2%;
+  /* margin-bottom: 2%; */
 }
 .newimg{
   width: 146px;

@@ -1,6 +1,6 @@
 @media screen and (min-width:320px) and (max-width: 576px){
 .footer{position: fixed;bottom: 0;left: 0;border-top: 1px solid grey;background-color: white;z-index: 99;
-width: 100%;overflow: hidden;}
+width: 100%;overflow: hidden;height: 8%;}
 .list{display: inline-flex;}
 .dash{height: 100%; color: grey;outline: none !important;}
 .dash h6{font-size: 10px;}
@@ -21,6 +21,6 @@ width: 100%;overflow: hidden;}
     .footer {display: none;}
     .footer-desktop{position: fixed;bottom: 0;width: 100%;right: 0;left: 0;;
         width: 100%;background-color: white;z-index: 1;padding-top: 5px;}
-    .footer-web{font-size: 8px;color: grey;}
+    .footer-web{font-size: 10px;color: grey;}
 }
 

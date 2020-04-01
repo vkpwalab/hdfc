@@ -23,6 +23,9 @@ export class SideMenubarComponent implements OnInit {
     document.getElementById('mySidenav').style.width = '300px';
   }
    closeNav() {
-    document.getElementById('mySidenav').style.width = '0';
+    if(this.shared.isMobile()){
+      document.getElementById('mySidenav').style.width = '0';
+    }
+ 
   }
 }

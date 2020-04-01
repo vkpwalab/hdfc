@@ -58,9 +58,12 @@
       <h6 class="font-weight-bold">Slabs Completed</h6>
 
       <div style="display: block;">
-        <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend"
-          [chartType]="bubbleChartType">
+        <canvas baseChart [chartType]="'line'" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+          [legend]="lineChartLegend" [colors]="lineChartColors">
         </canvas>
+        <!-- <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend"
+          [chartType]="bubbleChartType">
+        </canvas> -->
       </div>
     </div>
   </div>
@@ -72,16 +75,35 @@
       <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend"
         [chartType]="bubbleChartType">
       </canvas>
+   
 
     </div>
     <div class="col-lg-8 col-12 mt-4 padlr">
       <h6 class="font-weight-bold">Document Status</h6>
-
-      <div style="display: block;">
-        <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
-          [chartType]="doughnutChartType">
-        </canvas>
+      <div class="col-12 row">
+        <div class="col-4">
+          <div>
+            <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+            </canvas>
+          </div>
+        </div>
+        <div class="col-4">
+          <div>
+            <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+            </canvas>
+          </div>
+        </div>
+        <div class="col-4">
+          <div>
+            <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+            </canvas>
+          </div>
+        </div>
       </div>
+     
 
     </div>
   </div>
@@ -89,4 +111,3 @@
     <button type="button" class="btn btn2">Raise Demand Letter</button>
   </div>
 </div>
-

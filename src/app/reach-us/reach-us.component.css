@@ -24,7 +24,8 @@
     }
        
      
-    .cell{text-align: -webkit-right}
+    .cell{text-align: center}
+    .cell img{margin-bottom: 10px;}
     .Q-ser{display: inline-flex;}
    
     input{border: none;width: 90% !important;font-size: 12px !important;}
@@ -56,7 +57,7 @@
     .third {padding-left: 0px !important;}
     .view-d{text-align: center;
         border-radius: 4px;
-        background-color: #f72805;
+        background-color: #e3310d;
         color: white;
         display: block;
         font-size: 10px;
@@ -110,7 +111,9 @@
     .head{display: inline-flex;}
     .w-01 {width: 30px;}
     .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 0%;}
-    
+    .mat-form-field {font-size: 13px;}
+    /* .mat-form-field-infix {15px 0 20px !imprtant} */
+    /* #forreachus .mat-form-field-infix {padding: 15px 0 20px !important;} */
 
     /* --------------------------------Bottom------------------------ */
      .wise{color: white;width: 14%;border-top-right-radius:30px ;font-size: 10px;height: 18px;padding: 2px;

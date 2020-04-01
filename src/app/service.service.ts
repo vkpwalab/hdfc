@@ -11,4 +11,10 @@ export class ServiceService {
   {
     this.header_title.next(v)
   }
+  
+isMobile() {
+  {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  }
 }
