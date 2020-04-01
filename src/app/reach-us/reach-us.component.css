@@ -24,7 +24,8 @@
     }
        
      
-    .cell{text-align: -webkit-right}
+    .cell{text-align: center}
+    .cell img{margin-bottom: 10px;}
     .Q-ser{display: inline-flex;}
    
     input{border: none;width: 90% !important;font-size: 12px !important;}

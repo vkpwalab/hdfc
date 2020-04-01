@@ -7,6 +7,7 @@
             .app-cir {display: inline-flex;}
             .cell {display: inline-flex;}
             .cell img {height: 20px;}
+            .name {padding-left: 10px !important;}
             .Q-ser{display: inline-flex;}
             .f-btn{display:none}
             .i-con{top: 0;position: absolute;right: 8%;padding-top: 10px!important;padding-left: 20px;text-align: end;}
