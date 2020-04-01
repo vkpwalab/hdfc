@@ -2,8 +2,8 @@
 .mat-form-field{font-size: 12px;width: 100%;}
 /* .mat-label {padding-bottom: 10px;} */
 .button {display: inline-flex;padding-bottom: 5%;}
-.draft {background-color: white;color: red;border-color: red;box-shadow: none;border: 1px solid red;}
-
+.draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
+.mat-form-field {font-family: 'Titillium Web' !important;}
 @media screen and (min-width:320px) and (max-width: 576px){
     .project{display: block;padding-left: 0px !important;}
     .mat-form-field{width: 100%;}
