@@ -9,7 +9,7 @@
     .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
     .w-01 {width: 30px;}
     .i-con {position: absolute;top: -10%;right: 0;}
-    .i-con .badge {position: absolute;right: 5px;}
+    .i-con .badge {position: absolute;right: 5px;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
     .tick p {font-size: 10px;}
     p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
      .name{padding-left: 2px !important;}
@@ -65,7 +65,7 @@
      label{font-size: 12px;}
     .head{display: inline-flex;}
     .w-01 {width: 30px;}
-    .i-con .badge {position: absolute;right: 0;}
+    .i-con .badge {position: absolute;right: 0;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
     /* .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 0%;} */
     .bar-green {background-color: #00cc43;}    
     .bar-yellow {background-color: #f9c344;}
