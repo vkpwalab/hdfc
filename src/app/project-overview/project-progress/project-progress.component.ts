@@ -8,17 +8,7 @@ import { MultiDataSet, Color, Label } from 'ng2-charts';
 })
 export class ProjectProgressComponent implements OnInit {
 
-  times = [
-    "handover",
-    "Completion Stage",
-    "Fix Stage",
-    "Lockup Stage",
-    "Frame Stage",
-    "Base Stage",
-  ];
-  times1 = [
-    "Wing A", "Wing B", "Wing C"
-  ]
+
   // for bar chart //
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -75,17 +65,34 @@ export class ProjectProgressComponent implements OnInit {
   // for line chart //
 
   public lineChartData: ChartDataSets[] = [
-    { data: [0, 5, 10, 15, 20, 25] },
+    { data: [0, 10, 5, 15, 20, 25] },
 
   ];
   public lineChartLabels: Label[] = ['WingA', 'WingB', 'WingC'];
-  public lineChartOptions: {
+  public lineChartOptions: ChartOptions = {
     responsive: true,
+    scales: {
+      xAxes: [{
+
+        gridLines: {
+
+          display: false,
+        }
+      }],
+      yAxes: [{
+
+        gridLines: {
+
+          display: false
+        }
+      }]
+    },
   };
 
   public lineChartColors: Color[] = [
     {
-      borderColor: 'rgb(171,222,211)',
+      backgroundColor: 'rgba(255,255,255)',
+      borderColor: 'rgb(15, 210, 172)',
       // backgroundColor: 'white',
     },
   ];
@@ -97,70 +104,100 @@ export class ProjectProgressComponent implements OnInit {
 
   // for bubble chart //
 
+  times = [
+    "handover",
+    "Completion Stage",
+    "Fix Stage",
+    "Lockup Stage",
+    "Frame Stage",
+    "Base Stage",
+  ];
+  times1 = [
+    "Wing A", "Wing B", "Wing C"
+  ]
   public bubbleChartOptions: ChartOptions = {
-
-
     responsive: true,
+    // scales: {
+    //   xAxes: [{
+    //     ticks: {
+
+    //       callback: value => this.times1[value]
+    //     },
+    //     gridLines: {
+
+    //       display: false,
+    //     }
+    //   }],
+    //   yAxes: [{
+    //     ticks: {
+
+    //       callback: value => this.times[value]
+    //     },
+    //     gridLines: {
+
+    //       display: false
+    //     }
+    //   }]
+    // },
     scales: {
       xAxes: [{
         ticks: {
-
-          callback: value => this.times1[value]
+          min: 0,
+          max: 30,
         },
-        gridLines: {
-
-          display: false,
-        }
+        gridLines: {display: false}
       }],
       yAxes: [{
         ticks: {
-
-          callback: value => this.times[value]
+          min: 0,
+          max: 30,
         },
-        gridLines: {
-
-          display: false
-        }
+        gridLines: {display: false}
       }]
     },
     legend: {
       display: false,
 
     },
-
-
   };
+  
   public bubbleChartType: ChartType = 'bubble';
   public bubbleChartLegend = true;
 
   public bubbleChartData: ChartDataSets[] = [
     {
       data: [
-        { x: 7, y: 0 },
-        { x: 10, y: 1 },
-        { x: 15, y: 2 },
-        { x: 26, y: 3 },
-        { x: 26, y: 3 },
-        { x: 26, y: 3 },
-        { x: 26, y: 3 }
+        // { x: 'Wing A', y: 'Completion Stage', r:10 },
+        // { x: 'Wing B', y: 'Completion Stage', r:10 },
+        // { x: 'Wing C', y: 'Completion Stage', r:10 },
+        { x: 10, y: 10, r: 10 },
+        { x: 15, y: 5, r: 10 },
+        { x: 26, y: 12, r: 10 },
+        { x: 7, y: 8, r: 10 },
       ],
-      label: 'Series A',
     },
   ];
+
 
   // End Of for bubble chart //
 
   public doughnutChartOptions: ChartOptions = {
+    legend: {
+      display: false,
+
+    },
   }
   public doughnutChartLabels: Label[] = ['150 uploaded', '65 documents approved', '145 Documents Pending'];
   public doughnutChartData: MultiDataSet = [
-
-    [50, 150, 120],
-
-
+    [50, 150, 120]
   ];
 
   public doughnutChartType: ChartType = 'doughnut';
+  public doughnutChartColors: Color[] = [
+    {
+      backgroundColor: ['rgb(92, 122, 255)','rgb(251, 203, 38)','rgb(11, 210, 173)']
+    },
+  ];
   constructor() { }
 
   ngOnInit(): void { }
