@@ -18,3 +18,11 @@
     
 
 }
+.dropdown-menu{
+  width: 6rem !important;
+  left: 0px !important;
+  min-width: 0px !important;
+} 
+.dropdown-item{
+    padding: .25rem 1.3rem !important;
+}
