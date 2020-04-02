@@ -11,7 +11,7 @@ export class RaiseDemandComponent implements OnInit {
   constructor(private shared : ServiceService) { }
 
   ngOnInit(): void {
-    this.shared.headerTitle('Raise Demand');
+    this.shared.headerTitle('Raise Demand Letter');
   }
 
 }

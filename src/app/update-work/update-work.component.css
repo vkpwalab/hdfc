@@ -9,13 +9,15 @@
     .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
     .w-01 {width: 30px;}
     .i-con {position: absolute;top: -10%;right: 0;}
-    .i-con .badge {position: absolute;right: 5px;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
+    .i-con .badge {position: absolute;right: 12px;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
     .tick p {font-size: 10px;}
     p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
-     .name{padding-left: 2px !important;}
-     .address{padding-left: 6px !important;}
-     .ltd {padding-left: 6px !important;}
-     .tick {padding-left: 6px !important;}
+     /* .name{padding-left: 2px !important;} */
+     /* .address{padding-left: 6px !important;} */
+     /* .ltd {padding-left: 6px !important;} */
+     /* .tick {padding-left: 6px !important;} */
+     .top{display: inline-flex;}
+     .raj {padding-top: 6px;font-size: 12px;}
                                   /* Bottom */
     .wise{color: white;width: 95%;border-top-right-radius:30px;padding: 4px;font-size: 10px;margin-top: 5px;
         position: relative;top: 5px;z-index: 1;top: 15px;}
@@ -59,12 +61,14 @@
 
     .main-list{border: 0.5px solid rgb(230, 229, 229);font-size: 13px;border-radius: 10px;box-shadow: 0px 0px 1.5px 0px rgb(167, 166, 166);}
     .main-list:hover{border: 1px solid rgb(70, 70, 228);box-shadow: 0px 2px 2px grey;}
-   
+    .main_btn_log {border:1px solid #e3310d;width: 100%;}
     .tick{font-size: 12px;}
     .fa-cloud-upload {cursor: pointer;}
      label{font-size: 12px;}
     .head{display: inline-flex;}
     .w-01 {width: 30px;}
+    .top{padding-top: 15px; display: inline-flex;}
+    .raj {padding-top: 3px;}
     .i-con .badge {position: absolute;right: 0;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
     /* .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 0%;} */
     .bar-green {background-color: #00cc43;}    

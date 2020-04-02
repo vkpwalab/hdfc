@@ -4,9 +4,13 @@
             .main_btn_log{ display: none;}
             .circle {display:inline-flex;position: absolute;right: 0;top:60%}
             .circle p{font-size: 12px;}
+            .raj {font-size: 12px;padding-top: 6px;}
             .app-cir {display: inline-flex;}
+            .top{ display: inline-flex;}
             .cell {display: inline-flex;}
             .cell img {height: 20px;}
+            .pen {color: #e3310d;}
+            .app {color: #6dcc8d;}
             .name {padding-left: 10px !important;}
             .Q-ser{display: inline-flex;}
             .f-btn{display:none}
@@ -27,11 +31,14 @@
     .circle{display: inline-flex;}
     .w-01 {height: 30px;}
     .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 6%;}
-    .top{padding-top: 15px;}
+    .top{padding-top: 15px; display: inline-flex;}
     .fa-comments{float: right;padding-top: 4px;right: 8%;height: 26px;}
     .first-line{margin-right: 0px !important;display: inline-flex;}
     .Q-ser{display: inline-flex;}
     .f-btn{display: inline-flex;}
     input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
     .app {color: #6dcc8d;}
+    .pen {color: #e3310d;}
+    .main_btn_log {border:1px solid #e3310d;width: 100%;}
+    .raj {padding-top: 3px;}
 }

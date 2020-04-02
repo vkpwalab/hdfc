@@ -16,7 +16,7 @@
   width: 100%;
   margin-top: 40px;padding: 5px;}
 
-.border-dark {border-radius: 5%;padding: 5px;}
+.border-dark {border-radius: 5px;padding: 5px;}
 
 .Captcha-text{padding-top: 5px;}
 
@@ -44,7 +44,7 @@
     text-align: center !important;
     margin-top: 30px !important;
     border-radius: 50px !important;
-    background-color: #f72805 !important;
+    background-color: #e3310d !important;
     color: white;
     display: block!important;
     padding: 10px 40px!important;
@@ -54,6 +54,7 @@
     cursor: pointer!important;
     box-shadow: 0px 5px 14px 6px #ed1c2452!important;
     height: 50px !important;
+    border: 1px solid #e3310d ;
   }
   .box1{
     margin: 20px;

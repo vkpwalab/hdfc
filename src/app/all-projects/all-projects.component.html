@@ -37,12 +37,12 @@
                 <div class="col-lg-6 px-0  f-btn ml-2">
                     <div class="col-lg-6 pl-0">
                         <div class="text-center">
-                            <span class="main_btn_log"><i class="fa fa-filter" aria-hidden="true"></i> Filter</span>
+                            <button class="main_btn_log"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
                         </div>
                     </div>
                     <div class="col-lg-6 px-0 mr-0">
                         <div class="text-center">
-                            <span [routerLink]="['/add-project']" class="main_btn_log">+ Add Project</span>
+                            <button [routerLink]="['/add-project']" class="main_btn_log">+ Add Project</button>
                         </div>
                     </div>
 
@@ -59,11 +59,13 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building2.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
@@ -83,7 +85,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -91,19 +92,20 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
             <p class="top"><b>Satellite Group Developer Pvt Ltd</b></p>
         </div>
         <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
-            <p class="font-italic app mb-0"><i class="fa fa-check-circle pr-1 text-success"
-                    aria-hidden="true"></i> Approved</p>
+            <p class="font-italic pen mb-0"><i class="fa fa-clock-o" aria-hidden="true"></i> Pending</p>
         </div>
         <div class="col-xl-2 col-8 pr-0 circle">
             <circle-progress [percent]="99" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
@@ -115,7 +117,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -123,11 +124,13 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building2.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
@@ -147,7 +150,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -155,19 +157,20 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
             <p class="top"><b>Satellite Group Developer Pvt Ltd</b></p>
         </div>
         <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
-            <p class="font-italic app mb-0"><i class="fa fa-check-circle pr-1 text-success"
-                    aria-hidden="true"></i> Approved</p>
+            <p class="font-italic pen mb-0"><i class="fa fa-clock-o" aria-hidden="true"></i> Pending</p>
         </div>
         <div class="col-xl-2 col-8 pr-0 circle">
             <circle-progress [percent]="99" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
@@ -179,7 +182,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -187,11 +189,13 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building2.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
@@ -211,7 +215,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -219,19 +222,20 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
             <p class="top"><b>Satellite Group Developer Pvt Ltd</b></p>
         </div>
         <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
-            <p class="font-italic app mb-0"><i class="fa fa-check-circle pr-1 text-success"
-                    aria-hidden="true"></i> Approved</p>
+            <p class="font-italic pen mb-0"><i class="fa fa-clock-o" aria-hidden="true"></i> Pending</p>
         </div>
         <div class="col-xl-2 col-8 pr-0 circle">
             <circle-progress [percent]="99" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
@@ -243,7 +247,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -251,11 +254,13 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building2.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
@@ -275,7 +280,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -283,19 +287,20 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
             <p class="top"><b>Satellite Group Developer Pvt Ltd</b></p>
         </div>
         <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
-            <p class="font-italic app mb-0"><i class="fa fa-check-circle pr-1 text-success"
-                    aria-hidden="true"></i> Approved</p>
+            <p class="font-italic pen mb-0"><i class="fa fa-clock-o" aria-hidden="true"></i> Pending</p>
         </div>
         <div class="col-xl-2 col-8 pr-0 circle">
             <circle-progress [percent]="99" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
@@ -307,7 +312,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -315,11 +319,13 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building2.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
@@ -339,7 +345,6 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
@@ -347,19 +352,20 @@
     <div class="col-xl-12 col-12 main-list mt-3 px-0">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <p class="top"><img src="./assets/images/icons/building.png" height="20px"><b>Raj Grandeur</b>
-            </p>
+            <div class="col-12 px-0 top">
+                <div class="col-2 px-0"><img src="./assets/images/icons/building.png" height="22px"></div>
+                <div class="col-10 px-0 raj"><b>Raj Grandeur</b></div>
+            </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>Anderi (W)</b>
             </p>
         </div>
         <div class="col-xl-3 col-10 pr-0 ltd mb-0">
             <p class="top"><b>Satellite Group Developer Pvt Ltd</b></p>
         </div>
         <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
-            <p class="font-italic app mb-0"><i class="fa fa-check-circle pr-1 text-success"
-                    aria-hidden="true"></i> Approved</p>
+            <p class="font-italic pen mb-0"><i class="fa fa-clock-o" aria-hidden="true"></i> Pending</p>
         </div>
         <div class="col-xl-2 col-8 pr-0 circle">
             <circle-progress [percent]="99" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
@@ -371,12 +377,9 @@
             <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
             <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
             <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <!-- <i class="fa fa-comments pl-2" aria-hidden="true" style="position: relative !important;"></i> -->
             <span class="badge badge-danger">12</span>
         </div>
     </div>
-
-
 
 
 
