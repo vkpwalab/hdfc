@@ -6,5 +6,8 @@
     .mb-footer{
         margin-bottom: 20% !important;
     }
+    .hide{
+        display: none !important;
+    }
 
 }
