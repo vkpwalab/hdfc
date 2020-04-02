@@ -1,18 +1,17 @@
-<div class="col-xl-12 project px-0 row m-0" *ngIf="!hasRoute('login')">
+<div class="col-xl-12 project px-0 row m-0">
     <div class="col-lg-2 px-0">
         <app-side-menubar></app-side-menubar>
     </div>
     <div class="col-lg-10 px-0 mb-footer">
         <router-outlet></router-outlet>
     </div>
-
+    <!-- <div class="col-lg-12 col-12 hide" [routerLink]="['/customer-lead']" >
+      <img style="width: 30px;
+      position: fixed;
+      bottom: 134px;
+      left: 197px;
+      z-index: 11111" src="./assets/images/user_1.png" alt="">
+  </div> -->
   <app-footer></app-footer>
 </div>
-<div class="col-xl-12 project px-0 row m-0"  *ngIf="hasRoute('login')">
-   
-    <div class="col-lg-10 px-0 mb-footer">
-        <router-outlet></router-outlet>
-    </div>
 
-  <app-footer></app-footer>
-</div>
