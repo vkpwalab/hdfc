@@ -17,6 +17,7 @@
 .accordion {border: none;}
 .main-box {border: 1px solid lightgray;border-radius: 9px ;}
 .label {font-size: 12px;}
+.main_btn_log {width: 100%;border: 1px solid #e3310d;}
 @media screen and (min-width:320px) and (max-width: 576px){
     .project{display: block;padding-left: 0px !important;}
     .mat-form-field{width: 100%;}

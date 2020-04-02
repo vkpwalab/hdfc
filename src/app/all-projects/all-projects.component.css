@@ -16,13 +16,18 @@
             .f-btn{display:none}
             .i-con{top: 0;position: absolute;right: 8%;padding-top: 10px!important;padding-left: 20px;text-align: end;}
               p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
-              input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+              input[type=search] {border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+              /* input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;} */
               .w-01 {width: 30px;}
               .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: -5%;}
               .fa-comments{float: right;padding-top: 6px;height: 25px;width: 35px;}
 }
 
-
+/* input[type=radio] {
+  border: 0px;
+  width: 100%;
+  height: 2em;
+} */
 @media screen and (min-width:576px) and (max-width: 2000px){
               /* MAIN CONTENT  */
     .main-list{border: 0.5px solid #dfdede;font-size: 13px;display: inline-flex;border-radius: 10px;box-shadow: 0px 0px 1.5px 0px rgb(167, 166, 166);margin-top: 20px;}
@@ -36,7 +41,8 @@
     .first-line{margin-right: 0px !important;display: inline-flex;}
     .Q-ser{display: inline-flex;}
     .f-btn{display: inline-flex;}
-    input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+    /* input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;} */
+    input[type=search] {border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
     .app {color: #6dcc8d;}
     .pen {color: #e3310d;}
     .main_btn_log {border:1px solid #e3310d;width: 100%;}
