@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
-
 @Component({
   selector: 'app-reach-us',
   templateUrl: './reach-us.component.html',
@@ -14,5 +13,4 @@ export class ReachUsComponent implements OnInit {
     this.shared.headerTitle('Reach Us');
 
   }
-
 }

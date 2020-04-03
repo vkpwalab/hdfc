@@ -26,9 +26,9 @@
                         <input type="search" placeholder="Search" aria-label="Search">
                     </form>
                 </div>
-                <div class="col-3  cell px-0 ml-2 mt-2">
+                <div class="col-3  cell px-0 ml-2 pl-2 mt-2">
                     <div class="col-2 pr-4">
-                        <img src="./assets/images/icons/filter.png"> 
+                        <img src="./assets/images/icons/filter.png" (click)="showFilter(1)"> 
                     </div>
                     <div [routerLink]="['/add-project']" class="col-2">
                     <img src="./assets/images/icons/add-project.png">    
@@ -37,7 +37,7 @@
                 <div class="col-lg-6 px-0  f-btn ml-2">
                     <div class="col-lg-6 pl-0">
                         <div class="text-center">
-                            <button class="main_btn_log"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+                            <button class="main_btn_log" (click)="showFilter(1)"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
                         </div>
                     </div>
                     <div class="col-lg-6 px-0 mr-0">
@@ -55,21 +55,24 @@
    
        <!-- -----------------------------FILTER-------------------------- -->
        
-       <!-- <div class="col-lg-12" style="border: 1px solid;text-align: end;">
+       <div class="col-lg-12 px-0 mt-1 filter fil-div" id="filter1">
         <form action="">
-           <div class="col-lg-6 px-0" style="display: inline-flex;">
-              <div class="col-lg-4">
-                <input type="radio" name="gender" value="Pending">
-              </div>
-              <div class="col-lg-4">
-                <input type="radio" name="gender" value="Completed">
-              </div>
-              <div class="col-lg-4">
-                <input type="radio" name="gender" value="All">
-              </div>
+           <div class="col-lg-6 px-0 col-12 pt-2 px-0" id="radio">
+            <div class="col-lg-4 col-4">
+             <input type="radio" class="form-check-input" id="1" name="select" value="Pending">
+             <label class="btn mirage" for="1">Pending</label>
+            </div>
+            <div class="col-lg-4 col-4">
+                <input type="radio" class="form-check-input" id="2" name="select" value="Completed">
+                <label class="btn mirage" for="2">Completed</label>
+               </div>
+               <div class="col-lg-4 col-4">
+                <input type="radio" class="form-check-input" id="3" name="select" value="All">
+                <label class="btn mirage" for="3">All</label>
+               </div>
            </div>
         </form>
-       </div> -->
+       </div>
 
 
 
@@ -77,7 +80,7 @@
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0" [routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -97,7 +100,7 @@
                     aria-hidden="true"></i> Approved</p>
         </div>
         <div class="col-xl-2 col-8 pr-0 circle">
-            <circle-progress [percent]="99" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
+            <circle-progress [percent]="100" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
                 [titleFontSize]="12" [showSubtitle]="false" [outerStrokeWidth]="3" [innerStrokeColor]="'lightblue'"
                 [outerStrokeColor]="'#3f98fd'" [animation]="true" [animationDuration]="300"></circle-progress>
             <p class="font-italic mt-3 text-secondary">Document pending</p>
@@ -110,7 +113,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0"[routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -142,7 +145,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0"[routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -175,7 +178,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0"[routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -207,7 +210,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0" [routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -240,7 +243,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0" [routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -272,7 +275,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0" [routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -305,7 +308,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0"[routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -337,7 +340,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0" [routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -370,7 +373,7 @@
         </div>
     </div>
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0" [routerLink]="['/project-overview']">
 
         <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">

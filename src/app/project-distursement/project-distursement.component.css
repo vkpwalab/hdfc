@@ -20,6 +20,7 @@
             .modal-footer {background-color: rgb(243, 241, 241);}
             tr {text-align: center;}
             .footer {display: inline-flex;text-align: end;font-size: 8px;}
+
 }
 
 
@@ -42,6 +43,8 @@
     .first-line{margin-right: 0px !important;display: inline-flex;}
     input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;} 
     .main_btn_log {width: 100%;border:1px solid #e3310d;}
+
+        
 /* ------------------------------MODAL---------------------------- */
 
      .modal-dialog{top:10%}
