@@ -13,7 +13,7 @@
 .mb-0 {display: flex;}
 .card-h5 {padding-top: 10px;font-size: 12px;}
 .first-line{margin-right: 0px !important;}
-.card {border: 1px solid rgb(204, 203, 203) !important;border-radius: 9px !important;}
+.card {border: none!important;border-radius: 9px !important;}
 .accordion {border: none;}
 .main-box {border: 1px solid lightgray;border-radius: 9px ;}
 .label {font-size: 12px;}
