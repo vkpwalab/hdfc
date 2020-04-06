@@ -1,4 +1,4 @@
-<div class="col-xl-12 project px-0 row m-0">
+<div class="col-xl-12 project px-0 row m-0" *ngIf="!hasRoute('login')">
     <div class="col-lg-2 px-0">
         <app-side-menubar></app-side-menubar>
     </div>
@@ -15,5 +15,10 @@
   <app-footer></app-footer>
 </div>
 
+<div class="col-xl-12 project px-0 row m-0" *ngIf="hasRoute('login')">
 
+    <router-outlet></router-outlet>
+
+  <app-footer></app-footer>
+</div>
 
