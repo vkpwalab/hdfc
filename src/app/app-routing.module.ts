@@ -18,7 +18,7 @@ import { ReachUsComponent } from './reach-us/reach-us.component';
 
 
 const routes: Routes = [
-  { path: '', component:  LoginComponent},
+  { path: '', component:  DashboardComponent},
   { path: 'login', component: LoginComponent},
   { path: 'side-menubar', component: SideMenubarComponent},
   { path: 'dashboard', component: DashboardComponent},
