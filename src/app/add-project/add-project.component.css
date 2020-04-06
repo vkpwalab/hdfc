@@ -58,5 +58,18 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
         .p-h{font-size: 10px;}
         .cet {padding-left: 8px !important;}
         p{font-size: 10px !important;}
+
+        .modal-ton {margin-top: 20px;}
     }
-    
+
+    .btn-modal {
+        background-color: #e3310d;
+        border-radius: 40px;
+        color: white;
+        border: 1px solid #e3310d;
+        height: 40px;
+        font-size: 12px;
+        padding: 10px;
+        box-shadow: 1px 3px 8px #ed1c2452;
+
+    }

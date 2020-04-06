@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-all-projects',
@@ -12,6 +13,13 @@ export class AllProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.shared.headerTitle('List All Projects');
+  }
+  showFilter(id){
+    if($('#filter'+id).is(':visible')){
+      $('#filter'+id).hide();
+    }else{
+     $('#filter'+id).show();
+    }
   }
 
 }

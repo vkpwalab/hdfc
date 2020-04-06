@@ -23,4 +23,11 @@ export class UpdateWorkComponent implements OnInit {
       $('#progress'+id).show();
      }
    }
+   showFilter(id){
+    if($('#filter'+id).is(':visible')){
+      $('#filter'+id).hide();
+    }else{
+     $('#filter'+id).show();
+    }
+  }
 }

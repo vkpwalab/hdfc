@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
-
 @Component({
   selector: 'app-project-distursement',
   templateUrl: './project-distursement.component.html',

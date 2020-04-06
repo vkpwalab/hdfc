@@ -27,12 +27,12 @@
                     </form>
                 </div>
                 <div class="col-2  cell pl-0 pt-1">
-                    <div class="col-2"><img src="./assets/images/icons/filter.png" height="20px"></div>
+                    <div class="col-2"><img src="./assets/images/icons/filter.png" height="20px"(click)="showFilter(1)"></div>
                 </div>
-                <div class="col-lg-4 px-0 btn pt-0">
+                <div class="col-lg-4 px-0 btn-1 pt-0">
                     <div class="col-lg-8 pr-0 text-center ml-2">
                         <div class="text-center">
-                            <button class="main_btn_log"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+                            <button class="main_btn_log" (click)="showFilter(1)"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
                         </div>
                     </div>
 
@@ -42,6 +42,29 @@
     </div>
 
     <!-- -------------------------------HEAD TITLE ENDS HERE------------------------------------- -->
+
+    <div class="col-lg-12 px-0 mt-1 filter fil-div" id="filter1">
+        <form action="">
+           <div class="col-lg-6 px-0 col-12 pt-2 px-0" id="radio">
+            <div class="col-lg-4 col-4">
+             <input type="radio" class="form-check-input" id="10" name="select" value="Pending">
+             <label class="btn mirage" for="10">Pending</label>
+            </div>
+            <div class="col-lg-4 col-4">
+                <input type="radio" class="form-check-input" id="11" name="select" value="Completed">
+                <label class="btn mirage" for="11">Completed</label>
+               </div>
+               <div class="col-lg-4 col-4">
+                <input type="radio" class="form-check-input" id="12" name="select" value="All">
+                <label class="btn mirage" for="12">All</label>
+               </div>
+           </div>
+        </form>
+       </div>
+
+
+<!-- --------------------------------------------------------------------- -->
+
 
     <div class="col-xl-12 col-12 main-list mt-3 px-0 pb-0">
         <div class="col-xl-12 head pl-0" (click)="showProgress(1)">
