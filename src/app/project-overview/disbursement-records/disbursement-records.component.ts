@@ -13,14 +13,14 @@
         xAxes: [{
           gridLines: {
 
-            display: false
+            display: true
           }
         
         }],
         yAxes: [{
           gridLines: {
 
-            display: false,
+            display: true,
           },
           ticks: {min: 0, max:50}
         }]

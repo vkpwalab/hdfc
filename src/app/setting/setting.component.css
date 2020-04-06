@@ -20,7 +20,7 @@ input{border: none;padding-bottom: 4px;width: 90%!important;font-size: 12px;padd
 .mb-0 {display: flex;}
 .card-h5 {padding-top: 10px;font-size: 13px;}
 .first-line{margin-right: 0px !important;}
-.card {border: 1px solid rgb(204, 203, 203) !important;border-radius: 9px !important;}
+.card {border:none !important;border-radius: 9px !important;}
 .accordion {border: none;}
 .icon img {height: 20px;}
 .search {border-bottom: 1px solid rgb(204, 203, 203)}
