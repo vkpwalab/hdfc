@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +9,13 @@ import { ServiceService } from '../service.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private shared : ServiceService) { }
+  constructor(private shared : ServiceService, private router:Router) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Dashboard');
+    if(!localStorage.getItem('auth-token')){
+      this.router.navigate(['login']);
+    }
   }
 
 }
