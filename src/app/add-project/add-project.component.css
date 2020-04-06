@@ -73,3 +73,16 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
         box-shadow: 1px 3px 8px #ed1c2452;
 
     }
+
+    table {
+        width: 100%;
+      }
+      
+      .mat-form-field {
+        font-size: 14px;
+        width: 100%;
+      }
+      
+      td, th {
+        width: 25%;
+      }
