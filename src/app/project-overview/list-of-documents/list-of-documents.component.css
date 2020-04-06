@@ -5,7 +5,7 @@
 .six{width: 100%;}
 .button {display: inline-flex;padding-bottom: 5%;}
 .draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
-.badge{font-size: 80%;}
+.badge{font-size: 80%;border-radius: 0 !important;padding: 0.25em .6em !important;}
 
 .inner-1 { display: inline-flex;}
 .browse {border: 0.5px solid grey;border-style: dashed;border-radius: 8px;font-size: 12px;height: 30px;padding: 15px 30px 30px 30px;cursor: pointer;}
@@ -52,4 +52,9 @@
             padding-right: 0px !important;
         }
     }
-    
+
+    @media screen and (min-width:576px) and (max-width: 2000px){
+       .mar-14{ margin-left: -14px;}
+
+      
+    }

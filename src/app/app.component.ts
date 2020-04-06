@@ -17,10 +17,9 @@ export class AppComponent {
   ngOnInit(): void {
    
   }
+ 
   hasRoute(route: string) {
-    return this.router.url.includes(route);
-    // return this.router.url;
+    // return this.router.url.includes(route);
   }
-  
   }
 

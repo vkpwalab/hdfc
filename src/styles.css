@@ -248,6 +248,10 @@ html, body { height: 100%; }
 .brnew{
   border-radius: 9px !important;
 }
+.brnew1{
+  border-bottom-left-radius: 9px !important;
+  border-bottom-right-radius: 9px !important;
+}
 .scrollbar
  {
     height: 258px;

@@ -17,14 +17,14 @@ export class ProjectProgressComponent implements OnInit {
 
         gridLines: {
 
-          display: false,
+          display: true,
         }
       }],
       yAxes: [{
 
         gridLines: {
 
-          display: false
+          display: true
         }
       }]
     },
@@ -76,14 +76,14 @@ export class ProjectProgressComponent implements OnInit {
 
         gridLines: {
 
-          display: false,
+          display: true,
         }
       }],
       yAxes: [{
 
         gridLines: {
 
-          display: false
+          display: true
         }
       }]
     },
@@ -145,14 +145,14 @@ export class ProjectProgressComponent implements OnInit {
           min: 0,
           max: 30,
         },
-        gridLines: {display: false}
+        gridLines: {display: true}
       }],
       yAxes: [{
         ticks: {
           min: 0,
           max: 30,
         },
-        gridLines: {display: false}
+        gridLines: {display: true}
       }]
     },
     legend: {
