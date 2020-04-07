@@ -102,6 +102,7 @@ textarea{outline: none !important;}
 }
 #submit1 .mat-form-field{
   display: block !important;
+  font-size: 13px !important;
 }
 #forresopnd .mat-form-field{
   display: block !important;
@@ -283,6 +284,8 @@ html, body { height: 100%; }
 #matnewtabs .mat-tab-header-pagination-chevron{
   border-color: white !important;
 }
+#matnewtabs .mat-tab-body-wrapper{box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important;background-color: #fff;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;}
+#submit .mat-tab-body-wrapper{box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important;background-color: #fff;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;}
 #matnewtabs .mat-tab-header{
   background-color: black;
   border-bottom: none !important;
