@@ -1,162 +1,163 @@
 <div class="col-lg-12 whole">
 
     <!-- ----------------BREADCRUM----------->
-<div class="col-lg-12 pl-0">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-1 pl-0">
-            <li class="breadcrumb-item home px-0"><a href="#">Home</a></li>
-            <li class="breadcrumb-item px-0"><a href="#">Projects</a></li>
-            <li class="breadcrumb-item px-0"><a href="#">Manage</a></li>
-            <li class="breadcrumb-item px-0"><a href="#">Submit a Customer Lead</a></li>
-        </ol>
-    </nav>
-</div>
+    <div class="col-lg-12 pl-0">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-1 pl-0">
+                <li class="breadcrumb-item home px-0"><a href="#">Home</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">Projects</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">Manage</a></li>
+                <li class="breadcrumb-item px-0"><a href="#">Submit a Customer Lead</a></li>
+            </ol>
+        </nav>
+    </div>
     <!-- ----------------BREADCRUM----------->
 
- <div class="col-lg-12 row px-0 first-line ">
-     <div class="col-lg-7 mx-0 mt-2 list">
-         <h5>Submit a Customer Lead</h5>
-     </div>
-    </div>
-     <div class="col-lg-12 col-sm-12 px-0" id="submit">
-        <mat-tab-group mat-align-tabs="end" id="submit">
-            <div class="col-lg-12 col-12">
-            <mat-tab label="Single Entry">
-                <form>
-                <div class="col-lg-12 project">
-                    <div class="col-lg-3">
-                        <mat-form-field appearance="standard">
-                            <mat-label>CUSTOMER NAME<span class="text-danger">*</span></mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-3">
-                        <mat-form-field appearance="standard">
-                            <mat-label>MOBILE NUMBER<span class="text-danger">*</span></mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-3">
-                        <mat-form-field appearance="standard">
-                            <mat-label>EMAIL ID<span class="text-danger">*</span></mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-3">
-                        <mat-form-field appearance="standard">
-                            <mat-label>STATE</mat-label>
-                            <mat-select>
-                              <mat-option value="option">Option</mat-option>
-                              <mat-option value="option">m1</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                
-                </div>
-                <div class="col-lg-12 mt-2 project">
-                    <div class="col-lg-3">
-                        <mat-form-field appearance="standard">
-                            <mat-label>CITY</mat-label>
-                            <mat-select>
-                              <mat-option value="option">Option</mat-option>
-                              <mat-option value="option">m1</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                    <div class="col-lg-3">
-                        <mat-form-field appearance="standard">
-                            <mat-label>BOOKING STATUS</mat-label>
-                            <mat-select>
-                              <mat-option value="option">Option</mat-option>
-                              <mat-option value="option">m1</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                    <div class="col-lg-6">
-                        <mat-form-field appearance="standard">
-                            <mat-label>INTERESTED PROJECT</mat-label>
-                            <mat-select multiple>
-                              <mat-option value="option">Option</mat-option>
-                              <mat-option value="option">m1</mat-option>
-                              <mat-option value="option">Option</mat-option>
-                              <mat-option value="option">m1</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>    
-                </div> 
-                <div class="col-lg-12 mt-2 project">
-                <div class="col-lg-6">
-                    <mat-form-field appearance="standard">
-                        <mat-label>OTHER PROJECT INFO</mat-label>
-                        <textarea matInput></textarea>
-                      </mat-form-field>
-                </div>
-                <div class="col-lg-6">
-                    <mat-form-field appearance="standard">
-                        <mat-label>REMARK</mat-label>
-                        <textarea matInput></textarea>
-                      </mat-form-field>
-                </div>
-            </div>
-                <div class=" col-lg-6 col-12 px-0 button mt-4">  
-                    <div class="text-center col-lg-4 col-6 submit"> 
-                        <input type="submit" class="main_btn_log" value="SUBMIT">
-                        </div>
-                    </div>
-                </form>
-            </mat-tab>
-      <!-- ----------------------------------------------------------------------------           -->
-            <mat-tab label="Upload through Excel">
-                <form>
-                <div class="col-lg-12 project">
-                    <div class="col-lg-6">
-                        <mat-form-field appearance="standard">
-                            <mat-label>SELECT PROJECT</mat-label>
-                            <mat-select>
-                              <mat-option value="option">Option</mat-option>
-                              <mat-option value="option">m1</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                    <div class="col-lg-6" id="chos">
-                        <mat-form-field appearance="standard">
-                            <mat-label>CHOOSE EXCEL FILE</mat-label>
-                            <input matInput>
-                            <input type="file" class="float-right chos">
-                            
-                                <span class="main_btn_log text-center">chosse</span>
-                                <!-- <input type="file" class="main_btn_log" value="chosse"> -->
-                                
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-12 px-0">
-                    <div class=" col-lg-6 col-12 px-0 button mt-4">
-                    <div class="text-center col-lg-4"> 
-                    <input type="submit" class="main_btn_log" value="SUBMIT">
-                    </div>
-                    <div class="text-center col-lg-4"> 
-                    <button class="main_btn_log draft">IMPORT EXCEL</button>
-                    </div>
-                    </div>
-                    <div class=" col-lg-6 col-12 button down mt-4 text-right">
-                        <div class="col-lg-12 col-12 text-right sample">
-                        <p class="font-italic text-primary para"><i class="fa fa-download pr-2" aria-hidden="true"></i>Download Excel Sample Format</p>
-                        </div>
-                        </div>
-                    </div>
-            </form>
-            </mat-tab>
+    <div class="col-lg-12 row px-0 first-line ">
+        <div class="col-lg-7 mx-0 mt-2 list">
+            <h5>Submit a Customer Lead</h5>
         </div>
-          </mat-tab-group>
+    </div>
+    <div class="col-lg-12 col-sm-12 px-0" id="submit">
+        <mat-tab-group mat-align-tabs="end" id="submit">
+            <div class="col-lg-12 col-12 ">
+                <mat-tab label="Single Entry">
+                    <form class="pb-4">
+                        <div class="col-lg-12 project">
+                            <div class="col-lg-3">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>CUSTOMER NAME<span class="text-danger">*</span></mat-label>
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-lg-3">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>MOBILE NUMBER<span class="text-danger">*</span></mat-label>
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-lg-3">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>EMAIL ID<span class="text-danger">*</span></mat-label>
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-lg-3">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>STATE</mat-label>
+                                    <mat-select>
+                                        <mat-option value="option">Option</mat-option>
+                                        <mat-option value="option">m1</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-12 mt-2 project">
+                            <div class="col-lg-3">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>CITY</mat-label>
+                                    <mat-select>
+                                        <mat-option value="option">Option</mat-option>
+                                        <mat-option value="option">m1</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-lg-3">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>BOOKING STATUS</mat-label>
+                                    <mat-select>
+                                        <mat-option value="option">Option</mat-option>
+                                        <mat-option value="option">m1</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-lg-6">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>INTERESTED PROJECT</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option value="option">Option</mat-option>
+                                        <mat-option value="option">m1</mat-option>
+                                        <mat-option value="option">Option</mat-option>
+                                        <mat-option value="option">m1</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-2 project">
+                            <div class="col-lg-6">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>OTHER PROJECT INFO</mat-label>
+                                    <textarea matInput></textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-lg-6">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>REMARK</mat-label>
+                                    <textarea matInput></textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-12 px-0">
+                            <div class=" col-lg-6 col-12 px-0 button mt-4">
+                                <div class="text-center col-lg-4">
+                                    <input type="submit" class="main_btn_log" value="SUBMIT">
+                                </div>
+                                <div class="text-center col-lg-4">
+                                    <button class="main_btn_log draft">IMPORT EXCEL</button>
+                                </div>
+                            </div>
+                            <div class=" col-lg-6 col-12 button down mt-4 text-right">
+                                <div class="col-lg-12 col-12 text-right sample">
+                                    <p class="font-italic text-primary para"><i class="fa fa-download pr-2"
+                                            aria-hidden="true"></i>Download Excel Sample Format</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </mat-tab>
+                <!-- ----------------------------------------------------------------------------           -->
+                <mat-tab label="Upload through Excel">
+                    <form class="pb-4">
+                        <div class="col-lg-12 project">
+                            <div class="col-lg-6">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>SELECT PROJECT</mat-label>
+                                    <mat-select>
+                                        <mat-option value="option">Option</mat-option>
+                                        <mat-option value="option">m1</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-lg-6" id="chos">
+                                <mat-form-field appearance="standard">
+                                    <mat-label>CHOOSE EXCEL FILE</mat-label>
+                                    <input matInput>
+                                    <input type="file" class="float-right chos">
+
+                                    <span class="main_btn_log text-center">chosse</span>
+                                    <!-- <input type="file" class="main_btn_log" value="chosse"> -->
+
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class=" col-lg-6 col-12 px-0 button mt-4">
+                            <div class="text-center col-lg-4 col-6 submit">
+                                <input type="submit" class="main_btn_log" value="SUBMIT">
+                            </div>
+                        </div>
+                    </form>
+                </mat-tab>
+            </div>
+        </mat-tab-group>
     </div>
 
 
 
- 
-    
-    
-       
-        
+
+
+
+
+
 
 </div>
