@@ -124,7 +124,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">DRAFT PROJECT</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -146,14 +146,22 @@
               
                   <!-- Progress Column -->
                   <ng-container matColumnDef="edit project">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit Project </th>
-                    <td mat-cell *matCellDef="let row"> button </td>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-left"> Edit Project </th>
+                    <td mat-cell *matCellDef="let row"> 
+                        <button type="button" class="btn inner-modal" data-toggle="modal" data-target="#exampleModal">
+                            ADD PROJECT
+                          </button>    
+                    </td>
                   </ng-container>
               
                   <!-- Name Column -->
                   <ng-container matColumnDef="delete project">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete Project </th>
-                    <td mat-cell *matCellDef="let row"> button </td>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-left"> Delete Project </th>
+                    <td mat-cell *matCellDef="let row"> 
+                        <button type="button" class="btn inner-modal" data-toggle="modal" data-target="#exampleModal">
+                            DELETE PROJECT
+                          </button>     
+                    </td>
                   </ng-container>
               
                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -164,10 +172,6 @@
                 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
               </div>
               
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

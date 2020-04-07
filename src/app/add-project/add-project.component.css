@@ -41,6 +41,28 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
 .img-c {display: inline-flex;}
 
 .mat-form-field {font-family: 'Titillium Web' !important;}
+.inner-modal{
+  background-color: #e3310d;
+  border-radius: 40px;
+  color: white;
+  border: 1px solid #e3310d;
+  height: 40px;
+  font-size: 12px;
+  padding: 10px;
+  box-shadow: 1px 3px 8px #ed1c2452;
+}
+.btn-modal {
+    background-color: #e3310d;
+    border-radius: 40px;
+    color: white;
+    border: 1px solid #e3310d;
+    height: 40px;
+    font-size: 12px;
+    padding: 10px;
+    box-shadow: 1px 3px 8px #ed1c2452;
+
+}
+
 
 
 @media screen and (min-width:320px) and (max-width: 576px){
@@ -60,19 +82,20 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
         p{font-size: 10px !important;}
 
         .modal-ton {margin-top: 20px;}
-    }
 
-    .btn-modal {
-        background-color: #e3310d;
-        border-radius: 40px;
-        color: white;
-        border: 1px solid #e3310d;
-        height: 40px;
-        font-size: 12px;
-        padding: 10px;
-        box-shadow: 1px 3px 8px #ed1c2452;
-
+        .inner-modal{
+            background-color: #e3310d;
+            border-radius: 40px;
+            color: white;
+            border: 1px solid #e3310d;
+            height: 30px;
+            font-size: 8px;
+            padding: 8px;
+            box-shadow: 1px 3px 8px #ed1c2452;
+        }
     }
+   
+
 
     table {
         width: 100%;
@@ -86,3 +109,4 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
       td, th {
         width: 25%;
       }
+mat-paginator { z-index: 9999;}
