@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
@@ -21,7 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { UpdateWorkComponent } from './update-work/update-work.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { ChartsModule } from 'ng2-charts';
 // import { DashboardLoanComponent } from './dashboard-loan/dashboard-loan.component';
 // import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
@@ -49,6 +49,7 @@ import { AddProjectUpdateComponent } from './add-project-update/add-project-upda
 import { AgmCoreModule } from '@agm/core';
 import { SettingComponent } from './setting/setting.component';
 import { ReachUsComponent } from './reach-us/reach-us.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,8 @@ import { ReachUsComponent } from './reach-us/reach-us.component';
     [BrowserAnimationsModule],
     MatSelectModule,
     MatRadioModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
     NgxFileDropModule,
@@ -113,7 +116,11 @@ import { ReachUsComponent } from './reach-us/reach-us.component';
   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { 
   
