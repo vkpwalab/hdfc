@@ -44,10 +44,12 @@
     </div>
    
     <div class="col-lg-3">
-        <mat-form-field appearance="standard">
+        <mat-form-field id="calendar">
             <mat-label>PROJECT LAUNCH DATE</mat-label>
-            <input matInput>
-        </mat-form-field>
+            <input matInput [matDatepicker]="picker4">
+            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+            <mat-datepicker #picker4></mat-datepicker>
+          </mat-form-field>
     </div>
 </div> 
 <div class=" col-lg-6 col-12 button mt-4">
