@@ -50,6 +50,8 @@ import { AgmCoreModule } from '@agm/core';
 import { SettingComponent } from './setting/setting.component';
 import { ReachUsComponent } from './reach-us/reach-us.component';
 import { MatTableModule } from '@angular/material/table';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -111,7 +113,8 @@ import { MatTableModule } from '@angular/material/table';
     }),
     AgmCoreModule.forRoot({
       apiKey: 'CHAVES_GOOGLE_MAPS'
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     
   
   ],
