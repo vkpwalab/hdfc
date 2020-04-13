@@ -33,7 +33,6 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
  }
 .typ {border: 0.5px solid grey;border-radius: 8px;}
 .textarea{width: 100% !important;font-size: 10px !important;border-radius: 8px;padding: 5px}
-.main_btn_log{border-radius: 9px !important;}
 .hide-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);}
 .p-h{font-size: 15px;}
 .cet{font-size: 10px;line-height: 0px;text-align: left;}
@@ -65,7 +64,9 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
 .modal-content{width: 120%;}
 .close {padding: 15px !important;margin-top: -20px;}
 
-
+.main_btn_log {width: 100%;border: 1px solid #e3310d;border-radius: 40px;}
+.button {display: inline-flex;padding-bottom: 5%;text-align: end;}
+.draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 
 @media screen and (min-width:320px) and (max-width: 576px){
         h6{font-size: 10px;padding-top: 8px;font-weight: 700;}
