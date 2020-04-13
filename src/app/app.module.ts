@@ -88,6 +88,7 @@ import { environment } from '../environments/environment';
 
   ],
   imports: [
+    
     MatSlideToggleModule,
     ChartsModule,
     BrowserModule,
