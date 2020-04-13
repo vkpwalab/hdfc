@@ -82,12 +82,7 @@ textarea{outline: none !important;}
 }
 #submit .mat-tab-group.mat-primary .mat-ink-bar{background-color: red;}
 #submit1 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
- .cdk-overlay-container{
-  
-  /* top: -588px !important; */
-  /* left: 83px !important; */
-  z-index: 99999 !important;
-}
+
 
 #submit .mat-ink-bar {height: 4px !important;}
 #submit1 .mat-ink-bar {height: 4px !important;}
@@ -124,12 +119,12 @@ html, body { height: 100%; }
 
 
 @media screen and (min-width:576px) and (max-width: 2000px){
-  .cdk-overlay-pane{
-    position: fixed !important;
-    top: 94.125px !important;
-    /* bottom: -384px !important; */
-    left: 40% !important
-  }
+ /* .cdk-overlay-container{ */
+  
+    /* top: -588px !important; */
+    /* left: 83px !important; */
+    /* z-index: 99999 !important; */
+  /* } */
   .btn-secondary{
     width: 38% !important;
   }
@@ -423,9 +418,18 @@ html, body { height: 100%; }
 
 #submit .ngx-file-drop__drop-zone{height:40px !important;margin:auto;border:1px dotted #a7a9aa !important;border-radius:9px !important}
 #submit .ngx-file-drop__content{height:40px !important;color:grey !important;font-size: 12px !important;}
-
+#forimport .ngx-file-drop__drop-zone{
+  border: none !important;
+}
 /* #matnewtabs .mat-tab-group{
   font-family: 'Titillium Web' !important;
 } */
 
 .mat-tab-group{font-family: 'Titillium Web'!important;}
+ 
+   /* .cdk-overlay-pane{
+    position: fixed !important;
+    top: 46.125px !important;
+    
+    left: 40% !important
+  } */
