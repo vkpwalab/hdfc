@@ -5,6 +5,7 @@
 .draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 .mat-form-field {font-family: 'Titillium Web' !important;}
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
+.bound{font-size: 14px; padding-left: 15px;}
 @media screen and (min-width:320px) and (max-width: 576px){
     .project{display: block;padding-left: 0px !important;}
     .mat-form-field{width: 100%;}
