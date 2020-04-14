@@ -7,6 +7,16 @@
     height: 58px;
     border-radius: 50%;
 }
+.myicon{
+    /* color: white !important;
+    background-color: red;
+    border-radius: 100%;
+    padding: 7px 8px; */
+    width: 30px;
+    height: 30px;
+}
+
+
 .mt-10{
     margin-top: -10px !important;
 }
@@ -61,6 +71,7 @@
 #forresopnd .mat-form-field{
     font-size: 13px !important;
 }
+
 
 /* .nav-pills .nav-link {color: white;}
 .nav-pills{background-color: black}

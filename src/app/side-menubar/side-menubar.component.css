@@ -30,7 +30,7 @@
   transition: 0.1s;
   /* border: 1px solid; */
 }
-
+.active {background-color:#cd2808;}
 
 .sidenav .closebtn {
   position: absolute;
@@ -46,12 +46,9 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-/* @media screen and (min-width: 300px) and (max-width: 576px){
-
-  .w-10{
-    margin-bottom: 0%;
-  }
-} */
+@media screen and (min-width: 300px) and (max-width: 576px){
+  .active {background-color:#e3310d;}
+}
 
 
 
@@ -90,3 +87,4 @@
   width: 146px;
   /* height: 48px; */
 }
+

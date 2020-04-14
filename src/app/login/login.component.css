@@ -8,7 +8,7 @@
 /* 
 .form-group .fa { 
   margin-top: 12px} */
-
+.hdfc_logo{width: 140px;}
 .fa-refresh{font-size: 20px;cursor: pointer;}
 
 .Captcha{height: 50px;
@@ -26,7 +26,7 @@
     height: -webkit-fill-available;
   }
   .Captcha input{
-    padding: 5px 0;
+    /* padding: 5px 0; */
     width: 100%;
     border: none;
     margin-top: 0px;
@@ -34,7 +34,7 @@
     color: #3c4040;
     border-radius: 0;
     background: none;
-    height: 20px!important;
+    height: 100%!important;
   }
   .form-group mat-form-field{
     width: 100%;
@@ -55,6 +55,7 @@
     box-shadow: 0px 5px 14px 6px #ed1c2452!important;
     height: 50px !important;
     border: 1px solid #e3310d ;
+    width: 100%;
   }
   .box1{
     margin: 20px;
@@ -161,6 +162,7 @@
   .bk-img{background-image: none;}
   .login_title{font-size: 20px;margin-top: 50px;margin-bottom: 20px;}
   .Captcha{margin-top: 40px;}
+  .border {height: 45px;}
   .pt3pl10{padding-left: 0%;}
   .carousel{display: none;}
   }

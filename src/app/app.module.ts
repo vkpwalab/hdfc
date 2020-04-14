@@ -15,7 +15,7 @@ import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { NgxFileDropModule } from 'ngx-file-drop';
-
+// import {ReactiveFormsModule} from '@angular/forms' 
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
@@ -88,6 +88,11 @@ import { environment } from '../environments/environment';
 
   ],
   imports: [
+    MatFormFieldModule,
+    
+
+    MatInputModule,
+    // ReactiveFormsModule,
     MatSlideToggleModule,
     ChartsModule,
     BrowserModule,
@@ -100,10 +105,10 @@ import { environment } from '../environments/environment';
     MatDatepickerModule,
     MatNativeDateModule,
     NgxFileDropModule,
-    MatFormFieldModule,
+  
     DragDropModule,
     MatTabsModule,
-    MatInputModule,NgCircleProgressModule.forRoot({
+    NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,
       innerStrokeWidth: 8,
