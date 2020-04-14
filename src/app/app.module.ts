@@ -15,7 +15,9 @@ import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { NgxFileDropModule } from 'ngx-file-drop';
-// import {ReactiveFormsModule} from '@angular/forms' 
+// import {ReactiveFormsModule} from '@angular/forms'
+import { ReactiveFormsModule,FormsModule} from '@angular/forms';
+
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
@@ -88,6 +90,8 @@ import { environment } from '../environments/environment';
 
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     
 
