@@ -94,7 +94,7 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
             border: 1px solid #e3310d;
             height: 30px;
             font-size: 8px;
-            padding: 8px;
+            padding: 5px;
             box-shadow: 1px 3px 8px #ed1c2452;
         }
     }
@@ -113,4 +113,5 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
       td, th {
         width: 25%;
       }
-mat-paginator { z-index: 9999;}
+
+.cdk-overlay-container {z-index: 99999!important;}

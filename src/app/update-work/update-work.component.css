@@ -60,7 +60,7 @@
     .first-line{margin-right: 0px !important;margin-bottom: -10px !important;}
 
     .main-list{border: 0.5px solid rgb(230, 229, 229);font-size: 13px;border-radius: 10px;box-shadow: 0px 0px 1.5px 0px rgb(167, 166, 166);}
-    .main-list:hover{border: 1px solid rgb(70, 70, 228);box-shadow: 0px 2px 2px grey;}
+    .main-list:hover{border: 1px solid grey;box-shadow: 0px 2px 2px grey;}
     .main_btn_log {border:1px solid #e3310d;width: 100%;}
     .tick{font-size: 12px;}
     .fa-cloud-upload {cursor: pointer;}
