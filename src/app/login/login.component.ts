@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
- 
+  
+
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-   
+    
   }
 
   login(){
@@ -21,4 +23,5 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['dashboard']);
     location.reload();
   }
+  
 }
