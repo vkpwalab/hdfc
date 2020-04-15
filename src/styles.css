@@ -316,6 +316,7 @@ html, body { height: 100%; }
 #forreachus .mat-form-field-appearance-legacy .mat-form-field-underline{
   background-color: lightgray !important;
   bottom: 34px !important;
+  width: 102.5% !important;
 }
 /* .mat-form-field-underline{
   width: 311% !important;

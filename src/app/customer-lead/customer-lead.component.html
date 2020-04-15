@@ -124,7 +124,7 @@
                 </mat-tab>
                 <!-- ----------------------------------------------------------------------------           -->
                 <mat-tab label="Upload through Excel">
-                    <form class="pb-4">
+                    <form class="pb-4" [FormGroup]="customerlead">
                         <div class="col-lg-12 project">
                             <div class="col-lg-6">
                                 <mat-form-field appearance="standard">
@@ -139,19 +139,21 @@
                                 <mat-form-field appearance="standard">
                                     <mat-label>CHOOSE EXCEL FILE</mat-label>
                                     <input matInput>
-                                    <input type="file" class="float-right chos">
+                                    <input  class="float-right chos" type="file">
 
                                     <span class="main_btn_log text-center">Upload Excel</span>
                                     <!-- <input type="file" class="main_btn_log" value="chosse"> -->
 
                                 </mat-form-field>
+                               
                             </div>
                         </div>
                         <div class="col-lg-12 col-12 px-0">
                             <div class=" col-lg-6 col-12 px-0 button mt-4">
-                                <div class="text-center col-lg-4">
+                                <div class="text-center col-lg-4 col-6 submit">
                                     <input type="submit" class="main_btn_log" value="SUBMIT">
                                 </div>
+                                
                                 <!-- <div class="text-center col-lg-4" id="forimport">
                                     <ngx-file-drop dropZoneLabel="Drop files here">
                                         <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">

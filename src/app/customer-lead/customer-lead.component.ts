@@ -14,6 +14,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class CustomerLeadComponent implements OnInit {
   customerlead: FormGroup;
   isSubmitted = false;
+  signup: FormGroup;
   constructor(private shared : ServiceService,private singinfb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -24,10 +25,14 @@ export class CustomerLeadComponent implements OnInit {
       'email': ['', Validators.required],
       'project': ['', Validators.required],
       'remark': ['', Validators.required],
-      'state': ['', Validators.required]
+      'state': ['', Validators.required],
+      'myfile': ['', Validators.required]
 
      
     })
+    // this.signup = this.singinfb.group({
+     
+    // });
   
   }
  
