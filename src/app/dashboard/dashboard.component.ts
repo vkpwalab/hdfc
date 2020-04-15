@@ -16,6 +16,11 @@ export class DashboardComponent implements OnInit {
     if(!localStorage.getItem('auth-token')){
       this.router.navigate(['login']);
     }
+    
+    if(localStorage.getItem('from_login')){
+      localStorage.removeItem('from_login');
+      location.reload();
+    }
   }
 
 }

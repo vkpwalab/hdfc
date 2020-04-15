@@ -7,67 +7,70 @@
 
           <div class="col-lg-12 col-12 padlr">
             <div class="mt-2">
-              <span style="background-color: #e3310d !important;" class="badge badge-danger mar-14">1.</span><span class="fs-16 pl-2 font-weight-bold">Property Documents</span></div>
+              <span style="background-color: #e3310d !important;" class="badge badge-danger mar-14">1.</span><span
+                class="fs-16 pl-2 font-weight-bold">Property Documents</span></div>
             <div class="col-lg-12 col-12 px-0 row m-0">
-              <div class="col-lg-3  col-6 pt-2 padl">
+              <!-- <div class="col-lg-3  col-6 pt-2 padl">
                 <div class="col-12 hide-box">
                   <div class="container px-0 pb-2">
                     <p class="p-h mt-1"><b>Sale Agreement</b></p>
-        
+
                     <ngx-file-drop dropZoneLabel="Drop files here">
                       <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span>
+                          file.</p>
                       </ng-template>
                     </ngx-file-drop>
-        
-        
+
+
                   </div>
-        
+
                 </div>
-        
-              </div>
+
+              </div> -->
               <div class="col-lg-3 col-6 pt-2 padl">
                 <div class="col-12 hide-box">
-                  <div class="container px-0">
+                  <div class="container px-0 pb-2">
                     <p class="p-h mt-1 font-weight-bold">Allotment Letter</p>
-        
-                    <ngx-file-drop dropZoneLabel="Drop files here">
+
+                    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)">
                       <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span>
+                          file.</p>
                       </ng-template>
                     </ngx-file-drop>
-        
-        
+
+
                   </div>
-                  <!-- <div id="progress1" class="progress-div"> -->
-                  <div class="col-12 mt-2 typ">
-                    <!-- <div class="example-container"> -->
-                      
+                  <div id="progress1" class="progress-div" *ngIf="fileEntry">
+                    <div class="col-12 mt-2 typ">
+                      <!-- <div class="example-container"> -->
+
                       <mat-form-field appearance="standard">
                         <mat-label>DOCUMENT TYPE</mat-label>
-                       
+
                         <mat-select>
                           <mat-option value="option">value1</mat-option>
                           <mat-option value="option">value2</mat-option>
                           <mat-option value="option">value2</mat-option>
                         </mat-select>
                       </mat-form-field>
-                     
-                     
-                    <!-- </div> -->
-                    
-                  </div>
-                  
-                  <div class="col-12 px-0 mt-2">
-                    <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
-                  </div>
-                  <div class="text-center col-lg-12 mb-2">
-                    <button type="submit" class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1"
-                        aria-hidden="true"></i>Upload</button>
-                  </div>
-        
-                  <!-- -----------------------AFTER UPLOAD--------------------->
-                  <!-- <div class="col-12 px-0 mb-2 img-c">
+
+
+                      <!-- </div> -->
+
+                    </div>
+
+                    <div class="col-12 px-0 mt-2">
+                      <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
+                    </div>
+                    <div class="text-center col-lg-12 mb-2">
+                      <button type="submit" class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1"
+                          aria-hidden="true"></i>Upload</button>
+                    </div>
+
+                    <!-- -----------------------AFTER UPLOAD--------------------->
+                    <!-- <div class="col-12 px-0 mb-2 img-c">
                             <div class="col-6 px-0">
                               <img src="./assets/images/pro.png">
                             </div>
@@ -79,17 +82,17 @@
                           <div class="col-12 px-0 cet-2">
                             <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></p>
                           </div> -->
-                  <!-- -----------------------AFTER UPLOAD--------------------->
-        
-                  <!-- </div> -->
+                    <!-- -----------------------AFTER UPLOAD--------------------->
+
+                  </div>
                 </div>
-        
+
               </div>
-        
+
               <div class="col-lg-3  col-6 pt-2 padr">
                 <div class="col-12 hide-box">
                   <p class="p-h mt-1"><b>No Objection Certificate</b></p>
-        
+
                   <!-- <div class="container px-0">
         
                     <ngx-file-drop dropZoneLabel="Drop files here">
@@ -124,7 +127,7 @@
                     <span class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1"
                         aria-hidden="true"></i>Upload</span>
                   </div> -->
-        
+
                   <!-- -----------------------AFTER UPLOAD--------------------->
                   <div class="col-12 px-0 mb-2 img-c">
                     <div class="col-6 px-0">
@@ -136,96 +139,102 @@
                     </div>
                   </div>
                   <div class="col-12 px-0 cet-2">
-                    <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit
+                    <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor
+                        sit
                         amet, consectetur adipisicing elit.</b></p>
                   </div>
                   <!-- -----------------------AFTER UPLOAD--------------------->
-        
+
                   <!-- </div> -->
                 </div>
-        
+
               </div>
-             
+
             </div>
           </div>
-        
+
           <div class="col-lg-12 col-12 padlr mt-4 pb-4">
             <div class="mt-2">
-              <span style="background-color: #e3310d !important;" class="badge badge-danger mar-14">2.</span><span class="fs-16 pl-2 font-weight-bold">Financial Documents</span>
+              <span style="background-color: #e3310d !important;" class="badge badge-danger mar-14">2.</span><span
+                class="fs-16 pl-2 font-weight-bold">Financial Documents</span>
             </div>
             <div class="col-lg-12 col-12 px-0 m-0 row">
               <div class="col-lg-3 col-6 pt-2 padl">
                 <div class="col-12 hide-box">
                   <div class="container px-0 pb-2">
                     <p class="p-h mt-1"><b>Sale Agreement</b></p>
-        
+
                     <ngx-file-drop dropZoneLabel="Drop files here">
                       <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span>
+                          file.</p>
                       </ng-template>
                     </ngx-file-drop>
-        
-        
+
+
                   </div>
-        
+
                 </div>
-        
+
               </div>
-        
+
               <div class="col-lg-3 col-6 pt-2 padr">
                 <div class="col-12 hide-box">
                   <div class="container px-0 pb-2">
                     <p class="p-h mt-1"><b>Sale Agreement</b></p>
-        
+
                     <ngx-file-drop dropZoneLabel="Drop files here">
                       <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span>
+                          file.</p>
                       </ng-template>
                     </ngx-file-drop>
-        
-        
+
+
                   </div>
-        
+
                 </div>
-        
+
               </div>
               <div class="col-lg-3 col-6 pt-2 padl">
                 <div class="col-12 hide-box">
                   <div class="container px-0 pb-2">
                     <p class="p-h mt-1"><b>Sale Agreement</b></p>
-        
+
                     <ngx-file-drop dropZoneLabel="Drop files here">
                       <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span>
+                          file.</p>
                       </ng-template>
                     </ngx-file-drop>
-        
-        
+
+
                   </div>
-        
+
                 </div>
-        
+
               </div>
               <div class="col-lg-3 col-6 pt-2 padr">
                 <div class="col-12 hide-box">
                   <div class="container px-0 pb-2">
                     <p class="p-h mt-1"><b>Sale Agreement</b></p>
-        
+
                     <ngx-file-drop dropZoneLabel="Drop files here">
                       <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span>
+                          file.</p>
                       </ng-template>
                     </ngx-file-drop>
-        
-        
+
+
                   </div>
-        
+
                 </div>
-        
+
               </div>
             </div>
           </div>
-        
+
         </div>
       </mat-tab>
       <mat-tab label="Uploaded">
@@ -238,70 +247,74 @@
               <div class="col-12 hide-box">
                 <div class="container px-0 pb-2">
                   <p class="p-h mt-1"><b>Sale Agreement</b></p>
-      
+
                   <ngx-file-drop dropZoneLabel="Drop files here">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.
+                      </p>
                     </ng-template>
                   </ngx-file-drop>
-      
-      
+
+
                 </div>
-      
+
               </div>
-      
+
             </div>
-      
+
             <div class="col-lg-3 col-6 pt-2 padr">
               <div class="col-12 hide-box">
                 <div class="container px-0 pb-2">
                   <p class="p-h mt-1"><b>Sale Agreement</b></p>
-      
+
                   <ngx-file-drop dropZoneLabel="Drop files here">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.
+                      </p>
                     </ng-template>
                   </ngx-file-drop>
-      
-      
+
+
                 </div>
-      
+
               </div>
-      
+
             </div>
             <div class="col-lg-3 col-6 pt-2 padl">
               <div class="col-12 hide-box">
                 <div class="container px-0 pb-2">
                   <p class="p-h mt-1"><b>Sale Agreement</b></p>
-      
+
                   <ngx-file-drop dropZoneLabel="Drop files here">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.
+                      </p>
                     </ng-template>
                   </ngx-file-drop>
-      
-      
+
+
                 </div>
-      
+
               </div>
-      
+
             </div>
             <div class="col-lg-3 col-6 pt-2 padr">
               <div class="col-12 hide-box">
                 <div class="container px-0 pb-2">
                   <p class="p-h mt-1"><b>Sale Agreement</b></p>
-      
+
                   <ngx-file-drop dropZoneLabel="Drop files here">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.
+                      </p>
                     </ng-template>
                   </ngx-file-drop>
-      
-      
+
+
                 </div>
-      
+
               </div>
-      
+
             </div>
           </div>
         </div>
@@ -316,76 +329,84 @@
               <div class="col-12 hide-box">
                 <div class="container px-0 pb-2">
                   <p class="p-h mt-1"><b>Sale Agreement</b></p>
-      
+
                   <ngx-file-drop dropZoneLabel="Drop files here">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.
+                      </p>
                     </ng-template>
                   </ngx-file-drop>
-      
-      
+
+
                 </div>
-      
+
               </div>
-      
+
             </div>
-            <span><img style="width: 13px;margin-left: -16px;margin-top: 16px;" src="./assets/images/Tick_mark.png" alt=""></span>
+            <span><img style="width: 13px;margin-left: -16px;margin-top: 16px;" src="./assets/images/Tick_mark.png"
+                alt=""></span>
             <div class="col-lg-3 col-5 offset-2 offset-lg-0 pt-2 padl">
               <div class="col-12 hide-box">
                 <div class="container px-0 pb-2">
                   <p class="p-h mt-1"><b>Sale Agreement</b></p>
-      
+
                   <ngx-file-drop dropZoneLabel="Drop files here">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.
+                      </p>
                     </ng-template>
                   </ngx-file-drop>
-      
-      
+
+
                 </div>
-      
+
               </div>
-      
+
             </div>
-            <span><img style="width: 13px;margin-left: -16px;margin-top: 16px;" src="./assets/images/Tick_mark.png" alt=""></span>
+            <span><img style="width: 13px;margin-left: -16px;margin-top: 16px;" src="./assets/images/Tick_mark.png"
+                alt=""></span>
 
             <div class="col-lg-3 col-5 pt-2 padl">
               <div class="col-12 hide-box">
                 <div class="container px-0 pb-2">
                   <p class="p-h mt-1"><b>Sale Agreement</b></p>
-      
+
                   <ngx-file-drop dropZoneLabel="Drop files here">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.
+                      </p>
                     </ng-template>
                   </ngx-file-drop>
-      
-      
+
+
                 </div>
-      
+
               </div>
-      
+
             </div>
-            <span><img style="width: 13px;margin-left: -16px;margin-top: 16px;" src="./assets/images/Tick_mark.png" alt=""></span>
+            <span><img style="width: 13px;margin-left: -16px;margin-top: 16px;" src="./assets/images/Tick_mark.png"
+                alt=""></span>
 
             <div class="col-lg-3 col-5 offset-2 offset-lg-0 pt-2 padl">
               <div class="col-12 hide-box">
                 <div class="container px-0 pb-2">
                   <p class="p-h mt-1"><b>Sale Agreement</b></p>
-      
+
                   <ngx-file-drop dropZoneLabel="Drop files here">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+                      <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.
+                      </p>
                     </ng-template>
                   </ngx-file-drop>
-      
-      
+
+
                 </div>
-      
+
               </div>
-      
+
             </div>
-            <span><img style="width: 13px;margin-left: -16px;margin-top: 16px;" src="./assets/images/Tick_mark.png" alt=""></span>
+            <span><img style="width: 13px;margin-left: -16px;margin-top: 16px;" src="./assets/images/Tick_mark.png"
+                alt=""></span>
 
           </div>
         </div>
