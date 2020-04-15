@@ -14,14 +14,17 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit() {
+    if(localStorage.getItem('auth-token')){
+      this.router.navigate(['dashboard']);
+    }
   }
 
   login(){
     localStorage.setItem('auth-token','loggedin');
+    localStorage.setItem('from_login','yes');
     this.router.navigate(['dashboard']);
-    location.reload();
+    // location.reload();
   }
   
 }
