@@ -55,10 +55,13 @@ html, body {font-family: 'Titillium Web'!important;}
 .cursor{cursor: pointer;}
 .input[type="text"]:focus,
 .input[type="password"]:focus,
-.input[type="email"]:focus
+.input[type="email"]:focus,
+.input[type="submit"]:focus,
 .input[type="search"]:focus{
-  outline: 0 none;
+  outline:  none;
 }
+.main_btn_log:focus{outline: none}
+.main-list:focus{outline: none}
 .mat-tab-label {font-family: 'Titillium Web'!important;}
 .mat-input-element {font-family: 'Titillium Web'!important;}
 .mat-select {font-family: 'Titillium Web'!important;}
@@ -165,6 +168,7 @@ html, body { height: 100%; }
     cursor: pointer;
     padding: 8px;
     box-shadow: 1px 3px 8px #ed1c2452;
+    outline-style: none;
   }
   .next {border: 1px solid #e3310d;}
   
