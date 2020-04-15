@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.shared.headerTitle('Dashboard');
     if(!localStorage.getItem('auth-token')){
-      alert('yess');
       this.router.navigate(['login']);
     }
     
