@@ -21,8 +21,8 @@
 .Captcha-text{padding-top: 5px;}
 
   .wrapper {
-    padding-top: 3em !important;
-    width: auto !important;
+    padding: 3em;
+    width: auto;
     height: -webkit-fill-available;
   }
   .Captcha input{
@@ -158,16 +158,11 @@
   }
   
 
-  @media screen and (min-width:320px) and (max-width: 576px){
+  @media screen and (min-width:360px) and (max-width: 576px){
   .bk-img{background-image: none;}
   .login_title{font-size: 20px;margin-top: 50px;margin-bottom: 20px;}
   .Captcha{margin-top: 40px;}
   .border {height: 45px;}
   .pt3pl10{padding-left: 0%;}
   .carousel{display: none;}
-  .wrapper {
-    padding: 10px 0 0 0 !important;
-    
-   
-  }
   }
