@@ -26,3 +26,10 @@ $hdfc-loan-theme: mat-light-theme($hdfc-loan-primary, $hdfc-loan-accent, $hdfc-l
 // that you are using.
 @include angular-material-theme($hdfc-loan-theme);
 
+.alternative {
+$hdfc-loan-primary: mat-palette($mat-grey, 900);
+$hdfc-loan-accent: mat-palette($mat-pink, A200, A100, A400);
+$hdfc-loan-warn: mat-palette($mat-red);
+$hdfc-loan-theme: mat-light-theme($hdfc-loan-primary, $hdfc-loan-accent, $hdfc-loan-warn);
+@include angular-material-theme($hdfc-loan-theme);
+}
