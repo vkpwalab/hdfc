@@ -168,11 +168,11 @@
   .border {height: 45px;}
   .pt3pl10{padding-left: 0%;}
   .carousel{display: none;}
+  .prnew{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
   }
-
-  @media (min-width: 576px) and (max-width:2000px){
-    .prnew{
-      padding-right: 0px !important;
-    }
   }
+    
+  
   
