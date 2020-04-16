@@ -26,3 +26,7 @@
 .dropdown-item{
     padding: .25rem 1.3rem !important;
 }
+.btn-secondary{
+    color: #212529 !important;
+    font-size: 13px !important;
+}

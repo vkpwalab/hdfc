@@ -9,6 +9,9 @@
     .mainimg{
         width: 114px !important;
     }
+    .whole{
+        padding-right: 40px !important;
+    }
 }
 
 @media(min-width: 300px) and (max-width: 576px)
