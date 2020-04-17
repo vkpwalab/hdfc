@@ -49,7 +49,7 @@
 
     /* ----------------filter */
     .filter {text-align: end;}
-    #radio {display: inline-flex;}
+    #radio {display: inline-flex; border-radius: 9px;}
     #radio input[type=radio]:checked+.mirage {
       background-color: #e3310d;
       color: white;
