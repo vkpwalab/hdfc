@@ -24,6 +24,7 @@
     padding: 3em;
     width: auto;
     height: -webkit-fill-available;
+    position: fixed !important;
   }
   .Captcha input{
     /* padding: 5px 0; */
