@@ -54,6 +54,7 @@ import { ReachUsComponent } from './reach-us/reach-us.component';
 import { MatTableModule } from '@angular/material/table';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queries.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { environment } from '../environments/environment';
     AddProjectUpdateComponent,
     SettingComponent,
     ReachUsComponent,
+    RespondToQueriesComponent,
 
   ],
   imports: [
