@@ -26,7 +26,7 @@ export class CustomerLeadComponent implements OnInit {
       'project': ['', Validators.required],
       'remark': ['', Validators.required],
       'state': ['', Validators.required],
-      'myfile': ['', Validators.required]
+      'myfile': ['', Validators.required],
 
      
     })
