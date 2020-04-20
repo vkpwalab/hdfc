@@ -213,8 +213,17 @@
                 <div class="col-lg-12 col-12 mt-3 alternative">
                   <mat-form-field>
                     <mat-label>REMARKS</mat-label>
-                    <input matInput>
+                    <input matInput [formControl]="remark1" required>
+                 <mat-error *ngIf="remark1.hasError('required')">You must enter a value</mat-error>
+
                   </mat-form-field>
+                  <!-- <div class="text-danger fs-12 mt-24" *ngIf="reachus.controls['sales_executive'].hasError('required') && (reachus.controls['sales_executive'].touched)">
+                    Remark for Sales Executive is Required.
+                </div> -->
+             
+               
+
+                  
                 </div>
 
 
@@ -222,32 +231,39 @@
                   <mat-form-field>
                     <mat-label>SLABS COMPLETE</mat-label>
 
-                    <select matNativeControl>
+                    <select matNativeControl [formControl]="slab_complete1" required>
+                      <option label="select something"></option>
+                      
                       <option value="5">5</option>
                       <option value="10">10</option>
                       <option value="15">15</option>
                       <option value="20">20</option>
                     </select>
+                    <mat-error *ngIf="slab_complete1.hasError('required')">Please Select Slab Complete</mat-error>
+
                   </mat-form-field>
                 </div>
                 <div class="col-lg-12 col-12 alternative">
-                  <mat-form-field>
+                  <mat-form-field >
                     <mat-label>CONSTRUCTION STAGE</mat-label>
-                    <select matNativeControl>
+                    <select matNativeControl [formControl]="construction_stage1" required>
+                      <option label="select something"></option>
                       <option value="full">full</option>
                       <option value="half">half</option>
                       <option value="complete">complete</option>
                       <option value="remaining">remaining</option>
                     </select>
+                    <mat-error *ngIf="construction_stage1.hasError('required')">Please Select Contrucion Stage</mat-error>
                   </mat-form-field>
                 </div>
                 <div class="col-lg-12 col-12 alternative" >
 
                   <mat-form-field id="calendar">
                     <mat-label>CURRENT STAGE DATE</mat-label>
-                    <input matInput [matDatepicker]="picker1">
+                    <input matInput [matDatepicker]="picker1" [formControl]="calendar1">
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                     <mat-datepicker #picker1></mat-datepicker>
+                    <mat-error *ngIf="calendar1.hasError('required')">Please select Date</mat-error>
                   </mat-form-field>
                 </div>
                 <!-- <div class="text-center col-lg-12 mb-2">
@@ -305,7 +321,9 @@
                 <div class="col-lg-12 col-12 mt-3 alternative">
                   <mat-form-field>
                     <mat-label>REMARKS</mat-label>
-                    <input matInput>
+                    <input matInput [formControl]="remark2" required>
+                 <mat-error *ngIf="remark2.hasError('required')">You must enter a value</mat-error>
+
                   </mat-form-field>
                 </div>
 
@@ -314,33 +332,43 @@
                   <mat-form-field>
                     <mat-label>SLABS COMPLETE</mat-label>
 
-                    <select matNativeControl>
+                    <select matNativeControl  [formControl]="slab_complete2" required>
+                      <option label="select something"></option>
                       <option value="5">5</option>
                       <option value="10">10</option>
                       <option value="15">15</option>
                       <option value="20">20</option>
                     </select>
+                    <mat-error *ngIf="slab_complete2.hasError('required')">Please Select Slab Complete</mat-error>
+
                   </mat-form-field>
                 </div>
                 <div class="col-lg-12 col-12 alternative">
                   <mat-form-field>
                     <mat-label>CONSTRUCTION STAGE</mat-label>
-                    <select matNativeControl>
+                    <select matNativeControl [formControl]="construction_stage2" required>
+                      <option label="select something"></option>
+                      
                       <option value="full">full</option>
                       <option value="half">half</option>
                       <option value="complete">complete</option>
                       <option value="remaining">remaining</option>
                     </select>
+                    <mat-error *ngIf="construction_stage2.hasError('required')">Please Select Contrucion Stage</mat-error>
+
                   </mat-form-field>
                 </div>
 
                 <div class="col-lg-12 col-12 alternative">
                   <mat-form-field id="calendar">
                     <mat-label>CURRENT STAGE DATE</mat-label>
-                    <input matInput [matDatepicker]="picker2">
+                    <input matInput [matDatepicker]="picker2" [formControl]="calendar2">
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2></mat-datepicker>
+                  <mat-error *ngIf="calendar2.hasError('required')">Please select Date</mat-error>
+
                   </mat-form-field>
+
                 </div>
                 <!-- <div class="col-lg-12 col-12 text-center">
                   <ngx-file-drop dropZoneLabel="Drop files here">
@@ -384,7 +412,9 @@
                 <div class="col-lg-12 col-12 mt-3 alternative">
                   <mat-form-field>
                     <mat-label>REMARKS</mat-label>
-                    <input matInput>
+                    <input matInput type="text" [formControl]="remark3">
+                  <mat-error *ngIf="remark3.hasError('required')">You must enter a value</mat-error>
+
                   </mat-form-field>
                 </div>
 
@@ -393,31 +423,37 @@
                   <mat-form-field>
                     <mat-label>SLABS COMPLETE</mat-label>
 
-                    <select matNativeControl>
+                    <select matNativeControl [formControl]="slab_complete3">
                       <option value="5">5</option>
                       <option value="10">10</option>
                       <option value="15">15</option>
                       <option value="20">20</option>
                     </select>
+                    <mat-error *ngIf="slab_complete3.hasError('required')">Please Select Slab Complete</mat-error>
+
                   </mat-form-field>
                 </div>
                 <div class="col-lg-12 col-12 alternative">
                   <mat-form-field>
                     <mat-label>CONSTRUCTION STAGE</mat-label>
-                    <select matNativeControl>
+                    <select matNativeControl [formControl]="construction_stage3">
                       <option value="full">full</option>
                       <option value="half">half</option>
                       <option value="complete">complete</option>
                       <option value="remaining">remaining</option>
                     </select>
+                    <mat-error *ngIf="construction_stage3.hasError('required')">Please Select Contrucion Stage</mat-error>
+
                   </mat-form-field>
                 </div>
                 <div class="col-lg-12 col-12 alternative" >
                   <mat-form-field id="calendar">
                     <mat-label>CURRENT STAGE DATE</mat-label>
-                    <input matInput [matDatepicker]="picker3">
+                    <input matInput [matDatepicker]="picker3" [formControl]="calendar3">
                     <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
                     <mat-datepicker #picker3></mat-datepicker>
+                  <mat-error *ngIf="calendar3.hasError('required')">Please select Date</mat-error>
+                    
                   </mat-form-field>
                 </div>
                 <!-- <div class="col-lg-12 col-12 text-center">

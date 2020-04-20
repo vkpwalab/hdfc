@@ -27,9 +27,10 @@
                                 <mat-form-field appearance="standard">
                                     <mat-label>CUSTOMER NAME<span class="text-danger">*</span></mat-label>
                                     <input matInput formControlName="cname" type="text">
-                                    
+
                                 </mat-form-field>
-                                <span class="text-danger fs-12" *ngIf="customerlead.controls['cname'].hasError('required') && (customerlead.controls['cname'].touched)">
+                                <span class="text-danger fs-12"
+                                    *ngIf="customerlead.controls['cname'].hasError('required') && (customerlead.controls['cname'].touched)">
                                     Customer Name is Required.
                                 </span>
                             </div>
@@ -38,7 +39,8 @@
                                     <mat-label>MOBILE NUMBER<span class="text-danger">*</span></mat-label>
                                     <input matInput formControlName="mobile" type="text">
                                 </mat-form-field>
-                                <span class="text-danger fs-12" *ngIf="customerlead.controls['mobile'].hasError('required') && (customerlead.controls['mobile'].touched)">
+                                <span class="text-danger fs-12"
+                                    *ngIf="customerlead.controls['mobile'].hasError('required') && (customerlead.controls['mobile'].touched)">
                                     Mobile Number is Required.
                                 </span>
                             </div>
@@ -49,49 +51,68 @@
 
 
                                 </mat-form-field>
-                                <span class="text-danger fs-12" *ngIf="customerlead.controls['email'].hasError('required') && (customerlead.controls['email'].touched)">
+                                <span class="text-danger fs-12"
+                                    *ngIf="customerlead.controls['email'].hasError('required') && (customerlead.controls['email'].touched)">
                                     Email ID is Required.
                                 </span>
                             </div>
                             <div class="col-lg-3">
                                 <mat-form-field appearance="standard">
                                     <mat-label>STATE</mat-label>
-                                    <mat-select name="myselect" class="required">
-                                        <mat-option value="">Option</mat-option>
-                                        <mat-option value="">m1</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
+                                    <select matNativeControl  formControlName="state" required>
+                                      
 
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                    <mat-error *ngIf="customerlead.controls['state'].hasError('required') && (customerlead.controls['state'].touched)">Please Select State
+                                    </mat-error>
+                                </mat-form-field>
+                                <!-- customerlead.controls['email'].hasError('required') && (customerlead.controls['email'].touched)" -->
+                            </div>
+                          
                         </div>
                         <div class="col-lg-12 mt-2 project alternative">
                             <div class="col-lg-3">
                                 <mat-form-field appearance="standard">
                                     <mat-label>CITY</mat-label>
-                                    <mat-select>
-                                        <mat-option value="option">Option</mat-option>
-                                        <mat-option value="option">m1</mat-option>
-                                    </mat-select>
+                                    <select matNativeControl formControlName="city" required>
+                                        <option label="city"></option>
+
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                    <mat-error *ngIf="customerlead.controls['city'].hasError('required') && (customerlead.controls['city'].touched)">Please Select City
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                             <div class="col-lg-3">
                                 <mat-form-field appearance="standard">
                                     <mat-label>BOOKING STATUS</mat-label>
-                                    <mat-select>
-                                        <mat-option value="option">Option</mat-option>
-                                        <mat-option value="option">m1</mat-option>
-                                    </mat-select>
+                                    <select matNativeControl formControlName="bookingstatus" required>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                    <mat-error *ngIf="customerlead.controls['bookingstatus'].hasError('required') && (customerlead.controls['bookingstatus'].touched)">Please Select booking status
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                             <div class="col-lg-6">
                                 <mat-form-field appearance="standard">
                                     <mat-label>INTERESTED PROJECT</mat-label>
-                                    <mat-select multiple>
+                                    <mat-select multiple matNativeControl  formControlName="projectin" required>
                                         <mat-option value="option">Option</mat-option>
                                         <mat-option value="option">m1</mat-option>
                                         <mat-option value="option">Option</mat-option>
                                         <mat-option value="option">m1</mat-option>
                                     </mat-select>
+                                    <mat-error *ngIf="customerlead.controls['projectin'].hasError('required') && (customerlead.controls['projectin'].touched)">Please Select Interested Porject.
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -101,7 +122,8 @@
                                     <mat-label>OTHER PROJECT INFO</mat-label>
                                     <textarea matInput formControlName="project" type="text"></textarea>
                                 </mat-form-field>
-                                <span class="text-danger fs-12" *ngIf="customerlead.controls['project'].hasError('required') && (customerlead.controls['project'].touched)">
+                                <span class="text-danger fs-12"
+                                    *ngIf="customerlead.controls['project'].hasError('required') && (customerlead.controls['project'].touched)">
                                     Other Project Info is Required.
                                 </span>
                             </div>
@@ -110,7 +132,8 @@
                                     <mat-label>REMARK</mat-label>
                                     <textarea matInput formControlName="remark" type="text"></textarea>
                                 </mat-form-field>
-                                <span class="text-danger fs-12" *ngIf="customerlead.controls['remark'].hasError('required') && (customerlead.controls['remark'].touched)">
+                                <span class="text-danger fs-12"
+                                    *ngIf="customerlead.controls['remark'].hasError('required') && (customerlead.controls['remark'].touched)">
                                     Remark is Required.
                                 </span>
                             </div>
@@ -124,28 +147,30 @@
                 </mat-tab>
                 <!-- ----------------------------------------------------------------------------           -->
                 <mat-tab label="Upload through Excel">
-                    <form class="pb-4" [FormGroup]="customerlead">
+                    <form class="pb-4">
                         <div class="col-lg-12 project alternative">
                             <div class="col-lg-6">
                                 <mat-form-field appearance="standard">
                                     <mat-label>SELECT PROJECT</mat-label>
-                                    <mat-select>
-                                        <mat-option value="option">Option</mat-option>
-                                        <mat-option value="option">m1</mat-option>
-                                    </mat-select>
+                                    <select matNativeControl  [formControl]="select_project" required>
+                                        <option value="option">Option</option>
+                                        <option value="option">m1</option>
+                                    </select>
+                                    <mat-error *ngIf="select_project.hasError('required')">Please Select Prpject.</mat-error>
+                
                                 </mat-form-field>
                             </div>
                             <div class="col-lg-6" id="chos">
                                 <mat-form-field appearance="standard">
                                     <mat-label>CHOOSE EXCEL FILE</mat-label>
                                     <input matInput>
-                                    <input  class="float-right chos" type="file">
+                                    <input class="float-right chos" type="file">
 
                                     <span class="main_btn_log text-center">Upload Excel</span>
                                     <!-- <input type="file" class="main_btn_log" value="chosse"> -->
 
                                 </mat-form-field>
-                               
+
                             </div>
                         </div>
                         <div class="col-lg-12 col-12 px-0">
@@ -153,7 +178,7 @@
                                 <div class="text-center col-lg-4 col-6 submit">
                                     <input type="submit" class="main_btn_log" value="SUBMIT">
                                 </div>
-                                
+
                                 <!-- <div class="text-center col-lg-4" id="forimport">
                                     <ngx-file-drop dropZoneLabel="Drop files here">
                                         <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">

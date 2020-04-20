@@ -139,3 +139,6 @@
 }
 
 .search-result{display: inline-flex;}
+.mt-24{
+    margin-top: -24px !important;
+}

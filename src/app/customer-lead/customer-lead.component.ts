@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
 
 
 
@@ -12,9 +12,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 export class CustomerLeadComponent implements OnInit {
+  select_project = new FormControl('', Validators.required);
+
   customerlead: FormGroup;
   isSubmitted = false;
-  signup: FormGroup;
+ 
+  uploadthroughexcel: FormGroup;
   constructor(private shared : ServiceService,private singinfb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -26,19 +29,22 @@ export class CustomerLeadComponent implements OnInit {
       'project': ['', Validators.required],
       'remark': ['', Validators.required],
       'state': ['', Validators.required],
-      'myfile': ['', Validators.required]
+      'myfile': ['', Validators.required],
+      'city': ['', Validators.required],
+      'bookingstatus': ['', Validators.required],
+      'projectin': ['', Validators.required],
+      'myprofile': ['', Validators.required]
+     
 
      
     })
-    // this.signup = this.singinfb.group({
-     
-    // });
+   
   
   }
  
-  get state() {
-    return this.customerlead.get('state');
-  }
+  // get state() {
+  //   return this.customerlead.get('state');
+  // }
   
 
 }

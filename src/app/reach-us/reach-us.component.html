@@ -60,12 +60,14 @@
             <span class="fs-14 pl-2 pb-0 v-align">Yes</span>
         </div>
         <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forreachus">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="reachus">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS" placeholder="REMARKS">
+                    <input matInput formControlName="approval" type="text" value="" placeholder="REMARKS" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="reachus.controls['approval'].hasError('required') && (reachus.controls['approval'].touched)">
+                    Remark for Project Approval is Required.
+                </div>
 
             </form>
 
@@ -82,12 +84,14 @@
 
         </div>
         <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forreachus">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="reachus">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input matInput formControlName="campaign" type="text" value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="reachus.controls['campaign'].hasError('required') && (reachus.controls['campaign'].touched)">
+                    Remark for Campaign Management is Required.
+                </div>
 
             </form>
 
@@ -104,12 +108,14 @@
 
         </div>
         <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forreachus">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="reachus">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input matInput formControlName="subvention_scheme" type="text" value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="reachus.controls['subvention_scheme'].hasError('required') && (reachus.controls['subvention_scheme'].touched)">
+                    Remark for Campaign Management is Required.
+                </div>
 
             </form>
 
@@ -126,12 +132,15 @@
 
         </div>
         <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forreachus">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="reachus">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input matInput formControlName="disbursment_facility" type="text" value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="reachus.controls['disbursment_facility'].hasError('required') && (reachus.controls['disbursment_facility'].touched)">
+                    Remark for Disbursment Facility is Required.
+                </div>
+                
 
             </form>
 
@@ -148,12 +157,14 @@
 
         </div>
         <div class="col-lg-6 col-12 mt-22 padlr alternative" id="forreachus">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="reachus">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input matInput formControlName="home_loan" type="text" value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="reachus.controls['home_loan'].hasError('required') && (reachus.controls['home_loan'].touched)">
+                    Remark for Home Loan Assisatnce is Required.
+                </div>
 
             </form>
 
@@ -170,12 +181,14 @@
 
         </div>
         <div class="col-lg-6 col-12 mt-22 padlr alternative" id="forreachus">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="reachus">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input matInput formControlName="sales_executive" type="text" value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="reachus.controls['sales_executive'].hasError('required') && (reachus.controls['sales_executive'].touched)">
+                    Remark for Sales Executive is Required.
+                </div>
 
             </form>
 
