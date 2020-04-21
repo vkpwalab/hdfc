@@ -18,7 +18,7 @@
                                 <input matInput type="email" formControlName="email">
                         </mat-form-field>
                         </div>
-                        <div class="col-12 mt-3">
+                        <div class="col-12 mt-4">
                             <span class="text-danger fs-12 pt-5" *ngIf="login_form.controls['email'].hasError('required') && (login_form.controls['email'].touched)">
                                 Please enter your email.
                             </span></div>
@@ -30,7 +30,7 @@
                                 <input matInput type="password" formControlName="password">
                             </mat-form-field>   
                         </div>
-                        <div class="col-12 mt-3">
+                        <div class="col-12 mt-4">
                             <span class="text-danger fs-12 pt-5" *ngIf="login_form.controls['password'].hasError('required') && (login_form.controls['password'].touched)">
                                 Please enter your password.
                             </span></div>
