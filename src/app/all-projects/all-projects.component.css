@@ -21,6 +21,12 @@
               .w-01 {width: 30px;}
               .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: -5%;}
               .fa-comments{float: right;padding-top: 6px;height: 25px;width: 35px;}
+              .flex {display: block !important}
+              .fit {padding-left: 0px !important;}
+              .dropdown-toggle {padding-left: 0px !important;}
+              .ter {font-size: 14px;}
+              .icon-add img {height: 20px;}
+              .first-line {display: none;}
              
 }
 
@@ -38,15 +44,24 @@
     .Q-ser{display: inline-flex;}
     .f-btn{display: inline-flex;}
     /* input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;} */
-    input[type=search] {border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
+    input[type=search] {border: none;padding: 0px;width: 90%!important;font-size: 13px;padding-top: 4px;}
     .app {color: #6dcc8d;}
     .pen {color: #e3310d;}
     .main_btn_log {border:1px solid #e3310d;width: 100%;}
     .raj {padding-top: 3px;}
-
+    .icon-add {display: none;}
 
 }
-
+.flex {display: inline-flex}
+.dropdown-toggle {padding-bottom: 2px !important;padding-top: 10px !important;}
+.dropdown-toggle:focus{outline: none;}
+button:focus {outline: none;}
+.dropdown {border-bottom: 1px solid rgb(192, 190, 190);}
+.dropdown-toggle::after{margin-left: 150px !important;}
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
     /* ----------------filter */
     .filter {text-align: end;}
     #radio {display: inline-flex; border-radius: 9px;}

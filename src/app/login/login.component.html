@@ -8,7 +8,7 @@
                 <div class="hdfc_logo mb-5"><img src="./assets/images/LoginPageLOGO.png" width="100%"></div>
 
                 <div id="loginDIV alternative">
-                    <form [formGroup]='loginpage'>
+                    <form [formGroup]='login_form'>
                         <div class="login_title"> Developer Login </div>
 
                         <div class="form-group form-type pb-0 mb-0 pb-0 alternative">
@@ -19,7 +19,7 @@
                         </mat-form-field>
                         </div>
                         <div class="col-12 mt-3">
-                            <span class="text-danger fs-12 pt-5" *ngIf="loginpage.controls['email'].hasError('required') && (loginpage.controls['email'].touched)">
+                            <span class="text-danger fs-12 pt-5" *ngIf="login_form.controls['email'].hasError('required') && (login_form.controls['email'].touched)">
                                 Please enter your email.
                             </span></div>
                         <!-- <br> -->
@@ -31,7 +31,7 @@
                             </mat-form-field>   
                         </div>
                         <div class="col-12 mt-3">
-                            <span class="text-danger fs-12 pt-5" *ngIf="loginpage.controls['password'].hasError('required') && (loginpage.controls['password'].touched)">
+                            <span class="text-danger fs-12 pt-5" *ngIf="login_form.controls['password'].hasError('required') && (login_form.controls['password'].touched)">
                                 Please enter your password.
                             </span></div>
 

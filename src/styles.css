@@ -61,6 +61,7 @@ html, body {font-family: 'Titillium Web'!important;}
   outline:  none;
 }
 .main_btn_log:focus{outline: none}
+/* .btn:focus {outline: none;} */
 .main-list:focus{outline: none}
 .mat-tab-label {font-family: 'Titillium Web'!important;}
 .mat-input-element {font-family: 'Titillium Web'!important;}

@@ -48,6 +48,7 @@
 }
 @media screen and (min-width: 300px) and (max-width: 576px){
   .active {background-color:#e3310d;}
+  .fa-bars {color: white;}
 }
 
 
