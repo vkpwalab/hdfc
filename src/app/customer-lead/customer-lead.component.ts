@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
-import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators,FormControl ,NgForm} from '@angular/forms';
 
 
 
@@ -14,15 +14,15 @@ import { FormGroup, FormBuilder, Validators,FormControl } from '@angular/forms';
 export class CustomerLeadComponent implements OnInit {
   select_project = new FormControl('', Validators.required);
 
-  customerlead: FormGroup;
+  customer_lead_form: FormGroup;
   isSubmitted = false;
  
   uploadthroughexcel: FormGroup;
-  constructor(private shared : ServiceService,private singinfb: FormBuilder) { }
+  constructor(private shared : ServiceService,private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Submit Customer Lead');
-    this.customerlead = this.singinfb.group({
+    this.customer_lead_form = this.fb.group({
       'cname': ['', Validators.required],
       'mobile': ['', Validators.required],
       'email': ['', Validators.required],
@@ -41,6 +41,10 @@ export class CustomerLeadComponent implements OnInit {
    
   
   }
+  postData(customer_lead_form:NgForm)  
+  {  
+    console.log(customer_lead_form.value);  
+  }  
  
   // get state() {
   //   return this.customerlead.get('state');

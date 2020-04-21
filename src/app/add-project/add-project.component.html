@@ -21,13 +21,13 @@
         </div>
 
     </div>
- 
+
     <!-- --------------------------MODAL BUTTON----------------- -->
-<div class="col-lg-12 text-right modal-ton">
-    <button type="button" class="btn btn-modal" data-toggle="modal" data-target="#exampleModal">
-        VIEW DRAFT PROJECT
-      </button>
-</div>
+    <div class="col-lg-12 text-right modal-ton">
+        <button type="button" class="btn btn-modal" data-toggle="modal" data-target="#exampleModal">
+            VIEW DRAFT PROJECT
+        </button>
+    </div>
 
 
 
@@ -73,119 +73,125 @@
 
     <!--------------- BOTTOM CARD -------------- -->
 
-    <div class="col-lg-12 card-bottom shadow px-0 mt-4">
+    <div class="col-lg-12 card-bottom shadow px-0 mt-4" id="fortabs">
 
         <div class="tab-content" id="pills-tabContent">
- <!-- _________________________________________NO-1________________________________ -->
+            <!-- _________________________________________NO-1________________________________ -->
 
             <div class="col-lg-12 px-0 mt-2 tab-pane fade show active" id="pills-1" role="tabpanel"
                 aria-labelledby="pills-home-tab">
-             <app-project-details></app-project-details>
+                <app-project-details></app-project-details>
             </div>
 
-<!-- _________________________________________NO-2________________________________ -->
+            <!-- _________________________________________NO-2________________________________ -->
 
             <div class="col-lg-12 px-0 address tab-pane fade" id="pills-2" role="tabpanel"
                 aria-labelledby="pills-profile-tab">
                 <app-address-details></app-address-details>
             </div>
 
-<!-- _________________________________________NO-3________________________________ -->    
+            <!-- _________________________________________NO-3________________________________ -->
 
             <div class="col-lg-12 px-0 feature  tab-pane fade" id="pills-3" role="tabpanel"
                 aria-labelledby="pills-contact-tab">
                 <app-project-features></app-project-features>
             </div>
-   <!-- _________________________________________NO-4________________________________ -->  
-            
-            <div class=" col-lg-12 px-0 PERA tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-contact-tab">
-              <app-rera-details></app-rera-details> 
-            </div>
- <!-- _________________________________________NO-5________________________________ -->  
+            <!-- _________________________________________NO-4________________________________ -->
 
-            <div class="col-lg-12 px-0 bank tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-contact-tab">
-               <app-builders-bank></app-builders-bank>
+            <div class=" col-lg-12 px-0 PERA tab-pane fade" id="pills-4" role="tabpanel"
+                aria-labelledby="pills-contact-tab">
+                <app-rera-details></app-rera-details>
             </div>
-  <!-- _________________________________________NO-6________________________________ -->  
+            <!-- _________________________________________NO-5________________________________ -->
+
+            <div class="col-lg-12 px-0 bank tab-pane fade" id="pills-5" role="tabpanel"
+                aria-labelledby="pills-contact-tab">
+                <app-builders-bank></app-builders-bank>
+            </div>
+            <!-- _________________________________________NO-6________________________________ -->
 
             <div class="col-lg-12 px-0 upload tab-pane fade" id="pills-6" role="tabpanel"
                 aria-labelledby="pills-contact-tab">
-              <app-upload-docx></app-upload-docx>
+                <app-upload-docx></app-upload-docx>
             </div>
         </div>
     </div>
 
     <div class=" col-lg-12 col-12 text-right mt-5">
         <div class="col-lg-4 px-0 button text-right ">
-        <div class="text-center col-lg-6"> 
-            <input type="submit" class="main_btn_log " value="SUBMIT">
+            <div class="text-center col-lg-6">
+                <input type="submit" class="main_btn_log " value="SUBMIT">
+            </div>
+            <div class="text-center col-lg-6">
+                <button class="main_btn_log draft">DRAFT</button>
+            </div>
         </div>
-        <div class="text-center col-lg-6"> 
-            <button class="main_btn_log draft">DRAFT</button>
-        </div>
-       </div>
-      </div>
+    </div>
 
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">DRAFT PROJECT</h5>
-          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">DRAFT PROJECT</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> -->
-          <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
-          </button>
+                <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <mat-form-field>
+                    <mat-label>Filter</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
+                </mat-form-field>
+
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource" matSort>
+
+                        <!-- ID Column -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                        </ng-container>
+
+                        <!-- Progress Column -->
+                        <ng-container matColumnDef="edit project">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-left"> Edit Project </th>
+                            <td mat-cell *matCellDef="let row">
+                                <button type="button" class="btn inner-modal" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    ADD PROJECT
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="delete project">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-left"> Delete Project
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                                <button type="button" class="btn inner-modal" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    DELETE PROJECT
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                </div>
+
+            </div>
         </div>
-        <div class="modal-body">
-            <mat-form-field>
-                <mat-label>Filter</mat-label>
-                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
-              </mat-form-field>
-              
-              <div class="mat-elevation-z8">
-                <table mat-table [dataSource]="dataSource" matSort>
-              
-                  <!-- ID Column -->
-                  <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-                    <td mat-cell *matCellDef="let row"> {{row.name}} </td>
-                  </ng-container>
-              
-                  <!-- Progress Column -->
-                  <ng-container matColumnDef="edit project">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-left"> Edit Project </th>
-                    <td mat-cell *matCellDef="let row"> 
-                        <button type="button" class="btn inner-modal" data-toggle="modal" data-target="#exampleModal">
-                            ADD PROJECT
-                          </button>    
-                    </td>
-                  </ng-container>
-              
-                  <!-- Name Column -->
-                  <ng-container matColumnDef="delete project">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-left"> Delete Project </th>
-                    <td mat-cell *matCellDef="let row"> 
-                        <button type="button" class="btn inner-modal" data-toggle="modal" data-target="#exampleModal">
-                            DELETE PROJECT
-                          </button>     
-                    </td>
-                  </ng-container>
-              
-                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-                  </tr>
-                </table>
-              
-                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-              </div>
-              
-        </div>
-      </div>
     </div>
-  </div>
+</div>

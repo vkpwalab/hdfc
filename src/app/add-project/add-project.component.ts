@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import $ from 'jquery'
 
 export interface UserData {
   id: number;
@@ -24,6 +25,8 @@ export interface UserData {
   styleUrls: ['./add-project.component.css']
 })
 export class AddProjectComponent implements OnInit {
+  
+
   displayedColumns: string[] = ['name', 'edit project', 'delete project'];
   dataSource: MatTableDataSource<UserData>;
   formdata:UserData[];
@@ -31,13 +34,23 @@ export class AddProjectComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 
-  constructor() { // Create 100 users
+  constructor() { 
+
+   
+    // Create 100 users
     // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
     // console.log(users)
     // Assign the data to the data source for the table to render
      }
 
   ngOnInit(): void {
+   
+    $('.next').click( function(){
+      $('.active').next().addClass('active').prev().removeClass('active')
+  })
+  $('.prev').click( function(){
+      $('.active').prev().addClass('active').next().removeClass('active')
+  })
     this.formdata = [
       {id:1,name:'Albert'},
       {id:1,name:'blbert'},
@@ -59,6 +72,8 @@ export class AddProjectComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+ 
+ 
 }
 /** Builds and returns a new User. */
 // function createNewUser(id: number): UserData {
