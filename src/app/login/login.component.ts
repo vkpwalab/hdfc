@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 
 export class LoginComponent implements OnInit {
-  loginpage: FormGroup;
+  login_form: FormGroup;
 
 
   constructor(private router: Router,private login_fb: FormBuilder) { }
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     if(localStorage.getItem('auth-token')){
       this.router.navigate(['dashboard']);
     }
-    this.loginpage = this.login_fb.group(
+    this.login_form = this.login_fb.group(
       {
         'email': ['', [Validators.required, Validators.email, Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$')]],
         'password': ['', [Validators.required]],
