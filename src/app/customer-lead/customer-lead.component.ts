@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
-import { FormGroup, FormBuilder, Validators,FormControl ,NgForm} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators,FormControl} from '@angular/forms';
 
 
 
@@ -41,7 +41,7 @@ export class CustomerLeadComponent implements OnInit {
    
   
   }
-  postData(customer_lead_form:NgForm)  
+  postData(customer_lead_form)  
   {  
     console.log(customer_lead_form.value);  
   }  
