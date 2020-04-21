@@ -60,8 +60,8 @@ button:focus {outline: none;}
 .dropdown-toggle::after{margin-left: 150px !important;}
 .btn:focus,.btn:active {
   outline: none !important;
-  box-shadow: none;
-}
+  box-shadow: none;}
+  .dropdown-menu {min-width: 14rem !important;}
     /* ----------------filter */
     .filter {text-align: end;}
     #radio {display: inline-flex; border-radius: 9px;}
