@@ -115,3 +115,6 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
       }
 
 .cdk-overlay-container {z-index: 99999!important;}
+#fortabs  .tab-content>.active{
+  display: contents;
+}
