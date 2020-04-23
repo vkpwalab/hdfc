@@ -29,7 +29,7 @@ export class ListOfDocumentsComponent implements OnInit {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         this.fileEntry= true;
         fileEntry.file((file: File) => {
-
+         
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
           // $("#progress1").show();

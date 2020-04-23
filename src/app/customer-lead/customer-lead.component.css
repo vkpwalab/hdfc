@@ -9,6 +9,21 @@
 .para {font-family: 'Titillium Web' !important;font-size: 14px;}
 .mat-form-field {font-family: 'Titillium Web' !important;}
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
+.main_btn_log1 {width: 23%;border: 1px solid #e3310d;
+    border-radius: 50px;
+       background-color: #e3310d;
+       color: white;
+       display: block;
+       font-size: 13px;
+       /* height: 35px; */
+       cursor: pointer;
+       padding: 8px;
+       box-shadow: 1px 3px 8px #ed1c2452;
+       margin-bottom: 5% !important;
+       margin-left: 77% !important;
+
+    }
+   
 @media screen and (min-width:320px) and (max-width: 576px){
     .project{display: block;padding-left: 0px !important;padding-right: 0px !important;}
     .mat-form-field{width: 100%;}
@@ -17,6 +32,18 @@
     .next {border: 1px solid #e3310d;}
     .sample {padding-right: 0px !important;}
     .submit {margin: auto;}
-
+    .main_btn_log1 {width: 37% !important;border: 1px solid #e3310d;
+        border-radius: 50px;
+           background-color: #e3310d;
+           color: white;
+           display: block;
+           font-size: 13px;
+           /* height: 35px; */
+           cursor: pointer;
+           padding: 8px;
+           box-shadow: 1px 3px 8px #ed1c2452;
+           margin-bottom: 9% !important;
+           margin-left: 66% !important;
+        }
 
 }
