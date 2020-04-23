@@ -13,7 +13,7 @@
 }
 
 @media screen and (min-width:320px) and (max-width: 576px){
-    .dropdown-toggle::after{margin-left: 250px !important;}
+    .dropdown-toggle::after{margin-left: 220px !important;}
     .dropdown-menu {min-width: 21rem !important;}
     .flex {display: block !important}
     .fit {padding-left: 0px !important;}
@@ -139,7 +139,7 @@ button:focus {outline: none;}
 .btn:focus,.btn:active {
   outline: none !important;
   box-shadow: none;}
-
+  .mat-form-field{font-size: 12px;width: 100%;}
     /* ----------------filter */
     .filter {text-align: end;}
     #radio {display: inline-flex;border-radius: 9px;}

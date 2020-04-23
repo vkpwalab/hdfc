@@ -53,9 +53,10 @@
               .ter {font-size: 14px;}
               .icon-add img {height: 20px;}
               .first-line {display: none;}
-              .dropdown-toggle::after{margin-left: 250px !important;}
+              .dropdown-toggle::after{margin-left: 220px !important;}
               .dropdown-menu {min-width: 21rem !important;}
-    
+              .search {padding-top: 5px !important;}
+              .mat-form-field{width: 100%;}
 }
 
 
@@ -94,8 +95,7 @@
     .view {display: none;}
     .m-01 {width: 25px;height: 15px;}
     
-    .dropdown-toggle::after{margin-left: 130px !important;}
-    .dropdown-menu {min-width: 14rem !important;}
+.search {height: 44px;}
        
 }
 .flex {display: inline-flex}
@@ -106,6 +106,7 @@ button:focus {outline: none;}
 .btn:focus,.btn:active {
   outline: none !important;
   box-shadow: none;}
+  .mat-form-field{font-size: 12px;width: 100%;}
   /* .dropdown-menu {min-width: 14rem !important;} */
     /* ----------------filter */
     .filter {text-align: end;}

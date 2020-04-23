@@ -50,8 +50,10 @@
     .main_btn_log {border:1px solid #e3310d;width: 100%;}
     .raj {padding-top: 3px;}
     .icon-add {display: none;}
+    .search{height: 48px;}
 
 }
+.mat-form-field{font-size: 12px;width: 100%;}
 .flex {display: inline-flex}
 .dropdown-toggle {padding-bottom: 2px !important;padding-top: 10px !important;}
 .dropdown-toggle:focus{outline: none;}
