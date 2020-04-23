@@ -1,5 +1,13 @@
 @media(min-width: 300px) and (max-width: 576px)
 {
+    .dropdown-toggle::after{margin-left: 250px !important;}
+    .dropdown-menu {min-width: 21rem !important;}
+    .flex {display: block !important}
+    .fit {padding-left: 0px !important;}
+    .ter {font-size: 14px;}
+    .dropdown-toggle {padding-left: 0px !important;}
+
+
     .text-c{
         text-align: center !important;
     }
@@ -134,7 +142,8 @@
     .view {display: none;}
     .main_btn_log {border:1px solid #e3310d;width: 100%;}
     
-
+    .dropdown-toggle::after{margin-left: 130px !important;}
+    .dropdown-menu {min-width: 14rem !important;}
        
 }
 
@@ -142,3 +151,11 @@
 .mt-24{
     margin-top: -24px !important;
 }
+.flex {display: inline-flex}
+.dropdown-toggle {padding-bottom: 2px !important;padding-top: 10px !important;}
+.dropdown-toggle:focus{outline: none;}
+button:focus {outline: none;}
+.dropdown {border-bottom: 1px solid rgb(192, 190, 190);}
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;}
