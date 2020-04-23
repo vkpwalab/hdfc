@@ -362,6 +362,7 @@ html, body { height: 100%; }
   background-color: rgb(175,175,175) !important;
 
 }
+
 #forreachus1 .mat-slide-toggle-thumb {
   height: 15px !important;
   width: 15px !important;
@@ -397,6 +398,7 @@ html, body { height: 100%; }
 #forreachus1 .mat-form-field-infix{
   padding: 19px 0 !important;
 }
+#filter {padding: 0px !important;}
 
 
 #matnewtabs .mat-form-field{

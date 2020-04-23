@@ -11,7 +11,7 @@ export class RespondToQueriesComponent implements OnInit {
   constructor(private shared : ServiceService) { }
 
   ngOnInit(): void {
-    this.shared.headerTitle('Respond To Queires');
+    this.shared.headerTitle('Respond To Queries');
 
   }
 
