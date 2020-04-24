@@ -20,6 +20,10 @@
             .modal-footer {background-color: rgb(243, 241, 241);}
             tr {text-align: center;}
             .footer {display: inline-flex;text-align: end;font-size: 8px;}
+            .flex {display: block !important;}
+            .drop-d {padding-left: 0px !important;padding-right: 0px !important;}
+            mat-label {font-size: 13px !important;}
+           
 
 }
 
@@ -55,5 +59,8 @@
      .footer {display: inline-flex;text-align: end;font-size: 12px;}
      .close {padding: 15px !important;margin-top: -20px;}
      tr {text-align: center;}
+     .flex {display: inline-flex;}
+     .search {height: 45px;}
 }
 .fa-times{cursor: pointer;}
+.mat-form-field{font-size: 13px;width: 100%;}
