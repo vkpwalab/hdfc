@@ -24,7 +24,9 @@
     margin-top: 8px !important;
     }
     .btn1{
-        padding: 0.375rem 1rem !important;
+        /* padding: 0.375rem 1rem !important; */
+        padding: 0.375rem 2rem !important;
+
     }
     .padlr{
         padding-left: 0px !important;
@@ -48,7 +50,10 @@
     .i-con {position: absolute;top: -10%;right: 0;}
     .i-con .badge {position: absolute;right: 12px;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
     .tick p {font-size: 10px;}
-    p{margin-bottom: 0px !important;padding-bottom: 5px !important;}
+    p{
+        /* margin-bottom: 0px !important; */
+        /* padding-bottom: 5px !important; */
+    }
      .name{padding-left: 10px !important;}
      /* .address{padding-left: 6px !important;} */
      /* .ltd {padding-left: 6px !important;} */

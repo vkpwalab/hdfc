@@ -126,6 +126,20 @@ html, body { height: 100%; }
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 .cdk-overlay-container {z-index: 99999!important;}
+/* #submit  .mat-ink-bar{
+  visibility: visible !important;
+  left: 691px !important;
+  width: 160px !important;
+}
+#submit #mat-tab-label-2-1 .mat-ink-bar{
+  visibility: visible !important;
+  left: 691px !important;
+  width: 160px !important;
+}#submit #mat-tab-label-2-2 .mat-ink-bar{
+  visibility: visible !important;
+  left: 691px !important;
+  width: 160px !important;
+} */
 
 @media screen and (min-width:576px) and (max-width: 2000px){
   .cdk-overlay-container {z-index: 99999!important;}
