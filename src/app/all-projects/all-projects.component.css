@@ -27,6 +27,7 @@
               .ter {font-size: 14px;}
               .icon-add img {height: 20px;}
               .first-line {display: none;}
+              mat-label {font-size: 13px !important;}
              
 }
 
@@ -53,7 +54,7 @@
     .search{height: 48px;}
 
 }
-.mat-form-field{font-size: 12px;width: 100%;}
+.mat-form-field{font-size: 13px;width: 100%;}
 .flex {display: inline-flex}
 .dropdown-toggle {padding-bottom: 2px !important;padding-top: 10px !important;}
 .dropdown-toggle:focus{outline: none;}

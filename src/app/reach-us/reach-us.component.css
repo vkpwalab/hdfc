@@ -1,11 +1,6 @@
 @media(min-width: 300px) and (max-width: 576px)
 {
-    .dropdown-toggle::after{margin-left: 220px !important;}
-    .dropdown-menu {min-width: 21rem !important;}
-    .flex {display: block !important}
-    .fit {padding-left: 0px !important;}
-    .ter {font-size: 14px;}
-    .dropdown-toggle {padding-left: 0px !important;}
+    mat-label {font-size: 13px !important;}
 
 
     .text-c{
