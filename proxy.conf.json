@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "http://pws.hdfc.com/Devport_dmz/Devport_Out_API.svc",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true
+    }
+  }

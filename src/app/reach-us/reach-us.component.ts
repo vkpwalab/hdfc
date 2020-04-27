@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../service.service';
+import { SharedService } from '../services/shared.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ReachUsComponent implements OnInit {
   reachus: FormGroup;
 
-  constructor(private shared : ServiceService,private singinfb: FormBuilder) { }
+  constructor(private shared : SharedService,private singinfb: FormBuilder) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Reach Us');

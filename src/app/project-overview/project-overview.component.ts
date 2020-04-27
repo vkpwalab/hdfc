@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../service.service';
+import { SharedService } from '../services/shared.service';
 import {FormControl, Validators} from '@angular/forms';
 @Component({
   selector: 'app-project-overview',
@@ -22,7 +22,7 @@ export class ProjectOverviewComponent implements OnInit {
   calendar3 = new FormControl('',Validators.required);
   
   
-  constructor(private shared : ServiceService) { }
+  constructor(private shared : SharedService) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Overview');

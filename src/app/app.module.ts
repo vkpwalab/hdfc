@@ -55,6 +55,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queries.component';
+import { NgxSoapModule } from 'ngx-soap';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,7 @@ import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queri
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    
+    NgxSoapModule,
 
     MatInputModule,
     // ReactiveFormsModule,
