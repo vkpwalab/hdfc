@@ -23,6 +23,9 @@
        padding-right: 0 !important;
    }
   .padlr{padding-left: 0px !important;padding-right: 0px !important;}
+  .hide1{
+      display: none !important;
+  }
 }
 @media(min-width: 576px) and (max-width: 2000px)
 {

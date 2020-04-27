@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../service.service';
+import { SharedService } from '../services/shared.service';
 @Component({
   selector: 'app-project-distursement',
   templateUrl: './project-distursement.component.html',
@@ -7,7 +7,7 @@ import { ServiceService } from '../service.service';
 })
 export class ProjectDistursementComponent implements OnInit {
 
-  constructor(private shared : ServiceService) { }
+  constructor(private shared : SharedService) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Disbursement');

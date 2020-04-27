@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../service.service';
+import { SharedService } from '../services/shared.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SideMenubarComponent implements OnInit {
   header_title: string;
-  constructor(private shared: ServiceService, private router:Router) { }
+  constructor(private shared: SharedService, private router:Router) { }
 
   ngOnInit(): void {
     this.header_title = 'Home';

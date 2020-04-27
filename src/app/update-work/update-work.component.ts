@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
-import { ServiceService } from '../service.service';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-update-work',
@@ -9,7 +9,7 @@ import { ServiceService } from '../service.service';
 })
 export class UpdateWorkComponent implements OnInit {
   // show_progress:boolean;
-  constructor(private shared: ServiceService) {
+  constructor(private shared: SharedService) {
     // this.show_progress=false;
    }
 
