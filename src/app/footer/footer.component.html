@@ -3,8 +3,8 @@
         <div [routerLink]="['/dashboard']" class="col-3 dash text-center px-0" routerLinkActive
             #dashboard="routerLinkActive">
             <!-- <i class="fa fa-th-large" aria-hidden="true"></i> -->
-            <img class="w-20" src="{{ dashboard.isActive ? dashboard_img_active : dashboard_img }}">
-
+            <img class="w-20" src="{{ dashboard.isActive ?  dashboard_img_active : dashboard_img }}">
+         
             <h6 [ngClass]="dashboard.isActive ? 'active' : ''" >Dashboard</h6>
         </div>
         <div [routerLink]="['/all-projects']" class="col-3 dash text-center px-0" routerLinkActive

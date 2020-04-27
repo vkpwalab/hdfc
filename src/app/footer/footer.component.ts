@@ -16,9 +16,8 @@ export class FooterComponent implements OnInit {
   reachus_img_active: string;
   reachus_img: string;
 
-  constructor(private route:Router) { }
-
-  ngOnInit(): void {
+  constructor(private route:Router) { 
+   
     this.dashboard_img= "./assets/images/calculator/Deactive-Dashboard.png";
     this.all_project_img= "./assets/images/calculator/Deactivate-AllProjects.png";
     this.workprogress_img= "./assets/images/calculator/Deactive-workprogress.png";
@@ -29,6 +28,10 @@ export class FooterComponent implements OnInit {
     this.all_project_img_active= "./assets/images/icons/AllProjects.png";
     this.workprogress_img_active= "./assets/images/icons/Update_workprogress.png";
     this.reachus_img_active= "./assets/images/icons/reachus.png";
+  }
+
+  ngOnInit(): void {
+   
 
   }
 
