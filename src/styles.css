@@ -90,10 +90,10 @@ textarea{outline: none !important;}
 #submit1 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
 
 
-#submit .mat-ink-bar {height: 4px !important;}
+#submit1 .mat-ink-bar {height: 4px !important;}
 #submit2 .mat-ink-bar {height: 4px !important;}
 
-#submit1 .mat-ink-bar {height: 4px !important;}
+/* #submit1 .mat-ink-bar {height: 4px !important;} */
 #submit .mat-tab-label .mat-tab-label-content{
   color: black !important;
 }
@@ -393,6 +393,7 @@ html, body { height: 100%; }
   background-color: rgb(245,245,245)  !important;
 
 }
+
 #forreachus1 .mat-slide-toggle-bar {
   position: relative;
   width: 31px !important;
