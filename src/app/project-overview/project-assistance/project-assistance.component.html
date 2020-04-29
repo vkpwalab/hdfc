@@ -8,11 +8,14 @@
             <span class="fs-14 pl-2 pb-0 v-align">Yes</span>
         </div>
         <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forassistance">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="project_assistance_form">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS" placeholder="REMARKS">
+                    <input matInput value="" formControlName="approval" placeholder="REMARKS" >
                 </mat-form-field>
+                <div class="text-danger fs-12 mt-24" *ngIf="project_assistance_form.controls['approval'].hasError('required') && (project_assistance_form.controls['approval'].touched)">
+                    Remark for Project Approval is Required.
+                </div>
 
 
             </form>
@@ -30,12 +33,14 @@
 
         </div>
         <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forassistance">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="project_assistance_form">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input matInput formControlName="campaign" value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="project_assistance_form.controls['campaign'].hasError('required') && (project_assistance_form.controls['campaign'].touched)">
+                    Remark for Campaign Management is Required.
+                </div>
 
             </form>
 
@@ -52,12 +57,14 @@
 
         </div>
         <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forassistance">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="project_assistance_form">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input formControlName="subvention_scheme" matInput value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="project_assistance_form.controls['subvention_scheme'].hasError('required') && (project_assistance_form.controls['subvention_scheme'].touched)">
+                    Remark for Campaign Management is Required.
+                </div>
 
             </form>
 
@@ -74,12 +81,14 @@
 
         </div>
         <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forassistance">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="project_assistance_form">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input formControlName="disbursment_facility" matInput value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="project_assistance_form.controls['disbursment_facility'].hasError('required') && (project_assistance_form.controls['disbursment_facility'].touched)">
+                    Remark for Disbursment Facility is Required.
+                </div>
 
             </form>
 
@@ -96,12 +105,14 @@
 
         </div>
         <div class="col-lg-6 col-12 mt-22 padlr alternative" id="forassistance">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="project_assistance_form">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input formControlName="home_loan" matInput value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="project_assistance_form.controls['home_loan'].hasError('required') && (project_assistance_form.controls['home_loan'].touched)">
+                    Remark for Home Loan Assisatnce is Required.
+                </div>
 
             </form>
 
@@ -118,12 +129,14 @@
 
         </div>
         <div class="col-lg-6 col-12 mt-22 padlr alternative" id="forassistance">
-            <form class="example-form">
+            <form class="example-form" [formGroup]="project_assistance_form">
                 <mat-form-field class="example-full-width">
                     <!-- <mat-label>Favorite food</mat-label> -->
-                    <input matInput value="" placeholder="REMARKS">
+                    <input formControlName="sales_executive" matInput value="" placeholder="REMARKS">
                 </mat-form-field>
-
+                <div class="text-danger fs-12 mt-24" *ngIf="project_assistance_form.controls['sales_executive'].hasError('required') && (project_assistance_form.controls['sales_executive'].touched)">
+                    Remark for Sales Executive is Required.
+                </div>
 
             </form>
 

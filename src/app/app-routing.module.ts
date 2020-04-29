@@ -20,7 +20,7 @@ import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queri
 
 
 const routes: Routes = [
-  { path: '', component:  DashboardComponent},
+  { path: '' , redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'login', component: LoginComponent},
   { path: 'side-menubar', component: SideMenubarComponent},
   { path: 'dashboard', component: DashboardComponent},
