@@ -46,6 +46,8 @@ export class CustomerLeadComponent implements OnInit {
           let xmlResponse = res.xml;
           let message = res.result.Get_all_stateResult;
           console.log(message);
+        
+
         },
         err => console.log(err)
       );
