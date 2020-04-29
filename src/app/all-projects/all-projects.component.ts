@@ -20,7 +20,7 @@ export class AllProjectsComponent implements OnInit {
     this.shared.headerTitle('List All Projects');
     let body = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
     let body1 = { branch: 'this.build_no', I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI'};
-   
+    setTimeout(() => {
       (<any>this.shared.client).GetBuilderDetails(body).subscribe(
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
@@ -51,9 +51,9 @@ export class AllProjectsComponent implements OnInit {
         },
         err => console.log(err)
       );
-   
+    }, 4000);
 
-  
+    setTimeout(() => {
       (<any>this.shared.client).Get__Pac_Project_List(body1).subscribe(
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
@@ -80,7 +80,7 @@ export class AllProjectsComponent implements OnInit {
         },
         err => console.log(err)
       );
-   
+    }, 4000);
   }
   
 
