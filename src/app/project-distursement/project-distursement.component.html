@@ -44,11 +44,9 @@
     <div class="col-lg-8 px-0 flex">
         <div class="col-lg-4 padlr col-12 alternative drop-d">
             <mat-form-field appearance="standard">
-              <mat-label>Select</mat-label>
+              <mat-label>Project Name</mat-label>
               <mat-select>
-                <mat-option value="option">All</mat-option>
-                <mat-option value="option">Completed</mat-option>
-                <mat-option value="option">Pending</mat-option>
+                <mat-option *ngFor="let pro of project_names" [value]="pro.value">{{pro.name}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -100,7 +98,7 @@
 
   <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
-  <div class="col-xl-12 col-12 pb-2 main-list mt-3 px-0" data-toggle="modal" data-target="#exampleModal">
+  <div class="col-xl-12 col-12 pb-2 main-list mt-3 px-0"  data-toggle="modal" data-target="#exampleModal">
 
     <div class="col-xl-3 col-8 pr-0 mb-0 name">
       <p class="top mb-0"><b>Gusnam Shirgopal Venkatraman</b>
