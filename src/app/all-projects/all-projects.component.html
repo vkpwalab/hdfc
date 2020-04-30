@@ -55,12 +55,15 @@
             <div class="col-lg-4 col-8 px-0 alternative">
                 <mat-form-field appearance="standard">
                   <mat-label>Select</mat-label>
-                  <mat-select>
-                    <mat-option value="option">All</mat-option>
-                    <mat-option value="option">Completed</mat-option>
-                    <mat-option value="option">Pending</mat-option>
+                  <mat-select [(ngModel)]="selectValues" (change)="optionsselect()">
+                    <mat-option value="All">All</mat-option>
+                    <mat-option  value="Completed">Completed</mat-option>
+                    <mat-option  value="Pending">Pending</mat-option>
                   </mat-select>
                 </mat-form-field>
+               
+                <!-- {{selectedLevel | json}} -->
+
               </div>
             <div [routerLink]="['/add-project']" class="col-4 pt-2 icon-add text-right">
                 <img src="./assets/images/icons/add-project.png">    
@@ -69,7 +72,9 @@
         <div class="col-lg-4 col-8 px-0 pt-3 search">
             <form class="form-inline  mx-0">
                 <i class="fa fa-search pr-1" aria-hidden="true"></i>
-                <input type="search" placeholder="Search" aria-label="Search">
+                <!-- <input type="text"  placeholder="Search" aria-label="Search"> -->
+                <input  type="search" placeholder="Search" name="search" [(ngModel)]="searchText" aria-label="Search">
+
             </form>
         </div>
     </div>
@@ -103,24 +108,24 @@
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0" *ngFor="let i of object1" [routerLink]="['/project-overview']">
-
-        <div class="col-xl-2 col-6 pr-0 mb-0 name">
+    <div class="col-xl-12 col-12"  [routerLink]="['/project-overview']" *ngFor="let ans of object_Pac_Project_List | filter:searchText">
+        <div class="col-lg-12 col-12 main-list mt-3 px-0" *ngIf="selectValues==ans.PROJECT_STAUS || !selectValues"> 
+            <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
                 <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
-                <div class="col-10 px-0 raj"><b>{{i.PROJECT_NAME}}</b></div>
+                <div class="col-10 px-0 raj"><b>{{ans.PROJECT_NAME | truncate:15}}</b></div>
             </div>
         </div>
         <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>{{i.LOCATIONS}}</b>
+            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>{{ans.LOCATIONS}}</b>
             </p>
         </div>
-        <div class="col-xl-3 col-10 pr-0 ltd mb-0" *ngFor="let i of object">
-            <p class="top"><b>{{i.BUILDER_NAME}}</b></p>
+        <div class="col-xl-3 col-10 pr-0 ltd mb-0" *ngFor="let ans of object_body_builders_details">
+            <p class="top"><b>{{ans.BUILDER_NAME}}</b></p>
         </div>
         <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
             <p class="font-italic app mb-0"><i class="fa fa-check-circle pr-1 text-success"
-                    aria-hidden="true"></i> {{i.PROJECT_STAUS}}</p>
+                    aria-hidden="true"></i> {{ans.PROJECT_STAUS}}</p>
         </div>
         <div class="col-xl-2 col-8 pr-0 circle">
             <circle-progress [percent]="100" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
@@ -136,6 +141,31 @@
         </div>
     </div>
 
-   
+   </div>
 
 </div>
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="search-hero">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Hero Name</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hero of heroes | filter:searchText">
+        <td>{{hero.id}}</td>
+        <td>{{hero.name}}</td>
+        <td>{{hero.country}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
