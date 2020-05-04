@@ -15,9 +15,10 @@ import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 // import {ReactiveFormsModule} from '@angular/forms'
 import { ReactiveFormsModule,FormsModule} from '@angular/forms';
-
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
@@ -56,9 +57,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queries.component';
 import { NgxSoapModule } from 'ngx-soap';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
+    TruncatePipe,
     AppComponent,
     LoginComponent,
     SideMenubarComponent,
@@ -93,6 +96,8 @@ import { NgxSoapModule } from 'ngx-soap';
 
   ],
   imports: [
+    
+    Ng2SearchPipeModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
