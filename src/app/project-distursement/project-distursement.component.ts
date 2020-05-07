@@ -9,18 +9,20 @@ import { ISoapMethodResponse } from 'ngx-soap';
 export class ProjectDistursementComponent implements OnInit {
   object:any=[];
   object1:any[];
+  object2:any[];
   build_no;
   status: void;
   id :number;
   name :string;
   project_names: any=[];
-  buildingname : any=[];
+  building_names: any=[];
   constructor(private shared : SharedService) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Disbursement');
     let body = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
     let body1 = { branch: 'this.build_no', I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI'};
+    let body2 = { i_project_no: '549110.0', Token: 'MH3NPYK34J0KHDI'};
     // setTimeout(() => {
     //   (<any>this.shared.client).GetBuilderDetails(body).subscribe(
     //     (res: ISoapMethodResponse) => {
@@ -72,6 +74,32 @@ export class ProjectDistursementComponent implements OnInit {
         {
           let single_obj = {'name':this.object1[i].PROJECT_NAME, 'value': this.object1[i].PROJECTID};
           this.project_names.push(single_obj)
+        
+        }
+    
+        },
+        err => console.log(err)
+      );
+    }, 4000);
+
+    setTimeout(() => {
+      (<any>this.shared.client).get_project_building(body2).subscribe(
+        (res: ISoapMethodResponse) => {
+          console.log('method response', res);
+          let xmlResponse = res.xml;
+          let message2 = res.result.get_project_buildingResult;
+          console.log(message2);
+
+          var obj2 = JSON.parse(message2)
+          console.log("object", obj2)
+          
+        this.object2 = obj2.Table;
+        
+        for(var i=0;i<this.object2.length;i++)
+
+        {
+          let double_obj = {'name':this.object2[i].BLDG_NAME, 'value': this.object2[i].PROJ_BLDG_NO};
+          this.building_names.push(double_obj)
         
         }
     
