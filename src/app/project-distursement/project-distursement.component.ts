@@ -16,13 +16,16 @@ export class ProjectDistursementComponent implements OnInit {
   name :string;
   project_names: any=[];
   building_names: any=[];
+  selected_project_value: any;
   constructor(private shared : SharedService) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Disbursement');
-    let body = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
-    let body1 = { branch: 'this.build_no', I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI'};
-    let body2 = { i_project_no: '549110.0', Token: 'MH3NPYK34J0KHDI'};
+    this.projectNameChange()
+    // let body = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
+    let body1 = {I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI'};
+    console.log(body1);
+     
     // setTimeout(() => {
     //   (<any>this.shared.client).GetBuilderDetails(body).subscribe(
     //     (res: ISoapMethodResponse) => {
@@ -69,20 +72,28 @@ export class ProjectDistursementComponent implements OnInit {
           
         this.object1 = obj1.Table;
         
-        for(var i=0;i<this.object1.length;i++)
+        // for(var i=0;i<this.object1.length;i++)
 
-        {
-          let single_obj = {'name':this.object1[i].PROJECT_NAME, 'value': this.object1[i].PROJECTID};
-          this.project_names.push(single_obj)
+        // {
+        //   let single_obj = {'name':this.object1[i].PROJECT_NAME, 'value': this.object1[i].PROJECTID};
+        //   this.project_names.push(single_obj)
         
-        }
+        // }
     
         },
         err => console.log(err)
       );
     }, 4000);
 
+
+  }
+  // projectNameChange(){
+  // alert(this.selected_project_value)
+  // }
+  projectNameChange(){
+    console.log(this.selected_project_value)
     setTimeout(() => {
+      let body2 = { i_project_no: this.selected_project_value, Token: 'MH3NPYK34J0KHDI'};
       (<any>this.shared.client).get_project_building(body2).subscribe(
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
@@ -95,11 +106,13 @@ export class ProjectDistursementComponent implements OnInit {
           
         this.object2 = obj2.Table;
         
+        
         for(var i=0;i<this.object2.length;i++)
 
         {
           let double_obj = {'name':this.object2[i].BLDG_NAME, 'value': this.object2[i].PROJ_BLDG_NO};
-          this.building_names.push(double_obj)
+          this.building_names.push(double_obj);
+          // this.selected_project_value.push(double_obj)
         
         }
     
@@ -108,5 +121,4 @@ export class ProjectDistursementComponent implements OnInit {
       );
     }, 4000);
   }
-
 }
