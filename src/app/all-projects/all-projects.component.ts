@@ -18,19 +18,19 @@ export class AllProjectsComponent implements OnInit {
   build_no;
   status;
   // searchText: string;
-  searchText;
+  search_text;
   BUILDER_NAME;
 
-  selectValues: any;
+  select_values_of_status: any;
   errMsg: string;
   constructor(private shared: SharedService) {
 
   }
 
   ngOnInit(): void {
-    this.optionsselect();
-    this.myfunc();
-   this.myfunc1();
+    this.selectStatusOption();
+    this.getBuilersDetails();
+    this.getPacProjectList();
     this.shared.headerTitle('List All Projects');
     
 
@@ -45,11 +45,11 @@ export class AllProjectsComponent implements OnInit {
       $('#filter' + id).show();
     }
   }
-  optionsselect() {
-    console.log(this.selectValues)
+  selectStatusOption() {
+    console.log(this.select_values_of_status)
   }
 
-  myfunc(){
+  getBuilersDetails(){
     let body_builders_details = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
 
     setTimeout(() => {
@@ -58,10 +58,10 @@ export class AllProjectsComponent implements OnInit {
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
           let xmlResponse = res.xml;
-          let message = res.result.GetBuilderDetailsResult;
-          console.log(message);
+          let message_get_builder_details = res.result.GetBuilderDetailsResult;
+          console.log(message_get_builder_details);
 
-          var obj = JSON.parse(message)
+          var obj = JSON.parse(message_get_builder_details)
           console.log("object", obj)
 
 
@@ -80,7 +80,7 @@ export class AllProjectsComponent implements OnInit {
       );
     }, 100);
   }
-  myfunc1(){
+  getPacProjectList(){
     let body_Pac_Project_List = { branch: 'this.build_no', I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI' };
 
     setTimeout(() => {
@@ -88,10 +88,10 @@ export class AllProjectsComponent implements OnInit {
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
           let xmlResponse = res.xml;
-          let message1 = res.result.Get__Pac_Project_ListResult;
-          console.log(message1);
+          let message_get_pac_project_list = res.result.Get__Pac_Project_ListResult;
+          console.log(message_get_pac_project_list);
 
-          var obj1 = JSON.parse(message1)
+          var obj1 = JSON.parse(message_get_pac_project_list)
           console.log("object", obj1)
 
           this.object_Pac_Project_List = obj1.Table;

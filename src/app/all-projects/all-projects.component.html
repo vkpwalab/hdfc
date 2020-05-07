@@ -55,14 +55,14 @@
             <div class="col-lg-4 col-8 px-0 alternative">
                 <mat-form-field appearance="standard">
                   <mat-label>Select</mat-label>
-                  <mat-select [(ngModel)]="selectValues" (change)="optionsselect()">
+                  <mat-select [(ngModel)]="select_values_of_status" (change)="selectStatusOption()">
                     <mat-option value="All">All</mat-option>
                     <mat-option  value="Completed">Completed</mat-option>
                     <mat-option  value="Pending">Pending</mat-option>
                   </mat-select>
                 </mat-form-field>
                
-                {{selectValues | json}}
+                <!-- {{select_values_of_status | json}} -->
 
               </div>
             <div [routerLink]="['/add-project']" class="col-4 pt-2 icon-add text-right">
@@ -73,7 +73,7 @@
             <form class="form-inline  mx-0">
                 <i class="fa fa-search pr-1" aria-hidden="true"></i>
                 <!-- <input type="text"  placeholder="Search" aria-label="Search"> -->
-                <input  type="search" placeholder="Search" name="search" [(ngModel)]="searchText" aria-label="Search">
+                <input  type="search" placeholder="Search" name="search" [(ngModel)]="search_text" aria-label="Search">
 
             </form>
         </div>
@@ -108,8 +108,8 @@
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
-    <div class="col-xl-12 col-12" *ngFor="let ans of object_Pac_Project_List | filter:searchText">
-        <div class="col-lg-12 col-12 main-list mt-3 px-0"   [routerLink]="['/project-overview']" *ngIf="selectValues==ans.PROJECT_STAUS || !selectValues"> 
+    <div class="col-xl-12 col-12" *ngFor="let ans of object_Pac_Project_List | filter:search_text">
+        <div class="col-lg-12 col-12 main-list mt-3 px-0"   [routerLink]="['/project-overview']" *ngIf="select_values_of_status==ans.PROJECT_STAUS || !select_values_of_status"> 
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
                 <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
@@ -146,26 +146,4 @@
 </div>
 
 
-<!-- <div class="container">
-  <div class="row">
-    <div class="search-hero">
-      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
-    </div>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Hero Name</th>
-        <th>Country</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let hero of heroes | filter:searchText">
-        <td>{{hero.id}}</td>
-        <td>{{hero.name}}</td>
-        <td>{{hero.country}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div> -->
+
