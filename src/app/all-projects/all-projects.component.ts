@@ -78,7 +78,7 @@ export class AllProjectsComponent implements OnInit {
         },
         err => console.log(err)
       );
-    }, 1000);
+    }, 100);
   }
   myfunc1(){
     let body_Pac_Project_List = { branch: 'this.build_no', I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI' };
@@ -113,7 +113,7 @@ export class AllProjectsComponent implements OnInit {
         },
         err => console.log(err)
       );
-    }, 1000);
+    }, 100);
 
   }
   }

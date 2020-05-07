@@ -62,7 +62,7 @@
                   </mat-select>
                 </mat-form-field>
                
-                <!-- {{selectedLevel | json}} -->
+                {{selectValues | json}}
 
               </div>
             <div [routerLink]="['/add-project']" class="col-4 pt-2 icon-add text-right">
@@ -108,8 +108,8 @@
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
-    <div class="col-xl-12 col-12"  [routerLink]="['/project-overview']" *ngFor="let ans of object_Pac_Project_List | filter:searchText">
-        <div class="col-lg-12 col-12 main-list mt-3 px-0" *ngIf="selectValues==ans.PROJECT_STAUS || !selectValues"> 
+    <div class="col-xl-12 col-12" *ngFor="let ans of object_Pac_Project_List | filter:searchText">
+        <div class="col-lg-12 col-12 main-list mt-3 px-0"   [routerLink]="['/project-overview']" *ngIf="selectValues==ans.PROJECT_STAUS || !selectValues"> 
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
                 <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
