@@ -24,7 +24,7 @@
             <mat-form-field appearance="standard">
               <mat-label>Project Name</mat-label>
               <mat-select [(ngModel)]="selected_project_value" (Change)="projectNameChange()">
-                <mat-option *ngFor="let pro of project_names" [value]="pro.name">{{pro.PROJECT_NAME}}</mat-option>
+                <mat-option *ngFor="let pro of project_names" [value]="pro.name">{{pro.name}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>

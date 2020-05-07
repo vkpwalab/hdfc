@@ -72,13 +72,13 @@ export class ProjectDistursementComponent implements OnInit {
           
         this.object1 = obj1.Table;
         
-        // for(var i=0;i<this.object1.length;i++)
+        for(var i=0;i<this.object1.length;i++)
 
-        // {
-        //   let single_obj = {'name':this.object1[i].PROJECT_NAME, 'value': this.object1[i].PROJECTID};
-        //   this.project_names.push(single_obj)
+        {
+          let single_obj = {'name':this.object1[i].PROJECT_NAME, 'value': this.object1[i].PROJECTID};
+          this.project_names.push(single_obj)
         
-        // }
+        }
     
         },
         err => console.log(err)
