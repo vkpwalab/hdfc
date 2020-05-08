@@ -23,6 +23,7 @@ export class AllProjectsComponent implements OnInit {
 
   select_values_of_status: any;
   errMsg: string;
+  status_all: string;
   constructor(private shared: SharedService) {
 
   }
@@ -47,6 +48,7 @@ export class AllProjectsComponent implements OnInit {
   }
   selectStatusOption() {
     console.log(this.select_values_of_status)
+   this.status_all =  this.select_values_of_status = 'All';
   }
 
   getBuilersDetails(){
@@ -69,6 +71,7 @@ export class AllProjectsComponent implements OnInit {
 
           for (var i = 0; i < this.object_body_builders_details.length; i++) {
             this.build_no = this.object_body_builders_details[i].BRANCH_NO;
+            localStorage.setItem("build_no",this.build_no)
             console.log("buildname", this.build_no);
 
           }
