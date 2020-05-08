@@ -23,16 +23,16 @@
         <div class="col-lg-4 padlr col-12 alternative drop-d">
             <mat-form-field appearance="standard">
               <mat-label>Project Name</mat-label>
-              <mat-select [(ngModel)]="selected_project_value" (Change)="projectNameChange()">
-                <mat-option *ngFor="let pro of project_names" [value]="pro.name">{{pro.name}}</mat-option>
+              <mat-select (selectionChange)="projectChange($event)">
+                <mat-option *ngFor="let project of project_list" [value]="project.PROJECTID">{{project.PROJECT_NAME}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
           <div class="col-lg-4 col-12 alternative drop-d">
             <mat-form-field appearance="standard">
               <mat-label>Building Name</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let build of building_names" [value]="build.value">{{build.name}}</mat-option>
+              <mat-select (selectionChange)="buildingChange($event)">
+                <mat-option *ngFor="let building of building_list" [value]="building.PROJ_BLDG_NO">{{building.BLDG_NAME}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
