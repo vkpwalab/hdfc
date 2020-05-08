@@ -32,9 +32,6 @@ export class AllProjectsComponent implements OnInit {
     this.getBuilersDetails();
     this.getPacProjectList();
     this.shared.headerTitle('List All Projects');
-    
-
-    
   }
 
 
@@ -72,9 +69,6 @@ export class AllProjectsComponent implements OnInit {
             console.log("buildname", this.build_no);
 
           }
-
-
-
         },
         err => console.log(err)
       );
@@ -100,16 +94,7 @@ export class AllProjectsComponent implements OnInit {
             this.status = this.object_Pac_Project_List[i].PROJECT_STAUS;
             console.log("status", this.status);
 
-
-
           }
-
-
-
-
-
-
-
         },
         err => console.log(err)
       );
