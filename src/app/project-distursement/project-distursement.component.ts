@@ -7,118 +7,106 @@ import { ISoapMethodResponse } from 'ngx-soap';
   styleUrls: ['./project-distursement.component.css']
 })
 export class ProjectDistursementComponent implements OnInit {
-  object:any=[];
-  object1:any[];
-  object2:any[];
-  build_no;
-  status: void;
-  id :number;
-  name :string;
-  project_names: any=[];
-  building_names: any=[];
-  selected_project_value: any;
+  builder_detail: any = [];
+  branch_no: any;
+  project_list: any = [];
+  building_list: any = [];
+  disbursement_list: any = [];
+  project_selected: any;
+  building_selected: any;
   constructor(private shared : SharedService) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Disbursement');
-    this.projectNameChange()
-    // let body = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
-    let body1 = {I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI'};
-    console.log(body1);
-     
-    // setTimeout(() => {
-    //   (<any>this.shared.client).GetBuilderDetails(body).subscribe(
-    //     (res: ISoapMethodResponse) => {
-    //       console.log('method response', res);
-    //       let xmlResponse = res.xml;
-    //       let message = res.result.GetBuilderDetailsResult;
-    //       console.log(message);
 
-    //       var obj = JSON.parse(message)
-    //       console.log("object", obj)
-          
-        //  for(var ans in obj){
-        //     console.log(obj[ans])
-        //     console.log(obj[ans].BUILDER_NAME)
+    this.getBuilersDetails();
+  
+  }
 
-        //  }
-      
-    //     this.object = obj.Table;
-        
-    //     for(var i=0;i<this.object.length;i++)
-    //     {
-    //       this.build_no = this.object[i].BRANCH_NO;
-    //       console.log("buildname",this.build_no);
-
-    //     }
-
-
-
-    //     },
-    //     err => console.log(err)
-    //   );
-    // }, 4000);
+  getBuilersDetails(){
+    let body_builders_details = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
 
     setTimeout(() => {
-      (<any>this.shared.client).Get__Pac_Project_List(body1).subscribe(
+      (<any>this.shared.client).GetBuilderDetails(body_builders_details).subscribe(
+
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
           let xmlResponse = res.xml;
-          let message1 = res.result.Get__Pac_Project_ListResult;
-          console.log(message1);
+          let result = res.result.GetBuilderDetailsResult;
 
-          var obj1 = JSON.parse(message1)
-          console.log("object", obj1)
-          
-        this.object1 = obj1.Table;
-        
-        for(var i=0;i<this.object1.length;i++)
+          var result_json = JSON.parse(result)
 
-        {
-          let single_obj = {'name':this.object1[i].PROJECT_NAME, 'value': this.object1[i].PROJECTID};
-          this.project_names.push(single_obj)
-        
-        }
-    
+          this.builder_detail = result_json.Table;
+          console.log(this.builder_detail);
+         
+          this.branch_no = this.builder_detail[0].BRANCH_NO;
+
+          this.getPacProjectList();
         },
         err => console.log(err)
       );
-    }, 4000);
+    }, 1000);
+  }
 
+  getPacProjectList(){
+    let body_Pac_Project_List = { branch: this.branch_no, I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI' };
+
+    (<any>this.shared.client).Get__Pac_Project_List(body_Pac_Project_List).subscribe(
+      (res: ISoapMethodResponse) => {
+        console.log('method response', res);
+        let xmlResponse = res.xml;
+        let result = res.result.Get__Pac_Project_ListResult;
+
+        var result_json = JSON.parse(result)
+
+        this.project_list = result_json.Table;
+
+        console.log(this.project_list);
+      },
+      err => console.log(err)
+    );
 
   }
-  // projectNameChange(){
-  // alert(this.selected_project_value)
-  // }
-  projectNameChange(){
-    console.log(this.selected_project_value)
-    setTimeout(() => {
-      let body2 = { i_project_no: this.selected_project_value, Token: 'MH3NPYK34J0KHDI'};
-      (<any>this.shared.client).get_project_building(body2).subscribe(
-        (res: ISoapMethodResponse) => {
-          console.log('method response', res);
-          let xmlResponse = res.xml;
-          let message2 = res.result.get_project_buildingResult;
-          console.log(message2);
 
-          var obj2 = JSON.parse(message2)
-          console.log("object", obj2)
-          
-        this.object2 = obj2.Table;
-        
-        
-        for(var i=0;i<this.object2.length;i++)
+  projectChange(event){
+    this.project_selected = event.value;
 
-        {
-          let double_obj = {'name':this.object2[i].BLDG_NAME, 'value': this.object2[i].PROJ_BLDG_NO};
-          this.building_names.push(double_obj);
-          // this.selected_project_value.push(double_obj)
-        
-        }
-    
-        },
-        err => console.log(err)
-      );
-    }, 4000);
+    let body_Building_List = { i_project_no: this.project_selected, Token: 'MH3NPYK34J0KHDI' };
+
+    (<any>this.shared.client).get_project_building(body_Building_List).subscribe(
+      (res: ISoapMethodResponse) => {
+        console.log('method response', res);
+        let xmlResponse = res.xml;
+        let result = res.result.get_project_buildingResult;
+
+        var result_json = JSON.parse(result)
+
+        this.building_list = result_json.Table;
+
+        console.log(this.building_list);
+      },
+      err => console.log(err)
+    );
+  }
+
+  buildingChange(event){
+    this.building_selected = event.value;
+
+    let body_Project_Disb = { i_project_no: this.project_selected, i_proj_bldg_no: this.building_selected, Token: 'MH3NPYK34J0KHDI' };
+
+    (<any>this.shared.client).get_devport_disb_summ(body_Project_Disb).subscribe(
+      (res: ISoapMethodResponse) => {
+        console.log('method response', res);
+        let xmlResponse = res.xml;
+        let result = res.result.get_devport_disb_summResult;
+
+        var result_json = JSON.parse(result)
+
+        this.disbursement_list = result_json.Table;
+
+        console.log(this.disbursement_list);
+      },
+      err => console.log(err)
+    );
   }
 }

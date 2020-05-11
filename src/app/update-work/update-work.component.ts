@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
 import { SharedService } from '../services/shared.service';
+import { ISoapMethodResponse } from 'ngx-soap';
 
 @Component({
   selector: 'app-update-work',
@@ -8,13 +9,18 @@ import { SharedService } from '../services/shared.service';
   styleUrls: ['./update-work.component.css']
 })
 export class UpdateWorkComponent implements OnInit {
-  // show_progress:boolean;
+  builder_detail: any = [];
+  branch_no: any;
+  project_list: any = [];
+  building_list: any = [];
   constructor(private shared: SharedService) {
     // this.show_progress=false;
    }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Progress');
+
+    this.getBuilersDetails();
   }
    showProgress(id){
      if($('#progress'+id).is(':visible')){
@@ -23,11 +29,71 @@ export class UpdateWorkComponent implements OnInit {
       $('#progress'+id).show();
      }
    }
-   showFilter(id){
-    if($('#filter'+id).is(':visible')){
-      $('#filter'+id).hide();
-    }else{
-     $('#filter'+id).show();
-    }
+
+
+  getBuilersDetails(){
+    let body_builders_details = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
+
+    setTimeout(() => {
+      (<any>this.shared.client).GetBuilderDetails(body_builders_details).subscribe(
+
+        (res: ISoapMethodResponse) => {
+          console.log('method response', res);
+          let xmlResponse = res.xml;
+          let result = res.result.GetBuilderDetailsResult;
+
+          var result_json = JSON.parse(result)
+
+          this.builder_detail = result_json.Table;
+          console.log(this.builder_detail);
+         
+          this.branch_no = this.builder_detail[0].BRANCH_NO;
+
+          this.getPacProjectList();
+        },
+        err => console.log(err)
+      );
+    }, 1000);
+  }
+
+  getPacProjectList(){
+    let body_Pac_Project_List = { branch: this.branch_no, I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI' };
+
+    (<any>this.shared.client).Get__Pac_Project_List(body_Pac_Project_List).subscribe(
+      (res: ISoapMethodResponse) => {
+        console.log('method response', res);
+        let xmlResponse = res.xml;
+        let result = res.result.Get__Pac_Project_ListResult;
+
+        var result_json = JSON.parse(result)
+
+        this.project_list = result_json.Table;
+
+        console.log(this.project_list);
+      },
+      err => console.log(err)
+    );
+
+  }
+
+  projectChange(event){
+    console.log(event.value);
+
+    let body_Building_List = { i_project_no: event.value, Token: 'MH3NPYK34J0KHDI' };
+
+    (<any>this.shared.client).get_project_building(body_Building_List).subscribe(
+      (res: ISoapMethodResponse) => {
+        console.log('method response', res);
+        let xmlResponse = res.xml;
+        let result = res.result.get_project_buildingResult;
+
+        var result_json = JSON.parse(result)
+
+        this.building_list = result_json.Table;
+
+        console.log(this.building_list);
+      },
+      err => console.log(err)
+    );
   }
 }

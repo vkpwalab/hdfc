@@ -56,7 +56,7 @@
                 <mat-form-field appearance="standard">
                   <mat-label>Select</mat-label>
                   <mat-select [(ngModel)]="select_values_of_status" (change)="selectStatusOption()">
-                    <mat-option value="All">All</mat-option>
+                    <mat-option  value="All">All</mat-option>
                     <mat-option  value="Completed">Completed</mat-option>
                     <mat-option  value="Pending">Pending</mat-option>
                   </mat-select>
@@ -109,7 +109,7 @@
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
     <div class="col-xl-12 col-12" *ngFor="let ans of object_Pac_Project_List | filter:search_text">
-        <div class="col-lg-12 col-12 main-list mt-3 px-0"   [routerLink]="['/project-overview']" *ngIf="select_values_of_status==ans.PROJECT_STAUS || !select_values_of_status"> 
+        <div class="col-lg-12 col-12 main-list mt-3 px-0"   [routerLink]="['/project-overview']" *ngIf="select_values_of_status==ans.PROJECT_STAUS || !select_values_of_status || select_values_of_status == status_all"> 
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
                 <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
