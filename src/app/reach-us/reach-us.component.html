@@ -40,7 +40,7 @@
                 <mat-form-field appearance="standard">
                     <mat-label>Select Project</mat-label>
                     <mat-select matNativeControl formControlName="select_project" [(ngModel)]="select_values_of_project"
-                        (change)="selectProjectOption()">
+                        (selectionChange)="selectProjectOption()">
                         <mat-option [value]="option.PROJECT_NAME" *ngFor="let option of project_list">
                             {{option.PROJECT_NAME}}
                         </mat-option>
@@ -53,7 +53,7 @@
                     Please Select Project
                 </mat-error>
             </form>
-            {{select_values_of_project}}
+            <!-- {{select_values_of_project}} -->
         </div>
 
     </div>
