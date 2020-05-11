@@ -34,7 +34,7 @@
     .Q-ser{display: inline-flex;}
    
    .form-inline input{border: none;width: 90%;font-size: 12px !important;}
-   .main_btn_log {border:1px solid #e3310d}
+   .main_btn_log {border:1px solid #e3310d;width:100%}
 
                                 /* MAIN CONTENT*/
 
@@ -158,3 +158,5 @@ button:focus {outline: none;}
 .btn:focus,.btn:active {
   outline: none !important;
   box-shadow: none;}
+
+  
