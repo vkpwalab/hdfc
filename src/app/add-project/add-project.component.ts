@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import $ from 'jquery'
+import $ from 'jquery';
 
 export interface UserData {
   id: number;
@@ -52,6 +52,21 @@ export class AddProjectComponent implements OnInit {
   $('.prev').click( function(){
       $('.active').prev().addClass('active').next().removeClass('active')
   })
+  /**** JQuery *******/
+//   $('body').on('click','.next-tab', function(){
+//    var next = $('.nav-pills > .active').next('li');
+//    if(next.length){
+//      next.find('a').trigger('click');
+//    }else{
+//       $('#pills-tab a:first').tab('show');     } });
+//  $('body').on('click','.previous-tab', function(){
+//      var prev = $('.nav-pills > .active').prev('li')
+//     if(prev.length){
+//       prev.find('a').trigger('click');
+// }else{
+//       $('#pills-tab a:last').tab('show');
+//     }
+// });
     this.formdata = [
       {id:1,name:'Albert'},
       {id:1,name:'blbert'},
@@ -72,10 +87,10 @@ export class AddProjectComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
- 
+  }  
  
 }
+
 /** Builds and returns a new User. */
 // function createNewUser(id: number): UserData {
 //   const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
