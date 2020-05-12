@@ -14,6 +14,12 @@ export class ProjectDistursementComponent implements OnInit {
   disbursement_list: any = [];
   project_selected: any;
   building_selected: any;
+  disb_detail: any;
+  total_disbusment: number;
+  CUSTOMER_NAME: any;
+  FLAT_NO: any;
+  FLOOR_NO: any;
+  search_text: string;
   constructor(private shared : SharedService) { }
 
   ngOnInit(): void {
@@ -92,7 +98,8 @@ export class ProjectDistursementComponent implements OnInit {
   buildingChange(event){
     this.building_selected = event.value;
 
-    let body_Project_Disb = { i_project_no: this.project_selected, i_proj_bldg_no: this.building_selected, Token: 'MH3NPYK34J0KHDI' };
+    // let body_Project_Disb = { i_project_no: this.project_selected, i_proj_bldg_no: this.building_selected, Token: 'MH3NPYK34J0KHDI' };
+    let body_Project_Disb = { i_project_id: 61222, i_proj_bldg_no: 105641, Token: 'MH3NPYK34J0KHDI' };
 
     (<any>this.shared.client).get_devport_disb_summ(body_Project_Disb).subscribe(
       (res: ISoapMethodResponse) => {
@@ -105,6 +112,34 @@ export class ProjectDistursementComponent implements OnInit {
         this.disbursement_list = result_json.Table;
 
         console.log(this.disbursement_list);
+      },
+      err => console.log(err)
+    );
+  }
+
+  getDisbDetail(disb:any){
+    let body_Project_Disb_Detail = { i_file_no: disb.FILE_NO, Token: 'MH3NPYK34J0KHDI' };
+
+    (<any>this.shared.client).get_devport_disb_det(body_Project_Disb_Detail).subscribe(
+      (res: ISoapMethodResponse) => {
+        console.log('method response', res);
+        let xmlResponse = res.xml;
+        let result = res.result.get_devport_disb_detResult;
+
+        var result_json = JSON.parse(result)
+
+        this.disb_detail = result_json.Table;
+
+        this.CUSTOMER_NAME = disb.CUSTOMER_NAME;
+        this.FLAT_NO = disb.FLAT_NO;
+        this.FLOOR_NO = disb.FLOOR_NO;
+
+        this.total_disbusment = 0;
+        this.disb_detail.forEach(element => {
+          this.total_disbusment += parseFloat(element.AMOUNT);
+        });
+
+        console.log(this.disb_detail);
       },
       err => console.log(err)
     );
