@@ -23,57 +23,11 @@ export class ReachUsComponent implements OnInit {
   builders_details: any;
   branch_no: any;
   reachus_project: FormGroup;
+  ans: void;
 
 
 
-  constructor(private shared: SharedService, private fb: FormBuilder) {
-    this.slide_toggle_form = this.fb.group({
-      enable_project_approval: false,
-      enable_campaign_management: false,
-      enable_subvention_scheme: false,
-      enable_disbursment_facility: false,
-      enable_loan_assistance: false,
-      enable_project_site: false,
-
-      project_approval: [
-        {
-          value: null,
-          disabled: true,
-        },
-      ],
-      campaign_management: [
-        {
-          value: null,
-          disabled: true,
-        },
-      ],
-      subvention: [
-        {
-          value: null,
-          disabled: true,
-        },
-      ],
-      disbursment_facility: [
-        {
-          value: null,
-          disabled: true,
-        },
-      ],
-      loan_assistance: [
-        {
-          value: null,
-          disabled: true,
-        },
-      ],
-      project_site: [
-        {
-          value: null,
-          disabled: true,
-        },
-      ],
-    });
-    this.updateText();
-  }
+  constructor(private shared: SharedService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
 
@@ -81,23 +35,23 @@ export class ReachUsComponent implements OnInit {
     this.selectProjectOption();
     this.shared.headerTitle('Reach Us');
     this.reachus = this.fb.group({
-      'approval': [''],
-      'campaign': [''],
-      'subvention_scheme': [''],
-      'disbursment_facility': [''],
-      'home_loan': [''],
-      'sales_executive': ['']
-     
-    })
-    this.reachus_project = this.fb.group({
+      'remark_approval': [''],
+      'remark_campaign': [''],
+      'remark_subvention_scheme': [''],
+      'remark_disbursment_facility': [''],
+      'remark_home_loan': [''],
+      'remark_sales_executive': [''],
+      'select_project': ['', Validators.required],
+      'enable_project_approval': [''],
+      'enable_campaign_management': [''],
+      'enable_subvention_scheme': [''],
+      'enable_disbursment_facility': [''],
+      'enable_loan_assistance': [''],
+      'enable_project_site': ['']
+
       
-      'select_project': ['', Validators.required]
     })
-  
-
-
-
-
+    
   }
 
   getBuilersDetails() {
@@ -125,7 +79,7 @@ export class ReachUsComponent implements OnInit {
         err => console.log(err)
       );
 
-    }, 100);
+    }, 1000);
   }
 
   getPacProjectList() {
@@ -149,81 +103,11 @@ export class ReachUsComponent implements OnInit {
     
 
   }
-  updateText() {
-    this.project_approval = this.slide_toggle_form.value.enable_project_approval ? "Yes" : "No";
-    this.campaign_management = this.slide_toggle_form.value.enable_campaign_management ? "Yes" : "No";
-    this.subvention = this.slide_toggle_form.value.enable_subvention_scheme ? "Yes" : "No";
-    this.disbursment_facility = this.slide_toggle_form.value.enable_disbursment_facility ? "Yes" : "No";
-    this.loan_assistance = this.slide_toggle_form.value.enable_loan_assistance ? "Yes" : "No";
-    this.project_site = this.slide_toggle_form.value.enable_project_site ? "Yes" : "No";
 
+  
+  
 
-  }
-  changeToggleApproval(enable_project_approval: boolean) {
-    const field1 = this.slide_toggle_form.get('project_approval');
-    if (enable_project_approval) {
-      field1.enable();
-    } else {
-      field1.disable();
-    }
-    this.updateText();
-  }
-
-  changeSubventionScheme(enable_subvention_scheme: boolean) {
-
-    const field2 = this.slide_toggle_form.get('subvention');
-
-    if (enable_subvention_scheme) {
-      field2.enable();
-    } else {
-      field2.disable();
-    }
-    this.updateText();
-  }
-  changeCampaign(enable_campaign_management: boolean) {
-
-    const field3 = this.slide_toggle_form.get('campaign_management');
-
-    if (enable_campaign_management) {
-      field3.enable();
-    } else {
-      field3.disable();
-    }
-    this.updateText();
-  }
-  changeDisburmentFacility(enable_disbursment_facility: boolean) {
-
-    const field4 = this.slide_toggle_form.get('disbursment_facility');
-
-    if (enable_disbursment_facility) {
-      field4.enable();
-    } else {
-      field4.disable();
-    }
-    this.updateText();
-  }
-  changeLoanAssistance(enable_loan_assistance: boolean) {
-
-    const field5 = this.slide_toggle_form.get('loan_assistance');
-
-    if (enable_loan_assistance) {
-      field5.enable();
-    } else {
-      field5.disable();
-    }
-    this.updateText();
-  }
-  changeProjectSite(enable_project_site: boolean) {
-
-    const field6 = this.slide_toggle_form.get('project_site');
-
-    if (enable_project_site) {
-      field6.enable();
-    } else {
-      field6.disable();
-    }
-    this.updateText();
-  }
+  
 
 
 
@@ -235,18 +119,18 @@ export class ReachUsComponent implements OnInit {
 
   submitReachUsForm(data) {
    
-    let body_reach_us_form = { I_proj_appr_needed: data.approval, I_camp_managment: data.campaign, I_suventn_scheme: data.subvention_scheme, I_spec_disb_facility: data.disbursment_facility, I_onsile_hmloan_assis: data.home_loan, I_full_time_sales: data.sales_executive, Token: 'MH3NPYK34J0KHDI', Project_Name: this.select_values_of_project, Approval_status: this.project_approval, status_approval: this.project_approval, status_management: this.campaign_management, status_subvention: this.subvention, status_disbursment: this.disbursment_facility, status_loan: this.loan_assistance, status_project: this.project_site }
+    let body_reach_us_form = { I_proj_appr_needed: data.remark_approval, I_camp_managment: data.remark_campaign, I_suventn_scheme: data.remark_subvention_scheme, I_spec_disb_facility: data.remark_disbursment_facility, I_onsile_hmloan_assis: data.remark_home_loan, I_full_time_sales: data.remark_sales_executive, Token: 'MH3NPYK34J0KHDI', Project_Name: data.select_values_of_project, status_approval:data.enable_project_approval , status_management: data.enable_campaign_management, status_subvention: data.enable_subvention_scheme, status_disbursment: data.enable_disbursment_facility, status_loan: data.enable_loan_assistance, status_project: data.enable_project_site }
     console.log(body_reach_us_form)
     console.log(data);
     setTimeout(() => {
-      if (this.reachus_project.valid) {
+      if (this.reachus.valid) {
 
       (<any>this.shared.client).Insert_proj_assistance(body_reach_us_form).subscribe(
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
           let xmlResponse = res.xml;
           alert('Thank you.Your Reach-Us Form is Submitted Successfully.')
-          // location.reload();
+          location.reload();
 
 
         },
