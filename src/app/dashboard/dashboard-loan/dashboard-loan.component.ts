@@ -11,8 +11,6 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./dashboard-loan.component.css']
 })
 export class DashboardLoanComponent implements OnInit {
-  myArr: any = [];
-  myArr1: any = [];
   array_project_name: any =[];
   array_tot_sanction: any =[];
   public barChartOptions: ChartOptions = {
@@ -29,7 +27,7 @@ export class DashboardLoanComponent implements OnInit {
 
           display: true
         },
-        ticks: {min: 0, max:1000}
+        ticks: {min: 0, max:5}
       }]
     },
     legend: {
@@ -41,7 +39,8 @@ export class DashboardLoanComponent implements OnInit {
   
   };
   
-  public barChartLabels: Label[] = ['Project1', 'Project2', 'Project3', 'Project4', 'Project5', 'Project6', 'Project7'];
+  // public barChartLabels: Label[] = ['Project1', 'Project2', 'Project3', 'Project4', 'Project5', 'Project6', 'Project7'];
+  public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
 
   public barChartLegend = true;
@@ -49,9 +48,9 @@ export class DashboardLoanComponent implements OnInit {
 
   public barChartData: ChartDataSets[] = [
 
-    // { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' }
+    // { data: [250, 400, 500, 600, 700, 800, 680], label: 'Series A' }
     {
-      data:  [250, 400, 500, 600, 700, 800, 680],
+      data: [],
 
       backgroundColor: [
         'rgb(64,151,255)',
@@ -88,12 +87,13 @@ export class DashboardLoanComponent implements OnInit {
   government_link: any;
   news: any;
   graph_details: any=[];
-  
+
   constructor(public router:Router,private shared: SharedService) { }
 
   ngOnInit(): void {
    this.getGovernmentLink()
-   this.getNews()
+   this.getNews();
+   this.getTotalLoan();
   
   }
 
@@ -141,6 +141,40 @@ export class DashboardLoanComponent implements OnInit {
           console.log("object", result_json)
 
           this.news = result_json.Table;
+          
+         },
+        err => console.log(err)
+      );
+
+    }, 1000);
+    
+  }
+
+  getTotalLoan() {
+    let body_total_loan = { i_builder_id: '466073',I_FREQ: 'YEAR',  Token: 'MH3NPYK34J0KHDI' };
+
+    setTimeout(() => {
+
+      (<any>this.shared.client).GET_PROJECT_MIS(body_total_loan).subscribe(
+
+        (res: ISoapMethodResponse) => {
+          console.log('method response', res);
+          let xmlResponse = res.xml;
+          let result = res.result.GET_PROJECT_MISResult;
+          console.log(result);
+
+          var result_json = JSON.parse(result)
+          console.log("object", result_json)
+
+          let loans = result_json.Table;
+
+          let graph_data = [];
+          loans.forEach(element => {
+            this.barChartLabels.push(element.PROJECT_NAME);
+            graph_data.push(element.TOT_SANCTION);
+          });
+          
+          this.barChartData[0].data = graph_data;
           
          },
         err => console.log(err)
