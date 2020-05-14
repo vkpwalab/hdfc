@@ -108,7 +108,7 @@
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
-    <div class="col-xl-12 col-12" *ngFor="let ans of object_Pac_Project_List | filter:search_text">
+    <div class="col-xl-12 col-12" *ngFor="let ans of project_list | filter:search_text">
         <div class="col-lg-12 col-12 main-list mt-3 px-0"   [routerLink]="['/project-overview']" *ngIf="select_values_of_status==ans.PROJECT_STAUS || !select_values_of_status || select_values_of_status == status_all"> 
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
             <div class="col-12 px-0 top">
@@ -120,7 +120,7 @@
             <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>{{ans.LOCATIONS}}</b>
             </p>
         </div>
-        <div class="col-xl-3 col-10 pr-0 ltd mb-0" *ngFor="let ans of object_body_builders_details">
+        <div class="col-xl-3 col-10 pr-0 ltd mb-0" *ngFor="let ans of builder_details">
             <p class="top"><b>{{ans.BUILDER_NAME}}</b></p>
         </div>
         <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">

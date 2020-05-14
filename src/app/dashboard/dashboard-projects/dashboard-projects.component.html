@@ -3,21 +3,21 @@
 <p class="fs-13 bl font-weight-bold pl-2 mt-2">Top 3 Projects</p>
 
             
-<div class="col-lg-12 p-2 mt-4 shadow bg-white brnew  ml-8">
+<div class="col-lg-12 p-2 mt-4 shadow bg-white brnew  ml-8" *ngFor="let data of builders_details">
     <div class="col-lg-12 pl-0">
-        <h6 class="pt-1 font-weight-bold m-0 fs-13">SUN SKY PARK
+        <h6 class="pt-1 font-weight-bold m-0 fs-13">{{data.PROJECT_NAME}}
             <span class="text-center fs-12 newbtn pl-3 pr-3  font-weight-normal ml-3">
-                Residential</span>
+                {{data.PROP_CLASS}}</span>
         </h6>
       
       <img class="newimg" src="./assets/images/icons/location.png" alt="">
-       <span class="fs-12 pl-1">Lower Parel</span>
+       <span class="fs-12 pl-1">{{data.LOCATION}}</span>
 
     </div>
     <div class="col-lg-12 pl-0 d-inline-flex">
         <div class="col-lg-5 col-4 pr-0 pl-0">
             <p class="fs-12 m-0 cgray">Total Funding</p>
-            <h5 class="font-weight-bold m-0">100 Crores</h5>
+            <h5 class="font-weight-bold m-0">{{data.TOTAL_FUNDING}}</h5>
         </div>
         <div class="col-lg-7 col-8 pr-0 pl-0 pl-15">
             <p class="fs-12 m-0 text-left cgray">Leads to Clients</p>
@@ -31,7 +31,7 @@
             <span class="ls cgray"><i class="fa fa-user"></i></span>
             <span class="ls cgray"><i class="fa fa-user"></i></span>
             <span class="cgray"><i class="fa fa-user"></i></span>
-            <span class="pt-3 pl-2 fs-12"><span class="font-weight-bold fs-16">38</span>/75</span>
+            <span class="pt-3 pl-2 fs-12"><span class="font-weight-bold fs-16">{{data.CONV_LEAD}}</span>/{{data.TOTAL_LEAD}}</span>
 
         </div>
 
@@ -41,97 +41,9 @@
         <p class="fs-12 m-0 cgray">Retail Disbursement</p>
         <div class="progress mt-1">
             <div class="progress-bar" role="progressbar" style="width: 40%;color: black;background-color: rgb(194,237,254);position: relative;top: -1px;left: -1px;height: 100px;" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100" class="font-italic">15 Crores</div>
+                aria-valuemin="0" aria-valuemax="100" class="font-italic">{{data.PROPOSED_NO}}</div>
         </div>
     </div>
 
 </div>
 
-<div class="col-lg-12 p-2  mt-4 shadow bg-white brnew  ml-8">
-    <div class="col-lg-12 pl-0">
-        <h6 class="pt-1 font-weight-bold m-0 fs-13">INDRAPRASHTA GULMOHAR
-            <span class="text-center fs-12 newbtn pl-3 pr-3  font-weight-normal ml-3">
-                Residential</span>
-        </h6>
-      
-      <img class="newimg" src="./assets/images/icons/location.png" alt="">
-       <span class="fs-12 pl-1">Lower Parel</span>
-
-    </div>
-    <div class="col-lg-12 col pl-0 d-inline-flex">
-        <div class="col-lg-5 col-4 pr-0 pl-0">
-            <p class="fs-12 m-0 cgray">Total Funding</p>
-            <h5 class="font-weight-bold m-0">100 Crores</h5>
-        </div>
-        <div class="col-lg-7 col-8 pl-0 pr-0 pl-15">
-            <p class="fs-12 m-0 text-left cgray">Leads to Clients</p>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="cgray"><i class="fa fa-user"></i></span>
-            <span class="pt-3 pl-2 fs-12"><span class="fs-16 font-weight-bold">38</span> /75</span>
-
-        </div>
-      
-
-    </div>
-    <div class="col-lg-12 pl-0">
-        <p class="fs-12 m-0 cgray">Retail Disbursement</p>
-        <div class="progress mt-1">
-            <div class="progress-bar" role="progressbar" style="width: 40%;color: black;background-color: rgb(194,237,254);position: relative;top: -1px;left: -1px;height: 100px;" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100" class="font-italic">15 Crores</div>
-        </div>
-    </div>
-
-</div>
-
-<div class="col-lg-12 p-2 mt-4 shadow bg-white brnew  ml-8">
-    <div class="col-lg-12 pl-0">
-        <h6 class="pt-1 font-weight-bold m-0 fs-13">PAREKHS HOSPITAL
-            <span class="text-center fs-12 newbtn pl-3 pr-3  font-weight-normal ml-3">
-                Residential</span>
-        </h6>
-      
-      <img class="newimg" src="./assets/images/icons/location.png" alt="">
-       <span class="fs-12 pl-1">Lower Parel</span>
-
-    </div>
-    <div class="col-lg-12 col pl-0 d-inline-flex">
-        <div class="col-lg-5 col-4 pr-0 pl-0">
-            <p class="fs-12 m-0 cgray">Total Funding</p>
-            <h5 class="font-weight-bold m-0">100 Crores</h5>
-        </div>
-        <div class="col-lg-7 col-8 pr-0 pl-0 pl-15">
-            <p class="fs-12 m-0 text-left  cgray">Leads to Clients</p>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="cgray"><i class="fa fa-user"></i></span>
-            <span class="pt-3 pl-2 fs-12"><span class="fs-16 font-weight-bold">38</span> /75</span>
-
-
-        </div>
-
-
-    </div>
-    <div class="col-lg-12 pl-0">
-        <p class="fs-12 m-0 cgray">Retail Disbursement</p>
-        <div class="progress mt-1">
-            <div class="progress-bar" role="progressbar" style="width: 40%;color: black;background-color: rgb(194,237,254);position: relative;top: -1px;left: -1px;height: 100px;" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100" class="font-italic">15 Crores</div>
-        </div>
-    </div>
-
-</div>
