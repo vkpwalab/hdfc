@@ -69,16 +69,16 @@
                             <div class="col-lg-3">
                                 <mat-form-field appearance="standard">
                                     <mat-label>STATE</mat-label>
-                                    <select matNativeControl formControlName="I_STATE" [(ngModel)]="select_values_of_state"
-                                        (change)="selectStateValue()" required>
+                                    <mat-select matNativeControl formControlName="I_STATE"
+                                        [(ngModel)]="select_values_of_state" (selectionChange)="selectStateValue()" required>
 
 
-                                        <option [value]="option.STATE_CD" *ngFor="let option of object_get_all_state">
-                                            {{option.CD_DESC}}</option>
-                                        <!-- <option value="10">10</option>
-                                        <option value="15">15</option>
-                                        <option value="20">20</option> -->
-                                    </select>
+                                        <mat-option [value]="option.STATE_CD"
+                                            *ngFor="let option of object_get_all_state">
+                                            {{option.CD_DESC}}</mat-option>
+                                       
+                                    </mat-select>
+                                  
                                     <mat-error
                                         *ngIf="customer_lead_form.controls['I_STATE'].hasError('required') && (customer_lead_form.controls['I_STATE'].touched)">
                                         Please Select State
@@ -93,15 +93,15 @@
                             <div class="col-lg-3">
                                 <mat-form-field appearance="standard">
                                     <mat-label>CITY</mat-label>
-                                    <select matNativeControl formControlName="I_CITY" required>
+                                    <mat-select matNativeControl formControlName="I_CITY" required>
 
 
-                                        <option [value]="option.CD_DESC" *ngFor="let option of object_get_city">
-                                            {{option.CD_DESC}}</option>
+                                        <mat-option [value]="option.CD_DESC" *ngFor="let option of object_get_city">
+                                            {{option.CD_DESC}}</mat-option>
                                         <!-- <option value="10">10</option>
                                         <option value="15">15</option>
                                         <option value="20">20</option> -->
-                                    </select>
+                                    </mat-select>
                                     <mat-error
                                         *ngIf="customer_lead_form.controls['I_CITY'].hasError('required') && (customer_lead_form.controls['I_CITY'].touched)">
                                         Please Select City
@@ -111,11 +111,11 @@
                             <div class="col-lg-3">
                                 <mat-form-field appearance="standard">
                                     <mat-label>BOOKING STATUS</mat-label>
-                                    <select matNativeControl formControlName="I_BOOKING_STATUS" required>
-                                        <option value="Booked">Booked</option>
+                                    <mat-select matNativeControl formControlName="I_BOOKING_STATUS" required>
+                                        <mat-option value="Booked">Booked</mat-option>
                                         <!-- <option value="15">15</option>
                                         <option value="20">20</option> -->
-                                    </select>
+                                    </mat-select>
                                     <mat-error
                                         *ngIf="customer_lead_form.controls['I_BOOKING_STATUS'].hasError('required') && (customer_lead_form.controls['I_BOOKING_STATUS'].touched)">
                                         Please Select booking status
@@ -163,7 +163,7 @@
                         </div>
                         <div class=" col-lg-6 col-12 px-0 button mt-4">
                             <div class="text-center col-lg-4 col-6 submit">
-                                <button  type="submit" class="main_btn_log btn"
+                                <button type="submit" class="main_btn_log btn"
                                     [disabled]="submit_button">SUBMIT</button>
                             </div>
                         </div>

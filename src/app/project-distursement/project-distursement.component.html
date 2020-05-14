@@ -45,7 +45,9 @@
     <div class="col-lg-4 col-12 px-0 pt-3 search">
       <form class="form-inline  mx-0">
         <i class="fa fa-search pr-1" aria-hidden="true"></i>
-        <input type="search" placeholder="Search" name="search" aria-label="Search" [(ngModel)]="search_text">
+        <input type="search" placeholder="Search" name="search"  [(ngModel)]="search_text" aria-label="Search">
+               
+
       </form>
     </div>
   </div>
@@ -135,7 +137,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let detail of disb_detail">
+            <tr *ngFor="let detail of disb_detail | filter:search_text">
               <td class="text-primary">{{ detail.DISB_NO }}</td>
               <!-- <td>15 Dec'18</td> -->
               <td>{{ detail.PAYABLE_TO }}</td>

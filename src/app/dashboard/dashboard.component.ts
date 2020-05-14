@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { Router } from '@angular/router';
+import { ISoapMethodResponse } from 'ngx-soap';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  builders_details: any;
 
   constructor(private shared : SharedService, private router:Router) { }
 
@@ -22,5 +24,7 @@ export class DashboardComponent implements OnInit {
       location.reload();
     }
   }
+
+ 
 
 }

@@ -135,13 +135,13 @@ export class CustomerLeadComponent implements OnInit {
 
   }
 
-// Post Data //
+  // Post Data //
 
 
-selectStateValue() {
+  selectStateValue() {
 
     console.log(this.select_values_of_state)
-   
+
 
     let body_GET_CITY = { City: this.select_values_of_state, Token: 'MH3NPYK34J0KHDI' }
     console.log(body_GET_CITY)
@@ -159,8 +159,8 @@ selectStateValue() {
 
           this.object_get_city = obj2.Table;
           console.log(this.object_get_city)
-         
-          
+
+
         },
         err => console.log(err)
       );
