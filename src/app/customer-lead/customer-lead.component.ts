@@ -35,10 +35,15 @@ export class CustomerLeadComponent implements OnInit {
   order: any;
   state_name1: any;
   submit_button: boolean = false;
+  builder_details: any;
+  branch_no: any;
+  project_list: any;
+  select_values_of_project: any;
 
   constructor(private shared: SharedService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.getBuilersDetails();
     this.selectStateValue();
     this.shared.headerTitle('Submit Customer Lead');
     this.customer_lead_form = this.fb.group({
@@ -50,9 +55,9 @@ export class CustomerLeadComponent implements OnInit {
       'I_BOOKING_STATUS': ['', Validators.required],
       'I_REMARKS': ['', Validators.required],
       'I_OTHER_PROJ_INFO': ['', Validators.required],
-      'I_STATE': ['', Validators.required],
-      'myfile': ['', Validators.required],
-      'myprofile': ['', Validators.required]
+      'I_STATE': ['', Validators.required]
+      // 'myfile': ['', Validators.required],
+      // 'myprofile': ['', Validators.required]
     })
 
     let body_Get_all_state = { Token: 'MH3NPYK34J0KHDI' }
@@ -109,11 +114,64 @@ export class CustomerLeadComponent implements OnInit {
 
   }
 
+  getBuilersDetails(){
+    let body_builders_details = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
+
+    setTimeout(() => {
+      (<any>this.shared.client).GetBuilderDetails(body_builders_details).subscribe(
+
+        (res: ISoapMethodResponse) => {
+          console.log('method response', res);
+          let xmlResponse = res.xml;
+          let result = res.result.GetBuilderDetailsResult;
+          console.log(result);
+
+          var result_json = JSON.parse(result)
+          console.log("object", result_json)
+
+
+          this.builder_details = result_json.Table;
+
+          this.branch_no = this.builder_details[0].BRANCH_NO;
+
+          this.getPacProjectList();
+        },
+        err => console.log(err)
+      );
+    }, 1000);
+  }
+  getPacProjectList(){
+    let body_Pac_Project_List = { branch: this.branch_no, I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI' };
+
+   
+      (<any>this.shared.client).Get__Pac_Project_List(body_Pac_Project_List).subscribe(
+        (res: ISoapMethodResponse) => {
+          console.log('method response', res);
+          let xmlResponse = res.xml;
+          let result = res.result.Get__Pac_Project_ListResult;
+          console.log(result);
+
+          var result_json = JSON.parse(result)
+          console.log("object", result_json)
+
+          this.project_list = result_json.Table;
+
+        
+        },
+        err => console.log(err)
+      );
+   
+
+  }
+  selectProjectOption() {
+    console.log(this.select_values_of_project)
+  }
+
   // Post Data //
 
   submitForm(data) {
 
-    let body_customer_lead_data = { I_Cust_Name: data.I_Cust_Name, I_Cust_Email: data.I_Cust_Email, I_Cust_Mobile: data.I_Cust_Mobile, I_CITY: data.I_CITY, I_IP: "data.I_IP", I_BOOKING_STATUS: data.I_BOOKING_STATUS, I_REMARKS: data.I_REMARKS, I_OTHER_PROJ_INFO: data.I_OTHER_PROJ_INFO, I_STATE: data.I_STATE, Token: 'MH3NPYK34J0KHDI' }
+    let body_customer_lead_data = { I_Cust_Name: data.I_Cust_Name, I_Cust_Email: data.I_Cust_Email, I_Cust_Mobile: data.I_Cust_Mobile, I_CITY: data.I_CITY, I_IP: 'data.I_IP', I_BOOKING_STATUS: data.I_BOOKING_STATUS, I_REMARKS: data.I_REMARKS, I_OTHER_PROJ_INFO: data.I_OTHER_PROJ_INFO, I_STATE: data.I_STATE, Token: 'MH3NPYK34J0KHDI' }
     console.log(body_customer_lead_data)
     console.log(data);
     setTimeout(() => {
@@ -130,6 +188,9 @@ export class CustomerLeadComponent implements OnInit {
           },
           err => console.log(err)
         );
+      }
+      else{
+        alert('Please fill all the fields.')
       }
     }, 4000);
 
