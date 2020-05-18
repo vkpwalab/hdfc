@@ -8,15 +8,15 @@
                 <ul class="nav nav-pills justify-content-end">
                     <li class="nav-item fs-12 font-weight-bold">
                         <a class="nav-link active pt-1 pb-1" data-toggle="tab" href="#week" id="week-tab"
-                            aria-controls="week" aria-selected="true">Weekly</a>
+                            aria-controls="week" aria-selected="true"  (click)="getTotalLoan('WEEK')" >Weekly</a>
                     </li>
                     <li class="nav-item fs-12 font-weight-bold">
                         <a class="nav-link pb-1 pt-1" data-toggle="tab" href="#month" id="month-tab"
-                        aria-controls="month" aria-selected="false">Monthly</a>
+                        aria-controls="month" aria-selected="false" (click)="getTotalLoan('MONTH')">Monthly</a>
                     </li>
                     <li class="nav-item fs-12 font-weight-bold">
                         <a class="nav-link pb-1 pt-1" data-toggle="tab" href="#year" id="year-tab"
-                        aria-controls="year" aria-selected="false">Yearly</a>
+                        aria-controls="year" aria-selected="false" (click)="getTotalLoan('YEAR')">Yearly</a>
                     </li>
 
                 </ul>

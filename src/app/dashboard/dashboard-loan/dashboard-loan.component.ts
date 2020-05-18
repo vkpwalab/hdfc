@@ -93,7 +93,7 @@ export class DashboardLoanComponent implements OnInit {
   ngOnInit(): void {
    this.getGovernmentLink()
    this.getNews();
-   this.getTotalLoan();
+   this.getTotalLoan('WEEK');
   
   }
 
@@ -150,8 +150,8 @@ export class DashboardLoanComponent implements OnInit {
     
   }
 
-  getTotalLoan() {
-    let body_total_loan = { i_builder_id: '466073',I_FREQ: 'YEAR',  Token: 'MH3NPYK34J0KHDI' };
+  getTotalLoan(type) {
+    let body_total_loan = { i_builder_id: '466073',I_FREQ: type,  Token: 'MH3NPYK34J0KHDI' };
 
     setTimeout(() => {
 
@@ -168,12 +168,14 @@ export class DashboardLoanComponent implements OnInit {
 
           let loans = result_json.Table;
 
+          this.barChartLabels = [];
+          this.barChartData[0].data = [];
           let graph_data = [];
           loans.forEach(element => {
             this.barChartLabels.push(element.PROJECT_NAME);
             graph_data.push(element.TOT_SANCTION);
           });
-          
+
           this.barChartData[0].data = graph_data;
           
          },
