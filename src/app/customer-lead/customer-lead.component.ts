@@ -5,6 +5,7 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
 
 import { ISoapMethodResponse } from 'ngx-soap';
 
+
 @Component({
   selector: 'app-customer-lead',
   templateUrl: './customer-lead.component.html',
@@ -13,17 +14,18 @@ import { ISoapMethodResponse } from 'ngx-soap';
 
 
 export class CustomerLeadComponent implements OnInit {
+  
   select_project = new FormControl('', Validators.required);
   fileEntry: boolean = false
   customer_lead_form: FormGroup;
   isSubmitted = false;
   uploadthroughexcel: FormGroup;
   filename: string;
-  object_get_all_state: any;
-  object_get_city: any;
+  all_state: any;
+  list_city: any;
   state_name: any[];
   city: any;
-  object_interested_project: any;
+  list_interested_project: any;
   createdby: any;
   updatedby: any;
   // projectid: any;
@@ -39,6 +41,7 @@ export class CustomerLeadComponent implements OnInit {
   branch_no: any;
   project_list: any;
   select_values_of_project: any;
+  
 
   constructor(private shared: SharedService, private fb: FormBuilder) { }
 
@@ -71,14 +74,14 @@ export class CustomerLeadComponent implements OnInit {
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
           let xmlResponse = res.xml;
-          let message_Get_all_state = res.result.Get_all_stateResult;
-          // console.log(message);
+          let result = res.result.Get_all_stateResult;
+          // console.log(result);
 
-          var obj1 = JSON.parse(message_Get_all_state)
-          // console.log("object", obj1)
+          var result_json = JSON.parse(result)
+          // console.log("object", result_json)
 
-          this.object_get_all_state = obj1.Table;
-          console.log(this.object_get_all_state);
+          this.all_state = result_json.Table;
+          console.log(this.all_state);
 
 
         },
@@ -95,13 +98,13 @@ export class CustomerLeadComponent implements OnInit {
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
           let xmlResponse = res.xml;
-          let message_body_Project_By_Bldrid = res.result.Get_Project_By_BldridResult;
+          let result = res.result.Get_Project_By_BldridResult;
           // console.log(message2);
 
-          var obj1 = JSON.parse(message_body_Project_By_Bldrid)
-          console.log("object", obj1)
+          var result_json = JSON.parse(result)
+          console.log("object", result_json)
 
-          this.object_interested_project = obj1.Table;
+          this.list_interested_project = result_json.Table;
 
 
         },
@@ -212,14 +215,14 @@ export class CustomerLeadComponent implements OnInit {
         (res: ISoapMethodResponse) => {
           console.log('method response', res);
           let xmlResponse = res.xml;
-          let message_GET_CITY = res.result.GET_CITYResult;
-          console.log(message_GET_CITY);
+          let result = res.result.GET_CITYResult;
+          console.log(result);
 
-          var obj2 = JSON.parse(message_GET_CITY)
-          console.log("object", obj2)
+          var result_json = JSON.parse(result)
+          console.log("object", result_json)
 
-          this.object_get_city = obj2.Table;
-          console.log(this.object_get_city)
+          this.list_city = result_json.Table;
+          console.log(this.list_city)
 
 
         },
