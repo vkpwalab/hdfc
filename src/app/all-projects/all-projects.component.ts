@@ -1,8 +1,10 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import $ from 'jquery';
 import { ISoapMethodResponse } from 'ngx-soap';
 import { Pipe, PipeTransform } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 
@@ -24,8 +26,12 @@ export class AllProjectsComponent implements OnInit {
   select_values_of_status: any;
   errMsg: string;
   status_all: string;
-  constructor(private shared: SharedService) {
-
+  ans: string;
+  path: string;
+  status_pending: string;
+  status_completed: string;
+  constructor(private shared: SharedService,private ar:ActivatedRoute) {
+    console.log(ar)
   }
 
   ngOnInit(): void {
@@ -35,7 +41,14 @@ export class AllProjectsComponent implements OnInit {
     this.shared.headerTitle('List All Projects');
   }
 
+  // goToOverview(){
+  //   alert("hi")
+  //   console.log(this.ar.snapshot.url)
+  //   this.path = this.ar.snapshot.url[0].path
+  //   console.log(this.path)
+  //   this.shared.myOverview(this.path)
 
+  // }
   showFilter(id) {
     if ($('#filter' + id).is(':visible')) {
       $('#filter' + id).hide();
@@ -100,6 +113,9 @@ export class AllProjectsComponent implements OnInit {
   selectStatusOption() {
     console.log(this.select_values_of_status)
    this.status_all =  this.select_values_of_status = 'All';
+  //  this.status_pending = this.select_values_of_status = 'Pending';
+  //  this.status_completed = this.select_values_of_status = 'Completed';
+
   }
 
   }
