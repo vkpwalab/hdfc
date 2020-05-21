@@ -74,7 +74,7 @@
 
 
                                         <mat-option [value]="option.STATE_CD"
-                                            *ngFor="let option of object_get_all_state">
+                                            *ngFor="let option of all_state">
                                             {{option.CD_DESC}}</mat-option>
                                        
                                     </mat-select>
@@ -96,7 +96,7 @@
                                     <mat-select matNativeControl formControlName="I_CITY" required>
 
 
-                                        <mat-option [value]="option.CD_DESC" *ngFor="let option of object_get_city">
+                                        <mat-option [value]="option.CD_DESC" *ngFor="let option of list_city">
                                             {{option.CD_DESC}}</mat-option>
                                         <!-- <option value="10">10</option>
                                         <option value="15">15</option>
@@ -126,7 +126,7 @@
                                 <mat-form-field appearance="standard">
                                     <mat-label>INTERESTED PROJECT</mat-label>
                                     <mat-select multiple matNativeControl formControlName="I_IP" required>
-                                        <mat-option [value]="option" *ngFor="let option of object_interested_project">
+                                        <mat-option [value]="option" *ngFor="let option of list_interested_project">
                                             {{option.PROJECT_NAME}}</mat-option>
                                         <!-- <mat-option value="option">m1</mat-option>
                                         <mat-option value="option">Option</mat-option>
@@ -176,12 +176,13 @@
                             <div class="col-lg-6">
                                 <mat-form-field appearance="standard">
                                     <mat-label>SELECT PROJECT</mat-label>
-                                    <select matNativeControl [formControl]="select_project" required>
-                                        <option value="option">Option</option>
-                                        <option value="option">m1</option>
-                                    </select>
+                                    <mat-select matNativeControl [formControl]="select_project" required [(ngModel)]="select_values_of_project"
+                                    (selectionChange)="selectProjectOption()">
+                                        <mat-option  [value]="option.PROJECT_NAME" *ngFor="let option of project_list">{{option.PROJECT_NAME}}</mat-option>
+                                        <!-- <mat-option value="option">m1</mat-option> -->
+                                    </mat-select>
                                     <mat-error *ngIf="select_project.hasError('required')">Please Select Prpject.
-                                    </mat-error>
+                                        project_list                                 </mat-error>
 
                                 </mat-form-field>
                             </div>
@@ -189,7 +190,7 @@
                                 <mat-form-field appearance="standard">
                                     <mat-label *ngIf="!filename">CHOOSE EXCEL FILE</mat-label>
                                     <input matInput>{{filename}}
-                                    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)">
+                                    <ngx-file-drop dropZoneLabel="Drop files here"  (onFileDrop)="dropped($event)">
                                         <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
 
                                             <button type="button" class="main_btn_log1 text-center"
@@ -197,11 +198,20 @@
 
                                         </ng-template>
                                     </ngx-file-drop>
-                                    <!--  <input class="float-right chos" type="file">
+                                     <!-- <input class="float-right chos" type="file">
                                     <span class="main_btn_log text-center">Upload Excel</span> -->
                                     <!-- <input type="file" class="main_btn_log" value="chosse"> -->
                                 </mat-form-field>
                             </div>
+                            <!-- <table>
+                                <tbody>
+                              <tr *ngFor="let row of data">
+                                    <td *ngFor="let val of row">
+                                        {{val}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table> -->
                         </div>
                         <div class="col-lg-12 col-12 px-0">
                             <div class=" col-lg-6 col-12 px-0 button mt-4">

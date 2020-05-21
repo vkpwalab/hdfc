@@ -6,7 +6,7 @@
             <ol class="breadcrumb mb-1 pl-0">
                 <li class="breadcrumb-item home px-0"><a href="dashboard">Dashboard</a></li>
                 <li class="breadcrumb-item px-0"><a href="all-projects">All Projects</a></li>
-               
+
             </ol>
         </nav>
     </div>
@@ -54,36 +54,36 @@
         <div class="col-lg-8 px-0" style="display: inline-flex;">
             <div class="col-lg-4 col-8 px-0 alternative">
                 <mat-form-field appearance="standard">
-                  <mat-label>Select</mat-label>
-                  <mat-select [(ngModel)]="select_values_of_status" (change)="selectStatusOption()">
-                    <mat-option  value="All">All</mat-option>
-                    <mat-option  value="Completed">Completed</mat-option>
-                    <mat-option  value="Pending">Pending</mat-option>
-                  </mat-select>
+                    <mat-label>Select</mat-label>
+                    <mat-select [(ngModel)]="select_values_of_status" (change)="selectStatusOption()">
+                        <mat-option value="All">All</mat-option>
+                        <mat-option value="Completed">Completed</mat-option>
+                        <mat-option value="Pending">Pending</mat-option>
+                    </mat-select>
                 </mat-form-field>
-               
+
                 <!-- {{select_values_of_status | json}} -->
 
-              </div>
+            </div>
             <div [routerLink]="['/add-project']" class="col-4 pt-2 icon-add text-right">
-                <img src="./assets/images/icons/add-project.png">    
-             </div>
+                <img src="./assets/images/icons/add-project.png">
+            </div>
         </div>
         <div class="col-lg-4 col-8 px-0 pt-3 search">
             <form class="form-inline  mx-0">
                 <i class="fa fa-search pr-1" aria-hidden="true"></i>
                 <!-- <input type="text"  placeholder="Search" aria-label="Search"> -->
-                <input  type="search" placeholder="Search" name="search" [(ngModel)]="search_text" aria-label="Search">
+                <input type="search" placeholder="Search" name="search" [(ngModel)]="search_text" aria-label="Search">
 
             </form>
         </div>
     </div>
 
     <!-- -------------------------------HEAD TITLE ENDS HERE------------------------------------- -->
-   
-       <!-- -----------------------------FILTER-------------------------- -->
-       
-       <!-- <div class="col-lg-12 px-0 mt-1 filter fil-div" id="filter1">
+
+    <!-- -----------------------------FILTER-------------------------- -->
+
+    <!-- <div class="col-lg-12 px-0 mt-1 filter fil-div" id="filter1">
         <form action="">
            <div class="col-lg-6 px-0 col-12 pt-2 px-0" id="radio">
             <div class="col-lg-4 col-4">
@@ -109,41 +109,48 @@
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
     <div class="col-xl-12 col-12" *ngFor="let ans of project_list | filter:search_text">
-        <div class="col-lg-12 col-12 main-list mt-3 px-0"   [routerLink]="['/project-overview']" *ngIf="select_values_of_status==ans.PROJECT_STAUS || !select_values_of_status || select_values_of_status == status_all"> 
+        <div class="col-lg-12 col-12 main-list mt-3 px-0" [routerLink]="['/project-overview']"
+            *ngIf="select_values_of_status==ans.PROJECT_STAUS || !select_values_of_status || select_values_of_status == status_all">
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
-            <div class="col-12 px-0 top">
-                <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
-                <div class="col-10 px-0 raj"><b>{{ans.PROJECT_NAME | truncate:15}}</b></div>
+                <div class="col-12 px-0 top">
+                    <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
+                    <div class="col-10 px-0 raj"><b>{{ans.PROJECT_NAME | truncate:15 | titlecase}}</b></div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-6 pr-0 mb-0 address">
+                <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger "
+                        aria-hidden="true"></i><b>{{ans.LOCATIONS | titlecase}}</b>
+                </p>
+            </div>
+            <div class="col-xl-3 col-10 pr-0 ltd mb-0" *ngFor="let ans of builder_details">
+                <p class="top"><b>{{ans.BUILDER_NAME | titlecase}}</b></p>
+            </div>
+            <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
+                <!-- <p class="font-italic app mb-0" *ngIf="select_values_of_status == 'All' || select_values_of_status == 'Completed'"><i
+                        class="fa fa-check-circle pr-1 text-success" aria-hidden="true"></i>
+                    {{ans.PROJECT_STAUS}}</p> -->
+                <p class="font-italic app mb-0" *ngIf="ans.PROJECT_STAUS == 'Completed'"><i
+                        class="fa fa-check-circle pr-1 text-success" aria-hidden="true"></i>
+                    {{ans.PROJECT_STAUS}}</p>
+                <p class="font-italic pen mb-0" *ngIf="ans.PROJECT_STAUS == 'Pending'"><i aria-hidden="true"
+                        class="fa fa-clock-o"></i>
+                    {{ans.PROJECT_STAUS}}</p>
+            </div>
+            <div class="col-xl-2 col-8 pr-0 circle">
+                <circle-progress [percent]="100" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
+                    [titleFontSize]="12" [showSubtitle]="false" [outerStrokeWidth]="3" [innerStrokeColor]="'lightblue'"
+                    [outerStrokeColor]="'#3f98fd'" [animation]="true" [animationDuration]="300"></circle-progress>
+                <p class="font-italic mt-3 text-secondary">Document pending</p>
+            </div>
+            <div class="col-xl-2 col-6 i-con pt-2 px-0">
+                <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
+                <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
+                <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png"
+                    style="position: relative !important;">
+                <span class="badge badge-danger">12</span>
             </div>
         </div>
-        <div class="col-xl-2 col-6 pr-0 mb-0 address">
-            <p class="top"><i class="fa fa-map-marker pr-1 mb-0 pt-1 text-danger " aria-hidden="true"></i><b>{{ans.LOCATIONS}}</b>
-            </p>
-        </div>
-        <div class="col-xl-3 col-10 pr-0 ltd mb-0" *ngFor="let ans of builder_details">
-            <p class="top"><b>{{ans.BUILDER_NAME}}</b></p>
-        </div>
-        <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
-            <p class="font-italic app mb-0"><i class="fa fa-check-circle pr-1 text-success"
-                    aria-hidden="true"></i> {{ans.PROJECT_STAUS}}</p>
-        </div>
-        <div class="col-xl-2 col-8 pr-0 circle">
-            <circle-progress [percent]="100" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
-                [titleFontSize]="12" [showSubtitle]="false" [outerStrokeWidth]="3" [innerStrokeColor]="'lightblue'"
-                [outerStrokeColor]="'#3f98fd'" [animation]="true" [animationDuration]="300"></circle-progress>
-            <p class="font-italic mt-3 text-secondary">Document pending</p>
-        </div>
-        <div class="col-xl-2 col-6 i-con pt-2 px-0">
-            <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
-            <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
-            <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" style="position: relative !important;">
-            <span class="badge badge-danger">12</span>
-        </div>
+
     </div>
 
-   </div>
-
 </div>
-
-
-

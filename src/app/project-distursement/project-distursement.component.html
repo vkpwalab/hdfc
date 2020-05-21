@@ -81,11 +81,11 @@
    <div class="col-xl-12 col-12 pb-2 main-list mt-3 px-0" data-toggle="modal" data-target="#exampleModal" (click)="getDisbDetail(disb)" >
  
      <div class="col-xl-3 col-8 pr-0 mb-0 name">
-       <p class="top mb-0"><b>{{ disb.CUSTOMER_NAME }}</b>
+       <p class="top mb-0"><b>{{ disb.CUSTOMER_NAME | titlecase }}</b>
        </p>
      </div>
      <div class="col-xl-3 col-8 pr-0 mb-0 address">
-       <p class="top mb-0"><b>{{ disb.FLAT_NO }}/{{ disb.FLOOR_NO }}</b>
+       <p class="top mb-0"><b>{{ disb.FLAT_NO | titlecase }}/{{ disb.FLOOR_NO | titlecase }}</b>
        </p>
      </div>
      <div class="col-xl-5 col-10 pt-2 circle">
@@ -120,7 +120,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <!-- <img src="./assets/images/icons/building2.png" height="20px"> -->
-        <h5 class="modal-title" id="exampleModalLabel">{{ CUSTOMER_NAME }} ({{ FLAT_NO }}/{{ FLOOR_NO }})</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{ CUSTOMER_NAME | titlecase}} ({{ FLAT_NO | titlecase}}/{{ FLOOR_NO | titlecase}})</h5>
         <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
         </button>
@@ -137,12 +137,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let detail of disb_detail | filter:search_text">
+            <tr *ngFor="let detail of disb_detail">
               <td class="text-primary">{{ detail.DISB_NO }}</td>
               <!-- <td>15 Dec'18</td> -->
-              <td>{{ detail.PAYABLE_TO }}</td>
+              <td class="text-left">{{ detail.PAYABLE_TO | titlecase}}</td>
               <td>{{ detail.CHEQUE_NO }}</td>
-              <td>$ {{ detail.AMOUNT }}</td>
+              <td class="text-left">$ {{ detail.AMOUNT }}</td>
             </tr>
           </tbody>
         </table>
