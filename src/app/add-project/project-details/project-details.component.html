@@ -1,52 +1,51 @@
-<div class="col-lg-12 project alternative">
+<form [formGroup]="project_detail_form" (ngSubmit)="submitProjectDetail(project_detail_form.value)">
+  <div class="col-lg-12 project alternative">
     <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-          <mat-label>PROJECT NAME<span class="text-danger">*</span></mat-label>
-          <input matInput>
+      <mat-form-field appearance="standard">
+        <mat-label>PROJECT NAME<span class="text-danger">*</span></mat-label>
+        <input matInput formControlName="project_name">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
-        <mat-label>HDFC BRANCH<span class="text-danger">*</span></mat-label>
-        <input matInput>
+        <mat-label>HDFC BRANCH</mat-label>
+        <input matInput formControlName="hdfc_branch" readonly>
       </mat-form-field>
     </div>
     <div class="col-lg-3">
-          <mat-form-field appearance="standard">
-            <mat-label>PROJECT CATEGORY<span class="text-danger">*</span></mat-label>
-            <mat-select>
-              <mat-option value="option">Residential</mat-option>
-              <mat-option value="option">Commercial</mat-option>
-              <mat-option value="option">Residential Cum Commercial</mat-option>
-            </mat-select>
-          </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>PROJECT CATEGORY<span class="text-danger">*</span></mat-label>
+        <mat-select formControlName="project_category">
+          <mat-option *ngFor="let project of project_category" [value]="project.CD_VAL">{{project.CD_VAL}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="col-lg-3">
-          <mat-form-field appearance="standard">
-            <mat-label>PROJECT TYPE</mat-label>
-            <mat-select>
-              <mat-option value="option">Option</mat-option>
-              <mat-option value="option">m1</mat-option>
-            </mat-select>
-          </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>PROJECT TYPE<span class="text-danger">*</span></mat-label>
+        <mat-select formControlName="project_type">
+          <mat-option *ngFor="let project of project_type" [value]="project.PROJECT_TYPE">{{project.PROJECT_TYPE}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
-</div>
-<div class="col-lg-12 mt-2 project alternative">
+  </div>
+  <div class="col-lg-12 mt-2 project alternative">
     <div class="col-lg-3">
-          <mat-form-field appearance="standard">
-            <mat-label>STAGE OF CONSTRUCTION</mat-label>
-            <mat-select>
-              <mat-option value="option">Ready</mat-option>
-              <mat-option value="option">Under Construction</mat-option>
-              <mat-option value="option">Not Started</mat-option>
-            </mat-select>
-          </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>STAGE OF CONSTRUCTION<span class="text-danger">*</span></mat-label>
+        <mat-select formControlName="stage_of_construction">
+          <mat-option *ngFor="let project of project_stage" [value]="project.CD_VAL">{{project.CD_VAL}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>PROJECT LAUNCH DATE</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" formControlName="project_launch_date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -54,7 +53,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>WORK COMMENCEMENT DATE</mat-label>
-        <input matInput [matDatepicker]="picker2">
+        <input matInput [matDatepicker]="picker2" formControlName="work_comm_date">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
@@ -62,41 +61,42 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>EXPECTED COMPLETION DATE</mat-label>
-        <input matInput [matDatepicker]="picker3">
+        <input matInput [matDatepicker]="picker3" formControlName="expected_comp_date">
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
     </div>
 
-</div> 
-<div class="col-lg-12 mt-2 project alternative">
-<div class="col-lg-6">
-  <mat-form-field appearance="standard">
-    <mat-label>DEVELOPER NAME</mat-label>
-    <mat-select>
-      <mat-option value="option">Option</mat-option>
-      <mat-option value="option">m1</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
-<div class="col-lg-6">
-    <mat-form-field appearance="standard">
-      <mat-label>WEBSITE</mat-label>
-      <input matInput>
-  </mat-form-field>
-</div>
-</div>
+  </div>
+  <div class="col-lg-12 mt-2 project alternative">
+    <div class="col-lg-6">
+      <mat-form-field appearance="standard">
+        <mat-label>DEVELOPER NAME</mat-label>
+        <mat-select formControlName="developer_name">
+          <mat-option *ngFor="let developer of developer_names" [value]="developer.BUILDERID">{{developer.BUILDER_NAME}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6">
+      <mat-form-field appearance="standard">
+        <mat-label>WEBSITE</mat-label>
+        <input matInput formControlName="website">
+      </mat-form-field>
+    </div>
+  </div>
 
-<div class="col-lg-12 mt-2 project alternative">
-<div class="col-lg-6">
-  <mat-form-field appearance="standard">
-    <mat-label>REMARK</mat-label>
-    <input matInput>
-</mat-form-field>
-</div>
-</div>
-<div class=" col-lg-6 col-12 button mt-4">
-<div class="text-center col-lg-4 col-6"> 
-<button  name="next" class="main_btn_log next">NEXT</button>
-</div>
-</div>
+  <div class="col-lg-12 mt-2 project alternative">
+    <div class="col-lg-6">
+      <mat-form-field appearance="standard">
+        <mat-label>REMARK<span class="text-danger">*</span></mat-label>
+        <input matInput formControlName="remark">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class=" col-lg-6 col-12 button mt-4">
+    <div class="text-center col-lg-4 col-6">
+      <button name="next" class="main_btn_log next" type="submit">NEXT</button>
+    </div>
+  </div>
+</form>
