@@ -84,6 +84,10 @@ textarea{outline: none !important;}
   background-color:white!important;
   color: black;
 }
+#update .mat-tab-header{
+  background-color:white!important;
+  color: black;
+}
 #submit .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
 #submit2 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
 
@@ -97,6 +101,9 @@ textarea{outline: none !important;}
   color: black !important;
 }
 #submit1 .mat-tab-label .mat-tab-label-content{
+  color: black !important;
+}
+#update .mat-tab-label .mat-tab-label-content{
   color: black !important;
 }
 
@@ -401,6 +408,9 @@ html, body { height: 100%; }
   border-radius: 8px;
 }
 #matnewtabs .mat-input-element {
+  caret-color: gray !important
+}
+#update .mat-input-element {
   caret-color: gray !important
 }
 #forreachus1 .mat-input-element {
