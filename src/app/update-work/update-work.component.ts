@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
 import { SharedService } from '../services/shared.service';
 import { ISoapMethodResponse } from 'ngx-soap';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-work',
@@ -13,7 +14,12 @@ export class UpdateWorkComponent implements OnInit {
   branch_no: any;
   project_list: any = [];
   building_list: any = [];
-  constructor(private shared: SharedService) {
+  path: string;
+  event_value: any;
+  p_name: any;
+  project_name: any = [];
+  select_values_of_project: any;
+  constructor(private shared: SharedService,private ar:ActivatedRoute) {
     // this.show_progress=false;
    }
 
@@ -29,7 +35,7 @@ export class UpdateWorkComponent implements OnInit {
       $('#progress'+id).show();
      }
    }
-
+  
 
   getBuilersDetails(){
     let body_builders_details = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
@@ -70,16 +76,20 @@ export class UpdateWorkComponent implements OnInit {
         this.project_list = result_json.Table;
 
         console.log(this.project_list);
+
       },
       err => console.log(err)
     );
 
   }
 
+  
   projectChange(event){
-    console.log(event.value);
+   
+    this.event_value = event.value
+    console.log(this.event_value);
 
-    let body_Building_List = { i_project_no: event.value, Token: 'MH3NPYK34J0KHDI' };
+    let body_Building_List = { i_project_no: this.event_value, Token: 'MH3NPYK34J0KHDI' };
 
     (<any>this.shared.client).get_project_building(body_Building_List).subscribe(
       (res: ISoapMethodResponse) => {
@@ -92,6 +102,20 @@ export class UpdateWorkComponent implements OnInit {
         this.building_list = result_json.Table;
 
         console.log(this.building_list);
+      //  this.getPacProjectList()
+
+      let project_name = this.project_list.filter(p=> p.PROJECTID == this.event_value )
+
+      console.log(project_name);
+
+      this.building_list = this.building_list.map((bldg)=>{
+        let eObject = Object.assign({}, bldg);
+        eObject.project_name = project_name[0].PROJECT_NAME;
+        return eObject;
+      })
+
+      console.log(this.building_list);
+
       },
       err => console.log(err)
     );
