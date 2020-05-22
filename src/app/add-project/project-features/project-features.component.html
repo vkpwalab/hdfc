@@ -1,339 +1,355 @@
-<div class="col-lg-12 project alternative">
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>PLOT AREA (IN SQMTR)<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>TOTAL NUMBER OF BUILDINGS<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>TOTAL BUILD-UP AREA(IN SQMTR)</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>PROJECT COST IN CRS.(APPX)</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-
-</div>
-<!-- ------------------------------------ACCORDANT------------------------ -->
-<div class="col-lg-12">
-<div class="col-lg-12 mt-3 main-box alternative">
-    <label class="mt-2 label">TOTAL NUMBER OF UNITS</label>
-    <div class="accordion" id="accordionExample">
-        <div class="card shadow">
-          <div class="card-header bg-white px-0" id="headingOne">
-            <h2 class="mb-0">
-                <div class="col-10 icon"><h5 class="card-h5"> 
-                    <b>RESIDENTIAL</b></h5></div>
-                <div class="col-2">
-              <button class="btn btn-link float-right" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <i class="fa fa-plus text-dark" aria-hidden="true"></i>
-              </button>
-            </div>
-            </h2>
-          </div>
-      
-          <div id="collapseOne" class="collapse mb-1" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-                <div class="col-lg-12 project">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>TOTAL UNITS</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>SOLD UNITS</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>AVAILABLE FOR SALE</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                </div>
-
-                <div class="col-lg-12 project">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>RATE PER SQFT</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>AREA UNIT</mat-label>
-                            <mat-select>
-                                <mat-option value="option">Super Built-up Area</mat-option>
-                                <mat-option value="option">Built-up Area</mat-option>
-                                <mat-option value="option">Carpet Area</mat-option>
-                                <mat-option value="option">Hall Area</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                </div>
-            
-            </div>
-          </div>
+<form [formGroup]="project_feature_form" (ngSubmit)="submitProjectFeature(project_feature_form.value)">
+    <div class="col-lg-12 project alternative">
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>PLOT AREA (IN SQMTR)<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="plot_area">
+            </mat-form-field>
         </div>
-        <div class="card shadow mt-4">
-          <div class="card-header bg-white px-0" id="headingTwo">
-            <h2 class="mb-0">
-                <div class="col-10 icon"><h5 class="card-h5">
-                    <b>COMMERCIAL</b></h5></div>
-                <div class="col-2">
-              <button class="btn btn-link float-right" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fa fa-plus text-dark" aria-hidden="true"></i>
-              </button>
-            </div>
-            </h2>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-                <div class="col-lg-12 project">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>TOTAL UNITS</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>SOLD UNITS</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>AVAILABLE FOR SALE</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                </div>
-
-                <div class="col-lg-12 project">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>RATE PER SQFT</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>AREA UNIT</mat-label>
-                            <mat-select>
-                                <mat-option value="option">Super Built-up Area</mat-option>
-                                <mat-option value="option">Built-up Area</mat-option>
-                                <mat-option value="option">Carpet Area</mat-option>
-                                <mat-option value="option">Hall Area</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                </div>
-            </div>
-          </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>TOTAL NUMBER OF BUILDINGS<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="total_no_of_building">
+            </mat-form-field>
         </div>
-        <div class="card shadow mt-4">
-          <div class="card-header bg-white px-0" id="headingThree">
-            <h2 class="mb-0">
-                <div class="col-10 icon"><h5 class="card-h5">
-                    <b>PLOTS</b></h5></div>
-                <div class="col-2">
-              <button class="btn btn-link float-right" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                <i class="fa fa-plus text-dark" aria-hidden="true"></i>
-              </button>
-            </div>
-            </h2>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-                <div class="col-lg-12 project">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>TOTAL UNITS</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>SOLD UNITS</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>AVAILABLE FOR SALE</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                </div>
-
-                <div class="col-lg-12 project">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>RATE PER SQFT</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>AREA UNIT</mat-label>
-                            <mat-select>
-                                <mat-option value="option">Super Built-up Area</mat-option>
-                                <mat-option value="option">Built-up Area</mat-option>
-                                <mat-option value="option">Carpet Area</mat-option>
-                                <mat-option value="option">Hall Area</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                </div>
-            </div>
-          </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>TOTAL BUILD-UP AREA(IN SQMTR)</mat-label>
+                <input matInput formControlName="total_buildup_area">
+            </mat-form-field>
         </div>
-        <div class="card shadow mt-4 mb-4">
-            <div class="card-header bg-white px-0" id="headingThree">
-              <h2 class="mb-0">
-                  <div class="col-10 icon"><h5 class="card-h5">
-                      <b>BUNGALOWS</b></h5></div>
-                  <div class="col-2">
-                <button class="btn btn-link float-right" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                  <i class="fa fa-plus text-dark" aria-hidden="true"></i>
-                </button>
-              </div>
-              </h2>
-            </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                <div class="col-lg-12 project">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>TOTAL UNITS</mat-label>
-                            <input matInput>
-                        </mat-form-field>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>PROJECT COST IN CRS.(APPX)</mat-label>
+                <input matInput formControlName="project_cost">
+            </mat-form-field>
+        </div>
+
+    </div>
+    <!-- ------------------------------------ACCORDANT------------------------ -->
+    <div class="col-lg-12">
+        <div class="col-lg-12 mt-3 main-box alternative">
+            <label class="mt-2 label">TOTAL NUMBER OF UNITS</label>
+            <div class="accordion" id="accordionExample">
+                <div class="card shadow">
+                    <div class="card-header bg-white px-0" id="headingOne">
+                        <h2 class="mb-0">
+                            <div class="col-10 icon">
+                                <h5 class="card-h5">
+                                    <b>RESIDENTIAL</b></h5>
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-link float-right" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-plus text-dark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </h2>
                     </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>SOLD UNITS</mat-label>
-                            <input matInput>
-                        </mat-form-field>
+
+                    <div id="collapseOne" class="collapse mb-1" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="col-lg-12 project">
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>TOTAL UNITS</mat-label>
+                                        <input matInput formControlName="residencial_total_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>SOLD UNITS</mat-label>
+                                        <input matInput formControlName="residencial_solid_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>AVAILABLE FOR SALE</mat-label>
+                                        <input matInput formControlName="residencial_available_sale">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 project">
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>RATE PER SQFT</mat-label>
+                                        <input matInput formControlName="residencial_rate_per_sqft">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>AREA UNIT</mat-label>
+                                        <mat-select formControlName="residencial_area_unit">
+                                            <mat-option value="option">Super Built-up Area</mat-option>
+                                            <mat-option value="option">Built-up Area</mat-option>
+                                            <mat-option value="option">Carpet Area</mat-option>
+                                            <mat-option value="option">Hall Area</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>AVAILABLE FOR SALE</mat-label>
-                            <input matInput>
-                        </mat-form-field>
+                </div>
+                <div class="card shadow mt-4">
+                    <div class="card-header bg-white px-0" id="headingTwo">
+                        <h2 class="mb-0">
+                            <div class="col-10 icon">
+                                <h5 class="card-h5">
+                                    <b>COMMERCIAL</b></h5>
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-link float-right" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <i class="fa fa-plus text-dark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="col-lg-12 project">
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>TOTAL UNITS</mat-label>
+                                        <input matInput formControlName="commercial_total_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>SOLD UNITS</mat-label>
+                                        <input matInput formControlName="commercial_solid_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>AVAILABLE FOR SALE</mat-label>
+                                        <input matInput formControlName="commercial_available_sale">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 project">
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>RATE PER SQFT</mat-label>
+                                        <input matInput formControlName="commercial_rate_per_sqft">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>AREA UNIT</mat-label>
+                                        <mat-select formControlName="commercial_area_unit">
+                                            <mat-option value="option">Super Built-up Area</mat-option>
+                                            <mat-option value="option">Built-up Area</mat-option>
+                                            <mat-option value="option">Carpet Area</mat-option>
+                                            <mat-option value="option">Hall Area</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow mt-4">
+                    <div class="card-header bg-white px-0" id="headingThree">
+                        <h2 class="mb-0">
+                            <div class="col-10 icon">
+                                <h5 class="card-h5">
+                                    <b>PLOTS</b></h5>
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-link float-right" type="button" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    <i class="fa fa-plus text-dark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="col-lg-12 project">
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>TOTAL UNITS</mat-label>
+                                        <input matInput formControlName="plot_total_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>SOLD UNITS</mat-label>
+                                        <input matInput formControlName="plot_solid_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>AVAILABLE FOR SALE</mat-label>
+                                        <input matInput formControlName="plot_available_sale">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 project">
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>RATE PER SQFT</mat-label>
+                                        <input matInput formControlName="plot_rate_per_sqft">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>AREA UNIT</mat-label>
+                                        <mat-select formControlName="plot_area_unit">
+                                            <mat-option value="option">Super Built-up Area</mat-option>
+                                            <mat-option value="option">Built-up Area</mat-option>
+                                            <mat-option value="option">Carpet Area</mat-option>
+                                            <mat-option value="option">Hall Area</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow mt-4 mb-4">
+                    <div class="card-header bg-white px-0" id="headingThree">
+                        <h2 class="mb-0">
+                            <div class="col-10 icon">
+                                <h5 class="card-h5">
+                                    <b>BUNGALOWS</b></h5>
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-link float-right" type="button" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    <i class="fa fa-plus text-dark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="col-lg-12 project">
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>TOTAL UNITS</mat-label>
+                                        <input matInput formControlName="bungalow_total_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>SOLD UNITS</mat-label>
+                                        <input matInput formControlName="bungalow_solid_unit">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>AVAILABLE FOR SALE</mat-label>
+                                        <input matInput formControlName="bungalow_available_sale">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 project">
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>RATE PER SQFT</mat-label>
+                                        <input matInput formControlName="bungalow_rate_per_sqft">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4">
+                                    <mat-form-field appearance="standard">
+                                        <mat-label>AREA UNIT</mat-label>
+                                        <mat-select formControlName="bungalow_area_unit">
+                                            <mat-option value="option">Super Built-up Area</mat-option>
+                                            <mat-option value="option">Built-up Area</mat-option>
+                                            <mat-option value="option">Carpet Area</mat-option>
+                                            <mat-option value="option">Hall Area</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-12 project">
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>RATE PER SQFT</mat-label>
-                            <input matInput>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-lg-4">
-                        <mat-form-field appearance="standard">
-                            <mat-label>AREA UNIT</mat-label>
-                            <mat-select>
-                                <mat-option value="option">Super Built-up Area</mat-option>
-                                <mat-option value="option">Built-up Area</mat-option>
-                                <mat-option value="option">Carpet Area</mat-option>
-                                <mat-option value="option">Hall Area</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                    </div>
-                </div>
-              </div>
             </div>
-          </div>
-
-      </div>
-</div>
-</div>
-<!-- ----------------------------ACCORDANT----END HERE----------------------- -->
-
-
-<div class="col-lg-12 mt-2 project alternative">
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>PLAN APPROVAL AUTHORITY NAME</mat-label>
-            <input matInput>
-        </mat-form-field>
+        </div>
     </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>UNITS ALLOTED TO LANDOWNER TOTAL NUMBERS<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-   
-    <div class="col-lg-6">
-      <mat-form-field appearance="standard">
-        <mat-label> MENTION SPECFIC DETAILS(UNDER DEYAILS)<span class="text-danger">*</span></mat-label>
-        <input matInput>
-    </mat-form-field>
-    </div>
-    
-  
-</div> 
-<div class="col-lg-12 mt-2 project alternative">
-    <div class="col-lg-6 btn-radio">
-        <p class="para">CONSTRUCTION FINANCE DETAILS 
-            IS THE PROJECT MORTGAGED WITH ANY FINANCIAL INSTITUTE
-            <span class="text-danger">*</span></p>
-        <form >
-          <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1" color="primary">YES</mat-radio-button>
-              <mat-radio-button value="2" color="primary" class="ml-3">NO</mat-radio-button>
-            </mat-radio-group>
-        </form>
-      </div>
+    <!-- ----------------------------ACCORDANT----END HERE----------------------- -->
 
-<div class="col-lg-6">
-    <mat-form-field appearance="standard" class="six">
-        <mat-label>FINANCIAL INSTITUDE NAME<span class="text-danger">*</span></mat-label>
-        <input matInput>
-    </mat-form-field>
-</div>
-</div>
 
-<div class="col-lg-12 mt-2 project alternative">
-    <div class="col-lg-6">
-        <mat-form-field appearance="standard" class="six">
-            <mat-label>HDFC CLPS NO<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
+    <div class="col-lg-12 mt-2 project alternative">
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>PLAN APPROVAL AUTHORITY NAME</mat-label>
+                <input matInput formControlName="plan_approval_auth_name">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>UNITS ALLOTED TO LANDOWNER TOTAL NUMBERS<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="total_number">
+            </mat-form-field>
+        </div>
+
+        <div class="col-lg-6">
+            <mat-form-field appearance="standard">
+                <mat-label> MENTION SPECFIC DETAILS(UNDER DEYAILS)<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="mention_specfic_detail">
+            </mat-form-field>
+        </div>
+
+
     </div>
-    <div class="col-lg-6 btn-radio">
-        <p class="para">ANY REQUIREMENT FOR CONSTRUCTION FINANCE<span class="text-danger">*</span></p>
-        <form >
-          <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1" color="primary">YES</mat-radio-button>
-              <mat-radio-button value="2" color="primary" class="ml-3">NO</mat-radio-button>
-            </mat-radio-group>
-        </form>
-      </div>
-</div>
+    <div class="col-lg-12 mt-2 project alternative">
+        <div class="col-lg-6 btn-radio">
+            <p class="para">CONSTRUCTION FINANCE DETAILS
+                IS THE PROJECT MORTGAGED WITH ANY FINANCIAL INSTITUTE
+                <span class="text-danger">*</span></p>
+                <mat-radio-group aria-label="Select an option" formControlName="mortgaged" >
+                    <mat-radio-button value="Y" color="primary" (change)="mortgageChange($event)">YES</mat-radio-button>
+                    <mat-radio-button value="N" color="primary" class="ml-3" (change)="mortgageChange($event)">NO</mat-radio-button>
+                </mat-radio-group>
+        </div>
 
-<div class=" col-lg-6 col-12 button mt-4">
-<div class="text-center col-lg-4 "> 
-<button  name="next" class="main_btn_log next">NEXT</button>
-</div>
-<div class="text-center col-lg-4"> 
-<button  name="prev" class="main_btn_log draft prev">BACK</button>
-</div>
-</div>
+        <div class="col-lg-6">
+            <mat-form-field appearance="standard" class="six">
+                <mat-label>FINANCIAL INSTITUDE NAME</mat-label>
+                <input matInput formControlName="financial_institute" [readonly]="show_fin_inst" (keyup)="enterFinInst($event)">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="col-lg-12 mt-2 project alternative">
+        <div class="col-lg-6">
+            <mat-form-field appearance="standard" class="six">
+                <mat-label>HDFC CLPS NO</mat-label>
+                <input matInput formControlName="hdfc_clip_no" [readonly]="show_clps">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-6 btn-radio">
+            <p class="para">ANY REQUIREMENT FOR CONSTRUCTION FINANCE<span class="text-danger">*</span></p>
+                <mat-radio-group aria-label="Select an option" formControlName="contruction_finance">
+                    <mat-radio-button value="Y" color="primary">YES</mat-radio-button>
+                    <mat-radio-button value="N" color="primary" class="ml-3">NO</mat-radio-button>
+                </mat-radio-group>
+        </div>
+    </div>
+
+    <div class=" col-lg-6 col-12 button mt-4">
+        <div class="text-center col-lg-4 ">
+            <button name="next" class="main_btn_log next" type="submit">SAVE & NEXT</button>
+        </div>
+        <div class="text-center col-lg-4">
+            <button name="prev" class="main_btn_log draft prev">BACK</button>
+        </div>
+        <div class="text-center col-lg-4">
+            <button name="draft" class="main_btn_log draft" (click)="draftProject(project_feature_form.value)" type="button">Draft</button>
+        </div>
+    </div>
+</form>

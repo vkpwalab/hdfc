@@ -1,70 +1,70 @@
-<div class="col-lg-12 project alternative">
+<form [formGroup]="rera_detail_form" (ngSubmit)="submitReraDetail(rera_detail_form.value)">
+  <div class="col-lg-12 project alternative">
     <div class="col-lg-3">
-          <mat-form-field appearance="standard">
-            <mat-label>RERA REGISTRATION STATUS</mat-label>
-            <mat-select>
-              <mat-option value="option">Registered</mat-option>
-              <mat-option value="option">Applied</mat-option>
-              <mat-option value="option">Not Applicable</mat-option>
-            </mat-select>
-          </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>RERA REGISTRATION STATUS</mat-label>
+        <mat-select formControlName="rera_regi_status">
+          <mat-option *ngFor="let rera of rera_status_list" [value]="rera.CD_VAL">{{rera.CD_DESC}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <div class="col-lg-3">
-        <mat-form-field id="calendar">
-            <mat-label>RERA APPLICATION DATE</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+      <mat-form-field id="calendar">
+        <mat-label>RERA APPLICATION DATE</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="rera_app_date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
     </div>
     <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>RERA REGISTRATION NUMBER</mat-label>
-            <input matInput>
-        </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>RERA REGISTRATION NUMBER</mat-label>
+        <input matInput formControlName="rera_regi_number">
+      </mat-form-field>
     </div>
     <div class="col-lg-3">
-        <mat-form-field id="calendar">
-            <mat-label>VALID FROM DATE</mat-label>
-            <input matInput [matDatepicker]="picker2">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-          </mat-form-field>
+      <mat-form-field id="calendar">
+        <mat-label>VALID FROM DATE</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="valid_from_date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
     </div>
 
-</div>
-<div class="col-lg-12 mt-2 project alternative">
+  </div>
+  <div class="col-lg-12 mt-2 project alternative">
     <div class="col-lg-3">
-        <mat-form-field id="calendar">
-            <mat-label>VALID TO DATE</mat-label>
-            <input matInput [matDatepicker]="picker3">
-            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-            <mat-datepicker #picker3></mat-datepicker>
-          </mat-form-field>
+      <mat-form-field id="calendar">
+        <mat-label>VALID TO DATE</mat-label>
+        <input matInput [matDatepicker]="picker3" formControlName="valid_to_date">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
     </div>
-   
+
     <div class="col-lg-3">
-        <mat-form-field id="calendar">
-            <mat-label>PROJECT LAUNCH DATE</mat-label>
-            <input matInput [matDatepicker]="picker4">
-            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
-            <mat-datepicker #picker4></mat-datepicker>
-          </mat-form-field>
+      <mat-form-field id="calendar">
+        <mat-label>PROJECT LAUNCH DATE</mat-label>
+        <input matInput [matDatepicker]="picker4" formControlName="project_launch_date">
+        <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+        <mat-datepicker #picker4></mat-datepicker>
+      </mat-form-field>
     </div>
     <div class="col-lg-6">
       <mat-form-field appearance="standard">
         <mat-label>REMARK</mat-label>
-        <input matInput>
-    </mat-form-field>
+        <input matInput formControlName="remark">
+      </mat-form-field>
+    </div>
   </div>
-</div> 
 
-<div class=" col-lg-6 col-12 button mt-4">
-<div class="text-center col-lg-4 "> 
-<button  name="next" class="main_btn_log next">NEXT</button>
-</div>
-<div class="text-center col-lg-4"> 
-<button  name="prev" class="main_btn_log draft prev">BACK</button>
-</div>
-</div>
+  <div class=" col-lg-6 col-12 button mt-4">
+    <div class="text-center col-lg-4 ">
+      <button name="next" class="main_btn_log next" type="submit">SAVE & NEXT</button>
+    </div>
+    <!-- <div class="text-center col-lg-4">
+      <button name="prev" class="main_btn_log draft prev">BACK</button>
+    </div> -->
+  </div>

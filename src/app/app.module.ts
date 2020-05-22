@@ -59,6 +59,7 @@ import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queri
 import { NgxSoapModule } from 'ngx-soap';
 import { TruncatePipe } from './truncate.pipe';
 
+
 @NgModule({
   declarations: [
     TruncatePipe,

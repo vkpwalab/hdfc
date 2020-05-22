@@ -40,6 +40,12 @@ export class SharedService {
   // myOverview1(data){
   //   this.mypath1.next(data) 
   // }
+
+  project_id = new BehaviorSubject('')
+  projectId(v) {
+    this.project_id.next(v)
+  }
+
   isMobile() {
     {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

@@ -1,124 +1,123 @@
+<form [formGroup]="address_detail_form" (ngSubmit)="submitAddressDetail(address_detail_form.value)">
 
-<div class="col-lg-12 project alternative">
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>S.NO/CTS NO</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>PLOT NO</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>ADDRESS<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>POPULAR LANDMARK<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
+    <div class="col-lg-12 project alternative">
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>S.NO/CTS NO</mat-label>
+                <input matInput formControlName="sno">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>PLOT NO</mat-label>
+                <input matInput formControlName="plot_no">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>ADDRESS<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="address">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>POPULAR LANDMARK<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="popular_landmark">
+            </mat-form-field>
+        </div>
 
-</div>
-<div class="col-lg-12 mt-2 project alternative">
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>LOCATION<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
     </div>
-    <div class="col-lg-3">
-          <mat-form-field appearance="standard">
-            <mat-label>STATE<span class="text-danger">*</span></mat-label>
-            <mat-select>
-              <mat-option value="option">Option</mat-option>
-              <mat-option value="option">m1</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-          <mat-form-field appearance="standard">
-            <mat-label>CITY<span class="text-danger">*</span></mat-label>
-            <mat-select>
-              <mat-option value="option">Option</mat-option>
-              <mat-option value="option">m1</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>PIN CODE<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
+    <div class="col-lg-12 mt-2 project alternative">
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>LOCATION<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="location">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>STATE<span class="text-danger">*</span></mat-label>
+                <mat-select (selectionChange)="stateChange($event)" formControlName="state">
+                    <mat-option *ngFor="let state of state_list" [value]="state.STATE_CD">{{state.CD_DESC}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>CITY<span class="text-danger">*</span></mat-label>
+                <mat-select formControlName="city">
+                    <mat-option *ngFor="let city of city_list" [value]="city.CD_VAL">{{city.CD_DESC}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>PIN CODE<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="pincode">
+            </mat-form-field>
+        </div>
 
-</div> 
-
-
-<div class="col-lg-12 mt-2 project alternative">
-<div class="col-lg-6">
-      <mat-form-field appearance="standard">
-        <mat-label>PLOT THE PROJECT ON MAP<span class="text-danger">*</span></mat-label>
-        <mat-select>
-          <mat-option value="option">Mumbai</mat-option>
-          <mat-option value="option">Pune</mat-option>
-        </mat-select>
-      </mat-form-field>
-</div>
-<div class="col-lg-6">
-    <mat-form-field appearance="standard">
-      <mat-label>LONGITUDE</mat-label>
-      <input matInput>
-    </mat-form-field>
-</div>
-</div>
-
-<div class="col-lg-12 text-left">
-   <label class="mb-0 bound"><b>BOUNDARY DETAILS</b></label><span class="text-danger">*</span>
-</div>
-<div class="col-lg-12 project alternative">
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard" color="warn">
-            <mat-label>EAST</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>WEST</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>NORTH</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>SOUTH</mat-label>
-            <input matInput>
-        </mat-form-field>
     </div>
 
-</div> 
 
+    <div class="col-lg-12 mt-2 project alternative">
+        <div class="col-lg-6">
+            <mat-form-field appearance="standard">
+                <mat-label>LATITUDE<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="lat">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+            <mat-form-field appearance="standard">
+                <mat-label>LONGITUDE<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="long">
+            </mat-form-field>
+        </div>
+    </div>
 
+    <div class="col-lg-12 text-left">
+        <label class="mb-0 bound"><b>BOUNDARY DETAILS</b></label><span class="text-danger">*</span>
+    </div>
+    <div class="col-lg-12 project alternative">
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard" color="warn">
+                <mat-label>EAST<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="east">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>WEST<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="west">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>NORTH<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="north">
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="standard">
+                <mat-label>SOUTH<span class="text-danger">*</span></mat-label>
+                <input matInput formControlName="south">
+            </mat-form-field>
+        </div>
 
+    </div>
 
+    <div class=" col-lg-6 col-12 button mt-4">
+        <div class="text-center col-lg-4 ">
+            <button name="next" class="main_btn_log next" type="submit">NEXT</button>
+        </div>
+        <div class="text-center col-lg-4">
+            <button name="prev" class="main_btn_log draft prev" type="button">BACK</button>
+        </div>
+        <div class="text-center col-lg-4">
+            <button name="draft" class="main_btn_log draft" (click)="draftProject(address_detail_form.value)" type="button">Draft</button>
+        </div>
+    </div>
 
-<div class=" col-lg-6 col-12 button mt-4">
-<div class="text-center col-lg-4 "> 
-<button  name="next" class="main_btn_log next">NEXT</button>
-</div>
-<div class="text-center col-lg-4"> 
-<button  name="prev" class="main_btn_log draft prev">BACK</button>
-</div>
-</div>
+</form>
