@@ -41,23 +41,23 @@
 <div class="col-lg-12 mt-2 project alternative padlrnew">
     <div class="col-lg-3 col-12 px-0">
       <mat-form-field appearance="standard">
-        <mat-label>Select Project </mat-label>
+        <mat-label>Select Project</mat-label>
         <mat-select>
-          <mat-option value="option">Project A</mat-option>
-          <mat-option value="option">Project B</mat-option>
-          <mat-option value="option">Project C</mat-option>
+          <mat-option [value]="option.PROJECT_NAME" *ngFor="let option of project_list">{{option.PROJECT_NAME}}</mat-option>
+          <!-- <mat-option value="option">Project B</mat-option>
+          <mat-option value="option">Project C</mat-option> -->
         </mat-select>
       </mat-form-field>
     </div>
     </div>
-
+    
 <!-- -----------------------------------------------------------------MAIN -->
 
-<div class="col-lg-12 col-12 row px-0 m-0 shadow brnew mt-3 pb-4">
+<div class="col-lg-12 col-12 row px-0 m-0 shadow brnew mt-3 pb-4" *ngFor="let data of query_list">
     <div class="col-lg-3 col-12 mt-4">
         <div style="border: 1px solid lightgray;" class="card p-2 brnew">
             <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">Surya Shetty</span> </p>
+                    class="font-weight-bold pl-1">{{data.BUILDER_NAME}}</span> </p>
             <div class="col-lg-4 col-4 px-0 mt-2">
                 <p style="background-color: rgb(246,179,21);"
                     class="fs-12 border-0 text-center wcolor mb-0 rounded">General
