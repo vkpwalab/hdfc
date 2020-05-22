@@ -16,7 +16,7 @@
       <mat-form-field appearance="standard">
         <mat-label>PROJECT CATEGORY<span class="text-danger">*</span></mat-label>
         <mat-select formControlName="project_category">
-          <mat-option *ngFor="let project of project_category" [value]="project.CD_VAL">{{project.CD_VAL}}
+          <mat-option *ngFor="let project of project_category" value="{{ project.CD_VAL }}">{{project.CD_VAL}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -25,7 +25,7 @@
       <mat-form-field appearance="standard">
         <mat-label>PROJECT TYPE<span class="text-danger">*</span></mat-label>
         <mat-select formControlName="project_type">
-          <mat-option *ngFor="let project of project_type" [value]="project.PROJECT_TYPE">{{project.PROJECT_TYPE}}
+          <mat-option *ngFor="let project of project_type" value="{{project.PROJECT_TYPE}}">{{project.PROJECT_TYPE}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -37,7 +37,7 @@
       <mat-form-field appearance="standard">
         <mat-label>STAGE OF CONSTRUCTION<span class="text-danger">*</span></mat-label>
         <mat-select formControlName="stage_of_construction">
-          <mat-option *ngFor="let project of project_stage" [value]="project.CD_VAL">{{project.CD_VAL}}
+          <mat-option *ngFor="let project of project_stage" value="{{ project.CD_VAL }}">{{project.CD_VAL}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -73,7 +73,7 @@
       <mat-form-field appearance="standard">
         <mat-label>DEVELOPER NAME</mat-label>
         <mat-select formControlName="developer_name">
-          <mat-option *ngFor="let developer of developer_names" [value]="developer.BUILDERID">{{developer.BUILDER_NAME}}
+          <mat-option *ngFor="let developer of developer_names" value="{{ developer.BUILDERID }}">developer.BUILDER_NAME 
           </mat-option>
         </mat-select>
       </mat-form-field>
