@@ -72,7 +72,7 @@
                 <p class="fs-10 pt-2">You responded on 16 sep'19</p>
                 <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
                     <button type="button" class="btn btn1 active"
-                        (click)="queryData(query.QUEST_ID,builder_names[query.CREATED_BY])">
+                        (click)="queryData(query.QUEST_ID,builder_names[query.CREATED_BY],query)">
                         <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
                             Respond</span></button>
                 </div>
@@ -102,16 +102,17 @@
                         </p>
                     </div>
                     <div *ngFor="let query of query_data">
-                        <p class="fs-10 font-weight-bold pt-3 mb-0" *ngIf="query.QUERY_TYPE != 'Builder'">{{ query.QUERY }}</p>
+                        <p class="fs-10 font-weight-bold pt-3 mb-0" *ngIf="query.QUERY_TYPE != 'Builder'">
+                            {{ query.QUERY }}</p>
                         <!-- <i style="color: gray;" class="fa fa-clock-o fs-12 pt-2" aria-hidden="true"><span class="pl-2">1
                                 week
                                 ago</span></i> -->
                         <!-- <p class="fs-10 pt-2 font-weight-bold mb-0">You responded on 16 sep'19</p> -->
-                       
+
                         <p class="fs-10 pt-3 mb-0" *ngIf="query.QUERY_TYPE == 'Builder'">{{ query.QUERY }}</p>
 
                         <p class="fs-10 pt-2 font-weight-bold mb-0">{{ query.CREATED_ON }}</p>
-                        
+
                     </div>
 
                     <!-- <div class="col-lg-12 col-12 text-left pl-0">
@@ -130,12 +131,10 @@
 
                         <div class="col-lg-10 col-10 px-0 alternative">
 
-                            <form class="example-form">
-                                <mat-form-field class="example-full-width">
-                                    <!-- <mat-label>Write your comment here...</mat-label> -->
-                                    <input matInput placeholder="Write your comment here..." [(ngModel)]="message">
-                                </mat-form-field>
-                            </form>
+                            <mat-form-field class="example-full-width">
+                                <!-- <mat-label>Write your comment here...</mat-label> -->
+                                <input matInput placeholder="Write your comment here..." [(ngModel)]="message">
+                            </mat-form-field>
 
                         </div>
 
@@ -152,7 +151,7 @@
                         </div>
 
                         <div style="background-color: red;" class="col-lg-1 col-1 px-0">
-                            <div class="myimg mx-auto d-block">
+                            <div class="myimg mx-auto d-block" (click)="sendResponse()">
                                 <!-- <button style="width: 100%;" class="btn btn3 mt-13">Send</button> -->
                                 <img src="./assets/images/sendicon.png" alt="" width="100%">
                             </div>

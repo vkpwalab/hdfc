@@ -17,6 +17,7 @@ export class RespondToQueriesComponent implements OnInit {
   query_data: any = [];
   raised_by: any = "";
   message:any = '';
+  selected_query: any;
   
   constructor(private shared: SharedService) { }
 
@@ -121,7 +122,8 @@ export class RespondToQueriesComponent implements OnInit {
     }
   }
 
-  queryData(id,raised_by){
+  queryData(id,raised_by,query){
+    this.selected_query = query;
     this.raised_by = raised_by;
     let body_query_detail = { I_QUEST_ID: id, Token: 'MH3NPYK34J0KHDI' };
 
@@ -141,5 +143,44 @@ export class RespondToQueriesComponent implements OnInit {
     );
   }
 
+  sendResponse(){
+    let body_insert_query = { 
+      PROJECT_ID: this.selected_query.PROJECT_ID, 
+      PHASE_ID: this.selected_query.PHASE_ID,
+      PROJECT_NAME: this.selected_query.PROJECT_NAME,
+      QUERY: this.message,
+      I_QUERY_ID: '',
+      STATUS: this.selected_query.STATUS,
+      I_PARENT_QUEST_ID: this.selected_query.QUEST_ID,
+      SUBSTATUS: this.selected_query.SUBSTATUS,
+      K1: this.selected_query.K1,
+      K2: this.selected_query.K2,
+      K3: this.selected_query.K3,
+      K4: this.selected_query.K4,
+      CREATED_BY: '510673',
+      UPDATED_BY: '510673',
+      Question: this.message,
+      I_QUERY_TYPE: 'Builder',
+      I_URL:this.selected_query.URL,
+      Token: 'MH3NPYK34J0KHDI' };
+
+    (<any>this.shared.client).Insert_Query(body_insert_query).subscribe(
+
+      (res: ISoapMethodResponse) => {
+        let xmlResponse = res.xml;
+        let result = res.result.Insert_QueryResult;
+
+        var result_json = JSON.parse(result)
+
+        if(result_json == "Success"){
+          alert('Your query is submitted');
+        }
+        // this.query_data = result_json.Table;
+        console.log(result_json);
+        
+      },
+      err => console.log(err)
+    );
+  }
 
 }
