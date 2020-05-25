@@ -1,21 +1,21 @@
 <!-- <p>respond-to-queries works!</p> -->
 <div class="col-lg-12 whole">
 
-<div class="col-lg-12 pl-0">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-1 pl-0">
-            <li class="breadcrumb-item home px-0"><a href="dashboard">Dashboard</a></li>
-            <li class="breadcrumb-item px-0"><a href="respond-to-queries">Respond To Queries</a></li>
-        </ol>
-    </nav>
-</div>
-
-<div class="col-lg-12 col-12 px-0 first-line">
-    <div class="col-lg-7 mx-0 mt-2 list pl-0">
-        <h5>Respond To Queries</h5>
-        <span class="badge badge-primary ml-2 mt-1">22</span>
+    <div class="col-lg-12 pl-0">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-1 pl-0">
+                <li class="breadcrumb-item home px-0"><a href="dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item px-0"><a href="respond-to-queries">Respond To Queries</a></li>
+            </ol>
+        </nav>
     </div>
-    <!-- <div class="col-lg-5 col-12 search-bar px-0 ">
+
+    <div class="col-lg-12 col-12 px-0 first-line">
+        <div class="col-lg-7 mx-0 mt-2 list pl-0">
+            <h5>Respond To Queries</h5>
+            <span class="badge badge-primary ml-2 mt-1">22</span>
+        </div>
+        <!-- <div class="col-lg-5 col-12 search-bar px-0 ">
         <div class="col-lg-12 col-12  Q-ser pr-0 pl-0">
             <div class="col-lg-8 col-10 px-0 py-0  search">
                 <form class="form-inline mx-0 mt-2">
@@ -36,237 +36,85 @@
             </div>
         </div>
     </div> -->
-</div>
-
-<div class="col-lg-12 mt-2 project alternative padlrnew">
-    <div class="col-lg-3 col-12 px-0">
-      <mat-form-field appearance="standard">
-        <mat-label>Select Project</mat-label>
-        <mat-select>
-          <mat-option [value]="option.PROJECT_NAME" *ngFor="let option of project_list">{{option.PROJECT_NAME}}</mat-option>
-          <!-- <mat-option value="option">Project B</mat-option>
-          <mat-option value="option">Project C</mat-option> -->
-        </mat-select>
-      </mat-form-field>
     </div>
-    </div>
-    
-<!-- -----------------------------------------------------------------MAIN -->
 
-<div class="col-lg-12 col-12 row px-0 m-0 shadow brnew mt-3 pb-4" *ngFor="let data of query_list">
-    <div class="col-lg-3 col-12 mt-4">
-        <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">{{data.BUILDER_NAME}}</span> </p>
-            <div class="col-lg-4 col-4 px-0 mt-2">
-                <p style="background-color: rgb(246,179,21);"
-                    class="fs-12 border-0 text-center wcolor mb-0 rounded">General
-                </p>
-            </div>
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-                consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-                asperiores ea laudantium beatae.</p>
-           <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2" src="./assets/images/clock_1.png" alt="">1 day
-                    ago</span>
-            <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-            <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
-                <button type="button" class="btn btn1">
-                    <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
-                        Respond</span></button>
-            </div>
+    <div class="col-lg-12 mt-2 project alternative padlrnew">
+        <div class="col-lg-3 col-12 px-0">
+            <mat-form-field appearance="standard">
+                <mat-label>Select Project</mat-label>
+                <mat-select (selectionChange)="projectChange($event)">
+                    <mat-option *ngFor="let project of project_list" [value]="project.PROJECTID">
+                        {{project.PROJECT_NAME}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
     </div>
 
-    <div class="col-lg-3 col-12 mt-4">
-        <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">Surya Shetty</span> </p>
-            <div class="col-lg-4 col-4 px-0 mt-2">
-                <p style="background-color: rgb(246,179,21);"
-                    class="fs-12 border-0 text-center wcolor mb-0 rounded ">General
-                </p>
-            </div>
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-                consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-                asperiores ea laudantium beatae.</p>
-                <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2" src="./assets/images/clock_1.png" alt="">1 day
-                    ago</span>
-            <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-            <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
-                <button type="button" class="btn  btn1 active">
-                    <span><img style="width: 20px;" class="pr-1" src="./assets/images/icons/respondicon.png" alt="">
-                        Respond</span></button>
-            </div>
-        </div>
-    </div>
+    <!-- -----------------------------------------------------------------MAIN -->
 
-    <div class="col-lg-3 col-12 mt-4">
-        <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">Surya Shetty</span> </p>
-            <div class="col-lg-4 col-4 px-0 mt-2">
-                <p style="background-color: rgb(246,179,21);"
-                    class="fs-12 border-0 text-center  wcolor mb-0 rounded">
-                    General</p>
-            </div>
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-                consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-                asperiores ea laudantium beatae.</p>
-           <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2" src="./assets/images/clock_1.png" alt="">1 day
+    <div class="col-lg-12 col-12 row px-0 m-0 shadow brnew mt-3 pb-4">
+        <div class="col-lg-3 col-12 mt-4" *ngFor="let query of query_list">
+            <div style="border: 1px solid lightgray;" class="card p-2 brnew">
+                <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
+                        class="font-weight-bold pl-1">{{builder_names[query.CREATED_BY]}}</span> </p>
+                <div class="col-lg-4 col-4 px-0 mt-2">
+                    <p style="background-color: rgb(246,179,21);"
+                        class="fs-12 border-0 text-center wcolor mb-0 rounded">General
+                    </p>
+                </div>
+                <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
+                    consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
+                    asperiores ea laudantium beatae.</p>
+                <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2"
+                        src="./assets/images/clock_1.png" alt="">1 day
                     ago</span>
-            <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-            <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
-                <button type="button" class="btn  btn1">
-                    <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
-                        Respond</span></button>
+                <p class="fs-10 pt-2">You responded on 16 sep'19</p>
+                <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
+                    <button type="button" class="btn btn1 active"
+                        (click)="queryData(query.QUEST_ID,builder_names[query.CREATED_BY])">
+                        <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
+                            Respond</span></button>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="col-lg-3 col-12 mt-4">
-        <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">Surya Shetty</span> </p>
-            <div class="col-lg-4 col-4 px-0 mt-2">
-                <p style="background-color: rgb(246,179,21);"
-                    class="fs-12 border-0 text-center wcolor mb-0 rounded">General
-                </p>
-            </div>
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-                consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-                asperiores ea laudantium beatae.</p>
-           <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2" src="./assets/images/clock_1.png" alt="">1 day
-                    ago</span>
-            <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-            <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
-                <button type="button" class="btn btn1">
-                    <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
-                        Respond</span></button>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-12 mt-4">
-        <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">Surya Shetty</span> </p>
-            <div class="col-lg-4 col-4 px-0 mt-2">
-                <p style="background-color: rgb(246,179,21);"
-                    class="fs-12 border-0 text-center wcolor mb-0 rounded">General
-                </p>
-            </div>
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-                consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-                asperiores ea laudantium beatae.</p>
-           <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2" src="./assets/images/clock_1.png" alt="">1 day
-                    ago</span>
-            <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-            <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
-                <button type="button" class="btn btn1">
-                    <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
-                        Respond</span></button>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-12 mt-4">
-        <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">Surya Shetty</span> </p>
-            <div class="col-lg-4 col-4 px-0 mt-2">
-                <p style="background-color: rgb(246,179,21);"
-                    class="fs-12 border-0 text-center wcolor mb-0 rounded">General
-                </p>
-            </div>
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-                consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-                asperiores ea laudantium beatae.</p>
-           <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2" src="./assets/images/clock_1.png" alt="">1 day
-                    ago</span>
-            <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-            <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
-                <button type="button" class="btn btn1">
-                    <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
-                        Respond</span></button>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-12 mt-4">
-        <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">Surya Shetty</span> </p>
-            <div class="col-lg-4 col-4 px-0 mt-2">
-                <p style="background-color: rgb(246,179,21);"
-                    class="fs-12 border-0 text-center wcolor mb-0 rounded">General
-                </p>
-            </div>
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-                consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-                asperiores ea laudantium beatae.</p>
-           <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2" src="./assets/images/clock_1.png" alt="">1 day
-                    ago</span>
-            <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-            <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
-                <button type="button" class="btn btn1">
-                    <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
-                        Respond</span></button>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-12 mt-4">
-        <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
-                    class="font-weight-bold pl-1">Surya Shetty</span> </p>
-            <div class="col-lg-4 col-4 px-0 mt-2">
-                <p style="background-color: rgb(246,179,21);"
-                    class="fs-12 border-0 text-center wcolor mb-0 rounded">General
-                </p>
-            </div>
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-                consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-                asperiores ea laudantium beatae.</p>
-           <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2" src="./assets/images/clock_1.png" alt="">1 day
-                    ago</span>
-            <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-            <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
-                <button type="button" class="btn btn1">
-                    <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
-                        Respond</span></button>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 
 
 
 <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div style="top: 145px;" class="modal-content shadow bg-white brnew p-2">
-        <div class="col-lg-12 col-12 mt-2 padr" id="forresopnd">
-          <div class="col-lg-12 col-12">
-            <div class="w-20 close" data-dismiss="modal" aria-label="Close">
-  
-              <img src="./assets/images/cross.png" alt="" width="100%">
-            </div>
-          </div>
-          <div class="p-2 mt-1">
-            <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span class="font-weight-bold pl-1">Surya
-                Shetty</span> </p>
-            <div class="col-lg-2 col-3 px-0 mt-2">
-              <p style="background-color: rgb(246,179,21);" class="fs-12 border-0 text-center wcolor mb-0 rounded">General
-              </p>
-            </div>
-            <p class="fs-10 font-weight-bold pt-3 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-              architecto fuga corrupti nesciunt omnis molestias cum sint. Ut tempore doloremque vero qui, assumenda
-              adipisci esse culpa voluptas et illum ab.</p>
-            <i style="color: gray;" class="fa fa-clock-o fs-12 pt-2" aria-hidden="true"><span class="pl-2">1 week
-                ago</span></i>
-            <p class="fs-10 pt-2 font-weight-bold mb-0">You responded on 16 sep'19</p>
-  
-            <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
-              consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
-              asperiores ea laudantium beatae.</p>
-  
-            <!-- <div class="col-lg-12 col-12 text-left pl-0">
+        <div style="top: 145px;" class="modal-content shadow bg-white brnew p-2">
+            <div class="col-lg-12 col-12 mt-2 padr" id="forresopnd">
+                <div class="col-lg-12 col-12">
+                    <div class="w-20 close" data-dismiss="modal" aria-label="Close">
+
+                        <img src="./assets/images/cross.png" alt="" width="100%">
+                    </div>
+                </div>
+                <div class="p-2 mt-1">
+                    <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
+                            class="font-weight-bold pl-1">{{ raised_by }}</span> </p>
+                    <div class="col-lg-2 col-3 px-0 mt-2">
+                        <p style="background-color: rgb(246,179,21);"
+                            class="fs-12 border-0 text-center wcolor mb-0 rounded">General
+                        </p>
+                    </div>
+                    <div *ngFor="let query of query_data">
+                        <p class="fs-10 font-weight-bold pt-3 mb-0" *ngIf="query.QUERY_TYPE != 'Builder'">{{ query.QUERY }}</p>
+                        <!-- <i style="color: gray;" class="fa fa-clock-o fs-12 pt-2" aria-hidden="true"><span class="pl-2">1
+                                week
+                                ago</span></i> -->
+                        <!-- <p class="fs-10 pt-2 font-weight-bold mb-0">You responded on 16 sep'19</p> -->
+                       
+                        <p class="fs-10 pt-3 mb-0" *ngIf="query.QUERY_TYPE == 'Builder'">{{ query.QUERY }}</p>
+
+                        <p class="fs-10 pt-2 font-weight-bold mb-0">{{ query.CREATED_ON }}</p>
+                        
+                    </div>
+
+                    <!-- <div class="col-lg-12 col-12 text-left pl-0">
               <ngx-file-drop dropZoneLabel="Drop files here">
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                   <button type="button" class="btn btn1" (click)="openFileSelector()">
@@ -276,46 +124,44 @@
               </ngx-file-drop>
   
             </div> -->
-  
-  
-            <div class="col-lg-12 col-12 row m-0  px-0 mt-2" style="background-color: rgb(250,250,250);">
-  
-              <div class="col-lg-10 col-10 px-0 alternative">
-  
-                <form class="example-form">
-                  <mat-form-field class="example-full-width">
-                    <!-- <mat-label>Write your comment here...</mat-label> -->
-                    <input matInput placeholder="Write your comment here...">
-  
-  
-  
-                  </mat-form-field>
-                </form>
-  
-              </div>
-  
-              <div class="col-lg-1 col-1 px-0">
-                <div class="newimg mx-auto d-block">
-                  <ngx-file-drop dropZoneLabel="Drop files here">
-                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      <img src="./assets/images/attach.png" alt="" width="100%" (click)="openFileSelector()">
-  
-                    </ng-template>
-                  </ngx-file-drop>
+
+
+                    <div class="col-lg-12 col-12 row m-0  px-0 mt-2" style="background-color: rgb(250,250,250);">
+
+                        <div class="col-lg-10 col-10 px-0 alternative">
+
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <!-- <mat-label>Write your comment here...</mat-label> -->
+                                    <input matInput placeholder="Write your comment here..." [(ngModel)]="message">
+                                </mat-form-field>
+                            </form>
+
+                        </div>
+
+                        <div class="col-lg-1 col-1 px-0">
+                            <div class="newimg mx-auto d-block">
+                                <ngx-file-drop dropZoneLabel="Drop files here">
+                                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                                        <img src="./assets/images/attach.png" alt="" width="100%"
+                                            (click)="openFileSelector()">
+
+                                    </ng-template>
+                                </ngx-file-drop>
+                            </div>
+                        </div>
+
+                        <div style="background-color: red;" class="col-lg-1 col-1 px-0">
+                            <div class="myimg mx-auto d-block">
+                                <!-- <button style="width: 100%;" class="btn btn3 mt-13">Send</button> -->
+                                <img src="./assets/images/sendicon.png" alt="" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-              </div>
-  
-              <div style="background-color: red;" class="col-lg-1 col-1 px-0">
-                <div class="myimg mx-auto d-block">
-                  <!-- <button style="width: 100%;" class="btn btn3 mt-13">Send</button> -->
-                  <img src="./assets/images/sendicon.png" alt="" width="100%">
-                </div>
-              </div>
             </div>
-  
-          </div>
+
         </div>
-  
-      </div>
     </div>
-  </div>
+</div>
