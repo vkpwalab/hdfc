@@ -196,5 +196,19 @@
 .fil-div{
     display: none;
   }
-
- 
+  .w-20{
+    width: 20px !important;
+}
+.modal_btn{
+  text-align: center !important;
+  border-radius: 50px;
+  background-color: #e3310d;
+  color: white;
+  display: block;
+  font-size: 13px;
+  height: 27px !important;
+  cursor: pointer;
+  padding: 4px 18px !important;
+  box-shadow: 1px 3px 8px #ed1c2452;
+  outline-style: none;
+} 
