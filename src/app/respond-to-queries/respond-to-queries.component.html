@@ -54,7 +54,7 @@
     <!-- -----------------------------------------------------------------MAIN -->
 
     <div class="col-lg-12 col-12 row px-0 m-0 shadow brnew mt-3">
-        <div class="col-lg-3 col-12 mt-4" *ngFor="let query of query_list">
+        <div class="col-lg-3 col-12 py-3" *ngFor="let query of query_list">
             <div style="border: 1px solid lightgray;" class="card p-2 brnew">
                 <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
                         class="font-weight-bold pl-1">{{builder_names[query.CREATED_BY] | titlecase}}</span> </p>
@@ -73,7 +73,7 @@
                 <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
                     <button type="button" class="btn btn1 active"
                         (click)="queryData(query.QUEST_ID,builder_names[query.CREATED_BY],query)">
-                        <span><img style="width: 20px;" class="pr-1" src="./assets/images/respond.png" alt="">
+                        <span><img style="width: 20px;" class="pr-1" src="./assets/images/icons/respondicon.png" alt="">
                             Respond</span></button>
                 </div>
             </div>
