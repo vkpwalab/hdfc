@@ -1,4 +1,18 @@
+
+@media screen and (min-width:280px) and (max-width: 330px){
+  .fs-13 {font-size: 11px !important;}
+}
 @media screen and (min-width:320px) and (max-width: 576px){
+ .side {display: inline-flex !important;}
+ .auto-btn {margin: auto; width: 100%;}
+ .mob-px {padding-left: 15px !important;padding-right: 15px !important;}
+ .mob-pl {padding-left: 8px !important;}
+ .mobtn-pl {padding-left: 0px !important; padding-right: 15px !important;}
+ .mob-pr {padding-right: 15px !important;}
+.modal-dialog{margin-top: 12%;}
+.width-cap {width: 29% !important;position: absolute;top: 0;}
+.hide input {opacity: 0;z-index: 5;position: absolute;width: 30% !important;}
+
   .btn_mobile{
     text-align: center !important;
     border-radius: 50px;
@@ -79,10 +93,30 @@
 
               .search {padding-top: 5px !important;}
               .mat-form-field{width: 100%;}
+              .web_btn{
+                text-align: center !important;
+                border-radius: 50px;
+                background-color: #e3310d;
+                color: white;
+                display: block;
+                font-size: 13px;
+                height: 27px !important;
+                cursor: pointer;
+                padding: 3px 12px !important;
+                box-shadow: 1px 3px 8px #ed1c2452;
+                outline-style: none;
+              }
 }
 
 
 @media screen and (min-width:576px) and (max-width: 2000px){
+.padtop-4 {padding-top: 4px;}
+.padtop-5 {padding-top: 5px;}
+.flex {display: inline-flex;}
+.auto-btn {margin: auto;}
+.width-cap {width: 30% !important;position: absolute;top: 0;}
+.hide input {opacity: 0;z-index: 5;position: absolute;width: 30% !important;}
+  /* ------------------------------------------------by M   */
   .web_btn{
     text-align: center !important;
     border-radius: 50px;
@@ -208,7 +242,16 @@
   font-size: 13px;
   height: 27px !important;
   cursor: pointer;
-  padding: 4px 18px !important;
+  padding: 3px 18px !important;
   box-shadow: 1px 3px 8px #ed1c2452;
   outline-style: none;
+  width: 100%;
 } 
+
+
+@media screen and (min-width:1500px) and (max-width: 2200px){
+.pad-l {padding-left: 15px !important;}
+.pad-r {padding-right: 15px !important;}
+.pad-x {padding-left: 15px !important;padding-right: 15px !important;}
+.auto-btn {width: 100%;}
+}

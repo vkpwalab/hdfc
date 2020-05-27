@@ -42,23 +42,21 @@
 
     <!-- --------------------------------------------------------------------- -->
 
-    <div class="col-lg-12 col-12 row px-0 m-0 mt-4 main-list alternative" id="update"
+    <div class="col-lg-12 col-12 pl-0 pr-1 m-0 mt-4 main-list alternative" id="update"
         *ngFor="let data of building_list">
-        <form class="row m-0 px-0" [formGroup]="dynamic_forms[data.PROJ_BLDG_NO]"
+        <form class=" col-lg-12 flex m-0 px-0" [formGroup]="dynamic_forms[data.PROJ_BLDG_NO]"
             (ngSubmit)="updateBuildingData(dynamic_forms[data.PROJ_BLDG_NO].value)">
             <!-- <div class="col-lg-12 roe m-0 px-0"> -->
 
             <!-- for mobile view only -->
-            <div class="col-12 row m-0 px-0 hideweb">
+            <div class="col-12  m-0 px-0 hideweb side">
 
 
-                <div class="col-1 pr-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
-                <div class="col-4 pr-0 fs-13 raj1"><b>{{project_selected_detail[0].PROJECT_NAME}}</b></div>
-                <div class="col-2 px-0">
-                    <button class="fs-13 btn btn_mobile" type="submit">Submit</button>
-                </div>
-                <div class="col-5 px-0">
-                    <button class="fs-13 btn btn_mobile" type="button">Raise Demand Letter</button>
+                <div class="col-1 pr-0 pl-1"><img src="./assets/images/icons/building2.png" height="22px"></div>
+                <div class="col-9 pr-0 fs-13 raj1 pl-1"><b>{{project_selected_detail[0].PROJECT_NAME}}</b></div>
+                
+                <div class="col-lg-1 col-2" data-toggle="modal" data-target="#example">
+                    <img class="w-01 top" src="./assets/images/icons/upload icon.png" width="100%">
                 </div>
 
 
@@ -68,27 +66,27 @@
             <div class="col-lg-9 col-9 px-0">
                 <div class="col-lg-12 col-12 px-0 row m-0">
 
-                    <div class="col-lg-2 top hidemobile">
+                    <div class="col-lg-2 top hidemobile pl-2 pr-0">
                         <img src="./assets/images/icons/building2.png" height="22px">
-                        <span class="pl-1 pt-1"><b>{{project_selected_detail[0].PROJECT_NAME }}</b></span>
+                        <span class="pl-1 pt-1"><b>{{project_selected_detail[0].PROJECT_NAME | truncate:12 | titlecase }}</b></span>
                     </div>
 
-                    <div class="col-lg-2 pr-0 prnew raj">
-                        <p class="top fs-13"><b>{{data.BLDG_NAME }}</b></p>
+                    <div class="col-lg-2 pr-0 prnew raj pl-2">
+                        <p class="top fs-13"><b>{{data.BLDG_NAME | truncate:15  | titlecase}}</b></p>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 px-2 padtop-5 pad-x">
                         <mat-form-field class="example-full-width">
                             <mat-label>Update Current Progress</mat-label>
                             <input matInput type="text" placeholder="" formControlName="update_current_progress">
                         </mat-form-field>
                     </div>
-                    <div class="col-lg-2 ">
+                    <div class="col-lg-2 px-2 padtop-5 pad-x">
                         <mat-form-field class="example-full-width">
                             <mat-label>Percent Payment Due</mat-label>
                             <input matInput type="text" placeholder="" formControlName="percent_payment_due">
                         </mat-form-field>
                     </div>
-                    <div class="col-lg-2 ">
+                    <div class="col-lg-2 px-2 padtop-5 pad-x">
 
                         <mat-form-field class="example-full-width">
                             <mat-label>Progress As On Date</mat-label>
@@ -96,7 +94,7 @@
                         </mat-form-field>
 
                     </div>
-                    <div class="col-lg-2 padlr">
+                    <div class="col-lg-2 padlr padtop-4 pad-x mob-pl">
                         <mat-form-field>
                             <mat-label>Upload Document Type</mat-label>
                             <mat-select formControlName="doc_type">
@@ -110,8 +108,8 @@
             </div>
 
             <div class="col-lg-3 px-0">
-                <div class="col-lg-12 col-12 row m-0 pr-0">
-                    <div class="col-lg-1 col-2 pl-0" data-toggle="modal" data-target="#example">
+                <div class="col-lg-12 col-12 flex m-0 pr-0 pl-2 pad-l side mob-px">
+                    <div class="col-lg-1 col-2 px-0 hidemobile" data-toggle="modal" data-target="#example">
                         <img class="w-01 top" src="./assets/images/icons/upload icon.png" width="100%">
                     </div>
                     <!-- <div class="col-lg-2 col-2 px-0">
@@ -121,11 +119,11 @@
                 </div> -->
 
                     <!-- for desktop view only -->
-                    <div class="col-lg-4 top pr-0 hidemobile">
-                        <button class="fs-13 btn web_btn" type="submit">Submit</button>
+                    <div class="col-lg-4 col-6 top pr-0  pl-2 pad-x mobtn-pl">
+                        <button class="fs-13 btn web_btn auto-btn" type="submit">Submit</button>
                     </div>
-                    <div class="col-lg-7 top px-0 hidemobile">
-                        <button class="fs-13 btn web_btn" type="button">Raise Demand Letter</button>
+                    <div class="col-lg-7 col-6 top px-0  pad-x">
+                        <button class="fs-13 btn web_btn auto-btn" type="button">Raise Demand Letter</button>
                     </div>
                     <!-- for desktop view only -->
 
@@ -165,16 +163,10 @@
             <!-- <hr> -->
             <div class="col-lg-12 col-12 row m-0 px-0">
                 <div class="col-lg-6 col-6 pl-0 pt-2">
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Project Name</mat-label>
-                        <input matInput type="text" placeholder="">
-                    </mat-form-field>
+                        <p class="top fs-13"><b>PROJECT NAME: MOTI NAGAR (44436)</b></p>
                 </div>
                 <div class="col-lg-6 col-6 pr-0 pt-2">
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Building Name</mat-label>
-                        <input matInput type="text" placeholder="">
-                    </mat-form-field>
+                    <p class="top fs-13"><b>BUILDING NAME: MOTI NAGAR TYPE 1 WING 1</b></p>
                 </div>
             </div>
             <div class="col-lg-12 col-12 px-0">
@@ -183,11 +175,14 @@
                     <input matInput type="text" placeholder="">
                 </mat-form-field>
             </div>
-            <div class="col-lg-12 col12 px-0">
+            <div class="col-lg-12 col12 px-0 hide">
                 <input type="file">
+                <button type="" class="btn modal_btn width-cap">Upload</button>
             </div>
-            <div class="col-lg-12 col12 px-0 pt-3">
-                <button type="" class="btn modal_btn">Submit</button>
+            <div class="col-lg-12 col12 px-0 pt-4 mt-4">
+                <div class="col-4 pl-0">
+                <button type="" class="btn modal_btn ">Submit</button>
+            </div>
             </div>
         </div>
     </div>
