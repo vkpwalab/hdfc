@@ -70,15 +70,14 @@
                                 <mat-form-field appearance="standard">
                                     <mat-label>STATE</mat-label>
                                     <mat-select matNativeControl formControlName="I_STATE"
-                                        [(ngModel)]="select_values_of_state" (selectionChange)="selectStateValue()" required>
+                                        (selectionChange)="selectStateValue($event)" required>
 
 
-                                        <mat-option [value]="option.STATE_CD"
-                                            *ngFor="let option of all_state">
+                                        <mat-option [value]="option.STATE_CD" *ngFor="let option of all_state">
                                             {{option.CD_DESC}}</mat-option>
-                                       
+
                                     </mat-select>
-                                  
+
                                     <mat-error
                                         *ngIf="customer_lead_form.controls['I_STATE'].hasError('required') && (customer_lead_form.controls['I_STATE'].touched)">
                                         Please Select State
@@ -171,73 +170,41 @@
                 </mat-tab>
                 <!-- ----------------------------------------------------------------------------           -->
                 <mat-tab label="Upload through Excel">
-                    <form class="pb-4">
-                        <div class="col-lg-12 project alternative">
-                            <div class="col-lg-6">
-                                <mat-form-field appearance="standard">
-                                    <mat-label>SELECT PROJECT</mat-label>
-                                    <mat-select matNativeControl [formControl]="select_project" required [(ngModel)]="select_values_of_project"
-                                    (selectionChange)="selectProjectOption()">
-                                        <mat-option  [value]="option.PROJECT_NAME" *ngFor="let option of project_list">{{option.PROJECT_NAME}}</mat-option>
-                                        <!-- <mat-option value="option">m1</mat-option> -->
-                                    </mat-select>
-                                    <mat-error *ngIf="select_project.hasError('required')">Please Select Prpject.
-                                        project_list                                 </mat-error>
-
-                                </mat-form-field>
-                            </div>
-                            <div class="col-lg-6" id="chos">
-                                <mat-form-field appearance="standard">
-                                    <mat-label *ngIf="!filename">CHOOSE EXCEL FILE</mat-label>
-                                    <input matInput>{{filename}}
-                                    <ngx-file-drop dropZoneLabel="Drop files here"  (onFileDrop)="dropped($event)">
-                                        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-
-                                            <button type="button" class="main_btn_log1 text-center"
-                                                (click)="openFileSelector()">Upload Excel</button>
-
-                                        </ng-template>
-                                    </ngx-file-drop>
-                                     <!-- <input class="float-right chos" type="file">
-                                    <span class="main_btn_log text-center">Upload Excel</span> -->
-                                    <!-- <input type="file" class="main_btn_log" value="chosse"> -->
-                                </mat-form-field>
-                            </div>
-                            <!-- <table>
-                                <tbody>
-                              <tr *ngFor="let row of data">
-                                    <td *ngFor="let val of row">
-                                        {{val}}
-                                    </td>
-                                </tr>
-                            </tbody>
-                            </table> -->
+                    <div class="col-lg-12 project alternative">
+                        <div class="col-lg-6">
+                            <mat-form-field appearance="standard">
+                                <mat-label>SELECT PROJECT</mat-label>
+                                <mat-select matNativeControl required  (selectionChange)="selectProjectOption($event)">
+                                    <mat-option [value]="option.PROJECT_NAME" *ngFor="let option of project_list">
+                                        {{option.PROJECT_NAME}}</mat-option>
+                                    <!-- <mat-option value="option">m1</mat-option> -->
+                                </mat-select>
+                            </mat-form-field>
                         </div>
-                        <div class="col-lg-12 col-12 px-0">
-                            <div class=" col-lg-6 col-12 px-0 button mt-4">
-                                <div class="text-center col-lg-4 col-6 submit">
-                                    <input type="submit" class="main_btn_log" value="SUBMIT">
-                                </div>
-
-                                <!-- <div class="text-center col-lg-4" id="forimport">
-                                    <ngx-file-drop dropZoneLabel="Drop files here">
-                                        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-
-                                            <button type="button" class="main_btn_log draft"
-                                                (click)="openFileSelector()">IMPORT EXCEL</button>
-
-                                        </ng-template>
-                                    </ngx-file-drop>
-                                </div> -->
-                            </div>
-                            <div class=" col-lg-6 col-12 button down mt-4 text-right">
-                                <div class="col-lg-12 col-12 text-right sample">
-                                    <p class="font-italic text-primary para"><i class="fa fa-download pr-2"
-                                            aria-hidden="true"></i>Download Excel Sample Format</p>
-                                </div>
+                        <div class="col-lg-6" id="chos">
+                            <mat-form-field appearance="standard">
+                                <mat-label>CHOOSE EXCEL FILE</mat-label>
+                                <input matInput [value]="file_name">
+          
+                                <input class="float-right chos" type="file" (change)="ExcelFileEvent($event)">
+                                    <span class="main_btn_log text-center">Upload Excel</span>
+                                <!-- <input type="file" class="main_btn_log" value="chosse"> -->
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-12 px-0">
+                        <div class=" col-lg-6 col-12 px-0 button mt-4">
+                            <div class="text-center col-lg-4 col-6 submit">
+                                <input type="submit" class="main_btn_log" value="SUBMIT">
                             </div>
                         </div>
-                    </form>
+                        <div class=" col-lg-6 col-12 button down mt-4 text-right">
+                            <div class="col-lg-12 col-12 text-right sample">
+                                <p class="font-italic text-primary para"><i class="fa fa-download pr-2"
+                                        aria-hidden="true"></i>Download Excel Sample Format</p>
+                            </div>
+                        </div>
+                    </div>
                 </mat-tab>
             </div>
         </mat-tab-group>

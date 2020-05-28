@@ -3,7 +3,7 @@
 <p class="fs-13 bl font-weight-bold pl-2 mt-2">Top 3 Projects</p>
 
             
-<div class="col-lg-12 p-2 mt-4 shadow bg-white brnew  ml-8" *ngFor="let data of builders_details">
+<div class="col-lg-12 p-2 mt-4 shadow bg-white brnew  ml-8" *ngFor="let data of top_projects;let i = index">
     <div class="col-lg-12 pl-0">
         <h6 class="pt-1 font-weight-bold m-0 fs-13">{{data.PROJECT_NAME | titlecase}}
             <span class="text-center fs-12 newbtn pl-3 pr-3  font-weight-normal ml-3">
@@ -21,16 +21,16 @@
         </div>
         <div class="col-lg-7 col-8 pr-0 pl-0 pl-15">
             <p class="fs-12 m-0 text-left cgray">Leads to Clients</p>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cred"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="ls cgray"><i class="fa fa-user"></i></span>
-            <span class="cgray"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'" ><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
+            <span class="ls" [ngClass]="data.u1 ? 'cred' : 'cgray'"><i class="fa fa-user"></i></span>
             <span class="pt-3 pl-2 fs-12"><span class="font-weight-bold fs-16">{{data.CONV_LEAD}}</span>/{{data.TOTAL_LEAD}}</span>
 
         </div>
@@ -40,8 +40,8 @@
     <div class="col-lg-12 pl-0">
         <p class="fs-12 m-0 cgray">Retail Disbursement</p>
         <div class="progress mt-1">
-            <div class="progress-bar" role="progressbar" style="width: 40%;color: black;background-color: rgb(194,237,254);position: relative;top: -1px;left: -1px;height: 100px;" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100" class="font-italic">{{data.PROPOSED_NO}}</div>
+            <div class="progress-bar" role="progressbar" id="progress{{ i }}" style="color: black;background-color: rgb(194,237,254);position: relative;top: -1px;left: -1px;height: 100px;" aria-valuenow="{{ data.disb_percent }}"
+                aria-valuemin="0" aria-valuemax="100" class="font-italic">{{data.TOT_SANCTION}}</div>
         </div>
     </div>
 
