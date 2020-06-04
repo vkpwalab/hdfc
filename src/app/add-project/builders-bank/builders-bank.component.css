@@ -12,11 +12,51 @@
     border: 1px solid #e3310d;
     height: 40px;
     font-size: 12px;
-    padding: 10px 30px;
+    padding: 10px 40px;
     box-shadow: 1px 3px 8px #ed1c2452;
 
 }
+.ADD-BANK {border-top: 1px solid lightgrey;}
+.btn-modal-2 {
+    background-color: white;
+    border-radius: 40px;
+    color: #e3310d;
+    border: 1px solid #e3310d;
+    height: 35px;
+    font-size: 13px;
+    padding: 8px 55px;
+    /* box-shadow: 1px 3px 8px #ed1c2452; */
+}
+.btn-upload {
+    background-color: #e3310d;
+    border-radius: 40px;
+    color: white;
+    border: 1px solid #e3310d;
+    height: 30px;
+    font-size: 12px;
+    padding: 7px 25px;
+    position: absolute;
+    top: -8px !important;
+    right: 0 !important;
+}
+#upload .up {width: 20%;
+    position: absolute;
+    right: 4px !important;
+    z-index: 5;
+    opacity: 0;
+    top: -8px !important;
+    height: 30px;}
+
 @media screen and (min-width:320px) and (max-width: 576px){
-    .project{display: block;padding-left: 0px !important;}
+    .project{display: block;padding-left: 0px !important;padding-right: 0px !important;}
     .mat-form-field{width: 100%;}
+    .mob-center {text-align: center !important;padding-right: 15px !important;}
+    #upload .up {width: 350%;
+        position: absolute;
+        right: 4px !important;
+        z-index: 5;
+        opacity: 0;
+        top: -8px !important;
+        height: 30px;}
+        .main_btn_log {width: 50%;border: 1px solid #e3310d; margin: auto;}   
 }
