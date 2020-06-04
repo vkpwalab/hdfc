@@ -16,7 +16,7 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { HttpClientModule } from '@angular/common/http';
 // import {ReactiveFormsModule} from '@angular/forms'
 import { ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
@@ -116,7 +116,7 @@ import { TruncatePipe } from './truncate.pipe';
     MatDatepickerModule,
     MatNativeDateModule,
     NgxFileDropModule,
-  
+    HttpClientModule,
     DragDropModule,
     MatTabsModule,
     NgCircleProgressModule.forRoot({
