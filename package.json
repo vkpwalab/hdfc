@@ -40,7 +40,6 @@
     "ng2-charts": "^2.3.0",
     "ng2-search-filter": "^0.5.1",
     "ngx-file-drop": "^8.0.8",
-    "ngx-soap": "^0.6.3",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "sax": "^1.2.4",

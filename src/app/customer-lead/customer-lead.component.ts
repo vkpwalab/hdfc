@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
-import { ISoapMethodResponse } from 'ngx-soap';
 import * as XLSX from 'xlsx';
 
 type AOA = any[][];

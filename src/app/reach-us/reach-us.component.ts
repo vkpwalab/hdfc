@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ISoapMethodResponse } from 'ngx-soap';
-import $ from 'jquery';
 @Component({
   selector: 'app-reach-us',
   templateUrl: './reach-us.component.html',

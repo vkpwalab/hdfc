@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,7 +11,9 @@ export class QueriesComponent implements OnInit {
   @Input() project_id: any;
   token: string;
   query_list: any;
-  builder_names: any [];
+  builder_names: any = {};
+  @Output() query: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(private shared:SharedService, private http:HttpClient) { }
 
   ngOnInit(): void {
@@ -44,9 +46,7 @@ export class QueriesComponent implements OnInit {
         });
 
         console.log(this.query_list)
-        setTimeout(() => {
-          console.log('dipesh',this.builder_names);
-        }, 2000);
+
       }
     );
   }
@@ -78,5 +78,10 @@ export class QueriesComponent implements OnInit {
     } else {
       this.builder_names[id] = id;
     }
+  }
+
+  queryData(name, query){
+    query.CREATED_NAME = name;
+    this.query.emit(query);
   }
 }

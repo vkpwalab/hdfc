@@ -56,7 +56,6 @@ import { MatTableModule } from '@angular/material/table';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queries.component';
-import { NgxSoapModule } from 'ngx-soap';
 import { TruncatePipe } from './truncate.pipe';
 
 
@@ -102,7 +101,6 @@ import { TruncatePipe } from './truncate.pipe';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    NgxSoapModule,
 
     MatInputModule,
     // ReactiveFormsModule,

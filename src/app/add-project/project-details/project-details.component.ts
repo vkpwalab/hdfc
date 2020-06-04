@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
-import { ISoapMethodResponse } from 'ngx-soap';
+
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import $ from 'jquery';
 

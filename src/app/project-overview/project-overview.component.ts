@@ -27,8 +27,9 @@ export class ProjectOverviewComponent implements OnInit {
   token: string;
   project_detail: any;
   building_list: any;
-  
-  
+  query: any = [];
+  query_data: any = [];
+  message:any = '';
   constructor(private shared : SharedService, private activatedRoute: ActivatedRoute, private route:Router) { }
 
   ngOnInit(): void {
@@ -91,5 +92,89 @@ export class ProjectOverviewComponent implements OnInit {
         console.log(this.building_list);
       }
     );
+  }
+
+  queryData(query) {
+    this.query = query;
+
+    let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:Get_QRY_DTA_BY_QUESTID>
+                                    <!--Optional:-->
+                                    <tem:I_QUEST_ID>${this.query.QUEST_ID}</tem:I_QUEST_ID>
+                                    <!--Optional:-->
+                                    <tem:Token>${this.token}</tem:Token>
+                                </tem:Get_QRY_DTA_BY_QUESTID>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Get_QRY_DTA_BY_QUESTID';
+    let result_tag = 'Get_QRY_DTA_BY_QUESTIDResult';
+    this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
+      (data) => {
+        this.query_data = data.Table;
+        
+        console.log(this.query_data)
+      }
+    );
+
+  }
+
+  sendResponse() {
+    let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:Insert_Query>
+                                    <!--Optional:-->
+                                    <tem:PROJECT_ID>${this.query.PROJECT_ID}</tem:PROJECT_ID>
+                                    <!--Optional:-->
+                                    <tem:PHASE_ID>${this.query.PHASE_ID}</tem:PHASE_ID>
+                                    <!--Optional:-->
+                                    <tem:PROJECT_NAME>${this.query.PROJECT_NAME}</tem:PROJECT_NAME>
+                                    <!--Optional:-->
+                                    <tem:QUERY>${this.message}</tem:QUERY>
+                                    <!--Optional:-->
+                                    <tem:I_QUERY_ID></tem:I_QUERY_ID>
+                                    <!--Optional:-->
+                                    <tem:STATUS>${this.query.STATUS}</tem:STATUS>
+                                    <!--Optional:-->
+                                    <tem:I_PARENT_QUEST_ID>${this.query.QUEST_ID}</tem:I_PARENT_QUEST_ID>
+                                    <!--Optional:-->
+                                    <tem:SUBSTATUS>${this.query.SUBSTATUS}</tem:SUBSTATUS>
+                                    <!--Optional:-->
+                                    <tem:K1>${this.query.K1}</tem:K1>
+                                    <!--Optional:-->
+                                    <tem:K2>${this.query.K2}</tem:K2>
+                                    <!--Optional:-->
+                                    <tem:K3>${this.query.K3}</tem:K3>
+                                    <!--Optional:-->
+                                    <tem:K4>${this.query.K4}</tem:K4>
+                                    <!--Optional:-->
+                                    <tem:CREATED_BY>${this.builder_id}</tem:CREATED_BY>
+                                    <!--Optional:-->
+                                    <tem:UPDATED_BY>${this.builder_id}</tem:UPDATED_BY>
+                                    <!--Optional:-->
+                                    <tem:Question>${this.message}</tem:Question>
+                                    <!--Optional:-->
+                                    <tem:I_QUERY_TYPE>Builder</tem:I_QUERY_TYPE>
+                                    <!--Optional:-->
+                                    <tem:I_URL>${this.query.URL}</tem:I_URL>
+                                    <!--Optional:-->
+                                    <tem:Token>${this.token}</tem:Token>
+                                </tem:Insert_Query>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Insert_Query';
+    let result_tag = 'Insert_QueryResult';
+    this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
+      (data) => {
+        if (data == "Success") {
+          alert('Your query is submitted');
+        }
+      }
+    );
+    
   }
 }
