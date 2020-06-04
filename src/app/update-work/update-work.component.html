@@ -68,11 +68,11 @@
 
                     <div class="col-lg-2 top hidemobile pl-2 pr-0">
                         <img src="./assets/images/icons/building2.png" height="22px">
-                        <span class="pl-1 pt-1"><b>{{project_selected_detail[0].PROJECT_NAME | truncate:12 | titlecase}}</b></span>
+                        <span class="pl-1 pt-1"><b>{{project_selected_detail[0].PROJECT_NAME | titlecase}}</b></span>
                     </div>
 
                     <div class="col-lg-2 pr-0 prnew raj pl-2">
-                        <span class="top fs-13"><b>{{data.BLDG_NAME | truncate:15 | titlecase}}</b></span>
+                        <span class="top fs-13"><b>{{data.BLDG_NAME | titlecase}}</b></span>
                     </div>
                     <div class="col-lg-2 px-2 padtop-5 pad-x">
                         <mat-form-field class="example-full-width">
@@ -149,12 +149,11 @@
         <div class="modal-content col-lg-12 col-12 bg-white shadow brnew p-3 alternative">
             <div style="border-bottom:1px solid lightgray;" class="col-lg-12 col-12 row m-0 px-0">
                 <div class="col-lg-10 col-10 px-0">
-                    <h5 style="color: #000000;">Upload Document</h5>
+                    <h5 class="modal-title">Upload Document</h5>
                 </div>
                 <div class="col-lg-2 col-2 px-0">
 
                     <div class="w-20 close" data-dismiss="modal" aria-label="Close">
-
                         <img src="./assets/images/cross.png" alt="" width="100%">
                     </div>
 
@@ -163,10 +162,10 @@
             <!-- <hr> -->
             <div class="col-lg-12 col-12 row m-0 px-0">
                 <div class="col-lg-6 col-6 pl-0 pt-2">
-                        <p class="top fs-13"><b>PROJECT NAME: MOTI NAGAR (44436)</b></p>
+                        <p class="top fs-13"><b>PROJECT NAME: Moti Nagar (44436)</b></p>
                 </div>
                 <div class="col-lg-6 col-6 pr-0 pt-2">
-                    <p class="top fs-13"><b>BUILDING NAME: MOTI NAGAR TYPE 1 WING 1</b></p>
+                    <p class="top fs-13"><b>BUILDING NAME: Moti Nagar Type 1 Wing 1</b></p>
                 </div>
             </div>
             <div class="col-lg-12 col-12 px-0">
@@ -175,13 +174,18 @@
                     <input matInput type="text" placeholder="">
                 </mat-form-field>
             </div>
-            <div class="col-lg-12 col12 px-0 hide">
-                <input type="file">
-                <button type="" class="btn modal_btn width-cap">Upload</button>
+            <div class="col-lg-12 alternative px-0" id="upload">
+                <mat-form-field appearance="standard">
+                    <mat-label>CHOOSE FILES</mat-label>
+                    <input matInput>
+                    <input class="float-right up" type="file">
+                    <span class="btn-upload text-center">Upload Files</span>
+        
+                </mat-form-field>
             </div>
-            <div class="col-lg-12 col12 px-0 pt-4 mt-4">
-                <div class="col-4 pl-0">
-                <button type="" class="btn modal_btn ">Submit</button>
+            <div class="col-lg-12 col12 px-0mt-4 text-center">
+                <div class="col-lg-5 col-6 sub-btn">
+                <input type="submit" value="SUBMIT" class="btn modal_btn">
             </div>
             </div>
         </div>

@@ -81,26 +81,6 @@
 
     <!-- -------------------------------HEAD TITLE ENDS HERE------------------------------------- -->
 
-    <!-- -----------------------------FILTER-------------------------- -->
-
-    <!-- <div class="col-lg-12 px-0 mt-1 filter fil-div" id="filter1">
-        <form action="">
-           <div class="col-lg-6 px-0 col-12 pt-2 px-0" id="radio">
-            <div class="col-lg-4 col-4">
-             <input type="radio" class="form-check-input" id="1" name="select" value="Pending">
-             <label class="btn mirage" for="1">Pending</label>
-            </div>
-            <div class="col-lg-4 col-4">
-                <input type="radio" class="form-check-input" id="2" name="select" value="Completed">
-                <label class="btn mirage" for="2">Completed</label>
-               </div>
-               <div class="col-lg-4 col-4">
-                <input type="radio" class="form-check-input" id="3" name="select" value="All">
-                <label class="btn mirage" for="3">All</label>
-               </div>
-           </div>
-        </form>
-       </div> -->
 
 
 
@@ -146,7 +126,7 @@
                 <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
                 <img class="w-01 ml-1" src="./assets/images/icons/view icon.png" [routerLink]="['/project-overview',ans.PROJECTID]">
                 <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png"
-                    style="position: relative !important;">
+                    style="position: relative !important;" data-toggle="modal" data-target="#exampleModal">
                 <span class="badge badge-danger">12</span>
             </div>
         </div>
@@ -154,3 +134,44 @@
     </div>
 
 </div>
+
+<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<MODAL BOX>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Respond To The Queries</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="col-lg-12 px-0 nopadding">
+                <label>Query :</label>
+                <textarea 
+                  rows="5"
+                  [(ngModel)]="role"
+                  [maxlength]="maxChars">
+                </textarea>
+                <label class="nopadding clrlbl">Remaining Characters : {{role.length}}/{{maxChars}}</label>
+              </div>
+
+              <div class="col-lg-12 alternative px-0" id="upload">
+                <mat-form-field appearance="standard">
+                    <mat-label>CHOOSE FILES</mat-label>
+                    <input matInput>
+                    <input class="float-right up" type="file">
+                    <span class="btn-upload text-center">Upload Files</span>
+        
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="modal-footer text-center">
+            <div class="col-lg-12"><input type="submit" class="btn btn-primary" value="SUBMIT"></div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -13,6 +13,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./all-projects.component.css']
 })
 export class AllProjectsComponent implements OnInit {
+  maxChars = 4000;
+  role = '';
+  chars = 0;
   builder_details: any = [];
   project_list: any = [];
   branch_no:any;
