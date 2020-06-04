@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import $ from 'jquery';
-import { ISoapMethodResponse } from 'ngx-soap';
 @Component({
   selector: 'app-dashboard-projects',
   templateUrl: './dashboard-projects.component.html',

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { Router } from '@angular/router';
-import { ISoapMethodResponse } from 'ngx-soap';
 
 @Component({
   selector: 'app-dashboard',

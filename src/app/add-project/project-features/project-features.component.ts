@@ -1,6 +1,6 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
-import { ISoapMethodResponse } from 'ngx-soap';
+
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import $ from 'jquery';
 
@@ -324,23 +324,7 @@ export class ProjectFeaturesComponent implements OnInit {
         console.log(data);
       }
     );
-      // (<any>this.shared.client).Create_project(body_create_project).subscribe(
-      //   (res: ISoapMethodResponse) => {
-      //     console.log('method response', res);
-      //     let xmlResponse = res.xml;
-      //     let result = res.result.Create_projectResult;
-
-      //     var result_json = JSON.parse(result)
-      //     if (result_json.O_Project_id) {
-      //       this.shared.projectId(result_json.O_Project_id);
-      //       $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
-      //       $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
-      //     }
-      //     console.log(result_json);
-
-      //   },
-      //   err => console.log(err)
-      // );
+      
     }
   }
 
