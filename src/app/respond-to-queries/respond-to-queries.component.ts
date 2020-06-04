@@ -136,11 +136,13 @@ export class RespondToQueriesComponent implements OnInit {
         (data) => {
           let builder_detail = data.Table[0];
           this.builder_names[id] = builder_detail.BUILDER_NAME;
-
+          console.log(builder_detail);
         }
       );
 
     } else {
+      console.log('else',id);
+
       this.builder_names[id] = id;
     }
   }
@@ -174,26 +176,6 @@ export class RespondToQueriesComponent implements OnInit {
   }
 
   sendResponse() {
-    let body_insert_query = {
-      PROJECT_ID: this.selected_query.PROJECT_ID,
-      PHASE_ID: this.selected_query.PHASE_ID,
-      PROJECT_NAME: this.selected_query.PROJECT_NAME,
-      QUERY: this.message,
-      I_QUERY_ID: '',
-      STATUS: this.selected_query.STATUS,
-      I_PARENT_QUEST_ID: this.selected_query.QUEST_ID,
-      SUBSTATUS: this.selected_query.SUBSTATUS,
-      K1: this.selected_query.K1,
-      K2: this.selected_query.K2,
-      K3: this.selected_query.K3,
-      K4: this.selected_query.K4,
-      CREATED_BY: '510673',
-      UPDATED_BY: '510673',
-      Question: this.message,
-      I_QUERY_TYPE: 'Builder',
-      I_URL: this.selected_query.URL,
-      Token: 'MH3NPYK34J0KHDI'
-    };
 
     let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                               <soapenv:Header/>

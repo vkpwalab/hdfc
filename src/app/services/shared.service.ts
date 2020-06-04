@@ -57,7 +57,7 @@ export class SharedService {
     })
 
     return this.http.post(this.api_path, body, { headers: header, responseType: "text" }).pipe(map((res: any) => {
-      console.log(res);
+      // console.log(res);
       const parser = new DOMParser();
       let xml = parser.parseFromString(res, 'text/xml');
       let xml_body = xml.getElementsByTagName(result_tag)[0].childNodes[0].nodeValue;
