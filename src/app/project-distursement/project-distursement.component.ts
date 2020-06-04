@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { ISoapMethodResponse } from 'ngx-soap';
+
+
 @Component({
   selector: 'app-project-distursement',
   templateUrl: './project-distursement.component.html',
@@ -20,116 +22,138 @@ export class ProjectDistursementComponent implements OnInit {
   FLAT_NO: any;
   FLOOR_NO: any;
   search_text: string;
-  constructor(private shared : SharedService) { }
+  builder_id: string;
+  token: string;
+
+  constructor(private shared: SharedService) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Disbursement');
-
+    this.builder_id = '510673';
+    this.token = 'MH3NPYK34J0KHDI';
     this.getBuilersDetails();
-  
+
   }
 
-  getBuilersDetails(){
-    let body_builders_details = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
+  getBuilersDetails() {
+    let body_builders_details = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                    <soapenv:Header/>
+                                    <soapenv:Body>
+                                      <tem:GetBuilderDetails>
+                                          <!--Optional:-->
+                                          <tem:BUILDERID>${this.builder_id}</tem:BUILDERID>
+                                          <!--Optional:-->
+                                          <tem:Token>${this.token}</tem:Token>
+                                      </tem:GetBuilderDetails>
+                                    </soapenv:Body>
+                                </soapenv:Envelope>`;
 
-    setTimeout(() => {
-      (<any>this.shared.client).GetBuilderDetails(body_builders_details).subscribe(
-
-        (res: ISoapMethodResponse) => {
-          console.log('method response', res);
-          let xmlResponse = res.xml;
-          let result = res.result.GetBuilderDetailsResult;
-
-          var result_json = JSON.parse(result)
-
-          this.builder_detail = result_json.Table;
-          console.log(this.builder_detail);
-         
-          this.branch_no = this.builder_detail[0].BRANCH_NO;
-
-          this.getPacProjectList();
-        },
-        err => console.log(err)
-      );
-    }, 1000);
+    let soapaction = 'http://tempuri.org/IService1/GetBuilderDetails';
+    let result_tag = 'GetBuilderDetailsResult';
+    this.shared.getData(soapaction, body_builders_details, result_tag).subscribe(
+      (data) => {
+        this.builder_detail = data.Table[0];
+        this.branch_no = this.builder_detail.BRANCH_NO;
+        console.log(this.builder_detail);
+        this.getPacProjectList();
+      }
+    );
   }
 
-  getPacProjectList(){
-    let body_Pac_Project_List = { branch: this.branch_no, I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI' };
+  getPacProjectList() {
+    let body_pac_project_list = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                    <tem:Get__Pac_Project_List>
+                                        <!--Optional:-->
+                                        <tem:branch>${this.branch_no}</tem:branch>
+                                        <!--Optional:-->
+                                        <tem:I_BUILDER_ID>${this.builder_id}</tem:I_BUILDER_ID>
+                                        <!--Optional:-->
+                                        <tem:Token>${this.token}</tem:Token>
+                                    </tem:Get__Pac_Project_List>
+                                  </soapenv:Body>
+                              </soapenv:Envelope>`;
 
-    (<any>this.shared.client).Get__Pac_Project_List(body_Pac_Project_List).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.Get__Pac_Project_ListResult;
-
-        var result_json = JSON.parse(result)
-
-        this.project_list = result_json.Table;
-
+    let soapaction = 'http://tempuri.org/IService1/Get__Pac_Project_List';
+    let result_tag = 'Get__Pac_Project_ListResult';
+    this.shared.getData(soapaction, body_pac_project_list, result_tag).subscribe(
+      (data) => {
+        this.project_list = data.Table;
         console.log(this.project_list);
-      },
-      err => console.log(err)
+      }
     );
-
   }
 
-  projectChange(event){
+  projectChange(event) {
     this.project_selected = event.value;
+    let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:get_project_building>
+                                      <!--Optional:-->
+                                      <tem:i_project_no>${this.project_selected}</tem:i_project_no>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:get_project_building>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
 
-    let body_Building_List = { i_project_no: this.project_selected, Token: 'MH3NPYK34J0KHDI' };
-
-    (<any>this.shared.client).get_project_building(body_Building_List).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.get_project_buildingResult;
-
-        var result_json = JSON.parse(result)
-
-        this.building_list = result_json.Table;
-
+    let soapaction = 'http://tempuri.org/IService1/get_project_building';
+    let result_tag = 'get_project_buildingResult';
+    this.shared.getData(soapaction, body_Building_List, result_tag).subscribe(
+      (data) => {
+        this.building_list = data.Table;
         console.log(this.building_list);
-      },
-      err => console.log(err)
+      }
     );
   }
 
-  buildingChange(event){
+  buildingChange(event) {
     this.building_selected = event.value;
+    let body_Project_Disb = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:get_devport_disb_summ>
+                                    <!--Optional:-->
+                                    <tem:i_project_id>61222</tem:i_project_id>
+                                    <!--Optional:-->
+                                    <tem:i_proj_bldg_no>105641</tem:i_proj_bldg_no>
+                                    <!--Optional:-->
+                                    <tem:Token>${this.token}</tem:Token>
+                                </tem:get_devport_disb_summ>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
 
-    // let body_Project_Disb = { i_project_no: this.project_selected, i_proj_bldg_no: this.building_selected, Token: 'MH3NPYK34J0KHDI' };
-    let body_Project_Disb = { i_project_id: 61222, i_proj_bldg_no: 105641, Token: 'MH3NPYK34J0KHDI' };
-
-    (<any>this.shared.client).get_devport_disb_summ(body_Project_Disb).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.get_devport_disb_summResult;
-
-        var result_json = JSON.parse(result)
-
-        this.disbursement_list = result_json.Table;
-
+    let soapaction = 'http://tempuri.org/IService1/get_devport_disb_summ';
+    let result_tag = 'get_devport_disb_summResult';
+    this.shared.getData(soapaction, body_Project_Disb, result_tag).subscribe(
+      (data) => {
+        this.disbursement_list = data.Table;
         console.log(this.disbursement_list);
-      },
-      err => console.log(err)
+      }
     );
   }
 
-  getDisbDetail(disb:any){
-    let body_Project_Disb_Detail = { i_file_no: disb.FILE_NO, Token: 'MH3NPYK34J0KHDI' };
+  getDisbDetail(disb: any) {
+    let body_Project_Disb_Detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                      <soapenv:Header/>
+                                      <soapenv:Body>
+                                        <tem:get_devport_disb_det>
+                                            <!--Optional:-->
+                                            <tem:i_file_no>${disb.FILE_NO}</tem:i_file_no>
+                                            <!--Optional:-->
+                                            <tem:Token>${this.token}</tem:Token>
+                                        </tem:get_devport_disb_det>
+                                      </soapenv:Body>
+                                  </soapenv:Envelope>`;
 
-    (<any>this.shared.client).get_devport_disb_det(body_Project_Disb_Detail).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.get_devport_disb_detResult;
-
-        var result_json = JSON.parse(result)
-
-        this.disb_detail = result_json.Table;
-
+    let soapaction = 'http://tempuri.org/IService1/get_devport_disb_det';
+    let result_tag = 'get_devport_disb_detResult';
+    this.shared.getData(soapaction, body_Project_Disb_Detail, result_tag).subscribe(
+      (data) => {
+        this.disb_detail = data.Table;
+        console.log(this.disb_detail);
         this.CUSTOMER_NAME = disb.CUSTOMER_NAME;
         this.FLAT_NO = disb.FLAT_NO;
         this.FLOOR_NO = disb.FLOOR_NO;
@@ -139,9 +163,9 @@ export class ProjectDistursementComponent implements OnInit {
           this.total_disbusment += parseFloat(element.AMOUNT);
         });
 
-        console.log(this.disb_detail);
-      },
-      err => console.log(err)
+      }
     );
   }
+
+
 }

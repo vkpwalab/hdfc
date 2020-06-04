@@ -109,7 +109,7 @@
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
     <div class="col-xl-12 col-12 px-0" *ngFor="let ans of project_list | filter:search_text">
-        <div class="col-lg-12 col-12 main-list mt-3 px-0" [routerLink]="['/project-overview']"
+        <div class="col-lg-12 col-12 main-list mt-3 px-0" 
             *ngIf="select_values_of_status==ans.PROJECT_STAUS || !select_values_of_status || select_values_of_status == status_all">
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
                 <div class="col-12 px-0 top">
@@ -122,8 +122,8 @@
                         aria-hidden="true"></i><b>{{ans.LOCATIONS | titlecase}}</b>
                 </p>
             </div>
-            <div class="col-xl-3 col-10 pr-0 ltd mb-0" *ngFor="let ans of builder_details">
-                <p class="top"><b>{{ans.BUILDER_NAME | titlecase}}</b></p>
+            <div class="col-xl-3 col-10 pr-0 ltd mb-0" >
+                <p class="top"><b>{{builder_details.BUILDER_NAME | titlecase}}</b></p>
             </div>
             <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
                 <!-- <p class="font-italic app mb-0" *ngIf="select_values_of_status == 'All' || select_values_of_status == 'Completed'"><i
@@ -144,7 +144,7 @@
             </div>
             <div class="col-xl-2 col-6 i-con pt-2 px-0">
                 <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
-                <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
+                <img class="w-01 ml-1" src="./assets/images/icons/view icon.png" [routerLink]="['/project-overview',ans.PROJECTID]">
                 <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png"
                     style="position: relative !important;">
                 <span class="badge badge-danger">12</span>

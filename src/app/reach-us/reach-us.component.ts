@@ -13,7 +13,6 @@ export class ReachUsComponent implements OnInit {
   slide_toggle_form: FormGroup;
   reachus: FormGroup;
   project_list: any;
-  select_values_of_project: any;
   project_site: string;
   project_approval: string;
   campaign_management: string;
@@ -24,16 +23,18 @@ export class ReachUsComponent implements OnInit {
   branch_no: any;
   reachus_project: FormGroup;
   ans: void;
-
+  builder_id: string;
+  token: string;
 
 
   constructor(private shared: SharedService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
 
-    this.getBuilersDetails();
-    this.selectProjectOption();
     this.shared.headerTitle('Reach Us');
+    this.builder_id = '510673';
+    this.token = 'MH3NPYK34J0KHDI';
+
     this.reachus = this.fb.group({
       'remark_approval': [''],
       'remark_campaign': [''],
@@ -47,115 +48,127 @@ export class ReachUsComponent implements OnInit {
       'enable_subvention_scheme': [''],
       'enable_disbursment_facility': [''],
       'enable_loan_assistance': [''],
-      'enable_project_site': ['']
-
-
+      'enable_sale_excutive': ['']
     })
 
+    this.getBuilersDetails();
   }
 
   getBuilersDetails() {
-    let body_builders_details = { BUILDERID: '510673', Token: 'MH3NPYK34J0KHDI' };
+    let body_builders_details = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                    <soapenv:Header/>
+                                    <soapenv:Body>
+                                      <tem:GetBuilderDetails>
+                                          <!--Optional:-->
+                                          <tem:BUILDERID>${this.builder_id}</tem:BUILDERID>
+                                          <!--Optional:-->
+                                          <tem:Token>${this.token}</tem:Token>
+                                      </tem:GetBuilderDetails>
+                                    </soapenv:Body>
+                                </soapenv:Envelope>`;
 
-    setTimeout(() => {
-
-      (<any>this.shared.client).GetBuilderDetails(body_builders_details).subscribe(
-
-        (res: ISoapMethodResponse) => {
-          console.log('method response', res);
-          let xmlResponse = res.xml;
-          let result = res.result.GetBuilderDetailsResult;
-          // console.log(result);
-
-          var result_json = JSON.parse(result)
-          // console.log("object", result_json)
-
-
-          this.builders_details = result_json.Table;
-          this.branch_no = this.builders_details[0].BRANCH_NO;
-
-          this.getPacProjectList();
-        },
-        err => console.log(err)
-      );
-
-    }, 1000);
+    let soapaction = 'http://tempuri.org/IService1/GetBuilderDetails';
+    let result_tag = 'GetBuilderDetailsResult';
+    this.shared.getData(soapaction, body_builders_details, result_tag).subscribe(
+      (data) => {
+        this.builders_details = data.Table[0];
+        this.branch_no = this.builders_details.BRANCH_NO;
+        console.log(this.builders_details);
+        this.getPacProjectList();
+      }
+    );
   }
 
   getPacProjectList() {
-    let body_Pac_Project_List = { branch: this.branch_no, I_BUILDER_ID: '510673', Token: 'MH3NPYK34J0KHDI' };
+    let body_pac_project_list = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                    <tem:Get__Pac_Project_List>
+                                        <!--Optional:-->
+                                        <tem:branch>${this.branch_no}</tem:branch>
+                                        <!--Optional:-->
+                                        <tem:I_BUILDER_ID>${this.builder_id}</tem:I_BUILDER_ID>
+                                        <!--Optional:-->
+                                        <tem:Token>${this.token}</tem:Token>
+                                    </tem:Get__Pac_Project_List>
+                                  </soapenv:Body>
+                              </soapenv:Envelope>`;
 
-
-    (<any>this.shared.client).Get__Pac_Project_List(body_Pac_Project_List).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.Get__Pac_Project_ListResult;
-        console.log(result);
-
-        var result_json = JSON.parse(result)
-        console.log("object", result_json)
-
-        this.project_list = result_json.Table;
-      },
-      err => console.log(err)
+    let soapaction = 'http://tempuri.org/IService1/Get__Pac_Project_List';
+    let result_tag = 'Get__Pac_Project_ListResult';
+    this.shared.getData(soapaction, body_pac_project_list, result_tag).subscribe(
+      (data) => {
+        this.project_list = data.Table;
+        console.log(this.project_list);
+      }
     );
 
-
   }
-
-
-
-
-
-
-
-
-
-  selectProjectOption() {
-    console.log(this.select_values_of_project)
-  }
-
 
   submitReachUsForm(data) {
 
-    let body_reach_us_form = {
-      I_proj_appr_needed: data.remark_approval,
-      I_camp_managment: data.remark_campaign,
-      I_suventn_scheme: data.remark_subvention_scheme,
-      I_spec_disb_facility: data.remark_disbursment_facility,
-      I_onsile_hmloan_assis: data.remark_home_loan,
-      I_full_time_sales: data.remark_sales_executive,
-      Token: 'MH3NPYK34J0KHDI',
-      Project_Name: data.select_values_of_project,
-      status_approval: data.enable_project_approval,
-      status_management: data.enable_campaign_management,
-      status_subvention: data.enable_subvention_scheme,
-      status_disbursment: data.enable_disbursment_facility,
-      status_loan: data.enable_loan_assistance,
-      status_project: data.enable_project_site
-    }
-    console.log(body_reach_us_form)
-    console.log(data);
-    setTimeout(() => {
       if (this.reachus.valid) {
 
-        (<any>this.shared.client).Insert_proj_assistance(body_reach_us_form).subscribe(
-          (res: ISoapMethodResponse) => {
-            console.log('method response', res);
-            let xmlResponse = res.xml;
+        let body_reach_us_form = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                    <soapenv:Header/>
+                                    <soapenv:Body>
+                                      <tem:Insert_proj_assistance>
+                                          <!--Optional:-->
+                                          <tem:I_project_id>${data.select_project}</tem:I_project_id>
+                                          <!--Optional:-->
+                                          <tem:I_builder_id>${this.builder_id}</tem:I_builder_id>
+                                          <!--Optional:-->
+                                          <tem:I_proj_appr_needed>${data.remark_approval}</tem:I_proj_appr_needed>
+                                          <!--Optional:-->
+                                          <tem:I_camp_managment>${data.remark_campaign}</tem:I_camp_managment>
+                                          <!--Optional:-->
+                                          <tem:I_suventn_scheme>${data.remark_subvention_scheme}</tem:I_suventn_scheme>
+                                          <!--Optional:-->
+                                          <tem:I_spec_disb_facility>${data.remark_disbursment_facility}</tem:I_spec_disb_facility>
+                                          <!--Optional:-->
+                                          <tem:I_onsile_hmloan_assis>${data.remark_home_loan}</tem:I_onsile_hmloan_assis>
+                                          <!--Optional:-->
+                                          <tem:I_is_camp_managment>${data.enable_campaign_management}</tem:I_is_camp_managment>
+                                          <!--Optional:-->
+                                          <tem:I_is_full_time_sales>${data.enable_sale_excutive}</tem:I_is_full_time_sales>
+                                          <!--Optional:-->
+                                          <tem:I_is_onsile_hmloan_assis>${data.enable_loan_assistance}</tem:I_is_onsile_hmloan_assis>
+                                          <!--Optional:-->
+                                          <tem:I_is_proj_appr_needed>${data.enable_project_approval}</tem:I_is_proj_appr_needed>
+                                          <!--Optional:-->
+                                          <tem:I_is_spec_disb_facility>${data.enable_disbursment_facility}</tem:I_is_spec_disb_facility>
+                                          <!--Optional:-->
+                                          <tem:I_is_suventn_scheme>${data.enable_subvention_scheme}</tem:I_is_suventn_scheme>
+                                          <!--Optional:-->
+                                          <tem:I_full_time_sales>${data.remark_sales_executive}</tem:I_full_time_sales>
+                                          <!--Optional:-->
+                                          <tem:I_key1></tem:I_key1>
+                                          <!--Optional:-->
+                                          <tem:I_key2></tem:I_key2>
+                                          <!--Optional:-->
+                                          <tem:I_key3></tem:I_key3>
+                                          <!--Optional:-->
+                                          <tem:I_key4></tem:I_key4>
+                                          <!--Optional:-->
+                                          <tem:I_created_by>${this.builder_id}</tem:I_created_by>
+                                          <!--Optional:-->
+                                          <tem:Token>${this.token}</tem:Token>
+                                      </tem:Insert_proj_assistance>
+                                    </soapenv:Body>
+                                </soapenv:Envelope>`;
+
+        let soapaction = 'http://tempuri.org/IService1/Insert_proj_assistance';
+        let result_tag = 's:Body';
+        this.shared.getData(soapaction, body_reach_us_form, result_tag).subscribe(
+          (data) => {
             alert('Thank you.Your Reach-Us Form is Submitted Successfully.')
             location.reload();
-
-
-          },
-          (err) => console.log(err)
+          }
         );
       }
       else {
-        alert('Please Select Project')
+        alert('Please Select Project');
       }
-    }, 4000);
 
   }
 

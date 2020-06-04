@@ -25,12 +25,11 @@
           </div>
         </div>
         <div class="col-lg-10 col-9 pl-0">
-          <h6 class="m-0 fs-13 font-weight-bold pt-2">Raj Grandeur<span
-              class="text-center fs-12 newbtn pl-3 pr-3  font-weight-normal ml-4">Residential</span>
+          <h6 class="m-0 fs-13 font-weight-bold pt-2">{{ project_detail.PROJECT_NAME }}<span
+              class="text-center fs-12 newbtn pl-3 pr-3  font-weight-normal ml-4">{{ project_detail.PROP_CLASS }}</span>
           </h6>
           <i style="color: #e3310d  !important;" class="fa fa-map-marker" aria-hidden="true"></i><span
-            class="m-0 fs-12 pl-1 font-italic">Andheri
-            Kurla</span>
+            class="m-0 fs-12 pl-1 font-italic">{{ project_detail.LOCATIONS }}</span>
 
         </div>
       </div>
@@ -47,7 +46,7 @@
       <div class="col-lg-12 col-12 d-inline-flex pl-0 pr-0">
         <div class="col-lg-5 col-5">
           <p class="fs-12 m-0 cgray">Total Loan</p>
-          <h4 class="font-weight-bold fs-21">150 Crores</h4>
+          <h4 class="font-weight-bold fs-21">{{ project_detail.TOT_LOAN }}</h4>
           <p class="fs-12 m-0 cgray">Total Disbursed</p>
           <div style="height: 25px;" class="progress mt-1">
             <div class="progress-bar newclass" role="progressbar"
@@ -58,7 +57,7 @@
         <div class="col-lg-7 col-7 pl-0 pr-0">
           <div class="col-lg-12 col-12 d-inline-flex px-0">
             <div class="col-lg-6 col-8 px-0">
-              <h5 class="font-weight-bold">85 <span class="fs-10">Leads Submitted</span></h5>
+              <h5 class="font-weight-bold">{{ project_detail.TOTAL_LEAD }} <span class="fs-10">Leads Submitted</span></h5>
             </div>
             <div class="col-lg-6 col px-0">
               <h5 class="font-weight-bold">50 <span class="fs-10">Clients</span></h5>
@@ -128,14 +127,14 @@
   <div class="col-lg-12 col-12 px-0 mt-4" id="matnewtabs">
     <mat-tab-group>
       <mat-tab label="Project Progress">
-        <app-project-progress></app-project-progress>
+        <app-project-progress [project_id]="project_id"></app-project-progress>
       </mat-tab>
       <mat-tab label="List Of Documents">
-        <app-list-of-documents></app-list-of-documents>
+        <app-list-of-documents [project_id]="project_id"></app-list-of-documents>
       </mat-tab>
       <mat-tab label="Queries">
 
-        <app-queries></app-queries>
+        <app-queries [project_id]="project_id"></app-queries>
       </mat-tab>
 
       <mat-tab label="Leads/Clients">

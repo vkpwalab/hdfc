@@ -29,10 +29,10 @@ const routes: Routes = [
   { path: 'all-projects', component: AllProjectsComponent},
   { path: 'update-work', component: UpdateWorkComponent},
   { path: 'add-project', component: AddProjectComponent},
-  { path: 'project-overview', component: ProjectOverviewComponent},
+  { path: 'project-overview/:pid', component: ProjectOverviewComponent},
   { path: 'customer-lead', component: CustomerLeadComponent},
   { path: 'project-disbursement', component: ProjectDistursementComponent},
-  { path: 'raise-demand', component: RaiseDemandComponent},
+  { path: 'raise-demand/:pid/:bid', component: RaiseDemandComponent},
   { path: 'setting', component: SettingComponent},
   { path: 'reach-us', component: ReachUsComponent},
   { path: 'respond-to-queries', component: RespondToQueriesComponent}

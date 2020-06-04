@@ -124,7 +124,7 @@
                             <div class="col-lg-6">
                                 <mat-form-field appearance="standard">
                                     <mat-label>INTERESTED PROJECT</mat-label>
-                                    <mat-select multiple matNativeControl formControlName="I_IP" required>
+                                    <mat-select multiple matNativeControl formControlName="I_PROJECT_ID" required>
                                         <mat-option [value]="option" *ngFor="let option of list_interested_project">
                                             {{option.PROJECT_NAME}}</mat-option>
                                         <!-- <mat-option value="option">m1</mat-option>
@@ -132,7 +132,7 @@
                                         <mat-option value="option">m1</mat-option> -->
                                     </mat-select>
                                     <mat-error
-                                        *ngIf="customer_lead_form.controls['I_IP'].hasError('required') && (customer_lead_form.controls['I_IP'].touched)">
+                                        *ngIf="customer_lead_form.controls['I_PROJECT_ID'].hasError('required') && (customer_lead_form.controls['I_PROJECT_ID'].touched)">
                                         Please Select Interested Porject.
                                     </mat-error>
                                 </mat-form-field>
@@ -195,7 +195,7 @@
                     <div class="col-lg-12 col-12 px-0">
                         <div class=" col-lg-6 col-12 px-0 button mt-4">
                             <div class="text-center col-lg-4 col-6 submit">
-                                <input type="submit" class="main_btn_log" value="SUBMIT">
+                                <input type="button" class="main_btn_log" value="SUBMIT" (click)="uploadThroughExcel()">
                             </div>
                         </div>
                         <div class=" col-lg-6 col-12 button down mt-4 text-right">

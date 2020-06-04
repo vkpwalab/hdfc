@@ -9,41 +9,46 @@ import { ISoapMethodResponse } from 'ngx-soap';
 })
 export class DashboardProjectsComponent implements OnInit {
   top_projects: any;
-
-  constructor(private shared : SharedService) { }
+  builder_id: string;
+  token: string;
+  constructor(private shared: SharedService) { }
 
   ngOnInit(): void {
+    this.builder_id = '510673';
+    this.token = 'MH3NPYK34J0KHDI';
     this.getTopProject();
-    
+
   }
-  
-  getTopProject(){
-    let body_top_project = { i_builder_id: '510673', Token: 'MH3NPYK34J0KHDI' };
-   
-    setTimeout(() => {
-      (<any>this.shared.client).View_bldr_top_proj(body_top_project).subscribe(
 
-        (res: ISoapMethodResponse) => {
-          console.log('method response', res);
-          let xmlResponse = res.xml;
-          let result = res.result.View_bldr_top_projResult;
+  getTopProject() {
+    let body_government_link = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                    <tem:View_bldr_top_proj>
+                                        <!--Optional:-->
+                                        <tem:i_builder_id>${this.builder_id}</tem:i_builder_id>
+                                        <!--Optional:-->
+                                        <tem:Token>${this.token}</tem:Token>
+                                    </tem:View_bldr_top_proj>
+                                  </soapenv:Body>
+                              </soapenv:Envelope>`;
 
-          var result_json = JSON.parse(result)
-          console.log("object", result_json)
-
-
-          this.top_projects = result_json.Table;
+    let soapaction = 'http://tempuri.org/IService1/View_bldr_top_proj';
+    let result_tag = 'View_bldr_top_projResult';
+    this.shared.getData(soapaction, body_government_link, result_tag).subscribe(
+      (data) => {
+        this.top_projects = data.Table;
 
           for (let index = 0; index < this.top_projects.length; index++) {
             const element = this.top_projects[index];
             let lead_percent = (element.CONV_LEAD / element.TOTAL_LEAD) * 100;
             let lead_outof10 = Math.round((lead_percent / 100) * 10);
-            
+
             for (let j = 1; j <= 10; j++) {
-              if(j <= lead_outof10){
-                this.top_projects[index]['u'+j] = true;
-              }else{
-                this.top_projects[index]['u'+j] = false;
+              if (j <= lead_outof10) {
+                this.top_projects[index]['u' + j] = true;
+              } else {
+                this.top_projects[index]['u' + j] = false;
               }
             }
             this.top_projects[index]['disb_percent'] = (element.TOT_SANCTION / element.TOTAL_FUNDING) * 100;
@@ -52,13 +57,11 @@ export class DashboardProjectsComponent implements OnInit {
 
           setTimeout(() => {
             for (let index = 0; index < this.top_projects.length; index++) {
-              $('#progress'+index).css('width',this.top_projects[index]['disb_percent']+'%');
+              $('#progress' + index).css('width', this.top_projects[index]['disb_percent'] + '%');
             }
           }, 1);
-         console.log(this.top_projects);
-        },
-        err => console.log(err)
-      );
-    }, 1000);
+          console.log(this.top_projects);
+      }
+    );
   }
 }

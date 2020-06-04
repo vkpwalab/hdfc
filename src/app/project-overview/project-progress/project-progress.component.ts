@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { MultiDataSet, Color, Label } from 'ng2-charts';
+import { SharedService } from 'src/app/services/shared.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-project-progress',
   templateUrl: './project-progress.component.html',
@@ -198,8 +200,38 @@ export class ProjectProgressComponent implements OnInit {
       backgroundColor: ['rgb(92, 122, 255)','rgb(251, 203, 38)','rgb(11, 210, 173)']
     },
   ];
-  constructor() { }
 
-  ngOnInit(): void { }
+  @Input() project_id: any;
+  token: string;
+  building_list: any;
+  constructor( private shared:SharedService, private http:HttpClient) { }
+
+  ngOnInit(): void {
+    this.token = 'MH3NPYK34J0KHDI';
+    this.getBuildingProgress();
+   }
+
+  getBuildingProgress() {
+    let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:get_project_building>
+                                      <!--Optional:-->
+                                      <tem:i_project_no>${this.project_id}</tem:i_project_no>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:get_project_building>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/get_project_building';
+    let result_tag = 'get_project_buildingResult';
+    this.shared.getData(soapaction, body_Building_List, result_tag).subscribe(
+      (data) => {
+        this.building_list = data.Table;
+        console.log(this.building_list);
+      }
+    );
+  }
 
 }

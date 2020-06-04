@@ -13,9 +13,13 @@ export class RERADetailsComponent implements OnInit {
   rera_status_list: any = [];
   rera_detail_form: FormGroup;
   project_id: string;
+  builder_id: string;
+  token: string;
   constructor(private shared:SharedService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.builder_id = '510673';
+    this.token = 'MH3NPYK34J0KHDI';
     this.rera_detail_form = this.fb.group({
       'rera_regi_status': [''],
       'rera_app_date': [''],
@@ -38,59 +42,73 @@ export class RERADetailsComponent implements OnInit {
   }
 
   getReraStatus(){
-    let body_rera_status = { I_CD_VAL: 'RERA_STATUS', Token: 'MH3NPYK34J0KHDI' };
+    let body_rera_status = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                    <tem:Get_MASTER_DATA>
+                                        <!--Optional:-->
+                                        <tem:I_CD_VAL>RERA_STATUS</tem:I_CD_VAL>
+                                        <!--Optional:-->
+                                        <tem:Token>${this.token}</tem:Token>
+                                    </tem:Get_MASTER_DATA>
+                                  </soapenv:Body>
+                              </soapenv:Envelope>`;
 
-    (<any>this.shared.client).Get_MASTER_DATA(body_rera_status).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.Get_MASTER_DATAResult;
-
-        var result_json = JSON.parse(result)
-
-        this.rera_status_list = result_json.Table;
-
+    let soapaction = 'http://tempuri.org/IService1/Get_MASTER_DATA';
+    let result_tag = 'Get_MASTER_DATAResult';
+    this.shared.getData(soapaction, body_rera_status, result_tag).subscribe(
+      (data) => {
+        this.rera_status_list = data.Table;
         console.log(this.rera_status_list);
-      },
-      err => console.log(err)
+      }
     );
   }
 
   submitReraDetail(data) {
     console.log(data);
     if(this.rera_detail_form.valid){
-      // localStorage.setItem('rera_detail',JSON.stringify(data));
-      let body_rera_submit = { 
-        I_PROJECT_NO: this.project_id, 
-        I_RERA_APPL_STAT: data.rera_regi_status,
-        I_RERA_APPLN_NO: data.rera_regi_number,
-        I_RERA_APPLN_DATE: data.rera_app_date,
-        I_RERA_REMARK: data.remark,
-        I_PROJ_CERT_SRNO: '',
-        I_RERA_APPRVL_DATE: data.project_launch_date,
-        I_VALID_FROM_DATE: data.valid_from_date,
-        I_VALID_TO_DATE: data.valid_to_date,
-        i_created_by: '510673',
-        Token: 'MH3NPYK34J0KHDI' 
-      };
+      let body_rera_submit = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:Insert_Rera_details>
+                                      <!--Optional:-->
+                                      <tem:I_PROJECT_NO>${this.project_id}</tem:I_PROJECT_NO>
+                                      <!--Optional:-->
+                                      <tem:I_RERA_APPL_STAT>${data.rera_regi_status}</tem:I_RERA_APPL_STAT>
+                                      <!--Optional:-->
+                                      <tem:I_RERA_APPLN_NO>${data.rera_regi_number}</tem:I_RERA_APPLN_NO>
+                                      <!--Optional:-->
+                                      <tem:I_RERA_APPLN_DATE>${ data.rera_app_date}</tem:I_RERA_APPLN_DATE>
+                                      <!--Optional:-->
+                                      <tem:I_RERA_REMARK>${ data.remark}</tem:I_RERA_REMARK>
+                                      <!--Optional:-->
+                                      <tem:I_PROJ_CERT_SRNO></tem:I_PROJ_CERT_SRNO>
+                                      <!--Optional:-->
+                                      <tem:I_RERA_APPRVL_DATE>${data.project_launch_date}</tem:I_RERA_APPRVL_DATE>
+                                      <!--Optional:-->
+                                      <tem:I_VALID_FROM_DATE>${data.valid_from_date}</tem:I_VALID_FROM_DATE>
+                                      <!--Optional:-->
+                                      <tem:I_VALID_TO_DATE>${data.valid_to_date}</tem:I_VALID_TO_DATE>
+                                      <!--Optional:-->
+                                      <tem:i_created_by>${this.builder_id}</tem:i_created_by>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:Insert_Rera_details>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
 
-      (<any>this.shared.client).Insert_Rera_details(body_rera_submit).subscribe(
-        (res: ISoapMethodResponse) => {
-          console.log('method response', res);
-          let xmlResponse = res.xml;
-          let result = res.result.Insert_Rera_detailsResult;
+    let soapaction = 'http://tempuri.org/IService1/Insert_Rera_details';
+    let result_tag = 'Insert_Rera_detailsResult';
+    this.shared.getData(soapaction, body_rera_submit, result_tag).subscribe(
+      (data) => {
+        if(data == 'Success'){
+          $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
+          $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+        }
+        console.log(data);
+      }
+    );
   
-          var result_json = JSON.parse(result)
-  
-          // this.rera_status_list = result_json.Table;
-          if(result_json == 'Success'){
-            $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
-            $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
-          }
-          console.log(result_json);
-        },
-        err => console.log(err)
-      );
     }
 
   }

@@ -15,9 +15,13 @@ export class AddressDetailsComponent implements OnInit {
   city_list: any = [];
   address_detail_form: FormGroup;
   @Input() draft_data: any;
+  builder_id: string;
+  token: string;
   constructor(private shared: SharedService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.builder_id = '510673';
+    this.token = 'MH3NPYK34J0KHDI';
     this.address_detail_form = this.fb.group({
       'sno': [''],
       'plot_no': [''],
@@ -34,46 +38,53 @@ export class AddressDetailsComponent implements OnInit {
       'north': ['', Validators.required],
       'south': ['', Validators.required],
     })
-    setTimeout(() => {
+
       this.getState();
-    }, 2000);
+ 
   }
 
   getState() {
-    let body_Get_all_state = { Token: 'MH3NPYK34J0KHDI' };
-    (<any>this.shared.client).Get_all_state(body_Get_all_state).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.Get_all_stateResult;
+    let body_get_state_list = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:Get_all_state>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:Get_all_state>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
 
-        var result_json = JSON.parse(result)
-
-        this.state_list = result_json.Table;
+    let soapaction = 'http://tempuri.org/IService1/Get_all_state';
+    let result_tag = 'Get_all_stateResult';
+    this.shared.getData(soapaction, body_get_state_list, result_tag).subscribe(
+      (data) => {
+        this.state_list = data.Table;
         console.log(this.state_list);
-
-
-      },
-      err => console.log(err)
+      }
     );
   }
+
   stateChange(event) {
     this.state = event.value;
-    let body_get_city = { City: this.state, Token: 'MH3NPYK34J0KHDI' };
+    let body_get_city_list = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                    <tem:GET_CITY>
+                                        <!--Optional:-->
+                                        <tem:City>${this.state}</tem:City>
+                                        <!--Optional:-->
+                                        <tem:Token>${this.token}</tem:Token>
+                                    </tem:GET_CITY>
+                                  </soapenv:Body>
+                              </soapenv:Envelope>`;
 
-    (<any>this.shared.client).GET_CITY(body_get_city).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.GET_CITYResult;
-
-        var result_json = JSON.parse(result)
-
-        this.city_list = result_json.Table;
-
+    let soapaction = 'http://tempuri.org/IService1/GET_CITY';
+    let result_tag = 'GET_CITYResult';
+    this.shared.getData(soapaction, body_get_city_list, result_tag).subscribe(
+      (data) => {
+        this.city_list = data.Table;
         console.log(this.city_list);
-      },
-      err => console.log(err)
+      }
     );
   }
 
@@ -96,7 +107,7 @@ export class AddressDetailsComponent implements OnInit {
     console.log(this.draft_data);
     let body_draft_project = {
       I_DRAFT_ID: this.draft_data ? this.draft_data.DRAFT_ID : null,
-      BUILDERID: '510673',
+      BUILDERID: this.builder_id,
       BLDRGRPId: '',
       Project_Name: project_detail.project_name,
       Project_address: data.address,
@@ -129,7 +140,7 @@ export class AddressDetailsComponent implements OnInit {
       Purpose: '',
       Token_Id: '',
       IP: '',
-      CREATEBY: '510673',
+      CREATEBY: this.builder_id,
       UPDATEDBY: '',
       I_BOUNDARY_DET_EAST: data.east,
       I_BOUNDARY_DET_WEST: data.west,
@@ -165,25 +176,172 @@ export class AddressDetailsComponent implements OnInit {
       I_IS_MORTGAGE_BY_OTH_ST: project_feature.mortgaged ? project_feature.mortgaged : '',
       I_FANCIAL_ST: project_feature.financial_institute ? project_feature.financial_institute : '',
       I_CTS_NO: '',
-      Token: 'MH3NPYK34J0KHDI'
     };
+
     console.log(body_draft_project);
 
-    (<any>this.shared.client).P_draft_project(body_draft_project).subscribe(
-      (res: ISoapMethodResponse) => {
-        console.log('method response', res);
-        let xmlResponse = res.xml;
-        let result = res.result.P_draft_projectResult;
+    let body_draft_xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                      <tem:P_draft_project>
+                                        <!--Optional:-->
+                                        <tem:I_DRAFT_ID>${body_draft_project.I_DRAFT_ID}</tem:I_DRAFT_ID>
+                                        <!--Optional:-->
+                                        <tem:BUILDERID>${body_draft_project.BUILDERID}</tem:BUILDERID>
+                                        <!--Optional:-->
+                                        <tem:BLDRGRPId></tem:BLDRGRPId>
+                                        <!--Optional:-->
+                                        <tem:Project_Name>${body_draft_project.Project_Name}</tem:Project_Name>
+                                        <!--Optional:-->
+                                        <tem:Project_address>${body_draft_project.Project_address}</tem:Project_address>
+                                        <!--Optional:-->
+                                        <tem:I_Plot_Bearing_No></tem:I_Plot_Bearing_No>
+                                        <!--Optional:-->
+                                        <tem:Address_Line>${body_draft_project.Address_Line}</tem:Address_Line>
+                                        <!--Optional:-->
+                                        <tem:Locations>${body_draft_project.Locations}</tem:Locations>
+                                        <!--Optional:-->
+                                        <tem:City_District>${body_draft_project.City_District}</tem:City_District>
+                                        <!--Optional:-->
+                                        <tem:State>${body_draft_project.State}</tem:State>
+                                        <!--Optional:-->
+                                        <tem:Pin_code>${body_draft_project.Pin_code}</tem:Pin_code>
+                                        <!--Optional:-->
+                                        <tem:latlong>${body_draft_project.latlong}</tem:latlong>
+                                        <!--Optional:-->
+                                        <tem:Project_Staus>${body_draft_project.Project_Staus}</tem:Project_Staus>
+                                        <!--Optional:-->
+                                        <tem:Project_Type>${body_draft_project.Project_Type}</tem:Project_Type>
+                                        <!--Optional:-->
+                                        <tem:Project_Launch_Date>${body_draft_project.Project_Launch_Date}</tem:Project_Launch_Date>
+                                        <!--Optional:-->
+                                        <tem:Work_commencement_date>${body_draft_project.Work_commencement_date}</tem:Work_commencement_date>
+                                        <!--Optional:-->
+                                        <tem:Proposed_Actl_comption_date>${body_draft_project.Proposed_Actl_comption_date}</tem:Proposed_Actl_comption_date>
+                                        <!--Optional:-->
+                                        <tem:Plan_approval_Authority>${body_draft_project.Plan_approval_Authority}</tem:Plan_approval_Authority>
+                                        <!--Optional:-->
+                                        <tem:Project_Cost>${body_draft_project.Project_Cost}</tem:Project_Cost>
+                                        <!--Optional:-->
+                                        <tem:I_IS_APPROVED_BY_OTH_INST>${body_draft_project.I_IS_APPROVED_BY_OTH_INST}</tem:I_IS_APPROVED_BY_OTH_INST>
+                                        <!--Optional:-->
+                                        <tem:I_CLPS_NO>${body_draft_project.I_CLPS_NO}</tem:I_CLPS_NO>
+                                        <!--Optional:-->
+                                        <tem:I_PLOT_AREA>${body_draft_project.I_PLOT_AREA}</tem:I_PLOT_AREA>
+                                        <!--Optional:-->
+                                        <tem:I_REQ_CONST_FIN>${body_draft_project.I_REQ_CONST_FIN}</tem:I_REQ_CONST_FIN>
+                                        <!--Optional:-->
+                                        <tem:I_TOTAL_NO_OF_BLD>${body_draft_project.I_TOTAL_NO_OF_BLD}</tem:I_TOTAL_NO_OF_BLD>
+                                        <!--Optional:-->
+                                        <tem:I_TOTAL_UNIT_BOOKD>${body_draft_project.I_TOTAL_UNIT_BOOKD}</tem:I_TOTAL_UNIT_BOOKD>
+                                        <!--Optional:-->
+                                        <tem:I_TOTAL_UNIT_PROPOSD>${body_draft_project.I_TOTAL_UNIT_PROPOSD}</tem:I_TOTAL_UNIT_PROPOSD>
+                                        <!--Optional:-->
+                                        <tem:PROJECT_CATEGORY>${body_draft_project.PROJECT_CATEGORY}</tem:PROJECT_CATEGORY>
+                                        <!--Optional:-->
+                                        <tem:I_PROJ_COMP_DATE>${body_draft_project.I_PROJ_COMP_DATE}</tem:I_PROJ_COMP_DATE>
+                                        <!--Optional:-->
+                                        <tem:I_STAGE_OF_CONST>${body_draft_project.I_STAGE_OF_CONST}</tem:I_STAGE_OF_CONST>
+                                        <!--Optional:-->
+                                        <tem:I_DEVELOPER_NAME>${body_draft_project.I_DEVELOPER_NAME}</tem:I_DEVELOPER_NAME>
+                                        <!--Optional:-->
+                                        <tem:I_PLOT_NO>${body_draft_project.I_PLOT_NO}</tem:I_PLOT_NO>
+                                        <!--Optional:-->
+                                        <tem:Purpose>${body_draft_project.Purpose}</tem:Purpose>
+                                        <!--Optional:-->
+                                        <tem:Token_Id>${body_draft_project.Token_Id}</tem:Token_Id>
+                                        <!--Optional:-->
+                                        <tem:IP>${body_draft_project.IP}</tem:IP>
+                                        <!--Optional:-->
+                                        <tem:CREATEBY>${body_draft_project.CREATEBY}</tem:CREATEBY>
+                                        <!--Optional:-->
+                                        <tem:UPDATEDBY>${body_draft_project.UPDATEDBY}</tem:UPDATEDBY>
+                                        <!--Optional:-->
+                                        <tem:I_BOUNDARY_DET_EAST>${body_draft_project.I_BOUNDARY_DET_EAST}</tem:I_BOUNDARY_DET_EAST>
+                                        <!--Optional:-->
+                                        <tem:I_BOUNDARY_DET_WEST>${body_draft_project.I_BOUNDARY_DET_WEST}</tem:I_BOUNDARY_DET_WEST>
+                                        <!--Optional:-->
+                                        <tem:I_BOUNDARY_DET_SOUTH>${body_draft_project.I_BOUNDARY_DET_SOUTH}</tem:I_BOUNDARY_DET_SOUTH>
+                                        <!--Optional:-->
+                                        <tem:I_BOUNDARY_DET_NORTH>${body_draft_project.I_BOUNDARY_DET_NORTH}</tem:I_BOUNDARY_DET_NORTH>
+                                        <!--Optional:-->
+                                        <tem:I_RESIDENTIAL_PROPOSED_UNIT>${body_draft_project.I_RESIDENTIAL_PROPOSED_UNIT}</tem:I_RESIDENTIAL_PROPOSED_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_RESIDENTIAL_AVAIL_FOR_SALE>${body_draft_project.I_RESIDENTIAL_AVAIL_FOR_SALE}</tem:I_RESIDENTIAL_AVAIL_FOR_SALE>
+                                        <!--Optional:-->
+                                        <tem:I_RESIDENTIAL_SOLD_UNIT>${body_draft_project.I_RESIDENTIAL_SOLD_UNIT}</tem:I_RESIDENTIAL_SOLD_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_RESIDENTIAL_RATE_SQFT>${body_draft_project.I_RESIDENTIAL_RATE_SQFT}</tem:I_RESIDENTIAL_RATE_SQFT>
+                                        <!--Optional:-->
+                                        <tem:I_RESIDENTIAL_AREA_UNIT>${body_draft_project.I_RESIDENTIAL_AREA_UNIT}</tem:I_RESIDENTIAL_AREA_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_COMMERTIAL_PROPOSED_UNIT>${body_draft_project.I_COMMERTIAL_PROPOSED_UNIT}</tem:I_COMMERTIAL_PROPOSED_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_COMMERTIAL_AVAIL_FOR_SALE>${body_draft_project.I_COMMERTIAL_AVAIL_FOR_SALE}</tem:I_COMMERTIAL_AVAIL_FOR_SALE>
+                                        <!--Optional:-->
+                                        <tem:I_COMMERTIAL_SOLD_UNIT>${body_draft_project.I_COMMERTIAL_SOLD_UNIT}</tem:I_COMMERTIAL_SOLD_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_COMMERTIAL_RATE_SQFT>${body_draft_project.I_COMMERTIAL_RATE_SQFT}</tem:I_COMMERTIAL_RATE_SQFT>
+                                        <!--Optional:-->
+                                        <tem:I_COMMERTIAL_AREA_UNIT>${body_draft_project.I_COMMERTIAL_AREA_UNIT}</tem:I_COMMERTIAL_AREA_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_PLOTS_PROPOSED_UNIT>${body_draft_project.I_PLOTS_PROPOSED_UNIT}</tem:I_PLOTS_PROPOSED_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_PLOTS_AVAIL_FOR_SALE>${body_draft_project.I_PLOTS_AVAIL_FOR_SALE}</tem:I_PLOTS_AVAIL_FOR_SALE>
+                                        <!--Optional:-->
+                                        <tem:I_PLOTS_SOLD_UNIT>${body_draft_project.I_PLOTS_SOLD_UNIT}</tem:I_PLOTS_SOLD_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_PLOTS_RATE_SQFT>${body_draft_project.I_PLOTS_RATE_SQFT}</tem:I_PLOTS_RATE_SQFT>
+                                        <!--Optional:-->
+                                        <tem:I_PLOTS_AREA_UNIT>${body_draft_project.I_PLOTS_AREA_UNIT}</tem:I_PLOTS_AREA_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_BUNGLOW_PROPOSED_UNIT>${body_draft_project.I_BUNGLOW_PROPOSED_UNIT}</tem:I_BUNGLOW_PROPOSED_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_BUNGLOW_AVAIL_FOR_SALE>${body_draft_project.I_BUNGLOW_AVAIL_FOR_SALE}</tem:I_BUNGLOW_AVAIL_FOR_SALE>
+                                        <!--Optional:-->
+                                        <tem:I_BUNGLOW_SOLD_UNIT>${body_draft_project.I_BUNGLOW_SOLD_UNIT}</tem:I_BUNGLOW_SOLD_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_BUNGLOW_RATE_SQFT>${body_draft_project.I_BUNGLOW_RATE_SQFT}</tem:I_BUNGLOW_RATE_SQFT>
+                                        <!--Optional:-->
+                                        <tem:I_BUNGLOW_AREA_UNIT>${body_draft_project.I_BUNGLOW_AREA_UNIT}</tem:I_BUNGLOW_AREA_UNIT>
+                                        <!--Optional:-->
+                                        <tem:I_POPULAR_LANDMARK>${body_draft_project.I_POPULAR_LANDMARK}</tem:I_POPULAR_LANDMARK>
+                                        <!--Optional:-->
+                                        <tem:I_TOTAL_BUILT_UP_AREA_SQMT>${body_draft_project.I_TOTAL_BUILT_UP_AREA_SQMT}</tem:I_TOTAL_BUILT_UP_AREA_SQMT>
+                                        <!--Optional:-->
+                                        <tem:I_UNITS_ALLOTED_TO_LANDOWN>${body_draft_project.I_UNITS_ALLOTED_TO_LANDOWN}</tem:I_UNITS_ALLOTED_TO_LANDOWN>
+                                        <!--Optional:-->
+                                        <tem:I_LANDOWN_SPEC_DETAILS>${body_draft_project.I_LANDOWN_SPEC_DETAILS}</tem:I_LANDOWN_SPEC_DETAILS>
+                                        <!--Optional:-->
+                                        <tem:I_LONGITUDE>${body_draft_project.I_LONGITUDE}</tem:I_LONGITUDE>
+                                        <!--Optional:-->
+                                        <tem:I_WEBSITE_URL>${body_draft_project.I_WEBSITE_URL}</tem:I_WEBSITE_URL>
+                                        <!--Optional:-->
+                                        <tem:I_BRANCH>${body_draft_project.I_BRANCH}</tem:I_BRANCH>
+                                        <!--Optional:-->
+                                        <tem:I_REMARK>${body_draft_project.I_REMARK}</tem:I_REMARK>
+                                        <!--Optional:-->
+                                        <tem:I_IS_MORTGAGE_BY_OTH_ST>${body_draft_project.I_IS_MORTGAGE_BY_OTH_ST}</tem:I_IS_MORTGAGE_BY_OTH_ST>
+                                        <!--Optional:-->
+                                        <tem:I_FINANCIAL_INST>${body_draft_project.I_FANCIAL_ST}</tem:I_FINANCIAL_INST>
+                                        <!--Optional:-->
+                                        <tem:I_CTS_NO>${body_draft_project.I_CTS_NO}</tem:I_CTS_NO>
+                                        <!--Optional:-->
+                                        <tem:Token>${this.token}</tem:Token>
+                                      </tem:P_draft_project>
+                                  </soapenv:Body>
+                                </soapenv:Envelope>`;
 
-        var result_json = JSON.parse(result)
-        if (result_json.O_Msg == 'Project DRAFT created.') {
+    let soapaction = 'http://tempuri.org/IService1/P_draft_project';
+    let result_tag = 'P_draft_projectResult';
+    this.shared.getData(soapaction, body_draft_xml, result_tag).subscribe(
+      (data) => {
+        console.log(data);
+        if (data.O_Msg == 'Project DRAFT created.') {
           alert("Project drafted successfully");
           // location.reload();
         }
-        console.log(result_json);
-
-      },
-      err => console.log(err)
+      }
     );
 
   }

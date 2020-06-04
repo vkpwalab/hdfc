@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
+import { SharedService } from 'src/app/services/shared.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,12 +11,14 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
 })
 export class ListOfDocumentsComponent implements OnInit {
   fileEntry: boolean = false
-  constructor() {
+  @Input() project_id: any;
+  token: string;
+  constructor(private shared:SharedService, private http:HttpClient) {
 
   }
 
   ngOnInit() {
-    // $("#progress1").hide();
+    this.token = 'MH3NPYK34J0KHDI';
   }
 
   public files: NgxFileDropEntry[] = [];

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+   // Baseurl:'https://pws.hdfc.com/Devport_dmz/Service1.svc',
+   Baseurl:'http://localhost:4200/api',
 };
 
 /*
