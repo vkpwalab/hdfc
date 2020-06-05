@@ -31,7 +31,7 @@ export class CustomerLeadComponent implements OnInit {
   project_selected: any;
   AllowedFile: any = ['jpeg', 'jpg', 'png'];
   file: any;
-  file_name: any;
+  file_name: any = '';
   sheet_data: any;
   sheet_uploaded: boolean;
   builder_id: string;
