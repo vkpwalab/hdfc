@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import $ from 'jquery';
 import { SharedService } from '../services/shared.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
