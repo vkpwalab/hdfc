@@ -1,93 +1,97 @@
 <div class="col-lg-12 pt-3 text-right modal-ton " id="btn2">
-    <button type="button" class="btn btn-modal">
+    <button type="button" class="btn btn-modal" (click)="addBank()">
         ADD BANK
     </button>
 </div>
 
 <!-- __________________________________ALWAYS OPEN______________________________________________________ -->
 
+<div *ngFor="let fm of dynamic_forms;let i = index">
+    <div class="col-lg-12 pt-3 text-right pr-4" *ngIf="i > 0" (click)="removeBank(i)">
+        <img src="./assets/images/bar-x.png" height="18px">
+    </div>
+    <form [formGroup]="dynamic_forms[i]" (ngSubmit)="updateBankDetail(dynamic_forms[i].value)">
+        <div class="col-lg-12 project alternative">
+            <div class="col-lg-3">
+                <mat-form-field appearance="standard">
+                    <mat-label>PAYEE NAME<span class="text-danger">*</span></mat-label>
+                    <input matInput formControlName="payee_name">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field appearance="standard">
+                    <mat-label>BANK NAME<span class="text-danger">*</span></mat-label>
+                    <mat-select formControlName="bank_name">
+                        <mat-option value="{{ bank.CD_VAL }}" *ngFor="let bank of bank_names">{{ bank.CD_DESC }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field appearance="standard">
+                    <mat-label>BANK ACCOUNT NO<span class="text-danger">*</span></mat-label>
+                    <input matInput formControlName="bank_acc_no">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field appearance="standard">
+                    <mat-label>ACCOUNT TYPE<span class="text-danger">*</span></mat-label>
+                    <mat-select formControlName="account_type">
+                        <mat-option value="option">Saving</mat-option>
+                        <mat-option value="option">Current</mat-option>
+                        <mat-option value="option">Escrow</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
 
-<div class="col-lg-12 project alternative">
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>PAYEE NAME<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-      <mat-form-field appearance="standard">
-            <mat-label>BANK NAME<span class="text-danger">*</span></mat-label>
-            <mat-select>
-              <mat-option value="option">Option</mat-option>
-              <mat-option value="option">m1</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>BANK ACCOUNT NO<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-          <mat-form-field appearance="standard">
-            <mat-label>ACCOUNT TYPE<span class="text-danger">*</span></mat-label>
-            <mat-select>
-              <mat-option value="option">Saving</mat-option>
-              <mat-option value="option">Current</mat-option>
-              <mat-option value="option">Escrow</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
+        </div>
+        <div class="col-lg-12 mt-2 project alternative">
+            <div class="col-lg-3">
+                <mat-form-field appearance="standard">
+                    <mat-label>IFSC CODE<span class="text-danger">*</span></mat-label>
+                    <input matInput formControlName="ifcs_code">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field appearance="standard">
+                    <mat-label>BANK BRANCH<span class="text-danger">*</span></mat-label>
+                    <input matInput formControlName="bank_branch">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field appearance="standard">
+                    <mat-label>PAYMENT FOR<span class="text-danger">*</span></mat-label>
+                    <mat-select formControlName="payment_for">
+                        <mat-option value="option">Agreement Value</mat-option>
+                        <mat-option value="option">GST & Other Taxes</mat-option>
+                        <mat-option value="option">Possession Charges</mat-option>
+                        <mat-option value="option">Etc</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-lg-12 mt-2 project alternative">
+            <div class="col-lg-6 btn-radio">
+                <p class="para">RERA COLLECTION ACCOUNT<span class="text-danger">*</span></p>
 
-</div>
-<div class="col-lg-12 mt-2 project alternative">
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>IFSC CODE<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-3">
-        <mat-form-field appearance="standard">
-            <mat-label>BANK BRANCH<span class="text-danger">*</span></mat-label>
-            <input matInput>
-        </mat-form-field>
-    </div>
-    <div class="col-lg-6">
-        <mat-form-field appearance="standard">
-            <mat-label>PAYMENT FOR<span class="text-danger">*</span></mat-label>
-            <mat-select>
-              <mat-option value="option">Agreement Value</mat-option>
-              <mat-option value="option">GST & Other Taxes</mat-option>
-              <mat-option value="option">Possession Charges</mat-option>
-              <mat-option value="option">Etc</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
-</div> 
-<div class="col-lg-12 mt-2 project alternative">
-    <div class="col-lg-6 btn-radio">
-        <p class="para">RERA COLLECTION ACCOUNT<span class="text-danger">*</span></p>
-        <form >
-          <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1" color="primary">YES</mat-radio-button>
-              <mat-radio-button value="2" color="primary" class="ml-3">NO</mat-radio-button>
-            </mat-radio-group>
-        </form>
-      </div>
-      <div class="col-lg-6" id="upload">
-        <mat-form-field appearance="standard">
-            <mat-label>CHOOSE FILES</mat-label>
-            <input matInput>
-            <input class="float-right up" type="file">
-            <span class="btn-upload text-center">Upload Files</span>
-    </mat-form-field>
-</div>
-</div>
+                <mat-radio-group aria-label="Select an option" formControlName="rera_coll_account">
+                    <mat-radio-button value="Y" color="primary">YES</mat-radio-button>
+                    <mat-radio-button value="N" color="primary" class="ml-3">NO</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="col-lg-6" id="upload">
+                <mat-form-field appearance="standard">
+                    <mat-label>CHOOSE FILES</mat-label>
+                    <input matInput [value]="file_name">
+                    <input class="float-right up" type="file" (change)="uploadFileEvent($event)">
+                    <span class="btn-upload text-center">Upload Files</span>
+                </mat-form-field>
+            </div>
+        </div>
 
-<div class="col-lg-12 pt-3 text-right pr-4 mob-center">
-    <input type="submit" class="btn btn-modal-2" value="SAVE">
+        <div class="col-lg-12 pt-3 text-right pr-4 mob-center">
+            <input type="submit" class="btn btn-modal-2" value="SAVE">
+        </div>
+    </form>
 </div>
 
 
@@ -95,106 +99,14 @@
 <!-- __________________ADD BANK________________ -->
 
 
-<div class="col-lg-12 px-0 mt-3 ADD-BANK">
 
-    <div class="col-lg-12 pt-3 text-right pr-4">
-           <img src="./assets/images/bar-x.png" height="18px">
-    </div>
-    <!-- ________________________________________ -->
-
-    <div class="col-lg-12 project alternative">
-        <div class="col-lg-3">
-            <mat-form-field appearance="standard">
-                <mat-label>PAYEE NAME<span class="text-danger">*</span></mat-label>
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div class="col-lg-3">
-          <mat-form-field appearance="standard">
-                <mat-label>BANK NAME<span class="text-danger">*</span></mat-label>
-                <mat-select>
-                  <mat-option value="option">Option</mat-option>
-                  <mat-option value="option">m1</mat-option>
-                </mat-select>
-              </mat-form-field>
-        </div>
-        <div class="col-lg-3">
-            <mat-form-field appearance="standard">
-                <mat-label>BANK ACCOUNT NO<span class="text-danger">*</span></mat-label>
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div class="col-lg-3">
-              <mat-form-field appearance="standard">
-                <mat-label>ACCOUNT TYPE<span class="text-danger">*</span></mat-label>
-                <mat-select>
-                  <mat-option value="option">Saving</mat-option>
-                  <mat-option value="option">Current</mat-option>
-                  <mat-option value="option">Escrow</mat-option>
-                </mat-select>
-              </mat-form-field>
-        </div>
-    
-    </div>
-    <div class="col-lg-12 mt-2 project alternative">
-        <div class="col-lg-3">
-            <mat-form-field appearance="standard">
-                <mat-label>IFSC CODE<span class="text-danger">*</span></mat-label>
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div class="col-lg-3">
-            <mat-form-field appearance="standard">
-                <mat-label>BANK BRANCH<span class="text-danger">*</span></mat-label>
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div class="col-lg-6">
-            <mat-form-field appearance="standard">
-                <mat-label>PAYMENT FOR<span class="text-danger">*</span></mat-label>
-                <mat-select>
-                  <mat-option value="option">Agreement Value</mat-option>
-                  <mat-option value="option">GST & Other Taxes</mat-option>
-                  <mat-option value="option">Possession Charges</mat-option>
-                  <mat-option value="option">Etc</mat-option>
-                </mat-select>
-              </mat-form-field>
-        </div>
-    </div> 
-    <div class="col-lg-12 mt-2 project alternative">
-        <div class="col-lg-6 btn-radio">
-            <p class="para">RERA COLLECTION ACCOUNT<span class="text-danger">*</span></p>
-            <form >
-              <mat-radio-group aria-label="Select an option">
-                  <mat-radio-button value="1" color="primary">YES</mat-radio-button>
-                  <mat-radio-button value="2" color="primary" class="ml-3">NO</mat-radio-button>
-                </mat-radio-group>
-            </form>
-          </div>
-    <div class="col-lg-6" id="upload">
-        <mat-form-field appearance="standard">
-            <mat-label>CHOOSE FILES</mat-label>
-            <input matInput>
-            <input class="float-right up" type="file">
-            <span class="btn-upload text-center">Upload Files</span>
-
-        </mat-form-field>
-    </div>
-    </div>
-
-    <div class="col-lg-12 pt-3 text-right pr-4 mob-center">
-        <input type="submit" class="btn btn-modal-2" value="SAVE">
-    </div>
-    </div>
-
-    
 <!-- _____________________________________________  -->
 
 <div class=" col-lg-6 col-12 button mt-5">
-    <div class="text-center col-lg-4 col-12 mob-center"> 
-    <button  name="next" class="main_btn_log next">NEXT</button>
+    <div class="text-center col-lg-4 col-12 mob-center">
+        <button name="next" class="main_btn_log next">NEXT</button>
     </div>
     <!-- <div class="text-center col-lg-4"> 
     <button  name="prev" class="main_btn_log draft prev">BACK</button>
     </div> -->
-    </div>
+</div>
