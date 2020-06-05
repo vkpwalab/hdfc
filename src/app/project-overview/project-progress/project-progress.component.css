@@ -74,3 +74,11 @@
     font-size: 13px !important;
 }
 
+#years {
+    border-radius: 9px;
+    border: 2px solid #e3310d;
+    font-size: 15px;
+    padding: 2px 15px;
+    outline: none;}
+
+#years option :hover {outline: none;background-color: #e3310d;color: white;}

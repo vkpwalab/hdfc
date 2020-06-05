@@ -367,6 +367,13 @@ html, body { height: 100%; }
 #forreachus1 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb{
   background-color: rgb(246,54,20) !important;
 }
+
+#forreachus2 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb{
+  background-color: rgb(246,54,20) !important;
+}
+#forreachus2 .mat-slide-toggle.mat-checked .mat-slide-toggle-bar{
+  background-color: lightgrey !important;
+}
 #matnewtabs .mat-slide-toggle.mat-checked .mat-slide-toggle-bar{
   background-color: rgb(245,245,245) !important;
 }
@@ -390,6 +397,7 @@ html, body { height: 100%; }
   margin-top: 4px;
   background-color: rgb(175,175,175) !important;
 }
+
 #matnewtabs .mat-slide-toggle-bar {
   position: relative;
   width: 31px !important;
@@ -482,3 +490,10 @@ html, body { height: 100%; }
     
     left: 40% !important
   } */
+
+
+  /* --------------reach us */
+  @media screen and (min-width:300px) and (max-width: 576px){
+    #mt-25 {padding-top: 15px !important;}    
+  }
+  #mt-25 .mat-form-field {margin-top: -25px !important;}
