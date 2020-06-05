@@ -106,7 +106,7 @@ export class AddressDetailsComponent implements OnInit {
     project_feature = project_feature ? project_feature : {};
     console.log(this.draft_data);
     let body_draft_project = {
-      I_DRAFT_ID: this.draft_data ? this.draft_data.DRAFT_ID : null,
+      I_DRAFT_ID: this.draft_data ? this.draft_data.DRAFT_ID : 0,
       BUILDERID: this.builder_id,
       BLDRGRPId: '',
       Project_Name: project_detail.project_name,
