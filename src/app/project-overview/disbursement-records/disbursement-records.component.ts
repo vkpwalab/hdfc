@@ -76,6 +76,7 @@ export class DisbursementRecordsComponent implements OnInit {
   }
 
   getDisbursmentRecord(type) {
+    console.log(type);
     let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                 <soapenv:Header/>
                                 <soapenv:Body>

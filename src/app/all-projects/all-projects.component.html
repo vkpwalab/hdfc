@@ -126,8 +126,8 @@
                 <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
                 <img class="w-01 ml-1" src="./assets/images/icons/view icon.png" [routerLink]="['/project-overview',ans.PROJECTID]">
                 <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png"
-                    style="position: relative !important;" data-toggle="modal" data-target="#exampleModal">
-                <span class="badge badge-danger">12</span>
+                    style="position: relative !important;" data-toggle="modal" data-target="#exampleModal" (click)="openQueryModel(ans)">
+                <!-- <span class="badge badge-danger">12</span> -->
             </div>
         </div>
 
@@ -153,10 +153,10 @@
                 <label>Query :</label>
                 <textarea 
                   rows="5"
-                  [(ngModel)]="role"
+                  [(ngModel)]="message"
                   [maxlength]="maxChars">
                 </textarea>
-                <label class="nopadding clrlbl">Remaining Characters : {{role.length}}/{{maxChars}}</label>
+                <label class="nopadding clrlbl">Remaining Characters : {{message.length}}/{{maxChars}}</label>
               </div>
 
               <div class="col-lg-12 alternative px-0" id="upload">
@@ -170,7 +170,7 @@
             </div>
         </div>
         <div class="modal-footer text-center">
-            <div class="col-lg-12"><input type="submit" class="btn btn-primary" value="SUBMIT"></div>
+            <div class="col-lg-12"><input type="submit" class="btn btn-primary" value="SUBMIT" (click)="sendResponse()"></div>
         </div>
       </div>
     </div>

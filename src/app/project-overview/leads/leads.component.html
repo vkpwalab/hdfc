@@ -1,165 +1,30 @@
 <div class="col-lg-12 col-12 padlr">
     <div class="col-lg-12 col-12 row px-0 m-0 pb-4">
-        <div  class="col-lg-3 col-12 mt-4 ">
+        <div class="col-lg-3 col-12 mt-4 " *ngFor="let lead of leads">
             <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <div class="col-lg-12 col-12 d-inline-flex px-0">
-                <div class="col-lg-6 col-6 px-0">
-                    <h6 class="fs-14 font-weight-bold">Nishit Ranjit Tanu</h6>
+                <div class="col-lg-12 col-12 d-inline-flex px-0">
+                    <div class="col-lg-6 col-6 px-0">
+                        <h6 class="fs-14 font-weight-bold">{{ lead.CUST_NAME }}</h6>
 
+                    </div>
+                    <div class="col-lg-6 col-6 px-0 text-right">
+                        <i class="fa fa-calendar fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">2nd Feb
+                            2020</span>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-6 px-0 text-right">
-                    <i class="fa fa-calendar fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">2nd Feb 2020</span>
+                <p class="fs-12 mb-0"><a style="color: rgb(64, 151, 254)" href="">{{ lead.CUST_EMAIL }}</a></p>
+                <p class="fs-12 mb-0">{{ lead.CITY }}, {{ lead.STATE }}</p>
+                <div class="col-lg-12 px-0">
+                    <i style="color: red;" class="fa fa-phone fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">+91
+                        <span>{{ lead.CUST_MOBILE }}</span></span>
                 </div>
-            </div>
-            <p class="fs-12 mb-0"><a style="color: rgb(64, 151, 254)" href="">nishittanu@gmail.com</a></p>
-            <p class="fs-12 mb-0">Mumbai, Maharashtra</p>
-            <div class="col-lg-12 px-0">
-                <i style="color: red;" class="fa fa-phone fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">+91
-                    <span>9874594578</span></span>
-                </div>
-            <div class="col-lg-4 col-4 px-0 ml-16 mt-2">
-                <p style="background-color: rgb(86,202,171);" class="fs-12 border-0 text-center wcolor mb-0 rounded">Booked</p>
-            </div>
-        </div>
-        </div>
-        
-        <div  class="col-lg-3 col-12 mt-4 ">
-            <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <div class="col-lg-12 col-12 d-inline-flex px-0">
-                <div class="col-lg-6 col-6 px-0">
-                    <h6 class="fs-14 font-weight-bold">Nishit Ranjit Tanu</h6>
-
-                </div>
-                <div class="col-lg-6 col-6 px-0 text-right">
-                    <i class="fa fa-calendar fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">2nd Feb 2020</span>
+                <div class="col-lg-4 col-4 px-0 ml-16 mt-2">
+                    <p style="background-color: rgb(86,202,171);"
+                        class="fs-12 border-0 text-center wcolor mb-0 rounded" *ngIf="lead.BOOKING_STATUS == 'APPROVED'">{{ lead.BOOKING_STATUS }}</p>
+                        <p style="background-color: rgb(240,139,48);"
+                        class="fs-12 border-0 text-center wcolor mb-0 rounded" *ngIf="lead.BOOKING_STATUS != 'APPROVED'">{{ lead.BOOKING_STATUS }}</p>
                 </div>
             </div>
-            <p class="fs-12 mb-0"><a style="color: rgb(64, 151, 254)" href="">nishittanu@gmail.com</a></p>
-            <p class="fs-12 mb-0">Mumbai, Maharashtra</p>
-            <div class="col-lg-12 px-0">
-                <i style="color: red;" class="fa fa-phone fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">+91
-                    <span>9874594578</span></span>
-                </div>
-            <div class="col-lg-4 col-4 px-0 ml-16 mt-2">
-                <p style="background-color: rgb(240,139,48);" class="fs-12 border-0 text-center wcolor mb-0 rounded">Enquiry</p>
-            </div>
-        </div>
-        </div>
-
-        <div  class="col-lg-3 col-12 mt-4 ">
-            <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <div class="col-lg-12 col-12 d-inline-flex px-0">
-                <div class="col-lg-6 col-6 px-0">
-                    <h6 class="fs-14 font-weight-bold">Nishit Ranjit Tanu</h6>
-
-                </div>
-                <div class="col-lg-6 col-6 px-0 text-right">
-                    <i class="fa fa-calendar fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">2nd Feb 2020</span>
-                </div>
-            </div>
-            <p class="fs-12 mb-0"><a style="color: rgb(64, 151, 254)" href="">nishittanu@gmail.com</a></p>
-            <p class="fs-12 mb-0">Mumbai, Maharashtra</p>
-            <div class="col-lg-12 px-0">
-                <i style="color: red;" class="fa fa-phone fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">+91
-                    <span>9874594578</span></span>
-                </div>
-            <div class="col-lg-4 col-4 px-0 ml-16 mt-2">
-                <p style="background-color: rgb(86,202,171);" class="fs-12 border-0 text-center wcolor mb-0 rounded">Booked</p>
-            </div>
-        </div>
-        </div>
-
-
-        <div  class="col-lg-3 col-12 mt-4 ">
-            <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <div class="col-lg-12 col-12 d-inline-flex px-0">
-                <div class="col-lg-6 col-6 px-0">
-                    <h6 class="fs-14 font-weight-bold">Nishit Ranjit Tanu</h6>
-
-                </div>
-                <div class="col-lg-6 col-6 px-0 text-right">
-                    <i class="fa fa-calendar fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">2nd Feb 2020</span>
-                </div>
-            </div>
-            <p class="fs-12 mb-0"><a style="color: rgb(64, 151, 254)" href="">nishittanu@gmail.com</a></p>
-            <p class="fs-12 mb-0">Mumbai, Maharashtra</p>
-            <div class="col-lg-12 px-0">
-                <i style="color: red;" class="fa fa-phone fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">+91
-                    <span>9874594578</span></span>
-                </div>
-            <div class="col-lg-4 col-4 px-0 ml-16 mt-2">
-                <p style="background-color: rgb(86,202,171);" class="fs-12 border-0 text-center wcolor mb-0 rounded">Booked</p>
-            </div>
-        </div>
-        </div>
-
-        <div  class="col-lg-3 col-12 mt-4 ">
-            <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <div class="col-lg-12 col-12 d-inline-flex px-0">
-                <div class="col-lg-6 col-6 px-0">
-                    <h6 class="fs-14 font-weight-bold">Nishit Ranjit Tanu</h6>
-
-                </div>
-                <div class="col-lg-6 col-6 px-0 text-right">
-                    <i class="fa fa-calendar fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">2nd Feb 2020</span>
-                </div>
-            </div>
-            <p class="fs-12 mb-0"><a style="color: rgb(64, 151, 254)" href="">nishittanu@gmail.com</a></p>
-            <p class="fs-12 mb-0">Mumbai, Maharashtra</p>
-            <div class="col-lg-12 px-0">
-            <i style="color: red;" class="fa fa-phone fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">+91
-                <span>9874594578</span></span>
-            </div>
-            <div class="col-lg-4 col-4 px-0 ml-16 mt-2">
-                <p style="background-color: rgb(240,139,48);" class="fs-12 border-0 text-center wcolor mb-0 rounded">Enquiry</p>
-            </div>
-        </div>
-        </div>
-
-        <div  class="col-lg-3 col-12 mt-4 ">
-            <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <div class="col-lg-12 col-12 d-inline-flex px-0">
-                <div class="col-lg-6 col-6 px-0">
-                    <h6 class="fs-14 font-weight-bold">Nishit Ranjit Tanu</h6>
-
-                </div>
-                <div class="col-lg-6 col-6 px-0 text-right">
-                    <i class="fa fa-calendar fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">2nd Feb 2020</span>
-                </div>
-            </div>
-            <p class="fs-12 mb-0"><a style="color: rgb(64, 151, 254)" href="">nishittanu@gmail.com</a></p>
-            <p class="fs-12 mb-0">Mumbai, Maharashtra</p>
-            <div class="col-lg-12 px-0">
-                <i style="color: red;" class="fa fa-phone fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">+91
-                    <span>9874594578</span></span>
-                </div>
-            <div class="col-lg-4 col-4 px-0 ml-16 mt-2">
-                <p style="background-color: rgb(240,139,48);" class="fs-12 border-0 text-center wcolor mb-0 rounded">Enquiry</p>
-            </div>
-        </div>
-        </div>
-
-        <div  class="col-lg-3 col-12 mt-4">
-            <div style="border: 1px solid lightgray;" class="card p-2 brnew">
-            <div class="col-lg-12 col-12 d-inline-flex px-0">
-                <div class="col-lg-6 col-6 px-0">
-                    <h6 class="fs-14 font-weight-bold">Nishit Ranjit Tanu</h6>
-
-                </div>
-                <div class="col-lg-6 col-6 px-0 text-right">
-                    <i class="fa fa-calendar fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">2nd Feb 2020</span>
-                </div>
-            </div>
-            <p class="fs-12 mb-0"><a style="color: rgb(64, 151, 254)" href="">nishittanu@gmail.com</a></p>
-            <p class="fs-12 mb-0">Mumbai, Maharashtra</p>
-            <div class="col-lg-12 px-0">
-                <i style="color: red;" class="fa fa-phone fs-12" aria-hidden="true"></i><span class="fs-12 pl-2">+91
-                    <span>9874594578</span></span>
-                </div>
-            <div class="col-lg-4 col-4 px-0 ml-16 mt-2">
-                <p style="background-color: rgb(240,139,48);" class="fs-12 border-0 text-center wcolor mb-0 rounded">Enquiry</p>
-            </div>
-        </div>
         </div>
     </div>
 </div>

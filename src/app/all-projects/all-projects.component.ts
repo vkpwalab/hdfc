@@ -24,6 +24,8 @@ export class AllProjectsComponent implements OnInit {
   token: string;
   select_values_of_status: any;
   status_all: string;
+  message: any = '';
+  selected_project: any;
   constructor(private shared: SharedService, private ar: ActivatedRoute) {
     console.log(ar)
   }
@@ -99,6 +101,68 @@ export class AllProjectsComponent implements OnInit {
     console.log(this.select_values_of_status)
     this.status_all = this.select_values_of_status = 'All';
 
+  }
+
+  openQueryModel(project){
+    this.selected_project = project;
+  }
+  sendResponse() {
+    if(this.message != ''){
+      let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:Insert_Query>
+                                      <!--Optional:-->
+                                      <tem:PROJECT_ID>${this.selected_project.PROJECT_ID}</tem:PROJECT_ID>
+                                      <!--Optional:-->
+                                      <tem:PHASE_ID></tem:PHASE_ID>
+                                      <!--Optional:-->
+                                      <tem:PROJECT_NAME>${this.selected_project.PROJECT_NAME}</tem:PROJECT_NAME>
+                                      <!--Optional:-->
+                                      <tem:QUERY>${this.message}</tem:QUERY>
+                                      <!--Optional:-->
+                                      <tem:I_QUERY_ID></tem:I_QUERY_ID>
+                                      <!--Optional:-->
+                                      <tem:STATUS></tem:STATUS>
+                                      <!--Optional:-->
+                                      <tem:I_PARENT_QUEST_ID></tem:I_PARENT_QUEST_ID>
+                                      <!--Optional:-->
+                                      <tem:SUBSTATUS></tem:SUBSTATUS>
+                                      <!--Optional:-->
+                                      <tem:K1></tem:K1>
+                                      <!--Optional:-->
+                                      <tem:K2></tem:K2>
+                                      <!--Optional:-->
+                                      <tem:K3></tem:K3>
+                                      <!--Optional:-->
+                                      <tem:K4></tem:K4>
+                                      <!--Optional:-->
+                                      <tem:CREATED_BY>${this.builder_id}</tem:CREATED_BY>
+                                      <!--Optional:-->
+                                      <tem:UPDATED_BY>${this.builder_id}</tem:UPDATED_BY>
+                                      <!--Optional:-->
+                                      <tem:Question>${this.message}</tem:Question>
+                                      <!--Optional:-->
+                                      <tem:I_QUERY_TYPE>Builder</tem:I_QUERY_TYPE>
+                                      <!--Optional:-->
+                                      <tem:I_URL></tem:I_URL>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:Insert_Query>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
+  
+      let soapaction = 'http://tempuri.org/IService1/Insert_Query';
+      let result_tag = 'Insert_QueryResult';
+      this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
+        (data) => {
+          if (data == "Success") {
+            alert('Your query is submitted');
+          }
+        }
+      );
+    }
+    
   }
 
 }

@@ -204,7 +204,7 @@ export class ProjectProgressComponent implements OnInit {
   @Input() project_id: any;
   token: string;
   building_list: any;
-  constructor( private shared:SharedService, private http:HttpClient) { }
+  constructor( private shared:SharedService) { }
 
   ngOnInit(): void {
     this.token = 'MH3NPYK34J0KHDI';

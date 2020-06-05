@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-leads',
@@ -6,10 +7,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leads.component.css']
 })
 export class LeadsComponent implements OnInit {
-
-  constructor() { }
+  @Input() project_id: any;
+  token: string;
+  leads: any;
+  constructor( private shared:SharedService) { }
 
   ngOnInit(): void {
+    this.token = 'MH3NPYK34J0KHDI';
+    this.getProjectLead();
+  }
+
+  getProjectLead() {
+    let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:GET_PROJ_LEAD_CLIENT>
+                                      <!--Optional:-->
+                                      <tem:i_project_id>574943</tem:i_project_id>
+                                      <!--Optional:-->
+                                      <tem:I_TYPE>?</tem:I_TYPE>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:GET_PROJ_LEAD_CLIENT>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/GET_PROJ_LEAD_CLIENT';
+    let result_tag = 'GET_PROJ_LEAD_CLIENTResult';
+    this.shared.getData(soapaction, body_Building_List, result_tag).subscribe(
+      (data) => {
+        this.leads = data.Table;
+        console.log(this.leads);
+      }
+    );
   }
 
 }

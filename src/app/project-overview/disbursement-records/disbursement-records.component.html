@@ -13,10 +13,10 @@
 
       </div>
     </div> -->
-    <select name="select" id="years">
-      <option value="Yearly">Yearly</option>
-      <option value="Monthly">Monthly</option>
-      <option value="Weekly">Weekly</option>
+    <select name="select" id="years" (change)="getDisbursmentRecord($event.target.value)">
+      <option value="Y" >Yearly</option>
+      <option value="MM" >Monthly</option>
+      <option value="W">Weekly</option>
     </select>
   </div>
 <div class="col-lg-12 col-12 padlr">
