@@ -58,12 +58,12 @@
         <!-- -------------------------------------------MAIN0 -->
 
 
-        <div class="col-lg-12 col-12 shadow bg-white brnew p-2 pl-3 pr-3 mt-4" id="forreachus1">
+        <div class="col-lg-12 col-12 shadow bg-white brnew p-2 pl-3 pr-3 mt-4" id="forreachus2">
             <div class="col-lg-12 col-12 row mt-4 px-0 m-0">
-                <div class="col-lg-4 col-8 padlr padlnew">
+                <div class="col-lg-4 col-8 padlr padlnew pt-8">
                     <p class="fs-13 font-weight-bold">Project Approval</p>
                 </div>
-                <div class="col-lg-2 col-4 textr padlr">
+                <div class="col-lg-2 col-4 textr padlr pt-5">
                     <!-- <form [formGroup]="slide_toggle_form"> -->
                     <mat-slide-toggle formControlName="enable_project_approval">
                     </mat-slide-toggle>
@@ -75,26 +75,21 @@
 
                     <!-- </form> -->
                 </div>
-                <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forreachus"
-                    *ngIf="reachus.get('enable_project_approval').value">
-                    <!-- <form class="example-form"> -->
-                    <mat-form-field class="example-full-width">
-                        <!-- <mat-label>Favorite food</mat-label> -->
-                        <input matInput formControlName="remark_approval" type="text" value="" placeholder="REMARKS"
-                            placeholder="REMARKS">
+
+                <div class="col-lg-6 col-12 px-0 alternative" id="mt-25"
+                *ngIf="reachus.get('enable_project_approval').value">
+                    <mat-form-field appearance="standard">
+                      <mat-label>REMARK</mat-label>
+                      <input matInput formControlName="remark_approval" type="text" value="">
                     </mat-form-field>
-
-
-                    <!-- </form> -->
-
-                </div>
+                  </div>
             </div>
 
             <div class="col-lg-12 col-12 row mt-4 px-0 m-0">
-                <div class="col-lg-4 col-8 padlr padlnew">
+                <div class="col-lg-4 col-8 padlr padlnew pt-8">
                     <p class="fs-13 font-weight-bold">Campaign Management</p>
                 </div>
-                <div class="col-lg-2 col-4 textr padlr">
+                <div class="col-lg-2 col-4 textr padlr pt-5">
 
                     <!-- <form [formGroup]="slide_toggle_form"> -->
                     <mat-slide-toggle formControlName="enable_campaign_management">
@@ -108,25 +103,20 @@
 
 
                 </div>
-                <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forreachus"
+                <div class="col-lg-6 col-12 px-0 alternative" id="mt-25"
                     *ngIf="reachus.get('enable_campaign_management').value">
-                    <!-- <form class="example-form" > -->
-                    <mat-form-field class="example-full-width">
-                        <!-- <mat-label>Favorite food</mat-label> -->
-                        <input matInput formControlName="remark_campaign" type="text" value="" placeholder="REMARKS">
+                    <mat-form-field appearance="standard">
+                        <mat-label>REMARK</mat-label>
+                        <input matInput formControlName="remark_campaign" type="text" value="">
                     </mat-form-field>
-
-
-                    <!-- </form> -->
-
                 </div>
             </div>
 
             <div class="col-lg-12 col-12 row mt-4 px-0 m-0">
-                <div class="col-lg-4 col-8 padlr padlnew">
+                <div class="col-lg-4 col-8 padlr padlnew pt-8">
                     <p class="fs-13 font-weight-bold">Interested in Subvention scheme</p>
                 </div>
-                <div class="col-lg-2 col-4 textr padlr">
+                <div class="col-lg-2 col-4 textr padlr pt-5">
                     <!-- <form [formGroup]="slide_toggle_form"> -->
                     <mat-slide-toggle formControlName="enable_subvention_scheme">
                     </mat-slide-toggle>
@@ -138,26 +128,20 @@
                     <!-- </form> -->
 
                 </div>
-                <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forreachus"
-                    *ngIf="reachus.get('enable_subvention_scheme').value">
-                    <!-- <form class="example-form" > -->
-                    <mat-form-field class="example-full-width">
-                        <!-- <mat-label>Favorite food</mat-label> -->
-                        <input matInput formControlName="remark_subvention_scheme" type="text" value=""
-                            placeholder="REMARKS">
-                    </mat-form-field>
-
-
-                    <!-- </form> -->
-
-                </div>
+                <div class="col-lg-6 col-12 px-0 alternative" id="mt-25"
+                *ngIf="reachus.get('enable_subvention_scheme').value">
+                <mat-form-field appearance="standard">
+                    <mat-label>REMARK</mat-label>
+                    <input matInput formControlName="remark_subvention_scheme" type="text" value="">
+                </mat-form-field>
+            </div>
             </div>
 
             <div class="col-lg-12 col-12 row mt-4 px-0 m-0">
-                <div class="col-lg-4 col-8 padlr padlnew">
+                <div class="col-lg-4 col-8 padlr padlnew pt-8">
                     <p class="fs-13 font-weight-bold">Interested in Special Disbursement Facility</p>
                 </div>
-                <div class="col-lg-2 col-4 textr padlr">
+                <div class="col-lg-2 col-4 textr padlr pt-5">
                     <!-- <form [formGroup]="slide_toggle_form"> -->
                     <mat-slide-toggle formControlName="enable_disbursment_facility">
                     </mat-slide-toggle>
@@ -169,27 +153,20 @@
                     <!-- </form> -->
 
                 </div>
-                <div class="col-lg-6 mt-22 col-12 padlr alternative" id="forreachus"
-                    *ngIf="reachus.get('enable_disbursment_facility').value">
-                    <!-- <form class="example-form" > -->
-                    <mat-form-field class="example-full-width">
-                        <!-- <mat-label>Favorite food</mat-label> -->
-                        <input matInput formControlName="remark_disbursment_facility" type="text" value=""
-                            placeholder="REMARKS">
-                    </mat-form-field>
-
-
-
-                    <!-- </form> -->
-
-                </div>
+                <div class="col-lg-6 col-12 px-0 alternative" id="mt-25"
+                *ngIf="reachus.get('enable_disbursment_facility').value">
+                <mat-form-field appearance="standard">
+                    <mat-label>REMARK</mat-label>
+                    <input matInput formControlName="remark_disbursment_facility" type="text" value="">
+                </mat-form-field>
+            </div>
             </div>
 
             <div class="col-lg-12 col-12 row mt-4 px-0 m-0">
-                <div class="col-lg-4 col-8 padlr padlnew">
+                <div class="col-lg-4 col-8 padlr padlnew pt-8">
                     <p class="fs-13 font-weight-bold">Onsite Home Loan Assisatnce</p>
                 </div>
-                <div class="col-lg-2 col-4 textr padlr">
+                <div class="col-lg-2 col-4 textr padlr pt-5">
                     <!-- <form [formGroup]="slide_toggle_form"> -->
                     <mat-slide-toggle formControlName="enable_loan_assistance">
                     </mat-slide-toggle>
@@ -199,24 +176,20 @@
                     <!-- </form> -->
 
                 </div>
-                <div class="col-lg-6 col-12 mt-22 padlr alternative" id="forreachus"
-                    *ngIf="reachus.get('enable_loan_assistance').value">
-                    <!-- <form class="example-form" > -->
-                    <mat-form-field class="example-full-width">
-                        <!-- <mat-label>Favorite food</mat-label> -->
-                        <input matInput formControlName="remark_home_loan" type="text" value="" placeholder="REMARKS">
-                    </mat-form-field>
-
-                    <!-- </form> -->
-
-                </div>
+                <div class="col-lg-6 col-12 px-0 alternative" id="mt-25"
+                *ngIf="reachus.get('enable_loan_assistance').value">
+                <mat-form-field appearance="standard">
+                    <mat-label>REMARK</mat-label>
+                    <input matInput formControlName="remark_home_loan" type="text" value="">
+                </mat-form-field>
+            </div>
             </div>
 
             <div class="col-lg-12 col-12 row mt-4 px-0 m-0">
-                <div class="col-lg-4 col-8 padlr padlnew">
+                <div class="col-lg-4 col-8 padlr padlnew pt-8">
                     <p class="fs-13 font-weight-bold">Full time Sales executive at project site</p>
                 </div>
-                <div class="col-lg-2 col-4 padlr textr">
+                <div class="col-lg-2 col-4 padlr textr pt-5">
                     <!-- <form [formGroup]="slide_toggle_form"> -->
                     <mat-slide-toggle formControlName="enable_sale_excutive">
                     </mat-slide-toggle>
@@ -226,18 +199,13 @@
                     <!-- </form> -->
 
                 </div>
-                <div class="col-lg-6 col-12 mt-22 padlr alternative" id="forreachus"
-                    *ngIf="reachus.get('enable_sale_excutive').value">
-                    <!-- <form class="example-form" > -->
-                    <mat-form-field class="example-full-width">
-                        <!-- <mat-label>Favorite food</mat-label> -->
-                        <input matInput formControlName="remark_sales_executive" type="text" value=""
-                            placeholder="REMARKS">
-                    </mat-form-field>
-
-                    <!-- </form> -->
-
-                </div>
+                <div class="col-lg-6 col-12 px-0 alternative" id="mt-25"
+                *ngIf="reachus.get('enable_sale_excutive').value">
+                <mat-form-field appearance="standard">
+                    <mat-label>REMARK</mat-label>
+                    <input matInput formControlName="remark_sales_executive" type="text" value="">
+                </mat-form-field>
+            </div>
             </div>
 
             <div class="col-lg-2 col-6  padlnew padl text-c mb-4">

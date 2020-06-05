@@ -159,4 +159,5 @@ button:focus {outline: none;}
   outline: none !important;
   box-shadow: none;}
 
-  
+.pt-8 {padding-top: 10px !important;}
+.pt-5 {padding-top: 5px !important;}

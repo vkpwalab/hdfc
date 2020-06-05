@@ -40,6 +40,12 @@
                 .btn-primary {
                 width: 40% !important;
                 }  
+                .max-width-50 {
+                  max-width: 140px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  }
              
 }
 
@@ -118,3 +124,10 @@ button:focus {outline: none;}
   padding: 5px 25px;
   width: 30%;
   }
+
+  .max-width-50 {
+    max-width: 180px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
