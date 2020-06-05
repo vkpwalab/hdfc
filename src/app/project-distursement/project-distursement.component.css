@@ -68,3 +68,5 @@
 }
 .fa-times{cursor: pointer;}
 .mat-form-field{font-size: 13px;width: 100%;}
+
+.close {outline: none !important;}
