@@ -51,7 +51,7 @@
     </div>
 
     <div class="col-lg-12 flex px-0 fq">
-        <div class="col-lg-8 px-0" style="display: inline-flex;">
+        <div class="col-lg-8 px-0 flex-mobile">
             <div class="col-lg-4 col-8 px-0 alternative">
                 <mat-form-field appearance="standard">
                     <mat-label>Select</mat-label>
@@ -94,7 +94,7 @@
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
                 <div class="col-12 px-0 top">
                     <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
-                    <div class="col-10 px-0 raj max-width-50"><b>{{ans.PROJECT_NAME | titlecase}}</b></div>
+                    <div class="col-10 px-0 pro-name max-width-50"><b>{{ans.PROJECT_NAME | titlecase}}</b></div>
                 </div>
             </div>
             <div class="col-xl-2 col-6 pr-0 mb-0 address">
@@ -126,7 +126,7 @@
                 <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
                 <img class="w-01 ml-1" src="./assets/images/icons/view icon.png" [routerLink]="['/project-overview',ans.PROJECTID]">
                 <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png"
-                    style="position: relative !important;" data-toggle="modal" data-target="#exampleModal" (click)="openQueryModel(ans)">
+                     data-toggle="modal" data-target="#exampleModal" (click)="openQueryModel(ans)">
                 <!-- <span class="badge badge-danger">12</span> -->
             </div>
         </div>
