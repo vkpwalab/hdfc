@@ -1,10 +1,11 @@
 @media screen and (min-width:320px) and (max-width: 576px){
             /* MAIN CONTAIN  */
+            .flex-mobile {display: inline-flex;}
             .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
             .main_btn_log{ display: none;}
             .circle {display:inline-flex;position: absolute;right: 0;top:60%}
             .circle p{font-size: 12px;}
-            .raj {font-size: 12px;padding-top: 6px;}
+            .pro-name {font-size: 12px;padding-top: 6px;}
             .app-cir {display: inline-flex;}
             .top{ display: inline-flex;}
             .cell {display: inline-flex;}
@@ -20,10 +21,9 @@
               /* input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;} */
               .w-01 {width: 30px;}
               .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: -5%;}
-              .fa-comments{float: right;padding-top: 6px;height: 25px;width: 35px;}
+              .fa-comments{float: right;padding-top: 6px;height: 25px;width: 35px;position: relative !important;}
               .flex {display: block !important}
               .fit {padding-left: 0px !important;}
-              .dropdown-toggle {padding-left: 0px !important;}
               .ter {font-size: 14px;}
               .icon-add img {height: 20px;}
               .first-line {display: none;}
@@ -58,7 +58,7 @@
     .w-01 {height: 30px;}
     .i-con .badge {height: 15px;width: 15px;font-size: 9px;position: absolute; padding: 2px;right: 6%;}
     .top{padding-top: 15px; display: inline-flex;}
-    .fa-comments{float: right;padding-top: 4px;right: 8%;height: 26px;}
+    .fa-comments{float: right;padding-top: 4px;right: 8%;height: 26px; position: relative !important;}
     .first-line{margin-right: 0px !important;display: inline-flex;}
     .Q-ser{display: inline-flex;}
     .f-btn{display: inline-flex;}
@@ -67,29 +67,21 @@
     .app {color: #6dcc8d;}
     .pen {color: #e3310d;}
     .main_btn_log {border:1px solid #e3310d;width: 100%;}
-    .raj {padding-top: 3px;}
+    /* .raj {padding-top: 3px;} */
     .icon-add {display: none;}
     .search{height: 48px;}
 
 }
 .mat-form-field{font-size: 13px;width: 100%;}
 .flex {display: inline-flex}
-.dropdown-toggle {padding-bottom: 2px !important;padding-top: 10px !important;}
-.dropdown-toggle:focus{outline: none;}
-button:focus {outline: none;}
-.dropdown {border-bottom: 1px solid rgb(192, 190, 190);}
-.dropdown-toggle::after{margin-left: 150px !important;}
-.btn:focus,.btn:active {
-  outline: none !important;
-  box-shadow: none;}
-  .dropdown-menu {min-width: 14rem !important;}
-  
+
 
 .fil-div{
   display: none;
 }
 
 /* --------------------modal----------- */
+.close {padding: 15px !important;margin-top: -20px;}
 .nopadding textarea {width: 100%;font-size: 13px;}
 .nopadding label {font-size: 13px;}
 .modal-title {color: #e3310d;}
@@ -124,6 +116,7 @@ button:focus {outline: none;}
   padding: 5px 25px;
   width: 30%;
   }
+
 .i-con img {outline: none !important; cursor: pointer !important;}
   .max-width-50 {
     max-width: 180px;

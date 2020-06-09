@@ -62,6 +62,7 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
 
 }
 .modal-content{width: 120%;}
+.modal-title {color: #e3310d;}
 .close {padding: 15px !important;margin-top: -20px;}
 
 .main_btn_log {width: 100%;border: 1px solid #e3310d;border-radius: 40px;}

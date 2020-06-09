@@ -3,6 +3,7 @@
   .fs-13 {font-size: 11px !important;}
 }
 @media screen and (min-width:320px) and (max-width: 576px){
+  .lr-15 {padding-left: 15px !important;padding-right: 15px !important;}
  .side {display: inline-flex !important;}
  .auto-btn {margin: auto; width: 100%;}
  .mob-px {padding-left: 15px !important;padding-right: 15px !important;}
@@ -60,34 +61,7 @@
      .raj1{
        padding-top: 6px !important;
      }
-                                  /* Bottom */
-    .wise{color: white;width: 95%;border-top-right-radius:30px;padding: 4px;font-size: 10px;margin-top: 5px;
-        position: relative;top: 5px;z-index: 1;top: 15px;}
-    
-    .bottom{border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-bottom: 0.5px solid rgb(175, 173, 173);padding-left: 6px !important;padding-right: 4px !important;background-color: rgb(250, 249, 249);padding-top: 15px;}
-    .bar-green {background-color: #00cc43;}    
-    .bar-yellow {background-color: #f9c344;}
-    .bar-red {background-color: #e3310d;}
-    
-    .inner-side{padding-left: 2px !important;padding-right: 0px !important;font-size: 10px;padding-top: 4px !important;}
-    .inner-side span{ font-size: 10px;}
-    .m-01 {width: 15px;padding-left: 2px !important;}
-
-    .box {display: inline-flex;}
-    .box label {font-size: 10px ;}
-    .last-box {border-right: none;}
-    .third {padding-left: 0px !important;}
-    .view-d{text-align: center;
-        border-radius: 4px;
-        background-color: #e3310d;
-        color: white;
-        display: block;
-        font-size: 10px;
-        height: 25px;
-        cursor: pointer;
-        padding: 4px;
-        box-shadow: 1px 3px 8px #ed1c2452;
-    }
+  
     .span-50 {margin-top:8px;}
     .flex {display: block !important}
 
@@ -170,17 +144,7 @@
     .bar-green {background-color: #00cc43;}    
     .bar-yellow {background-color: #f9c344;}
     .bar-red {background-color: #e3310d;}  
-    /* --------------------------------Bottom------------------------ */
-     .wise{color: white;width: 14%;border-top-right-radius:30px ;font-size: 12px;height: 20px;padding: 2px;
-    position: relative;top: 5px;z-index: 1;top: 15px;}
-    
-     .bottom{display: inline-flex;border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-bottom: 0.5px solid rgb(175, 173, 173);background-color: rgb(250, 249, 249);padding-top: 15px;}
-    .inner-side {padding-right: 4px !important;}
-     .box {border-right:0.5px solid rgb(196, 194, 194) ;display: inline-flex;}
-    .box label {font-size: 12px ;}
-    .last-box {border-right: none;}
-    .view {display: none;}
-    .m-01 {width: 25px;height: 15px;}
+  
     
 .search {height: 44px;}
 #upload .up {
@@ -188,7 +152,9 @@
 }
      /* -------------------------modal box--------------------   */
 .modal-title {color: #e3310d;}
+.modal-header {padding: 10px 10px 10px 0px;}
 .sub-btn {margin: auto;}
+.close {padding: 15px !important;margin-top: -20px;}
 .btn-upload {
   background-color: #e3310d;
   border-radius: 40px;
