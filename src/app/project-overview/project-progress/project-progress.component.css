@@ -81,4 +81,4 @@
     padding: 2px 15px;
     outline: none;}
 
-#years option :hover {outline: none;background-color: #e3310d;color: white;}
+option:hover {outline: none;background-color: #e3310d;color: white;}

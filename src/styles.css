@@ -497,3 +497,5 @@ html, body { height: 100%; }
     #mt-25 {padding-top: 15px !important;}    
   }
   #mt-25 .mat-form-field {margin-top: -25px !important;}
+
+  .close {outline: none !important;}

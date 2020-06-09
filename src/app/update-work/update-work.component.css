@@ -152,7 +152,9 @@
 }
      /* -------------------------modal box--------------------   */
 .modal-title {color: #e3310d;}
+.modal-header {padding: 10px 10px 10px 0px;}
 .sub-btn {margin: auto;}
+.close {padding: 15px !important;margin-top: -20px;}
 .btn-upload {
   background-color: #e3310d;
   border-radius: 40px;

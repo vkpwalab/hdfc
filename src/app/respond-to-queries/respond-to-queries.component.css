@@ -43,17 +43,9 @@
 
     .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
     .w-01 {width: 30px;}
-    .i-con {position: absolute;top: -10%;right: 0;}
-    .i-con .badge {position: absolute;right: 12px;height: 15px;width: 15px;font-size: 9px;padding: 2px;}
+    
     .tick p {font-size: 10px;}
-    p{
-        /* margin-bottom: 0px !important; */
-        /* padding-bottom: 5px !important; */
-    }
      .name{padding-left: 10px !important;}
-     /* .address{padding-left: 6px !important;} */
-     /* .ltd {padding-left: 6px !important;} */
-     /* .tick {padding-left: 6px !important;} */
      .top{display: inline-flex;}
      .raj {padding-top: 6px;font-size: 12px;}
                                   /* Bottom */
@@ -120,21 +112,7 @@
     .bar-green {background-color: #00cc43;}    
     .bar-yellow {background-color: #f9c344;}
     .bar-red {background-color: #e3310d;}  
-    /* --------------------------------Bottom------------------------ */
-     .wise{color: white;width: 14%;border-top-right-radius:30px ;font-size: 12px;height: 20px;padding: 2px;
-    position: relative;top: 5px;z-index: 1;top: 15px;}
-    
-     .bottom{display: inline-flex;border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-bottom: 0.5px solid rgb(175, 173, 173);background-color: rgb(250, 249, 249);padding-top: 15px;}
-    .inner-side {padding-right: 4px !important;}
-     .box {border-right:0.5px solid rgb(196, 194, 194) ;display: inline-flex;}
-    .box label {font-size: 12px ;}
-    .last-box {border-right: none;}
-    .view {display: none;}
-    .m-01 {width: 25px;height: 15px;}
-    
-    .dropdown-toggle::after{margin-left: 130px !important;}
-    .dropdown-menu {min-width: 14rem !important;}
-       
+          
 }
 .flex {display: inline-flex}
 .dropdown-toggle {padding-bottom: 2px !important;padding-top: 10px !important;}
@@ -146,27 +124,6 @@ button:focus {outline: none;}
   box-shadow: none;}
   .mat-form-field{font-size: 13px;width: 100%;}
     /* ----------------filter */
-    .filter {text-align: end;}
-    #radio {display: inline-flex;border-radius: 9px;}
-    #radio input[type=radio]:checked+.mirage {
-      background-color: #e3310d;
-      color: white;
-      border: 1px solid #e3310d;
-      box-shadow: 1px 3px 8px #ed1c2452;
-    }
-    .check{
-      display: inline-flex;
-      border: 5px solid;
-      border-radius: 40%;
-      height: 30px;
-      width: 100%;
-      transition: border .25s linear;
-      -webkit-transition: border .25s linear;
-    }
-    input[type="radio"].styled:checked label:after,
-    .checkbox label:after {
-      font-size: 12px;
-    }
     
     .form-check-input {
       position: absolute;

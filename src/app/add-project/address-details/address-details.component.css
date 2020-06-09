@@ -1,7 +1,7 @@
 .project{display: inline-flex; }
 .mat-form-field{font-size: 12px;width: 100%;}
 /* .mat-label {padding-bottom: 10px;} */
-.button {display: inline-flex;padding-bottom: 5%;}
+.button {display: inline-flex;padding-bottom: 4%;}
 .draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 .mat-form-field {font-family: 'Titillium Web' !important;}
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
