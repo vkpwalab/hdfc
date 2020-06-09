@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import $ from 'jquery';
 import { SharedService } from '../services/shared.service';
 
+declare var MapmyIndia;
+declare var L;
 
 export interface UserData {
   id: number;
@@ -28,13 +30,17 @@ export class AddProjectComponent implements OnInit {
   draft_data: any;
   builder_id: string;
   token: string;
+  map: any;
+  curr_marker: any;
+  pt: any;
+  latlong: any;
 
   constructor(private shared: SharedService) { }
 
   ngOnInit(): void {
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
-    
+
     $('.prev').click(function () {
       $('#pills-tabContent > .active').prev().addClass('active').next().removeClass('active')
       //for numbers
@@ -49,6 +55,20 @@ export class AddProjectComponent implements OnInit {
     setTimeout(() => {
       this.getDraftProjects();
     }, 2000);
+
+    //map code
+    this.map = new MapmyIndia.Map("map", { center: [28.61, 77.23], zoomControl: true, hybrid: true });
+    console.log(this.map);
+    let that = this;
+    this.map.on("click", function (e) {
+      that.pt = e.latlng; //event returns lat lng of clicked point
+
+      if (that.curr_marker) {
+        that.map.removeLayer(that.curr_marker);
+      }
+      that.curr_marker = that.addMarker(e.latlng, 'Project Location', true);
+
+    });
   }
 
   applyFilter(event: Event) {
@@ -79,15 +99,15 @@ export class AddProjectComponent implements OnInit {
       (data) => {
         this.draft_list = data.Table;
 
-          this.draft_list.forEach(element => {
-            let list_obj = { id: element.DRAFT_ID, name: element.PROJECT_NAME }
-            this.formdata.push(list_obj);
-            this.dataSource = new MatTableDataSource(this.formdata);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-          });
+        this.draft_list.forEach(element => {
+          let list_obj = { id: element.DRAFT_ID, name: element.PROJECT_NAME }
+          this.formdata.push(list_obj);
+          this.dataSource = new MatTableDataSource(this.formdata);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        });
 
-          console.log(this.draft_list);
+        console.log(this.draft_list);
       }
     );
   }
@@ -120,17 +140,34 @@ export class AddProjectComponent implements OnInit {
       (data) => {
         this.draft_list = data.Table;
 
-          this.draft_list.forEach(element => {
-            let list_obj = { id: element.DRAFT_ID, name: element.PROJECT_NAME }
-            this.formdata.push(list_obj);
-            this.dataSource = new MatTableDataSource(this.formdata);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-          });
+        this.draft_list.forEach(element => {
+          let list_obj = { id: element.DRAFT_ID, name: element.PROJECT_NAME }
+          this.formdata.push(list_obj);
+          this.dataSource = new MatTableDataSource(this.formdata);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        });
 
-          console.log(this.draft_list);
+        console.log(this.draft_list);
       }
     );
+  }
+
+  selectLocation(){
+    this.latlong = this.pt;
+  }
+  addMarker(position, title, draggable) {
+
+    var mk = new L.Marker(position, { draggable: draggable, title: title });
+
+    mk.bindPopup(title);
+
+    this.map.addLayer(mk);
+
+    mk.on("click", function (e) {
+      //your code about what you want to do on a marker click 
+    });
+    return mk;
   }
 }
 

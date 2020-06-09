@@ -36,9 +36,7 @@
                 <mat-form-field appearance="standard">
                     <mat-label>ACCOUNT TYPE<span class="text-danger">*</span></mat-label>
                     <mat-select formControlName="account_type">
-                        <mat-option value="option">Saving</mat-option>
-                        <mat-option value="option">Current</mat-option>
-                        <mat-option value="option">Escrow</mat-option>
+                        <mat-option value="{{ type.CD_VAL }}" *ngFor="let type of account_types">{{ type.CD_DESC }}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -61,10 +59,7 @@
                 <mat-form-field appearance="standard">
                     <mat-label>PAYMENT FOR<span class="text-danger">*</span></mat-label>
                     <mat-select formControlName="payment_for">
-                        <mat-option value="option">Agreement Value</mat-option>
-                        <mat-option value="option">GST & Other Taxes</mat-option>
-                        <mat-option value="option">Possession Charges</mat-option>
-                        <mat-option value="option">Etc</mat-option>
+                        <mat-option value="{{ type.CD_VAL }}" *ngFor="let type of payment_for">{{ type.CD_DESC }}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>

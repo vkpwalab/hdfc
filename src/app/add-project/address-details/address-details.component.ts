@@ -15,6 +15,7 @@ export class AddressDetailsComponent implements OnInit {
   city_list: any = [];
   address_detail_form: FormGroup;
   @Input() draft_data: any;
+  @Input() latlong: any;
   builder_id: string;
   token: string;
   constructor(private shared: SharedService, private fb: FormBuilder) { }
@@ -347,21 +348,28 @@ export class AddressDetailsComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('value changed', this.draft_data);
-    this.address_detail_form.controls['sno'].setValue(this.draft_data.PROJECT_NAME);
-    this.address_detail_form.controls['plot_no'].setValue(this.draft_data.PLOT_NO);
-    this.address_detail_form.controls['address'].setValue(this.draft_data.ADDRESS_LINE);
-    this.address_detail_form.controls['popular_landmark'].setValue(this.draft_data.POPULAR_LANDMARK);
-    this.address_detail_form.controls['location'].setValue(this.draft_data.LOCATIONS);
-    this.address_detail_form.controls['state'].setValue(this.draft_data.STATE);
-    this.address_detail_form.controls['city'].setValue(this.draft_data.CITY_DISTRICT);
-    this.address_detail_form.controls['pincode'].setValue(this.draft_data.PIN_CODE);
-    this.address_detail_form.controls['lat'].setValue(this.draft_data.LATLONG);
-    this.address_detail_form.controls['long'].setValue(this.draft_data.LATLONG);
-    this.address_detail_form.controls['east'].setValue(this.draft_data.BOUNDARY_DET_EAST);
-    this.address_detail_form.controls['west'].setValue(this.draft_data.BOUNDARY_DET_WEST);
-    this.address_detail_form.controls['north'].setValue(this.draft_data.BOUNDARY_DET_NORTH);
-    this.address_detail_form.controls['south'].setValue(this.draft_data.BOUNDARY_DET_SOUTH);
+
+    if(changes['draft_data'] !== undefined){
+      this.address_detail_form.controls['sno'].setValue(this.draft_data.PROJECT_NAME);
+      this.address_detail_form.controls['plot_no'].setValue(this.draft_data.PLOT_NO);
+      this.address_detail_form.controls['address'].setValue(this.draft_data.ADDRESS_LINE);
+      this.address_detail_form.controls['popular_landmark'].setValue(this.draft_data.POPULAR_LANDMARK);
+      this.address_detail_form.controls['location'].setValue(this.draft_data.LOCATIONS);
+      this.address_detail_form.controls['state'].setValue(this.draft_data.STATE);
+      this.address_detail_form.controls['city'].setValue(this.draft_data.CITY_DISTRICT);
+      this.address_detail_form.controls['pincode'].setValue(this.draft_data.PIN_CODE);
+      this.address_detail_form.controls['lat'].setValue(this.draft_data.LATLONG);
+      this.address_detail_form.controls['long'].setValue(this.draft_data.LATLONG);
+      this.address_detail_form.controls['east'].setValue(this.draft_data.BOUNDARY_DET_EAST);
+      this.address_detail_form.controls['west'].setValue(this.draft_data.BOUNDARY_DET_WEST);
+      this.address_detail_form.controls['north'].setValue(this.draft_data.BOUNDARY_DET_NORTH);
+      this.address_detail_form.controls['south'].setValue(this.draft_data.BOUNDARY_DET_SOUTH);
+    }
+
+    if(changes['latlong'] !== undefined){
+      this.address_detail_form.controls['lat'].setValue(this.latlong.lat);
+      this.address_detail_form.controls['long'].setValue(this.latlong.lng);
+    }
   }
 
 }

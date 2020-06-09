@@ -54,4 +54,44 @@ export class SharedService {
     }))
 
   }
+
+  uploadDoc(file_base64, doc_desc, doc_ext, proj_no, doc_code, remark, file_name){
+    let body_acc_types = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                            <soapenv:Header/>
+                            <soapenv:Body>
+                              <tem:Save_Doc>
+                                  <!--Optional:-->
+                                  <tem:docbyte>${file_base64}</tem:docbyte>
+                                  <!--Optional:-->
+                                  <tem:doc_name>${doc_desc}</tem:doc_name>
+                                  <!--Optional:-->
+                                  <tem:EXTENSION>${doc_ext}</tem:EXTENSION>
+                                  <!--Optional:-->
+                                  <tem:I_PROJECT_NO>${proj_no}</tem:I_PROJECT_NO>
+                                  <!--Optional:-->
+                                  <tem:I_PHASENO></tem:I_PHASENO>
+                                  <!--Optional:-->
+                                  <tem:I_DOC_CODE>${doc_code}</tem:I_DOC_CODE>
+                                  <!--Optional:-->
+                                  <tem:I_DOC_DESC>${doc_desc}</tem:I_DOC_DESC>
+                                  <!--Optional:-->
+                                  <tem:I_DOC_PURPOSE>${remark}</tem:I_DOC_PURPOSE>
+                                  <!--Optional:-->
+                                  <tem:I_CREATEDBY>${this.builder_id}</tem:I_CREATEDBY>
+                                  <!--Optional:-->
+                                  <tem:I_FILENAME>${file_name}</tem:I_FILENAME>
+                                  <!--Optional:-->
+                                  <tem:I_DOC_URL></tem:I_DOC_URL>
+                              </tem:Save_Doc>
+                            </soapenv:Body>
+                        </soapenv:Envelope>`;
+
+      let soapaction = 'http://tempuri.org/IService1/Save_Doc';
+      let result_tag = 'Save_DocResult';
+      this.getData(soapaction, body_acc_types, result_tag).subscribe(
+        (data) => {
+          console.log(data);
+        }
+      );
+  }
 }

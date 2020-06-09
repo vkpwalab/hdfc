@@ -17,6 +17,9 @@ export class BuildersBankComponent implements OnInit {
   file: any;
   file_name: any = '';
   file_uploaded: string;
+  payment_for: any;
+  file_base64: string | ArrayBuffer;
+  file_ext: any;
   constructor(private shared: SharedService,private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -44,6 +47,7 @@ export class BuildersBankComponent implements OnInit {
     console.log(this.dynamic_forms);
     this.getBankNames();
     this.getAccountTypes();
+    this.getPaymentFor();
   }
 
   getBankNames(){
@@ -92,6 +96,29 @@ export class BuildersBankComponent implements OnInit {
     );
   }
 
+  getPaymentFor(){
+    let body_acc_types = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                    <tem:Get_MASTER_DATA>
+                                        <!--Optional:-->
+                                        <tem:I_CD_VAL>PAYMENT_FOR</tem:I_CD_VAL>
+                                        <!--Optional:-->
+                                        <tem:Token>${this.token}</tem:Token>
+                                    </tem:Get_MASTER_DATA>
+                                  </soapenv:Body>
+                              </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Get_MASTER_DATA';
+    let result_tag = 'Get_MASTER_DATAResult';
+    this.shared.getData(soapaction, body_acc_types, result_tag).subscribe(
+      (data) => {
+        this.payment_for = data.Table;
+        console.log(this.payment_for);
+      }
+    );
+  }
+
   addBank(){
     let fd = this.fb.group({
       'payee_name': ['', Validators.required],
@@ -112,51 +139,54 @@ export class BuildersBankComponent implements OnInit {
   }
   updateBankDetail(data){
     console.log(data)
-    let body_acc_types = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
-                          <soapenv:Header/>
-                          <soapenv:Body>
-                            <tem:ins_devport_project_bank>
-                                <!--Optional:-->
-                                <tem:i_sr_no>?</tem:i_sr_no>
-                                <!--Optional:-->
-                                <tem:i_project_id>${this.project_id}</tem:i_project_id>
-                                <!--Optional:-->
-                                <tem:i_payee_name>${data.payee_name}</tem:i_payee_name>
-                                <!--Optional:-->
-                                <tem:i_bank_id>${data.bank_name}</tem:i_bank_id>
-                                <!--Optional:-->
-                                <tem:i_branch>${data.bank_branch}</tem:i_branch>
-                                <!--Optional:-->
-                                <tem:i_bank_account_no>${data.bank_acc_no}</tem:i_bank_account_no>
-                                <!--Optional:-->
-                                <tem:i_ifsc_code>${data.ifcs_code}</tem:i_ifsc_code>
-                                <!--Optional:-->
-                                <tem:i_account_type>${data.account_type}</tem:i_account_type>
-                                <!--Optional:-->
-                                <tem:i_payment_for>${data.payment_for}</tem:i_payment_for>
-                                <!--Optional:-->
-                                <tem:i_rera_collection_account>${data.rera_coll_account}</tem:i_rera_collection_account>
-                                <!--Optional:-->
-                                <tem:i_upld_cancel_chq_yn>${this.file_uploaded}</tem:i_upld_cancel_chq_yn>
-                                <!--Optional:-->
-                                <tem:i_remarks>?</tem:i_remarks>
-                                <!--Optional:-->
-                                <tem:i_user_id>?</tem:i_user_id>
-                                <!--Optional:-->
-                                <tem:i_doc_upld_srno>?</tem:i_doc_upld_srno>
-                                <!--Optional:-->
-                                <tem:Token>?</tem:Token>
-                            </tem:ins_devport_project_bank>
-                          </soapenv:Body>
-                      </soapenv:Envelope>`;
+    if(this.file_uploaded){
+      this.shared.uploadDoc(this.file_base64,'Cheque',this.file_ext,this.project_id,'CHQ','',this.file_name);
+    }
+    // let body_acc_types = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+    //                       <soapenv:Header/>
+    //                       <soapenv:Body>
+    //                         <tem:ins_devport_project_bank>
+    //                             <!--Optional:-->
+    //                             <tem:i_sr_no>?</tem:i_sr_no>
+    //                             <!--Optional:-->
+    //                             <tem:i_project_id>${this.project_id}</tem:i_project_id>
+    //                             <!--Optional:-->
+    //                             <tem:i_payee_name>${data.payee_name}</tem:i_payee_name>
+    //                             <!--Optional:-->
+    //                             <tem:i_bank_id>${data.bank_name}</tem:i_bank_id>
+    //                             <!--Optional:-->
+    //                             <tem:i_branch>${data.bank_branch}</tem:i_branch>
+    //                             <!--Optional:-->
+    //                             <tem:i_bank_account_no>${data.bank_acc_no}</tem:i_bank_account_no>
+    //                             <!--Optional:-->
+    //                             <tem:i_ifsc_code>${data.ifcs_code}</tem:i_ifsc_code>
+    //                             <!--Optional:-->
+    //                             <tem:i_account_type>${data.account_type}</tem:i_account_type>
+    //                             <!--Optional:-->
+    //                             <tem:i_payment_for>${data.payment_for}</tem:i_payment_for>
+    //                             <!--Optional:-->
+    //                             <tem:i_rera_collection_account>${data.rera_coll_account}</tem:i_rera_collection_account>
+    //                             <!--Optional:-->
+    //                             <tem:i_upld_cancel_chq_yn>${this.file_uploaded}</tem:i_upld_cancel_chq_yn>
+    //                             <!--Optional:-->
+    //                             <tem:i_remarks>?</tem:i_remarks>
+    //                             <!--Optional:-->
+    //                             <tem:i_user_id>?</tem:i_user_id>
+    //                             <!--Optional:-->
+    //                             <tem:i_doc_upld_srno>?</tem:i_doc_upld_srno>
+    //                             <!--Optional:-->
+    //                             <tem:Token>?</tem:Token>
+    //                         </tem:ins_devport_project_bank>
+    //                       </soapenv:Body>
+    //                   </soapenv:Envelope>`;
 
-    let soapaction = 'http://tempuri.org/IService1/ins_devport_project_bank';
-    let result_tag = 'ins_devport_project_bankResult';
-    this.shared.getData(soapaction, body_acc_types, result_tag).subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
+    // let soapaction = 'http://tempuri.org/IService1/ins_devport_project_bank';
+    // let result_tag = 'ins_devport_project_bankResult';
+    // this.shared.getData(soapaction, body_acc_types, result_tag).subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //   }
+    // );
   }
 
   uploadFileEvent($event) {
@@ -175,6 +205,17 @@ export class BuildersBankComponent implements OnInit {
       console.log(this.file)
       this.file_name = this.file.name
       this.file_uploaded = 'Y';
+      this.file_ext = this.file.name.split('.').pop();
+
+      var myReader: FileReader = new FileReader();
+      var that = this;
+      myReader.readAsDataURL(file);
+      myReader.onloadend = function (loadEvent: any) {
+        that.file_base64 = loadEvent.target.result;
+        console.log(that.file_base64);
+      };
+
+
     }
   }
 }
