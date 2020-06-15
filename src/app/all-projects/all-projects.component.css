@@ -37,7 +37,7 @@
                 opacity: 0;
                 top: -8px !important;
                 height: 30px;}
-                .btn-primary {
+                .submit-btn {
                 width: 40% !important;
                 }  
                 .max-width-50 {
@@ -106,7 +106,7 @@
   top: -8px !important;
   height: 30px;}
 
-  .btn-primary {
+  .submit-btn {
     background-color: #e3310d;
   border-radius: 40px;
   color: white;
@@ -124,3 +124,5 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
+    input {outline: none !important;}

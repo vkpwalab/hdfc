@@ -11,13 +11,20 @@
 #forresopnd .mat-form-field{
     font-size: 13px !important;
 }
+.up {    opacity: 0;
+    position: absolute;
+    width: 30px !important;
+    z-index: 5;
+    top: 5px;}
+    
 
 @media screen and (min-width:320px) and (max-width: 576px){
     mat-label {font-size: 13px !important;}
     .flex {display: block !important}
     .newimg{
         width: 25px;
-    margin-top: 8px !important;
+    margin-top: 4px !important;
+
     }
     .btn1{
         /* padding: 0.375rem 1rem !important; */
@@ -77,6 +84,11 @@
         box-shadow: 1px 3px 8px #ed1c2452;
     }
     .span-50 {margin-top:8px;}
+    .up {    opacity: 0;
+        position: absolute;
+        width: 30px !important;
+        z-index: 5;
+        top: 5px;}
     
 }
 
@@ -88,7 +100,8 @@
       }
     .newimg{
         width: 25px;
-    margin-top: 8px !important;
+    margin-top: 4px !important;
+    cursor: pointer;
     }
     .first-line{display: inline-flex;}
     .Q-ser{display: inline-flex;}
@@ -159,7 +172,7 @@ button:focus {outline: none;}
 }
 .myimg{
     width: 25px !important;
-    margin-top: 8px !important;
+    margin-top: 4px !important;
     /* background-color: red; */
     /* margin-left: 6px; */
     /* width: 100%; */
