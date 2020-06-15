@@ -18,14 +18,18 @@ export class AllProjectsComponent implements OnInit {
   chars = 0;
   builder_details: any = [];
   project_list: any = [];
-  branch_no:any;
-  search_text:string;
+  branch_no: any;
+  search_text: string;
   builder_id: string;
   token: string;
   select_values_of_status: any;
   status_all: string;
   message: any = '';
   selected_project: any;
+  file: any;
+  file_name: any = '';
+  file_uploaded: boolean;
+  file_ext: any;
   constructor(private shared: SharedService, private ar: ActivatedRoute) {
     console.log(ar)
   }
@@ -34,7 +38,7 @@ export class AllProjectsComponent implements OnInit {
     this.shared.headerTitle('List All Projects');
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
-    
+
     this.selectStatusOption();
     this.getBuilersDetails();
 
@@ -103,68 +107,108 @@ export class AllProjectsComponent implements OnInit {
 
   }
 
-  openQueryModel(project){
+  openQueryModel(project) {
     this.selected_project = project;
   }
+
   sendResponse() {
-    if(this.message != ''){
-      let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
-                                <soapenv:Header/>
-                                <soapenv:Body>
-                                  <tem:Insert_Query>
-                                      <!--Optional:-->
-                                      <tem:PROJECT_ID>${this.selected_project.PROJECT_ID}</tem:PROJECT_ID>
-                                      <!--Optional:-->
-                                      <tem:PHASE_ID></tem:PHASE_ID>
-                                      <!--Optional:-->
-                                      <tem:PROJECT_NAME>${this.selected_project.PROJECT_NAME}</tem:PROJECT_NAME>
-                                      <!--Optional:-->
-                                      <tem:QUERY>${this.message}</tem:QUERY>
-                                      <!--Optional:-->
-                                      <tem:I_QUERY_ID></tem:I_QUERY_ID>
-                                      <!--Optional:-->
-                                      <tem:STATUS></tem:STATUS>
-                                      <!--Optional:-->
-                                      <tem:I_PARENT_QUEST_ID></tem:I_PARENT_QUEST_ID>
-                                      <!--Optional:-->
-                                      <tem:SUBSTATUS></tem:SUBSTATUS>
-                                      <!--Optional:-->
-                                      <tem:K1></tem:K1>
-                                      <!--Optional:-->
-                                      <tem:K2></tem:K2>
-                                      <!--Optional:-->
-                                      <tem:K3></tem:K3>
-                                      <!--Optional:-->
-                                      <tem:K4></tem:K4>
-                                      <!--Optional:-->
-                                      <tem:CREATED_BY>${this.builder_id}</tem:CREATED_BY>
-                                      <!--Optional:-->
-                                      <tem:UPDATED_BY>${this.builder_id}</tem:UPDATED_BY>
-                                      <!--Optional:-->
-                                      <tem:Question>${this.message}</tem:Question>
-                                      <!--Optional:-->
-                                      <tem:I_QUERY_TYPE>Builder</tem:I_QUERY_TYPE>
-                                      <!--Optional:-->
-                                      <tem:I_URL></tem:I_URL>
-                                      <!--Optional:-->
-                                      <tem:Token>${this.token}</tem:Token>
-                                  </tem:Insert_Query>
-                                </soapenv:Body>
-                            </soapenv:Envelope>`;
-  
-      let soapaction = 'http://tempuri.org/IService1/Insert_Query';
-      let result_tag = 'Insert_QueryResult';
-      this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
-        (data) => {
-          if (data == "Success") {
-            alert('Your query is submitted');
+    if (this.message != '') {
+      if (this.file_uploaded) {
+        this.shared.uploadDoc(this.file, this.file_ext, this.selected_project.PROJECT_ID, 'RTQUERIES', this.file_name).subscribe(
+          (res) => {
+            if (res == 'OK') {
+              this.shared.updateDocDetail(this.selected_project.PROJECT_ID, this.file_name, this.file_ext, 'RTQUERIES', '').subscribe(
+                (doc_data) => {
+                  this.updateQuery(doc_data.o_srno);
+                  console.log(doc_data)
+                }
+              )
+            }
           }
-        }
-      );
+        )
+      } else {
+        this.updateQuery('');
+      }
     }
-    
   }
 
+  updateQuery(srno) {
+    let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:Insert_Query>
+                                    <!--Optional:-->
+                                    <tem:PROJECT_ID>${this.selected_project.PROJECT_ID}</tem:PROJECT_ID>
+                                    <!--Optional:-->
+                                    <tem:PHASE_ID></tem:PHASE_ID>
+                                    <!--Optional:-->
+                                    <tem:PROJECT_NAME>${this.selected_project.PROJECT_NAME}</tem:PROJECT_NAME>
+                                    <!--Optional:-->
+                                    <tem:QUERY>${this.message}</tem:QUERY>
+                                    <!--Optional:-->
+                                    <tem:I_QUERY_ID></tem:I_QUERY_ID>
+                                    <!--Optional:-->
+                                    <tem:STATUS></tem:STATUS>
+                                    <!--Optional:-->
+                                    <tem:I_PARENT_QUEST_ID></tem:I_PARENT_QUEST_ID>
+                                    <!--Optional:-->
+                                    <tem:SUBSTATUS></tem:SUBSTATUS>
+                                    <!--Optional:-->
+                                    <tem:K1>${srno}</tem:K1>
+                                    <!--Optional:-->
+                                    <tem:K2></tem:K2>
+                                    <!--Optional:-->
+                                    <tem:K3></tem:K3>
+                                    <!--Optional:-->
+                                    <tem:K4></tem:K4>
+                                    <!--Optional:-->
+                                    <tem:CREATED_BY>${this.builder_id}</tem:CREATED_BY>
+                                    <!--Optional:-->
+                                    <tem:UPDATED_BY>${this.builder_id}</tem:UPDATED_BY>
+                                    <!--Optional:-->
+                                    <tem:Question>${this.message}</tem:Question>
+                                    <!--Optional:-->
+                                    <tem:I_QUERY_TYPE>Builder</tem:I_QUERY_TYPE>
+                                    <!--Optional:-->
+                                    <tem:I_URL></tem:I_URL>
+                                    <!--Optional:-->
+                                    <tem:Token>${this.token}</tem:Token>
+                                </tem:Insert_Query>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Insert_Query';
+    let result_tag = 'Insert_QueryResult';
+    this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
+      (data) => {
+        if (data == "Success") {
+          alert('Your query is submitted');
+        }
+      }
+    );
+  }
+
+  uploadFileEvent($event) {
+    if ($event.target.files[0]) {
+      var file: File = $event.target.files[0];
+      // if (!this.validateFile(file)) {
+      //   alert("Unsupported image format");
+      //   return false;
+      // }
+
+      if (file.size > 4294967296) {
+        alert("Max. File size: 4GB");
+        return false;
+      }
+      this.file = $event.target.files[0];
+      console.log(this.file)
+      this.file_name = this.file.name.split('.')[0]
+      this.file_uploaded = true;
+      this.file_ext = this.file.name.split('.').pop();
+
+
+    }
+  }
 }
 
 
