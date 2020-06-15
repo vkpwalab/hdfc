@@ -127,6 +127,11 @@
     .bar-red {background-color: #e3310d;}  
           
 }
+
+.para-dou {font-size: 13px;}
+.upload {display: inline-flex;background-color: rgb(250,250,250);line-height: 1;}
+.doc {padding-top: 10px;}
+
 .flex {display: inline-flex}
 .dropdown-toggle {padding-bottom: 2px !important;padding-top: 10px !important;}
 .dropdown-toggle:focus{outline: none;}
