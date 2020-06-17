@@ -96,6 +96,11 @@ export class AllProjectsComponent implements OnInit {
     this.shared.getData(soapaction, body_pac_project_list, result_tag).subscribe(
       (data) => {
         this.project_list = data.Table;
+        let count = 0;
+        this.project_list.forEach(element => {
+          let doc_perc = (element.PENDING_DOC / element.UPL_DOC_CNT) * 100;
+          this.project_list[0].doc_perc = doc_perc;
+        });
         console.log(this.project_list);
       }
     );

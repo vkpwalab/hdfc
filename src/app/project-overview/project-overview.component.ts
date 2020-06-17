@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-project-overview',
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./project-overview.component.css']
 })
 export class ProjectOverviewComponent implements OnInit {
- 
+
   construction_stage1 = new FormControl('', Validators.required);
   construction_stage2 = new FormControl('', Validators.required);
   construction_stage3 = new FormControl('', Validators.required);
@@ -18,10 +19,10 @@ export class ProjectOverviewComponent implements OnInit {
   slab_complete3 = new FormControl('', Validators.required);
   remark1 = new FormControl('', Validators.required);
   remark2 = new FormControl('', Validators.required);
-  remark3= new FormControl('', Validators.required);
-  calendar1 = new FormControl('',Validators.required);
-  calendar2 = new FormControl('',Validators.required);
-  calendar3 = new FormControl('',Validators.required);
+  remark3 = new FormControl('', Validators.required);
+  calendar1 = new FormControl('', Validators.required);
+  calendar2 = new FormControl('', Validators.required);
+  calendar3 = new FormControl('', Validators.required);
   project_id: any;
   builder_id: string;
   token: string;
@@ -29,8 +30,10 @@ export class ProjectOverviewComponent implements OnInit {
   building_list: any;
   query: any = [];
   query_data: any = [];
-  message:any = '';
-  constructor(private shared : SharedService, private activatedRoute: ActivatedRoute, private route:Router) { }
+  message: any = '';
+  disb_percent: number;
+  leads_no: any = 0;
+  constructor(private shared: SharedService, private activatedRoute: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Overview');
@@ -44,10 +47,11 @@ export class ProjectOverviewComponent implements OnInit {
       }
     });
 
+    this.getProjectLead();
     this.getProjectDetail();
   }
 
-  getProjectDetail(){
+  getProjectDetail() {
     let body_raise_demand_letter = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                       <soapenv:Header/>
                                       <soapenv:Body>
@@ -65,6 +69,9 @@ export class ProjectOverviewComponent implements OnInit {
     this.shared.getData(soapaction, body_raise_demand_letter, result_tag).subscribe(
       (data) => {
         this.project_detail = data.Table[0];
+        this.disb_percent = Math.round((this.project_detail.TOT_DISB / this.project_detail.TOT_SANC) * 100);
+
+        $('#disb-progress').css('width', this.disb_percent + '%');
         console.log(this.project_detail);
         // this.getBuildingProgress();
       }
@@ -114,11 +121,35 @@ export class ProjectOverviewComponent implements OnInit {
     this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
       (data) => {
         this.query_data = data.Table;
-        
+
         console.log(this.query_data)
       }
     );
+  }
 
+  getProjectLead() {
+    let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:GET_PROJ_LEAD_CLIENT>
+                                      <!--Optional:-->
+                                      <tem:i_project_id>${this.project_id}</tem:i_project_id>
+                                      <!--Optional:-->
+                                      <tem:I_TYPE>?</tem:I_TYPE>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:GET_PROJ_LEAD_CLIENT>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/GET_PROJ_LEAD_CLIENT';
+    let result_tag = 'GET_PROJ_LEAD_CLIENTResult';
+    this.shared.getData(soapaction, body_Building_List, result_tag).subscribe(
+      (data) => {
+        console.log('lead',data.Table)
+        this.leads_no = data.Table.length;
+      }
+    );
   }
 
   sendResponse() {
@@ -175,6 +206,6 @@ export class ProjectOverviewComponent implements OnInit {
         }
       }
     );
-    
+
   }
 }

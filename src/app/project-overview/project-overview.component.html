@@ -35,9 +35,7 @@
       </div>
 
       <div class="col-lg-12 col-12 pt-2">
-        <p class="fs-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, dolores? Cumque
-          tenetur eligendi, minima pariatur earum alias inventore quibusdam obcaecati dignissimos iusto
-          voluptatibus incidunt atque ut sequi iure? Commodi, sit <span><a href="">read more</a></span> </p>
+        <p class="fs-12">{{ project_detail.PROJ_DESC }} </p>
       </div>
 
     </div>
@@ -49,9 +47,9 @@
           <h4 class="font-weight-bold fs-21">{{ project_detail.TOT_LOAN }}</h4>
           <p class="fs-12 m-0 cgray">Total Disbursed</p>
           <div style="height: 25px;" class="progress mt-1">
-            <div class="progress-bar newclass" role="progressbar"
-              style="width: 40%; color: black; background-color: rgb(194,237,253);" aria-valuenow="25" aria-valuemin="0"
-              aria-valuemax="100">60 Crores</div>
+            <div class="progress-bar newclass" role="progressbar" id="disb-progress"
+              style=" color: black; background-color: rgb(194,237,253);" aria-valuenow="{{ disb_percent }}" aria-valuemin="0"
+              aria-valuemax="100">{{ disb_percent }}%</div>
           </div>
         </div>
         <div class="col-lg-7 col-7 pl-0 pr-0">
@@ -61,7 +59,7 @@
               </h5>
             </div>
             <div class="col-lg-6 col px-0">
-              <h5 class="font-weight-bold">50 <span class="fs-10">Clients</span></h5>
+              <h5 class="font-weight-bold">{{ leads_no }} <span class="fs-10">Clients</span></h5>
             </div>
           </div>
           <p class="fs-12 cgray m-0">Project Progress</p>
@@ -530,7 +528,6 @@
 
             <div class="col-lg-10 col-10 px-0 alternative">
 
-              <form class="example-form">
                 <mat-form-field class="example-full-width">
                   <!-- <mat-label>Write your comment here...</mat-label> -->
                   <input matInput placeholder="Write your comment here..." [(ngModel)]="message">
@@ -538,7 +535,7 @@
 
 
                 </mat-form-field>
-              </form>
+        
 
             </div>
 
