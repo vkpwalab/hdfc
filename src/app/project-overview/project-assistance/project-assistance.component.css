@@ -37,11 +37,11 @@
 }
 @media(min-width: 576px) and (max-width: 2000px)
 {
-.mt-22{
+/* .mt-22{
     margin-top: -16px !important;
-}
+} */
 
 }
-#forassistance .mat-form-field{
+ .mat-form-field{
     font-size: 12px !important;
 }

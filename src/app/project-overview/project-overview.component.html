@@ -25,11 +25,11 @@
           </div>
         </div>
         <div class="col-lg-10 col-9 pl-0">
-          <h6 class="m-0 fs-13 font-weight-bold pt-2">{{ project_detail.PROJECT_NAME }}<span
-              class="text-center fs-12 newbtn pl-3 pr-3  font-weight-normal ml-4">{{ project_detail.PROP_CLASS }}</span>
+          <h6 class="m-0 fs-13 font-weight-bold pt-2">{{ project_detail.PROJECT_NAME | titlecase }}<span
+              class="text-center fs-12 newbtn pl-3 pr-3  font-weight-normal ml-4">{{ project_detail.PROP_CLASS | titlecase}}</span>
           </h6>
           <i style="color: #e3310d  !important;" class="fa fa-map-marker" aria-hidden="true"></i><span
-            class="m-0 fs-12 pl-1 font-italic">{{ project_detail.LOCATIONS }}</span>
+            class="m-0 fs-12 pl-1 font-italic">{{ project_detail.LOCATIONS | titlecase }}</span>
 
         </div>
       </div>
@@ -44,7 +44,7 @@
       <div class="col-lg-12 col-12 d-inline-flex pl-0 pr-0">
         <div class="col-lg-5 col-5">
           <p class="fs-12 m-0 cgray">Total Loan</p>
-          <h4 class="font-weight-bold fs-21">{{ project_detail.TOT_LOAN }}</h4>
+          <h4 class="font-weight-bold fs-21">{{ project_detail.TOT_LOAN }} Crores</h4>
           <p class="fs-12 m-0 cgray">Total Disbursed</p>
           <div style="height: 25px;" class="progress mt-1">
             <div class="progress-bar newclass" role="progressbar" id="disb-progress"
@@ -524,6 +524,16 @@
             consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
             asperiores ea laudantium beatae.</p> -->
 
+            <div class="col-lg-12 col-12 px-0 mt-3 pb-2 upload">
+              <div class="col-lg-2 col-2 pt-2">
+                  <img src="./assets/images/pdf.png" alt="" width="35px">
+              </div>
+              <div class="col-lg-8 col-8 doc"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label class="label-size">Upload size - <span>3.5 mb</span></label></div>
+              <div class="col-lg-2 col-2 pt-3 text-right">
+                  <img src="./assets/images/bar-x.png" alt="" width="15px">
+              </div>
+             </div>
+
           <div class="col-lg-12 col-12 row m-0  pr-0 pl-2 mt-2" style="background-color: rgb(250,250,250);">
 
             <div class="col-lg-10 col-10 px-0 alternative">
@@ -531,9 +541,6 @@
                 <mat-form-field class="example-full-width">
                   <!-- <mat-label>Write your comment here...</mat-label> -->
                   <input matInput placeholder="Write your comment here..." [(ngModel)]="message">
-
-
-
                 </mat-form-field>
         
 

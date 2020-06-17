@@ -138,3 +138,8 @@
     
     
 }
+
+.para-dou {font-size: 13px;}
+.label-size {font-size: 12px !important;}
+.upload {display: inline-flex;background-color: rgb(250,250,250);line-height: 1;}
+.doc {padding-top: 10px;}
