@@ -216,7 +216,7 @@ export class RespondToQueriesComponent implements OnInit {
     let result_tag = 'Get_Query_idResult';
     this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
       (data) => {
-        this.query_id = data.Table.QUERY_ID;
+        this.query_id = data.Table[0].QUERY_ID;
         this.updateQuery(srno);
       }
     );
@@ -273,6 +273,8 @@ export class RespondToQueriesComponent implements OnInit {
     this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
       (data) => {
         if (data == "Success") {
+          this.message = '';
+          this.removeFile();
           alert('Your query is submitted');
         }
       }

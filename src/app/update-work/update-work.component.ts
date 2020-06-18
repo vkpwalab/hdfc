@@ -27,6 +27,7 @@ export class UpdateWorkComponent implements OnInit {
   doc_srno: any = [];
   selected_building: any;
   remark: any = '';
+  search_text:any;
   constructor(private shared: SharedService, private fb: FormBuilder) {
     // this.show_progress=false;
   }
@@ -186,6 +187,11 @@ export class UpdateWorkComponent implements OnInit {
         let result_tag = 'ins_work_progress_detResult';
         this.shared.getData(soapaction, body_insert_query, result_tag).subscribe(
           (data) => {
+            this.remark = '';
+            this.file_name[index] = '';
+            this.file_ext[index] = '';
+            this.file[index] = '';
+            this.file_uploaded[index] = 'N';
             console.log(data)
           }
         );
