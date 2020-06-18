@@ -48,15 +48,8 @@ export class DisbursementRecordsComponent implements OnInit {
     {
       data: [],
 
-      backgroundColor: [
-        'rgb(85,202,173)',
-        'rgb(85,202,173)',
-        'rgb(85,202,173)',
-        'rgb(85,202,173)',
-        'rgb(85,202,173)',
-        'rgb(85,202,173)',
-        'rgb(85,202,173)'
-      ],
+      backgroundColor: 'rgb(85,202,173)',
+      hoverBackgroundColor: 'rgb(85,202,173)',
       barThickness: 20,
       // hoverBorderWidth: 20,
       label: "Disbursment Amount"

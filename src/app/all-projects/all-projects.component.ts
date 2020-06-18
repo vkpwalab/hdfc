@@ -30,6 +30,7 @@ export class AllProjectsComponent implements OnInit {
   file_name: any = '';
   file_uploaded: boolean;
   file_ext: any;
+  query_id: any;
   constructor(private shared: SharedService, private ar: ActivatedRoute) {
     console.log(ar)
   }
@@ -124,7 +125,7 @@ export class AllProjectsComponent implements OnInit {
             if (res == 'OK') {
               this.shared.updateDocDetail(this.selected_project.PROJECT_ID, this.file_name, this.file_ext, 'RTQUERIES', '').subscribe(
                 (doc_data) => {
-                  this.updateQuery(doc_data.o_srno);
+                  this.getQueryId(doc_data.o_srno);
                   console.log(doc_data)
                 }
               )
@@ -132,9 +133,30 @@ export class AllProjectsComponent implements OnInit {
           }
         )
       } else {
-        this.updateQuery('');
+        this.getQueryId('');
       }
     }
+  }
+
+  getQueryId(srno){
+    let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:Get_Query_id>
+                                    <!--Optional:-->
+                                    <tem:Token>${this.token}</tem:Token>
+                                </tem:Get_Query_id>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Get_Query_id';
+    let result_tag = 'Get_Query_idResult';
+    this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
+      (data) => {
+        this.query_id = data.Table.QUERY_ID;
+        this.updateQuery(srno);
+      }
+    );
   }
 
   updateQuery(srno) {

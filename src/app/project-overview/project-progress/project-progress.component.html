@@ -1,4 +1,3 @@
-
 <div class="col-lg-12 col-12 pt-4">
   <div class="col-lg-12 col-12 d-inline-flex px-0">
     <div class="col-lg-2 col-6 padlr" data-toggle="modal" data-target="#exampleModal">
@@ -7,37 +6,28 @@
       <span class="fs-10 pl-2">Add Update</span>
 
     </div>
-    <div class="col-lg-3 offset-lg-7 col-6 text-right padr">
-      <!-- <div class="dropdown show">
-        <a class="btn btn-secondary font-weight-bold dropdown-toggle fs-13" href="#" role="button" id="dropdownMenuLink"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Yearly
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item fs-13 font-weight-bold" href="">Monthly</a>
-          <a class="dropdown-item fs-13 font-weight-bold" href="">Weekly</a>
-
-        </div>
-      </div> -->
+    <!-- <div class="col-lg-3 offset-lg-7 col-6 text-right padr">
       <select name="select" id="years">
         <option value="Yearly">Yearly</option>
         <option value="Monthly">Monthly</option>
         <option value="Weekly">Weekly</option>
       </select>
-    </div>
+    </div> -->
   </div>
-  <div class="col-lg-12 col-12 row px-0 ml-0 mr-0">
-    <div class="col-lg-8 col-12 padlr">
+  <div class="col-lg-12 col-12 row px-0 ml-0 mr-0 mt-2">
+    <div class="col-lg-12 col-12 padlr">
       <div class="col-lg-12 col-12 row m-0 px-0">
-        <div class="col-lg-6 col-6 px-0 mt-2">
+        <h6 class="font-weight-bold">Wing-wise Progress</h6>
+          <canvas id="chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+          </canvas>
+        <!-- <div class="col-lg-6 col-6 px-0 mt-2">
           <h6 class="font-weight-bold">Wing-wise Progress</h6>
           <canvas id="chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
             [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
           </canvas>
-          <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolores voluptatum saepe id. </p> -->
-        </div>
-        <div class="col-lg-6 col-6 pr-0 mt-2">
+        </div> -->
+        <!-- <div class="col-lg-6 col-6 pr-0 mt-2">
           <div class="shadow bg-white brnew p-2 mart-5">
             <div class="w-0 h-0"
               style="border-left: 10px solid transparent;border-right: 10px solid transparent;border-top: 22px solid #fff;position:absolute;left: 1%;transform: skewX(22deg);">
@@ -46,63 +36,34 @@
             <p class="fs-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis accusantium nemo
               aspernatur saepe eaque sunt hic</p>
           </div>
-        </div>
+        </div> -->
         <hr class="hide" style="min-width: 108%;margin-left: -12px;">
       </div>
 
     </div>
-    <div  style="border-right: 1px solid rgba(0,0,0,.1);"></div>
+    <!-- <div style="border-right: 1px solid rgba(0,0,0,.1);"></div> -->
 
-    <div class="col-lg-3 col-12 mt-2 padlr">
-      <h6 class="font-weight-bold">Slabs Completed</h6>
-
-      <div style="display: block;">
-        <canvas baseChart [chartType]="'line'" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-          [legend]="lineChartLegend" [colors]="lineChartColors">
-        </canvas>
-        <!-- <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend"
-          [chartType]="bubbleChartType">
-        </canvas> -->
-      </div>
-    </div>
-  </div>
-  <!-- <div class="hr"></div> -->
-  <hr class="hide" style="min-width: 108%;margin-left: -12px;">
-
-  <hr class="hide1">
-  <div class="col-lg-12 col-12 row m-0 px-0">
-    <div class="col-lg-4 col-12 mt-4 padlr">
-      <h6 class="font-weight-bold">Construction Stage</h6>
-
-
-      <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend"
-        [chartType]="bubbleChartType">
-      </canvas>
-   
-
-    </div>
-    <hr class="hide" style="min-width: 108%;margin-left: -12px;">
-   
-    <div class="mt-4" style="border-right: 1px solid rgba(0,0,0,.1);"></div>
-
-    <div class="col-lg-7 col-12 mt-4 padlr">
+    <!-- <div class="col-lg-6 col-12 mt-2 padlr">
       <h6 class="font-weight-bold">Document Status</h6>
       <div class="col-lg-12 col-12 row m-0 px-0">
         <div class="col-lg-4 col-4">
-          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(92, 122, 255);" class="fa fa-circle-o" aria-hidden="true"></i> 150</span> Uploaded</p>
+          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(92, 122, 255);" class="fa fa-circle-o"
+                aria-hidden="true"></i> 150</span> Uploaded</p>
 
 
         </div>
         <div class="col-lg-4 col-4">
-          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(251, 203, 38);" class="fa fa-circle-o" aria-hidden="true"></i> 65</span> Pending</p>
+          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(251, 203, 38);" class="fa fa-circle-o"
+                aria-hidden="true"></i> 65</span> Pending</p>
 
         </div>
         <div class="col-lg-4 col-4">
-          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(11, 210, 173);" class="fa fa-circle-o" aria-hidden="true"></i> 145</span> Approved</p>
+          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(11, 210, 173);" class="fa fa-circle-o"
+                aria-hidden="true"></i> 145</span> Approved</p>
 
         </div>
 
-      </div> 
+      </div>
       <div class="col-12 row m-0 px-0">
         <div class="col-4">
           <div>
@@ -128,11 +89,78 @@
           </div>
         </div>
       </div>
-     
+    </div> -->
+  </div>
+  <!-- <div class="hr"></div> -->
+  <hr class="hide" style="min-width: 108%;margin-left: -12px;">
+
+  <hr class="hide1">
+  <div class="col-lg-12 col-12 row m-0 px-0">
+    <!-- <div class="col-lg-4 col-12 mt-4 padlr">
+      <h6 class="font-weight-bold">Construction Stage</h6>
+
+
+      <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend"
+        [chartType]="bubbleChartType">
+      </canvas>
+
+
+    </div>
+    <hr class="hide" style="min-width: 108%;margin-left: -12px;">
+
+    <div class="mt-4" style="border-right: 1px solid rgba(0,0,0,.1);"></div> -->
+
+    <div class="col-lg-12 col-12 mt-4 padlr">
+      <h6 class="font-weight-bold">Document Status</h6>
+      <div class="col-lg-12 col-12 row m-0 px-0">
+        <div class="col-lg-4 col-4">
+          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(92, 122, 255);" class="fa fa-circle-o"
+                aria-hidden="true"></i> 150</span> Uploaded</p>
+
+
+        </div>
+        <div class="col-lg-4 col-4">
+          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(251, 203, 38);" class="fa fa-circle-o"
+                aria-hidden="true"></i> 65</span> Pending</p>
+
+        </div>
+        <div class="col-lg-4 col-4">
+          <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(11, 210, 173);" class="fa fa-circle-o"
+                aria-hidden="true"></i> 145</span> Approved</p>
+
+        </div>
+
+      </div>
+      <div class="col-12 row m-0 px-0">
+        <div class="col-4">
+          <div>
+            <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+            </canvas>
+          </div>
+        </div>
+        <div class="col-4">
+          <div>
+
+            <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+            </canvas>
+          </div>
+        </div>
+        <div class="col-4">
+          <div>
+
+            <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+            </canvas>
+          </div>
+        </div>
+      </div>
+
 
     </div>
   </div>
-  <div  class="col-lg-12 col-12 mt-4 text-c pb-4">
+  <div class="col-lg-12 col-12 mt-4 text-c pb-4">
     <button [routerLink]="['/raise-demand']" type="button" class="btn btn2">Raise Demand Letter</button>
   </div>
 </div>

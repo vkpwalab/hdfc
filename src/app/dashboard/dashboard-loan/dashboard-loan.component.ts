@@ -51,25 +51,8 @@ export class DashboardLoanComponent implements OnInit {
     {
       data: [],
 
-      backgroundColor: [
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)'
-
-      ],
-      hoverBackgroundColor: [
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)',
-        'rgb(64,151,255)'
-      ],
+      backgroundColor: 'rgb(64,151,255)',
+      hoverBackgroundColor: 'rgb(64,151,255)',
       barThickness: 20,
       // hoverBorderWidth: 20,
       label: "Loan Amount"

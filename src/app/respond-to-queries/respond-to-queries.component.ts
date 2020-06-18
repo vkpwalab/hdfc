@@ -19,6 +19,12 @@ export class RespondToQueriesComponent implements OnInit {
   selected_query: any;
   builder_id: string;
   token: string;
+  file: any;
+  file_name: any;
+  file_uploaded: boolean;
+  file_ext: any;
+  file_size: string;
+  query_id: any;
 
   constructor(private shared: SharedService) { }
 
@@ -140,7 +146,7 @@ export class RespondToQueriesComponent implements OnInit {
       );
 
     } else {
-      console.log('else',id);
+      console.log('else', id);
 
       this.builder_names[id] = id;
     }
@@ -167,7 +173,7 @@ export class RespondToQueriesComponent implements OnInit {
     this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
       (data) => {
         this.query_data = data.Table;
-        
+
         console.log(this.query_data)
       }
     );
@@ -175,6 +181,48 @@ export class RespondToQueriesComponent implements OnInit {
   }
 
   sendResponse() {
+    if (this.message != '') {
+      if (this.file_uploaded) {
+        this.shared.uploadDoc(this.file, this.file_ext, this.selected_query.PROJECT_ID, 'RTQUERIES', this.file_name).subscribe(
+          (res) => {
+            if (res == 'OK') {
+              this.shared.updateDocDetail(this.selected_query.PROJECT_ID, this.file_name, this.file_ext, 'RTQUERIES', '').subscribe(
+                (doc_data) => {
+                  this.getQueryId(doc_data.o_srno);
+                  console.log(doc_data)
+                }
+              )
+            }
+          }
+        )
+      } else {
+        this.getQueryId('');
+      }
+    }
+  }
+
+  getQueryId(srno) {
+    let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:Get_Query_id>
+                                    <!--Optional:-->
+                                    <tem:Token>${this.token}</tem:Token>
+                                </tem:Get_Query_id>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Get_Query_id';
+    let result_tag = 'Get_Query_idResult';
+    this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
+      (data) => {
+        this.query_id = data.Table.QUERY_ID;
+        this.updateQuery(srno);
+      }
+    );
+  }
+
+  updateQuery(srno) {
 
     let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                               <soapenv:Header/>
@@ -189,7 +237,7 @@ export class RespondToQueriesComponent implements OnInit {
                                     <!--Optional:-->
                                     <tem:QUERY>${this.message}</tem:QUERY>
                                     <!--Optional:-->
-                                    <tem:I_QUERY_ID></tem:I_QUERY_ID>
+                                    <tem:I_QUERY_ID>${this.query_id}</tem:I_QUERY_ID>
                                     <!--Optional:-->
                                     <tem:STATUS>${this.selected_query.STATUS}</tem:STATUS>
                                     <!--Optional:-->
@@ -197,7 +245,7 @@ export class RespondToQueriesComponent implements OnInit {
                                     <!--Optional:-->
                                     <tem:SUBSTATUS>${this.selected_query.SUBSTATUS}</tem:SUBSTATUS>
                                     <!--Optional:-->
-                                    <tem:K1>${this.selected_query.K1}</tem:K1>
+                                    <tem:K1>${srno}</tem:K1>
                                     <!--Optional:-->
                                     <tem:K2>${this.selected_query.K2}</tem:K2>
                                     <!--Optional:-->
@@ -229,7 +277,35 @@ export class RespondToQueriesComponent implements OnInit {
         }
       }
     );
-    
+
   }
 
+  uploadFileEvent($event) {
+    if ($event.target.files[0]) {
+      var file: File = $event.target.files[0];
+      // if (!this.validateFile(file)) {
+      //   alert("Unsupported image format");
+      //   return false;
+      // }
+
+      if (file.size > 4294967296) {
+        alert("Max. File size: 4GB");
+        return false;
+      }
+      this.file = $event.target.files[0];
+      console.log(this.file)
+      this.file_name = this.file.name.split('.')[0]
+      this.file_uploaded = true;
+      this.file_ext = this.file.name.split('.').pop();
+      this.file_size = (this.file.size / (1024 * 1024)).toFixed(2);
+
+    }
+  }
+  removeFile() {
+    this.file = '';
+    this.file_name = '';
+    this.file_uploaded = false;
+    this.file_ext = '';
+    this.file_size = '';
+  }
 }
