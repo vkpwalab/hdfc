@@ -7,8 +7,10 @@
   <div class="container px-0 text-center">
       <p class="p-h mb-0 mt-1 pt-3"><b>UPLOAD FILES</b></p>
       <p class="fs-12">upload documents you want to share</p>
-    
-      <textarea placeholder="Remarks" rows="3"></textarea>
+      <mat-form-field appearance="standard">
+        <mat-label>REMARK</mat-label>
+        <textarea matInput formControlName="I_REMARKS" type="text" rows="3"></textarea>
+    </mat-form-field>
 
         <mat-form-field appearance="standard">
           <mat-label>DOCUMENT TYPE</mat-label>

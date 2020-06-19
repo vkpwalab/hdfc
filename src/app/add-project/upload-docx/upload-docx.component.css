@@ -10,13 +10,13 @@
 
 
 .drag-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);}
-.hide-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);overflow-y: scroll; height: 382px;}
+.hide-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);overflow-y: scroll; height: 400px;}
 .p-h{font-size: 15px;}
 .p-y{margin: auto;}
 
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
 
-textarea {width: 100% !important;border-radius: 7px;font-size: 13px !important;}
+textarea {width: 100% !important;font-size: 13px !important;}
 
 
 .fs-12 {font-size: 12px;}
