@@ -29,22 +29,29 @@
                 <img src="./assets/images/upload icon.png" height="60px">
                 <p class="p-y">Drag and drop your files here</p>
                 <p>OR</p>
-                <span (click)="openFileSelector()" class="text-primary">Browse files</span>
+                <span (click)="openFileSelector()" class="text-primary Browse">Browse files</span>
               </ng-template>
             </ngx-file-drop>
+
+
 
             <div class="col-lg-12 px-0 flex" [ngClass]="file_color" *ngIf="file_uploaded">
               <div class="col-lg-2 col-2 pt-2 pr-0">
                 <img [src]="file_icon" alt="" width="35px">
               </div>
-              <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+              <div class="col-lg-8 col-8 doc pr-0 pt-3 text-left">
                 <p class="para-dou mb-0"><b>{{ file_name }}</b></p><label>Upload size - <span>{{ file_size }}
                     mb</span></label>
               </div>
-              <div class="col-lg-2 col-2 pt-2 text-right">
-                <img src="./assets/images/tick icon.png" alt="" width="18px">
+              <div class="col-lg-2 col-2 pt-3 text-right">
+                <img src="./assets/images/bar-x.png" alt="" width="15px">
               </div>
             </div>
+
+            <div class="text-center col-lg-8 col-8 mt-3 btn-upload">
+              <input type="submit" class="main_btn_log" value="Upload">
+            </div>
+            
           </div>
         </div>
       </div>
@@ -66,15 +73,15 @@
                       mb</span></label>
                 </div>
                 <div class="col-lg-2 col-2 pt-2 text-right">
-                  <img src="./assets/images/tick icon.png" alt="" width="18px">
+                  <img src="./assets/images/bar-x.png" alt="" width="15px">
                 </div>
               </div>
             </div>
           </div> -->
 
 
-          <div class="container px-0 last-one mt-3">
-            <div class="col-lg-6 m-top">
+          <div class="col-lg-12 px-0 row mt-3">
+            <div class="col-lg-6 m-top padd">
               <div class="col-lg-12 px-0 flex red-box">
                 <div class="col-lg-2 col-2 pt-2 pr-0">
                   <img src="./assets/images/pdf.png" alt="" width="35px">
@@ -84,11 +91,11 @@
                       mb</span></label>
                 </div>
                 <div class="col-lg-2 col-2 pt-2 text-right">
-                  <img src="./assets/images/tick icon.png" alt="" width="18px">
+                  <img src="./assets/images/bar-x.png" alt="" width="15px">
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 m-top">
+            <div class="col-lg-6 m-top padd">
               <div class="col-lg-12 px-0 flex blue-box">
                 <div class="col-lg-2 col-2 pt-2 pr-0">
                   <img src="./assets/images/word icon.png" alt="" width="35px">
@@ -98,7 +105,7 @@
                       mb</span></label>
                 </div>
                 <div class="col-lg-2 col-2 pt-2 text-right">
-                  <img src="./assets/images/tick icon.png" alt="" width="18px">
+                  <img src="./assets/images/bar-x.png" alt="" width="15px">
                 </div>
               </div>
             </div>
