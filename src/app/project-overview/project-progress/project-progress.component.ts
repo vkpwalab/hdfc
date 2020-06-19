@@ -35,7 +35,7 @@ export class ProjectProgressComponent implements OnInit {
 
     },
   };
-  public barChartLabels: Label[] = ['WingA', 'WingB', 'WingC'];
+  public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'horizontalBar';
 
   public barChartLegend = true;
@@ -43,19 +43,10 @@ export class ProjectProgressComponent implements OnInit {
 
   public barChartData: ChartDataSets[] = [
     {
-      data: [60, 20, 10],
+      data: [],
 
-      backgroundColor: [
-        'rgb(253,194,52)',
-        'rgb(253,194,52)',
-        'rgb(253,194,52)'
-
-      ],
-      hoverBackgroundColor: [
-        'rgb(253,194,52)',
-        'rgb(253,194,52)',
-        'rgb(253,194,52)'
-      ],
+      backgroundColor: 'rgb(253,194,52)',
+      hoverBackgroundColor: 'rgb(253,194,52)',
       barThickness: 10,
       // hoverBorderWidth: 20,
       label: "Loan Amount"
@@ -119,28 +110,6 @@ export class ProjectProgressComponent implements OnInit {
   ]
   public bubbleChartOptions: ChartOptions = {
     responsive: true,
-    // scales: {
-    //   xAxes: [{
-    //     ticks: {
-
-    //       callback: value => this.times1[value]
-    //     },
-    //     gridLines: {
-
-    //       display: false,
-    //     }
-    //   }],
-    //   yAxes: [{
-    //     ticks: {
-
-    //       callback: value => this.times[value]
-    //     },
-    //     gridLines: {
-
-    //       display: false
-    //     }
-    //   }]
-    // },
     scales: {
       xAxes: [{
         ticks: {
@@ -230,6 +199,21 @@ export class ProjectProgressComponent implements OnInit {
       (data) => {
         this.building_list = data.Table;
         console.log(this.building_list);
+        this.barChartLabels = [];
+        this.barChartData[0].data = [];
+        let graph_data = [];
+        this.building_list.forEach(element => {
+          this.barChartLabels.push(element.BLDG_NAME);
+
+          if(element.BLDG_CONS_STATUS != null){
+            graph_data.push(element.BLDG_CONS_STATUS);
+          }else{
+            graph_data.push(0);
+          }
+   
+        });
+
+        this.barChartData[0].data = graph_data;
       }
     );
   }

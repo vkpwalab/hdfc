@@ -10,7 +10,7 @@
     <div class="col-lg-12 pt-3 text-right pr-4" *ngIf="i > 0" (click)="removeBank(i)">
         <img src="./assets/images/bar-x.png" height="18px">
     </div>
-    <form [formGroup]="dynamic_forms[i]" (ngSubmit)="updateBankDetail(dynamic_forms[i].value)">
+    <form [formGroup]="dynamic_forms[i]" (ngSubmit)="uploadBankFile(dynamic_forms[i].value,i)">
         <div class="col-lg-12 project alternative">
             <div class="col-lg-3">
                 <mat-form-field appearance="standard">
@@ -76,8 +76,8 @@
             <div class="col-lg-6" id="upload">
                 <mat-form-field appearance="standard">
                     <mat-label>CHOOSE FILES</mat-label>
-                    <input matInput [value]="file_name">
-                    <input class="float-right up" type="file" (change)="uploadFileEvent($event)">
+                    <input matInput [value]="file_name[i]">
+                    <input class="float-right up" type="file" (change)="uploadFileEvent($event,i)">
                     <span class="btn-upload text-center">Upload Files</span>
                 </mat-form-field>
             </div>

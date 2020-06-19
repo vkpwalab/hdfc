@@ -43,9 +43,9 @@
     <!-- --------------------------------------------------------------------- -->
 
     <div class="col-lg-12 col-12 pl-0 pr-1 m-0 mt-4 main-list alternative" id="update"
-        *ngFor="let data of building_list">
+        *ngFor="let data of building_list;let i = index;">
         <form class=" col-lg-12 flex m-0 px-0" [formGroup]="dynamic_forms[data.PROJ_BLDG_NO]"
-            (ngSubmit)="updateBuildingData(dynamic_forms[data.PROJ_BLDG_NO].value)">
+            (ngSubmit)="updateBuildingData(dynamic_forms[data.PROJ_BLDG_NO].value,i)">
             <!-- <div class="col-lg-12 roe m-0 px-0"> -->
 
             <!-- for mobile view only -->
@@ -109,7 +109,7 @@
 
             <div class="col-lg-3 px-0">
                 <div class="col-lg-12 col-12 flex m-0 pr-0 pl-2 pad-l side mob-px">
-                    <div class="col-lg-1 col-2 px-0 hidemobile" data-toggle="modal" data-target="#example">
+                    <div class="col-lg-1 col-2 px-0 hidemobile" data-toggle="modal" data-target="#example" (click)="openModel(data.PROJ_BLDG_NO,i)">
                         <img class="w-01 top" src="./assets/images/icons/upload icon.png" width="100%">
                     </div>
                     <!-- <div class="col-lg-2 col-2 px-0">
@@ -167,21 +167,21 @@
             <div class="col-lg-12 col-12 px-0">
                 <mat-form-field class="example-full-width">
                     <mat-label>Remark</mat-label>
-                    <input matInput type="text" placeholder="">
+                    <input matInput type="text" placeholder="" [(ngModel)]="remark">
                 </mat-form-field>
             </div>
             <div class="col-lg-12 alternative px-0" id="upload">
                 <mat-form-field appearance="standard">
                     <mat-label>CHOOSE FILES</mat-label>
-                    <input matInput>
-                    <input class="float-right up" type="file">
+                    <input matInput [value]="file_name[index]">
+                    <input class="float-right up" type="file" (change)="uploadFileEvent($event,index)">
                     <span class="btn-upload text-center">Upload Files</span>
 
                 </mat-form-field>
             </div>
             <div class="col-lg-12 col12 px-0mt-4 text-center">
                 <div class="col-lg-5 col-6 sub-btn">
-                    <input type="submit" value="SUBMIT" class="btn modal_btn">
+                    <input type="submit" value="SUBMIT" class="btn modal_btn" (click)="uploadBuildingDoc(selected_building,index)" data-dismiss="modal">
                 </div>
             </div>
         </div>

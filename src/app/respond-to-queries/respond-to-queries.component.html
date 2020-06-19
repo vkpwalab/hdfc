@@ -89,9 +89,9 @@
             <div class="col-lg-12 col-12 mt-2 padr" id="forresopnd">
                 <div class="col-lg-12 col-12">
                     <div class="w-20 close" data-dismiss="modal" aria-label="Close">
-                    <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
-                    </button>
+                        <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                        </button>
                     </div>
                 </div>
                 <div class="p-2 mt-1">
@@ -115,16 +115,19 @@
                         <p class="fs-10 pt-2 font-weight-bold mb-0">{{ query.CREATED_ON }}</p>
 
                     </div>
-                   
-                    <div class="col-lg-12 col-12 px-0 mt-3 pb-2 upload">
+
+                    <div class="col-lg-12 col-12 px-0 mt-3 pb-2 upload" *ngIf="file_name">
                         <div class="col-lg-2 col-2 pt-2">
                             <img src="./assets/images/pdf.png" alt="" width="35px">
                         </div>
-                        <div class="col-lg-8 col-8 doc"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                        <div class="col-lg-2 col-2 pt-3 text-right">
+                        <div class="col-lg-8 col-8 doc">
+                            <p class="para-dou mb-0"><b>{{ file_name }}</b></p><label>Upload size - <span>{{ file_size }}
+                                    mb</span></label>
+                        </div>
+                        <div class="col-lg-2 col-2 pt-3 text-right" (click)="removeFile()">
                             <img src="./assets/images/bar-x.png" alt="" width="15px">
                         </div>
-                       </div>
+                    </div>
 
                     <div class="col-lg-12 col-12 row m-0  pr-0 pl-2 mt-2" style="background-color: rgb(250,250,250);">
 
@@ -139,8 +142,8 @@
 
                         <div class="col-lg-1 col-1 px-0">
                             <div class="newimg mx-auto d-block">
-                            <input class="float-right up" type="file">
-                            <img src="./assets/images/attach.png" alt="" width="100%">
+                                <input class="float-right up" type="file" (change)="uploadFileEvent($event)">
+                                <img src="./assets/images/attach.png" alt="" width="100%">
                             </div>
                         </div>
 

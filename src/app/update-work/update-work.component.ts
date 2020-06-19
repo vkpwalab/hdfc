@@ -19,9 +19,18 @@ export class UpdateWorkComponent implements OnInit {
   project_selected_detail: any;
   builder_id: string;
   token: string;
-  constructor(private shared: SharedService,private fb: FormBuilder) {
+  file: any = [];
+  file_name: any = [];
+  file_uploaded: any = [];
+  file_ext: any = [];
+  index: any;
+  doc_srno: any = [];
+  selected_building: any;
+  remark: any = '';
+  search_text:any;
+  constructor(private shared: SharedService, private fb: FormBuilder) {
     // this.show_progress=false;
-   }
+  }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Progress');
@@ -30,7 +39,7 @@ export class UpdateWorkComponent implements OnInit {
     this.getBuilersDetails();
   }
 
-  getBuilersDetails(){
+  getBuilersDetails() {
     let body_builders_details = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                     <soapenv:Header/>
                                     <soapenv:Body>
@@ -56,7 +65,7 @@ export class UpdateWorkComponent implements OnInit {
     );
   }
 
-  getPacProjectList(){
+  getPacProjectList() {
     let body_pac_project_list = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                   <soapenv:Header/>
                                   <soapenv:Body>
@@ -81,7 +90,7 @@ export class UpdateWorkComponent implements OnInit {
     );
   }
 
-  getUploadDocType(){
+  getUploadDocType() {
     let body_upload_doc_type = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                   <soapenv:Header/>
                                   <soapenv:Body>
@@ -104,11 +113,11 @@ export class UpdateWorkComponent implements OnInit {
     );
   }
 
-  
-  projectChange(event){
+
+  projectChange(event) {
     this.project_selected = event.value;
-    this.project_selected_detail = this.project_list.filter(p=> p.PROJECTID == this.project_selected );
-    
+    this.project_selected_detail = this.project_list.filter(p => p.PROJECTID == this.project_selected);
+
     let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                 <soapenv:Header/>
                                 <soapenv:Body>
@@ -131,8 +140,8 @@ export class UpdateWorkComponent implements OnInit {
             'percent_payment_due': [element.PERC_DUE, Validators.required],
             'progress_date': [element.PROGRESS, Validators.required],
             'doc_type': [element.DOCUMENT_TYPE, Validators.required],
-            'build_no':[element.PROJ_BLDG_NO],
-            'build_name':[element.BLDG_NAME],
+            'build_no': [element.PROJ_BLDG_NO],
+            'build_name': [element.BLDG_NAME],
           });
 
         });
@@ -140,47 +149,110 @@ export class UpdateWorkComponent implements OnInit {
         console.log(this.building_list);
       }
     );
-    
+
   }
 
-  updateBuildingData(data){
+  updateBuildingData(data, index) {
     console.log(data);
-    if(this.dynamic_forms[data.build_no].valid){
-      let body_insert_query = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
-      <soapenv:Header/>
-      <soapenv:Body>
-         <tem:Save_Bldng_Progress>
-            <!--Optional:-->
-            <tem:I_PROJECT_NO>${this.project_selected}</tem:I_PROJECT_NO>
-            <!--Optional:-->
-            <tem:I_BUILDING_NAME>${data.build_name}</tem:I_BUILDING_NAME>
-            <!--Optional:-->
-            <tem:I_BUILDING_NO>${data.build_no}</tem:I_BUILDING_NO>
-            <!--Optional:-->
-            <tem:I_PROG_DATE>${data.progress_date}</tem:I_PROG_DATE>
-            <!--Optional:-->
-            <tem:I_PROG_REMARKS>${data.update_current_progress}</tem:I_PROG_REMARKS>
-            <!--Optional:-->
-            <tem:I_AMOUNT_DUE>${data.percent_payment_due}</tem:I_AMOUNT_DUE>
-            <!--Optional:-->
-            <tem:I_UPLOAD_DOC>${data.doc_type}</tem:I_UPLOAD_DOC>
-            <!--Optional:-->
-            <tem:I_IS_DEMAND_LETTER></tem:I_IS_DEMAND_LETTER>
-            <!--Optional:-->
-            <tem:I_CREATED_BY>${this.builder_id}</tem:I_CREATED_BY>
-            <!--Optional:-->
-            <tem:Token>${this.token}</tem:Token>
-         </tem:Save_Bldng_Progress>
-      </soapenv:Body>
-   </soapenv:Envelope>`;
+    if (this.dynamic_forms[data.build_no].valid) {
+      if (this.file_uploaded[index] == 'Y') {
+        let body_insert_query = `
+                              <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                    <tem:ins_work_progress_det>
+                                      <!--Optional:-->
+                                      <tem:i_project_id>${this.project_selected}</tem:i_project_id>
+                                      <!--Optional:-->
+                                      <tem:i_proj_bldg_no>${data.build_no}</tem:i_proj_bldg_no>
+                                      <!--Optional:-->
+                                      <tem:i_STAGE_OF_CONS></tem:i_STAGE_OF_CONS>
+                                      <!--Optional:-->
+                                      <tem:i_PROGRESS>${data.update_current_progress}</tem:i_PROGRESS>
+                                      <!--Optional:-->
+                                      <tem:i_UPLD_DOC_FLAG>Y</tem:i_UPLD_DOC_FLAG>
+                                      <!--Optional:-->
+                                      <tem:i_user>${this.builder_id}</tem:i_user>
+                                      <!--Optional:-->
+                                      <tem:i_doctype>${data.doc_type}</tem:i_doctype>
+                                      <!--Optional:-->
+                                      <tem:i_doc_upld_srno>${this.doc_srno[index]}</tem:i_doc_upld_srno>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                    </tem:ins_work_progress_det>
+                                </soapenv:Body>
+                              </soapenv:Envelope>`;
 
-    let soapaction = 'http://tempuri.org/IService1/Save_Bldng_Progress';
-    let result_tag = 'Save_Bldng_ProgressResult';
-    this.shared.getData(soapaction, body_insert_query, result_tag).subscribe(
-      (data) => {
-          console.log(data)
+        let soapaction = 'http://tempuri.org/IService1/ins_work_progress_det';
+        let result_tag = 'ins_work_progress_detResult';
+        this.shared.getData(soapaction, body_insert_query, result_tag).subscribe(
+          (data) => {
+            this.remark = '';
+            this.file_name[index] = '';
+            this.file_ext[index] = '';
+            this.file[index] = '';
+            this.file_uploaded[index] = 'N';
+            console.log(data)
+          }
+        );
       }
-    );
+    }
+  }
+
+  uploadBuildingDoc(bld_no, index) {
+    let doc_type = this.dynamic_forms[bld_no].controls['doc_type'].value;
+    console.log(doc_type);
+    if (this.file_uploaded[index] == 'Y' && doc_type.length > 1) {
+      this.shared.uploadDoc(this.file[index], this.file_ext[index], this.project_selected, doc_type, this.file_name[index]).subscribe(
+        (res) => {
+          if (res == 'OK') {
+            this.shared.updateDocDetail(this.project_selected, this.file_name[index], this.file_ext[index], doc_type, this.remark).subscribe(
+              (doc_data) => {
+                this.doc_srno[index] = doc_data.o_srno;
+                console.log(doc_data)
+              }
+            )
+          }
+        }
+      )
+    } else {
+      alert('Check if you have selected upload document type and uploaded the file.')
+    }
+  }
+
+  openModel(bld_no, index) {
+    this.selected_building = bld_no;
+    this.index = index;
+  }
+
+  uploadFileEvent($event, index) {
+    if ($event.target.files[0]) {
+      var file: File = $event.target.files[0];
+      // if (!this.validateFile(file)) {
+      //   alert("Unsupported image format");
+      //   return false;
+      // }
+
+      if (file.size > 4294967296) {
+        alert("Max. File size: 4GB");
+        return false;
+      }
+
+      this.file[index] = $event.target.files[0];
+      console.log(this.file)
+      this.file_name[index] = this.file[index].name.split('.')[0]
+      this.file_uploaded[index] = 'Y';
+      this.file_ext[index] = this.file[index].name.split('.').pop();
+
+      // var myReader: FileReader = new FileReader();
+      // var that = this;
+      // myReader.readAsDataURL(file);
+      // myReader.onloadend = function (loadEvent: any) {
+      //   that.file_base64 = loadEvent.target.result;
+      //   console.log(that.file_base64);
+      // };
+
+
     }
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-project-overview',
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./project-overview.component.css']
 })
 export class ProjectOverviewComponent implements OnInit {
- 
+
   construction_stage1 = new FormControl('', Validators.required);
   construction_stage2 = new FormControl('', Validators.required);
   construction_stage3 = new FormControl('', Validators.required);
@@ -18,10 +19,10 @@ export class ProjectOverviewComponent implements OnInit {
   slab_complete3 = new FormControl('', Validators.required);
   remark1 = new FormControl('', Validators.required);
   remark2 = new FormControl('', Validators.required);
-  remark3= new FormControl('', Validators.required);
-  calendar1 = new FormControl('',Validators.required);
-  calendar2 = new FormControl('',Validators.required);
-  calendar3 = new FormControl('',Validators.required);
+  remark3 = new FormControl('', Validators.required);
+  calendar1 = new FormControl('', Validators.required);
+  calendar2 = new FormControl('', Validators.required);
+  calendar3 = new FormControl('', Validators.required);
   project_id: any;
   builder_id: string;
   token: string;
@@ -29,8 +30,16 @@ export class ProjectOverviewComponent implements OnInit {
   building_list: any;
   query: any = [];
   query_data: any = [];
-  message:any = '';
-  constructor(private shared : SharedService, private activatedRoute: ActivatedRoute, private route:Router) { }
+  message: any = '';
+  disb_percent: number;
+  leads_no: any = 0;
+  file: any;
+  file_name: any;
+  file_uploaded: boolean;
+  file_ext: any;
+  file_size: string;
+  query_id: any;
+  constructor(private shared: SharedService, private activatedRoute: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Overview');
@@ -44,10 +53,11 @@ export class ProjectOverviewComponent implements OnInit {
       }
     });
 
+    this.getProjectLead();
     this.getProjectDetail();
   }
 
-  getProjectDetail(){
+  getProjectDetail() {
     let body_raise_demand_letter = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                       <soapenv:Header/>
                                       <soapenv:Body>
@@ -65,6 +75,9 @@ export class ProjectOverviewComponent implements OnInit {
     this.shared.getData(soapaction, body_raise_demand_letter, result_tag).subscribe(
       (data) => {
         this.project_detail = data.Table[0];
+        this.disb_percent = Math.round((this.project_detail.TOT_DISB / this.project_detail.TOT_SANC) * 100);
+
+        $('#disb-progress').css('width', this.disb_percent + '%');
         console.log(this.project_detail);
         // this.getBuildingProgress();
       }
@@ -114,14 +127,80 @@ export class ProjectOverviewComponent implements OnInit {
     this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
       (data) => {
         this.query_data = data.Table;
-        
+
         console.log(this.query_data)
       }
     );
+  }
 
+  getProjectLead() {
+    let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:GET_PROJ_LEAD_CLIENT>
+                                      <!--Optional:-->
+                                      <tem:i_project_id>${this.project_id}</tem:i_project_id>
+                                      <!--Optional:-->
+                                      <tem:I_TYPE>?</tem:I_TYPE>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:GET_PROJ_LEAD_CLIENT>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/GET_PROJ_LEAD_CLIENT';
+    let result_tag = 'GET_PROJ_LEAD_CLIENTResult';
+    this.shared.getData(soapaction, body_Building_List, result_tag).subscribe(
+      (data) => {
+        console.log('lead', data.Table)
+        this.leads_no = data.Table.length;
+      }
+    );
   }
 
   sendResponse() {
+    if (this.message != '') {
+      if (this.file_uploaded) {
+        this.shared.uploadDoc(this.file, this.file_ext, this.query.PROJECT_ID, 'RTQUERIES', this.file_name).subscribe(
+          (res) => {
+            if (res == 'OK') {
+              this.shared.updateDocDetail(this.query.PROJECT_ID, this.file_name, this.file_ext, 'RTQUERIES', '').subscribe(
+                (doc_data) => {
+                  this.getQueryId(doc_data.o_srno);
+                  console.log(doc_data)
+                }
+              )
+            }
+          }
+        )
+      } else {
+        this.getQueryId('');
+      }
+    }
+  }
+
+  getQueryId(srno) {
+    let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:Get_Query_id>
+                                    <!--Optional:-->
+                                    <tem:Token>${this.token}</tem:Token>
+                                </tem:Get_Query_id>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Get_Query_id';
+    let result_tag = 'Get_Query_idResult';
+    this.shared.getData(soapaction, body_query_detail, result_tag).subscribe(
+      (data) => {
+        this.query_id = data.Table[0].QUERY_ID;
+        this.updateQuery(srno);
+      }
+    );
+  }
+
+  updateQuery(srno) {
     let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                               <soapenv:Header/>
                               <soapenv:Body>
@@ -139,11 +218,11 @@ export class ProjectOverviewComponent implements OnInit {
                                     <!--Optional:-->
                                     <tem:STATUS>${this.query.STATUS}</tem:STATUS>
                                     <!--Optional:-->
-                                    <tem:I_PARENT_QUEST_ID>${this.query.QUEST_ID}</tem:I_PARENT_QUEST_ID>
+                                    <tem:I_PARENT_QUEST_ID>${this.query_id}</tem:I_PARENT_QUEST_ID>
                                     <!--Optional:-->
                                     <tem:SUBSTATUS>${this.query.SUBSTATUS}</tem:SUBSTATUS>
                                     <!--Optional:-->
-                                    <tem:K1>${this.query.K1}</tem:K1>
+                                    <tem:K1>${srno}</tem:K1>
                                     <!--Optional:-->
                                     <tem:K2>${this.query.K2}</tem:K2>
                                     <!--Optional:-->
@@ -175,6 +254,34 @@ export class ProjectOverviewComponent implements OnInit {
         }
       }
     );
-    
+  }
+
+  uploadFileEvent($event) {
+    if ($event.target.files[0]) {
+      var file: File = $event.target.files[0];
+      // if (!this.validateFile(file)) {
+      //   alert("Unsupported image format");
+      //   return false;
+      // }
+
+      if (file.size > 4294967296) {
+        alert("Max. File size: 4GB");
+        return false;
+      }
+      this.file = $event.target.files[0];
+      console.log(this.file)
+      this.file_name = this.file.name.split('.')[0]
+      this.file_uploaded = true;
+      this.file_ext = this.file.name.split('.').pop();
+      this.file_size = (this.file.size / (1024 * 1024)).toFixed(2);
+
+    }
+  }
+  removeFile() {
+    this.file = '';
+    this.file_name = '';
+    this.file_uploaded = false;
+    this.file_ext = '';
+    this.file_size = '';
   }
 }
