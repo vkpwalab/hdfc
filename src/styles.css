@@ -481,12 +481,12 @@ text-align: center;display: block;}
 #forresopnd .mat-form-field-appearance-legacy .mat-form-field-ripple{
   height: 0 !important;
 }
-
+/* 
 #submit .ngx-file-drop__drop-zone{height:40px !important;margin:auto;border:1px dotted #a7a9aa !important;border-radius:9px !important}
 #submit .ngx-file-drop__content{height:40px !important;color:grey !important;font-size: 12px !important;}
 #forimport .ngx-file-drop__drop-zone{
   border: none !important;
-}
+} */
 /* #matnewtabs .mat-tab-group{
   font-family: 'Titillium Web' !important;
 } */
