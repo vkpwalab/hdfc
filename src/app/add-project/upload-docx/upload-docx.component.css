@@ -1,7 +1,7 @@
 
 .mat-form-field{font-size: 12px;width: 100%;}
 .button {display: inline-flex;padding-bottom: 4%;}
-.draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
+
 .badge{font-size: 80%;border-radius: 0 !important;padding: 0.25em .6em !important;}
 .last-one{display: inline-flex;}
 .flex {display: inline-flex;}
@@ -9,8 +9,8 @@
 .mat-form-field {font-family: 'Titillium Web' !important;}
 
 
-.drag-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);}
-.hide-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);overflow-y: scroll; height: 450px;}
+.drag-box {border-radius: 9px;}
+.hide-box {border-radius: 9px;overflow-y: scroll; height: 450px;}
 .p-h{font-size: 15px;}
 .p-y{margin: auto;}
 

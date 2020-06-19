@@ -9,7 +9,7 @@
          <div class="col-lg-12 px-0 last-one">
           <div class="col-lg-4 mt-2 col-12 px-0">
          <div class="col-lg-12  col-12 px-zero">
-                <div class="col-12 drag-box ">
+                <div class="col-12 drag-box shadow">
         <div class="container px-0 text-center">
             <p class="p-h mb-0 mt-1 pt-3"><b>UPLOAD FILES</b></p>
             <p class="fs-12">upload documents you want to share</p>
@@ -38,6 +38,11 @@
            <span (click)="openFileSelector()" class="text-primary">Browse files</span> 
                 </ng-template>
             </ngx-file-drop>
+
+            <div class="text-center col-lg-8 col-8 mt-3 btn-upload">
+              <input type="submit" class="main_btn_log" value="Upload">
+            </div>
+
                </div>
               </div>
             </div>
@@ -47,161 +52,51 @@
       
           <div class="col-lg-8 mt-2 px-0">
             <div class="col-lg-12  px-0 col-12">
-              <div class="col-lg-12 col-12 px-0 pb-3 hide-box ">
-             <div class="container px-0 last-one mt-3">
-         <div class="col-lg-6 m-top">
-          <div class="col-lg-12 px-0 flex red-box">
-            <div class="col-lg-2 col-2 pt-2 pr-0">
-              <img src="./assets/images/pdf.png" alt="" width="35px">
-          </div>
-          <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-          <div class="col-lg-2 col-2 pt-2 text-right">
-              <img src="./assets/images/tick icon.png" alt="" width="18px">
-          </div>
-        </div>  
-        </div>
-         <div class="col-lg-6 m-top">
-          <div class="col-lg-12 px-0 flex green-box">
-            <div class="col-lg-2 col-2 pt-2 pr-0">
-              <img src="./assets/images/excel icon.png" alt="" width="35px">
-          </div>
-          <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-          <div class="col-lg-2 col-2 pt-2 text-right">
-              <img src="./assets/images/tick icon.png" alt="" width="18px">
-          </div>
-        </div>   
-        </div>
-      
-             </div>
-      
-             <div class="container px-0 last-one mt-3">
-              <div class="col-lg-6 m-top">
-               <div class="col-lg-12 px-0 flex red-box">
-                 <div class="col-lg-2 col-2 pt-2 pr-0">
-                   <img src="./assets/images/pdf.png" alt="" width="35px">
-               </div>
-               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-               <div class="col-lg-2 col-2 pt-2 text-right">
-                   <img src="./assets/images/tick icon.png" alt="" width="18px">
-               </div>
-             </div>  
-             </div>
-              <div class="col-lg-6 m-top">
-               <div class="col-lg-12 px-0 flex blue-box">
-                 <div class="col-lg-2 col-2 pt-2 pr-0">
-                   <img src="./assets/images/word icon.png" alt="" width="35px">
-               </div>
-               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-               <div class="col-lg-2 col-2 pt-2 text-right">
-                   <img src="./assets/images/tick icon.png" alt="" width="18px">
-               </div>
-             </div>   
-             </div>
-           
+              <div class="col-lg-12 col-12 px-0 pb-3 hide-box shadow">
+                <div class="col-lg-12 px-0 row mt-3">
+                  <div class="col-lg-6 m-top padd">
+                    <div class="col-lg-12 px-0 flex red-box">
+                      <div class="col-lg-2 col-2 pt-2 pr-0">
+                        <img src="./assets/images/pdf.png" alt="" width="35px">
+                      </div>
+                      <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                        <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                            mb</span></label>
+                      </div>
+                      <div class="col-lg-2 col-2 pt-2 text-right">
+                        <img src="./assets/images/bar-x.png" alt="" width="15px">
+                      </div>
+                    </div>
                   </div>
-      
-                  <div class="container px-0 last-one mt-3">
-                    <div class="col-lg-6 m-top">
-                     <div class="col-lg-12 px-0 flex red-box">
-                       <div class="col-lg-2 col-2 pt-2 pr-0">
-                         <img src="./assets/images/pdf.png" alt="" width="35px">
-                     </div>
-                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                     <div class="col-lg-2 col-2 pt-2 text-right">
-                         <img src="./assets/images/tick icon.png" alt="" width="18px">
-                     </div>
-                   </div>  
-                   </div>
-                    <div class="col-lg-6 m-top">
-                     <div class="col-lg-12 px-0 flex green-box">
-                       <div class="col-lg-2 col-2 pt-2 pr-0">
-                         <img src="./assets/images/excel icon.png" alt="" width="35px">
-                     </div>
-                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                     <div class="col-lg-2 col-2 pt-2 text-right">
-                         <img src="./assets/images/tick icon.png" alt="" width="18px">
-                     </div>
-                   </div>   
-                   </div>
-                 
-                        </div>
-      
-                        <div class="container px-0 last-one mt-3">
-                          <div class="col-lg-6 m-top">
-                           <div class="col-lg-12 px-0 flex red-box">
-                             <div class="col-lg-2 col-2 pt-2 pr-0">
-                               <img src="./assets/images/pdf.png" alt="" width="35px">
-                           </div>
-                           <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                           <div class="col-lg-2 col-2 pt-2 text-right">
-                               <img src="./assets/images/tick icon.png" alt="" width="18px">
-                           </div>
-                         </div>  
-                         </div>
-                          <div class="col-lg-6 m-top">
-                           <div class="col-lg-12 px-0 flex blue-box">
-                             <div class="col-lg-2 col-2 pt-2 pr-0">
-                               <img src="./assets/images/word icon.png" alt="" width="35px">
-                           </div>
-                           <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                           <div class="col-lg-2 col-2 pt-2 text-right">
-                               <img src="./assets/images/tick icon.png" alt="" width="18px">
-                           </div>
-                         </div>   
-                         </div>
-                       
-                              </div>
-      
-                              <div class="container px-0 last-one mt-3">
-                                <div class="col-lg-6 m-top">
-                                 <div class="col-lg-12 px-0 flex red-box">
-                                   <div class="col-lg-2 col-2 pt-2 pr-0">
-                                     <img src="./assets/images/pdf.png" alt="" width="35px">
-                                 </div>
-                                 <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                 <div class="col-lg-2 col-2 pt-2 text-right">
-                                     <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                 </div>
-                               </div>  
-                               </div>
-                                <div class="col-lg-6 m-top">
-                                 <div class="col-lg-12 px-0 flex blue-box">
-                                   <div class="col-lg-2 col-2 pt-2 pr-0">
-                                     <img src="./assets/images/word icon.png" alt="" width="35px">
-                                 </div>
-                                 <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                 <div class="col-lg-2 col-2 pt-2 text-right">
-                                     <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                 </div>
-                               </div>   
-                               </div>
-                             
-                                    </div>
-      
-                                    <div class="container px-0 last-one mt-3">
-                                      <div class="col-lg-6 m-top">
-                                       <div class="col-lg-12 px-0 flex red-box">
-                                         <div class="col-lg-2 col-2 pt-2 pr-0">
-                                           <img src="./assets/images/pdf.png" alt="" width="35px">
-                                       </div>
-                                       <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                       <div class="col-lg-2 col-2 pt-2 text-right">
-                                           <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                       </div>
-                                     </div>  
-                                     </div>
-                                      <div class="col-lg-6 m-top">
-                                       <div class="col-lg-12 px-0 flex blue-box">
-                                         <div class="col-lg-2 col-2 pt-2 pr-0">
-                                           <img src="./assets/images/word icon.png" alt="" width="35px">
-                                       </div>
-                                       <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                       <div class="col-lg-2 col-2 pt-2 text-right">
-                                           <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                       </div>
-                                     </div>   
-                                     </div>
-                                          </div>
+                  <div class="col-lg-6 m-top padd">
+                    <div class="col-lg-12 px-0 flex blue-box">
+                      <div class="col-lg-2 col-2 pt-2 pr-0">
+                        <img src="./assets/images/word icon.png" alt="" width="35px">
+                      </div>
+                      <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                        <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                            mb</span></label>
+                      </div>
+                      <div class="col-lg-2 col-2 pt-2 text-right">
+                        <img src="./assets/images/bar-x.png" alt="" width="15px">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 m-top padd">
+                    <div class="col-lg-12 px-0 flex green-box">
+                      <div class="col-lg-2 col-2 pt-2 pr-0">
+                        <img src="./assets/images/excel icon.png" alt="" width="35px">
+                      </div>
+                      <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                        <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                            mb</span></label>
+                      </div>
+                      <div class="col-lg-2 col-2 pt-2 text-right">
+                        <img src="./assets/images/bar-x.png" alt="" width="15px">
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
           </div>
@@ -218,228 +113,52 @@
       <mat-tab label="Uploaded">
         <div class="col-lg-12 mt-2 py-3">
           <div class="col-lg-12  px-0 col-12">
-            <div class="col-lg-12 col-12 px-0 pb-3 hide-box ">
-           <div class="container px-0 last-one mt-3">
-       <div class="col-lg-4 m-top">
-        <div class="col-lg-12 px-0 flex red-box">
-          <div class="col-lg-2 col-2 pt-2 pr-0">
-            <img src="./assets/images/pdf.png" alt="" width="35px">
-        </div>
-        <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-        <div class="col-lg-2 col-2 pt-2 text-right">
-            <img src="./assets/images/tick icon.png" alt="" width="18px">
-        </div>
-      </div>  
-      </div>
-       <div class="col-lg-4 m-top">
-        <div class="col-lg-12 px-0 flex green-box">
-          <div class="col-lg-2 col-2 pt-2 pr-0">
-            <img src="./assets/images/excel icon.png" alt="" width="35px">
-        </div>
-        <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-        <div class="col-lg-2 col-2 pt-2 text-right">
-            <img src="./assets/images/tick icon.png" alt="" width="18px">
-        </div>
-      </div>   
-      </div>
-      <div class="col-lg-4 m-top">
-        <div class="col-lg-12 px-0 flex blue-box">
-          <div class="col-lg-2 col-2 pt-2 pr-0">
-            <img src="./assets/images/word icon.png" alt="" width="35px">
-        </div>
-        <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-        <div class="col-lg-2 col-2 pt-2 text-right">
-            <img src="./assets/images/tick icon.png" alt="" width="18px">
-        </div>
-      </div>  
-      </div>
-    
-           </div>
-
-           <div class="container px-0 last-one mt-3">
-            <div class="col-lg-4 m-top">
-             <div class="col-lg-12 px-0 flex red-box">
-               <div class="col-lg-2 col-2 pt-2 pr-0">
-                 <img src="./assets/images/pdf.png" alt="" width="35px">
-             </div>
-             <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-             <div class="col-lg-2 col-2 pt-2 text-right">
-                 <img src="./assets/images/tick icon.png" alt="" width="18px">
-             </div>
-           </div>  
-           </div>
-            <div class="col-lg-4 m-top">
-             <div class="col-lg-12 px-0 flex green-box">
-               <div class="col-lg-2 col-2 pt-2 pr-0">
-                 <img src="./assets/images/excel icon.png" alt="" width="35px">
-             </div>
-             <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-             <div class="col-lg-2 col-2 pt-2 text-right">
-                 <img src="./assets/images/tick icon.png" alt="" width="18px">
-             </div>
-           </div>   
-           </div>
-           <div class="col-lg-4 m-top">
-             <div class="col-lg-12 px-0 flex blue-box">
-               <div class="col-lg-2 col-2 pt-2 pr-0">
-                 <img src="./assets/images/word icon.png" alt="" width="35px">
-             </div>
-             <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-             <div class="col-lg-2 col-2 pt-2 text-right">
-                 <img src="./assets/images/tick icon.png" alt="" width="18px">
-             </div>
-           </div>  
-           </div>
-         
+            <div class="col-lg-12 col-12 px-0 pb-3 hide-box shadow">
+              <div class="col-lg-12 px-0 row mt-3">
+                <div class="col-lg-4 m-top padd">
+                  <div class="col-lg-12 px-0 flex red-box">
+                    <div class="col-lg-2 col-2 pt-2 pr-0">
+                      <img src="./assets/images/pdf.png" alt="" width="35px">
+                    </div>
+                    <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                      <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                          mb</span></label>
+                    </div>
+                    <div class="col-lg-2 col-2 pt-2 text-right">
+                      <img src="./assets/images/bar-x.png" alt="" width="15px">
+                    </div>
+                  </div>
                 </div>
+                <div class="col-lg-4 m-top padd">
+                  <div class="col-lg-12 px-0 flex blue-box">
+                    <div class="col-lg-2 col-2 pt-2 pr-0">
+                      <img src="./assets/images/word icon.png" alt="" width="35px">
+                    </div>
+                    <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                      <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                          mb</span></label>
+                    </div>
+                    <div class="col-lg-2 col-2 pt-2 text-right">
+                      <img src="./assets/images/bar-x.png" alt="" width="15px">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 m-top padd">
+                  <div class="col-lg-12 px-0 flex green-box">
+                    <div class="col-lg-2 col-2 pt-2 pr-0">
+                      <img src="./assets/images/excel icon.png" alt="" width="35px">
+                    </div>
+                    <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                      <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                          mb</span></label>
+                    </div>
+                    <div class="col-lg-2 col-2 pt-2 text-right">
+                      <img src="./assets/images/bar-x.png" alt="" width="15px">
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                <div class="container px-0 last-one mt-3">
-                  <div class="col-lg-4 m-top">
-                   <div class="col-lg-12 px-0 flex red-box">
-                     <div class="col-lg-2 col-2 pt-2 pr-0">
-                       <img src="./assets/images/pdf.png" alt="" width="35px">
-                   </div>
-                   <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                   <div class="col-lg-2 col-2 pt-2 text-right">
-                       <img src="./assets/images/tick icon.png" alt="" width="18px">
-                   </div>
-                 </div>  
-                 </div>
-                  <div class="col-lg-4 m-top">
-                   <div class="col-lg-12 px-0 flex green-box">
-                     <div class="col-lg-2 col-2 pt-2 pr-0">
-                       <img src="./assets/images/excel icon.png" alt="" width="35px">
-                   </div>
-                   <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                   <div class="col-lg-2 col-2 pt-2 text-right">
-                       <img src="./assets/images/tick icon.png" alt="" width="18px">
-                   </div>
-                 </div>   
-                 </div>
-                 <div class="col-lg-4 m-top">
-                   <div class="col-lg-12 px-0 flex blue-box">
-                     <div class="col-lg-2 col-2 pt-2 pr-0">
-                       <img src="./assets/images/word icon.png" alt="" width="35px">
-                   </div>
-                   <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                   <div class="col-lg-2 col-2 pt-2 text-right">
-                       <img src="./assets/images/tick icon.png" alt="" width="18px">
-                   </div>
-                 </div>  
-                 </div>
-               
-                      </div>
-
-                      <div class="container px-0 last-one mt-3">
-                        <div class="col-lg-4 m-top">
-                         <div class="col-lg-12 px-0 flex red-box">
-                           <div class="col-lg-2 col-2 pt-2 pr-0">
-                             <img src="./assets/images/pdf.png" alt="" width="35px">
-                         </div>
-                         <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                         <div class="col-lg-2 col-2 pt-2 text-right">
-                             <img src="./assets/images/tick icon.png" alt="" width="18px">
-                         </div>
-                       </div>  
-                       </div>
-                        <div class="col-lg-4 m-top">
-                         <div class="col-lg-12 px-0 flex green-box">
-                           <div class="col-lg-2 col-2 pt-2 pr-0">
-                             <img src="./assets/images/excel icon.png" alt="" width="35px">
-                         </div>
-                         <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                         <div class="col-lg-2 col-2 pt-2 text-right">
-                             <img src="./assets/images/tick icon.png" alt="" width="18px">
-                         </div>
-                       </div>   
-                       </div>
-                       <div class="col-lg-4 m-top">
-                         <div class="col-lg-12 px-0 flex blue-box">
-                           <div class="col-lg-2 col-2 pt-2 pr-0">
-                             <img src="./assets/images/word icon.png" alt="" width="35px">
-                         </div>
-                         <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                         <div class="col-lg-2 col-2 pt-2 text-right">
-                             <img src="./assets/images/tick icon.png" alt="" width="18px">
-                         </div>
-                       </div>  
-                       </div>
-                     
-                            </div>
-
-                            <div class="container px-0 last-one mt-3">
-                              <div class="col-lg-4 m-top">
-                               <div class="col-lg-12 px-0 flex red-box">
-                                 <div class="col-lg-2 col-2 pt-2 pr-0">
-                                   <img src="./assets/images/pdf.png" alt="" width="35px">
-                               </div>
-                               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                               <div class="col-lg-2 col-2 pt-2 text-right">
-                                   <img src="./assets/images/tick icon.png" alt="" width="18px">
-                               </div>
-                             </div>  
-                             </div>
-                              <div class="col-lg-4 m-top">
-                               <div class="col-lg-12 px-0 flex green-box">
-                                 <div class="col-lg-2 col-2 pt-2 pr-0">
-                                   <img src="./assets/images/excel icon.png" alt="" width="35px">
-                               </div>
-                               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                               <div class="col-lg-2 col-2 pt-2 text-right">
-                                   <img src="./assets/images/tick icon.png" alt="" width="18px">
-                               </div>
-                             </div>   
-                             </div>
-                             <div class="col-lg-4 m-top">
-                               <div class="col-lg-12 px-0 flex blue-box">
-                                 <div class="col-lg-2 col-2 pt-2 pr-0">
-                                   <img src="./assets/images/word icon.png" alt="" width="35px">
-                               </div>
-                               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                               <div class="col-lg-2 col-2 pt-2 text-right">
-                                   <img src="./assets/images/tick icon.png" alt="" width="18px">
-                               </div>
-                             </div>  
-                             </div>
-                           
-                                  </div>
-
-                                  <div class="container px-0 last-one mt-3">
-                                    <div class="col-lg-4 m-top">
-                                     <div class="col-lg-12 px-0 flex red-box">
-                                       <div class="col-lg-2 col-2 pt-2 pr-0">
-                                         <img src="./assets/images/pdf.png" alt="" width="35px">
-                                     </div>
-                                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                     <div class="col-lg-2 col-2 pt-2 text-right">
-                                         <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                     </div>
-                                   </div>  
-                                   </div>
-                                    <div class="col-lg-4 m-top">
-                                     <div class="col-lg-12 px-0 flex green-box">
-                                       <div class="col-lg-2 col-2 pt-2 pr-0">
-                                         <img src="./assets/images/excel icon.png" alt="" width="35px">
-                                     </div>
-                                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                     <div class="col-lg-2 col-2 pt-2 text-right">
-                                         <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                     </div>
-                                   </div>   
-                                   </div>
-                                   <div class="col-lg-4 m-top">
-                                     <div class="col-lg-12 px-0 flex blue-box">
-                                       <div class="col-lg-2 col-2 pt-2 pr-0">
-                                         <img src="./assets/images/word icon.png" alt="" width="35px">
-                                     </div>
-                                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                     <div class="col-lg-2 col-2 pt-2 text-right">
-                                         <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                     </div>
-                                   </div>  
-                                   </div>
-                                 
-                                        </div>
 
           </div>
         </div>
@@ -454,228 +173,52 @@
       <mat-tab label="Pending">
         <div class="col-lg-12 mt-2 py-3">
           <div class="col-lg-12  px-0 col-12">
-            <div class="col-lg-12 col-12 px-0 pb-3 hide-box ">
-           <div class="container px-0 last-one mt-3">
-       <div class="col-lg-4 m-top">
-        <div class="col-lg-12 px-0 flex red-box">
-          <div class="col-lg-2 col-2 pt-2 pr-0">
-            <img src="./assets/images/pdf.png" alt="" width="35px">
-        </div>
-        <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-        <div class="col-lg-2 col-2 pt-2 text-right">
-            <img src="./assets/images/tick icon.png" alt="" width="18px">
-        </div>
-      </div>  
-      </div>
-       <div class="col-lg-4 m-top">
-        <div class="col-lg-12 px-0 flex green-box">
-          <div class="col-lg-2 col-2 pt-2 pr-0">
-            <img src="./assets/images/excel icon.png" alt="" width="35px">
-        </div>
-        <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-        <div class="col-lg-2 col-2 pt-2 text-right">
-            <img src="./assets/images/tick icon.png" alt="" width="18px">
-        </div>
-      </div>   
-      </div>
-      <div class="col-lg-4 m-top">
-        <div class="col-lg-12 px-0 flex blue-box">
-          <div class="col-lg-2 col-2 pt-2 pr-0">
-            <img src="./assets/images/word icon.png" alt="" width="35px">
-        </div>
-        <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-        <div class="col-lg-2 col-2 pt-2 text-right">
-            <img src="./assets/images/tick icon.png" alt="" width="18px">
-        </div>
-      </div>  
-      </div>
-    
-           </div>
-
-           <div class="container px-0 last-one mt-3">
-            <div class="col-lg-4 m-top">
-             <div class="col-lg-12 px-0 flex red-box">
-               <div class="col-lg-2 col-2 pt-2 pr-0">
-                 <img src="./assets/images/pdf.png" alt="" width="35px">
-             </div>
-             <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-             <div class="col-lg-2 col-2 pt-2 text-right">
-                 <img src="./assets/images/tick icon.png" alt="" width="18px">
-             </div>
-           </div>  
-           </div>
-            <div class="col-lg-4 m-top">
-             <div class="col-lg-12 px-0 flex green-box">
-               <div class="col-lg-2 col-2 pt-2 pr-0">
-                 <img src="./assets/images/excel icon.png" alt="" width="35px">
-             </div>
-             <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-             <div class="col-lg-2 col-2 pt-2 text-right">
-                 <img src="./assets/images/tick icon.png" alt="" width="18px">
-             </div>
-           </div>   
-           </div>
-           <div class="col-lg-4 m-top">
-             <div class="col-lg-12 px-0 flex blue-box">
-               <div class="col-lg-2 col-2 pt-2 pr-0">
-                 <img src="./assets/images/word icon.png" alt="" width="35px">
-             </div>
-             <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-             <div class="col-lg-2 col-2 pt-2 text-right">
-                 <img src="./assets/images/tick icon.png" alt="" width="18px">
-             </div>
-           </div>  
-           </div>
-         
+            <div class="col-lg-12 col-12 px-0 pb-3 hide-box shadow">
+              <div class="col-lg-12 px-0 row mt-3">
+                <div class="col-lg-4 m-top padd">
+                  <div class="col-lg-12 px-0 flex red-box">
+                    <div class="col-lg-2 col-2 pt-2 pr-0">
+                      <img src="./assets/images/pdf.png" alt="" width="35px">
+                    </div>
+                    <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                      <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                          mb</span></label>
+                    </div>
+                    <div class="col-lg-2 col-2 pt-2 text-right">
+                      <img src="./assets/images/bar-x.png" alt="" width="15px">
+                    </div>
+                  </div>
                 </div>
-
-                <div class="container px-0 last-one mt-3">
-                  <div class="col-lg-4 m-top">
-                   <div class="col-lg-12 px-0 flex red-box">
-                     <div class="col-lg-2 col-2 pt-2 pr-0">
-                       <img src="./assets/images/pdf.png" alt="" width="35px">
-                   </div>
-                   <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                   <div class="col-lg-2 col-2 pt-2 text-right">
-                       <img src="./assets/images/tick icon.png" alt="" width="18px">
-                   </div>
-                 </div>  
-                 </div>
-                  <div class="col-lg-4 m-top">
-                   <div class="col-lg-12 px-0 flex green-box">
-                     <div class="col-lg-2 col-2 pt-2 pr-0">
-                       <img src="./assets/images/excel icon.png" alt="" width="35px">
-                   </div>
-                   <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                   <div class="col-lg-2 col-2 pt-2 text-right">
-                       <img src="./assets/images/tick icon.png" alt="" width="18px">
-                   </div>
-                 </div>   
-                 </div>
-                 <div class="col-lg-4 m-top">
-                   <div class="col-lg-12 px-0 flex blue-box">
-                     <div class="col-lg-2 col-2 pt-2 pr-0">
-                       <img src="./assets/images/word icon.png" alt="" width="35px">
-                   </div>
-                   <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                   <div class="col-lg-2 col-2 pt-2 text-right">
-                       <img src="./assets/images/tick icon.png" alt="" width="18px">
-                   </div>
-                 </div>  
-                 </div>
-               
-                      </div>
-
-                      <div class="container px-0 last-one mt-3">
-                        <div class="col-lg-4 m-top">
-                         <div class="col-lg-12 px-0 flex red-box">
-                           <div class="col-lg-2 col-2 pt-2 pr-0">
-                             <img src="./assets/images/pdf.png" alt="" width="35px">
-                         </div>
-                         <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                         <div class="col-lg-2 col-2 pt-2 text-right">
-                             <img src="./assets/images/tick icon.png" alt="" width="18px">
-                         </div>
-                       </div>  
-                       </div>
-                        <div class="col-lg-4 m-top">
-                         <div class="col-lg-12 px-0 flex green-box">
-                           <div class="col-lg-2 col-2 pt-2 pr-0">
-                             <img src="./assets/images/excel icon.png" alt="" width="35px">
-                         </div>
-                         <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                         <div class="col-lg-2 col-2 pt-2 text-right">
-                             <img src="./assets/images/tick icon.png" alt="" width="18px">
-                         </div>
-                       </div>   
-                       </div>
-                       <div class="col-lg-4 m-top">
-                         <div class="col-lg-12 px-0 flex blue-box">
-                           <div class="col-lg-2 col-2 pt-2 pr-0">
-                             <img src="./assets/images/word icon.png" alt="" width="35px">
-                         </div>
-                         <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                         <div class="col-lg-2 col-2 pt-2 text-right">
-                             <img src="./assets/images/tick icon.png" alt="" width="18px">
-                         </div>
-                       </div>  
-                       </div>
-                     
-                            </div>
-
-                            <div class="container px-0 last-one mt-3">
-                              <div class="col-lg-4 m-top">
-                               <div class="col-lg-12 px-0 flex red-box">
-                                 <div class="col-lg-2 col-2 pt-2 pr-0">
-                                   <img src="./assets/images/pdf.png" alt="" width="35px">
-                               </div>
-                               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                               <div class="col-lg-2 col-2 pt-2 text-right">
-                                   <img src="./assets/images/tick icon.png" alt="" width="18px">
-                               </div>
-                             </div>  
-                             </div>
-                              <div class="col-lg-4 m-top">
-                               <div class="col-lg-12 px-0 flex green-box">
-                                 <div class="col-lg-2 col-2 pt-2 pr-0">
-                                   <img src="./assets/images/excel icon.png" alt="" width="35px">
-                               </div>
-                               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                               <div class="col-lg-2 col-2 pt-2 text-right">
-                                   <img src="./assets/images/tick icon.png" alt="" width="18px">
-                               </div>
-                             </div>   
-                             </div>
-                             <div class="col-lg-4 m-top">
-                               <div class="col-lg-12 px-0 flex blue-box">
-                                 <div class="col-lg-2 col-2 pt-2 pr-0">
-                                   <img src="./assets/images/word icon.png" alt="" width="35px">
-                               </div>
-                               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                               <div class="col-lg-2 col-2 pt-2 text-right">
-                                   <img src="./assets/images/tick icon.png" alt="" width="18px">
-                               </div>
-                             </div>  
-                             </div>
-                           
-                                  </div>
-
-                                  <div class="container px-0 last-one mt-3">
-                                    <div class="col-lg-4 m-top">
-                                     <div class="col-lg-12 px-0 flex red-box">
-                                       <div class="col-lg-2 col-2 pt-2 pr-0">
-                                         <img src="./assets/images/pdf.png" alt="" width="35px">
-                                     </div>
-                                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                     <div class="col-lg-2 col-2 pt-2 text-right">
-                                         <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                     </div>
-                                   </div>  
-                                   </div>
-                                    <div class="col-lg-4 m-top">
-                                     <div class="col-lg-12 px-0 flex green-box">
-                                       <div class="col-lg-2 col-2 pt-2 pr-0">
-                                         <img src="./assets/images/excel icon.png" alt="" width="35px">
-                                     </div>
-                                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                     <div class="col-lg-2 col-2 pt-2 text-right">
-                                         <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                     </div>
-                                   </div>   
-                                   </div>
-                                   <div class="col-lg-4 m-top">
-                                     <div class="col-lg-12 px-0 flex blue-box">
-                                       <div class="col-lg-2 col-2 pt-2 pr-0">
-                                         <img src="./assets/images/word icon.png" alt="" width="35px">
-                                     </div>
-                                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
-                                     <div class="col-lg-2 col-2 pt-2 text-right">
-                                         <img src="./assets/images/tick icon.png" alt="" width="18px">
-                                     </div>
-                                   </div>  
-                                   </div>
-                                 
-                                        </div>
+                <div class="col-lg-4 m-top padd">
+                  <div class="col-lg-12 px-0 flex blue-box">
+                    <div class="col-lg-2 col-2 pt-2 pr-0">
+                      <img src="./assets/images/word icon.png" alt="" width="35px">
+                    </div>
+                    <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                      <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                          mb</span></label>
+                    </div>
+                    <div class="col-lg-2 col-2 pt-2 text-right">
+                      <img src="./assets/images/bar-x.png" alt="" width="15px">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 m-top padd">
+                  <div class="col-lg-12 px-0 flex green-box">
+                    <div class="col-lg-2 col-2 pt-2 pr-0">
+                      <img src="./assets/images/excel icon.png" alt="" width="35px">
+                    </div>
+                    <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                      <p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5
+                          mb</span></label>
+                    </div>
+                    <div class="col-lg-2 col-2 pt-2 text-right">
+                      <img src="./assets/images/bar-x.png" alt="" width="15px">
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
 
           </div>
         </div>
