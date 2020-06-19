@@ -1,22 +1,13 @@
 <div class="col-lg-12 pb-4 alternative">
     <h6 class="pt-2"><span style="background-color: #e3310d !important;" class="badge badge-danger pr-1 mar-14">1.</span> Property Documents</h6>
    <div class="col-lg-12 px-0 last-one">
-    <div class="col-lg-6 mt-2 col-12 px-0 last">
-   <div class="col-lg-6 cell-box col-6">
-          <div class="col-12 hide-box">
-  <div class="container px-0">
-      <p class="p-h mt-1"><b>Allotment Letter</b></p>
-      
-        <ngx-file-drop dropZoneLabel="Drop files here">
-            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-       <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
-            </ng-template>
-        </ngx-file-drop>
-
-  
-  </div>
-  <!-- <div id="progress1" class="progress-div"> -->
-      <div class="col-12 mt-2 typ">
+    <div class="col-lg-4 mt-2 col-12 px-0">
+   <div class="col-lg-12  col-12 px-zero">
+          <div class="col-12 drag-box shadow">
+  <div class="container px-0 text-center">
+      <p class="p-h mb-0 mt-1 pt-3"><b>UPLOAD FILES</b></p>
+      <p class="fs-12">upload documents you want to share</p>
+    
         <mat-form-field appearance="standard">
           <mat-label>DOCUMENT TYPE</mat-label>
           <mat-select>
@@ -24,249 +15,203 @@
             <mat-option value="option">m1</mat-option>
           </mat-select>
         </mat-form-field>
-         </div>
-         <div class="col-12 px-0 mt-2">
-          <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
-         </div>
-         <div class="text-center col-lg-12 mb-2"> 
-          <button type="submit" class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1" aria-hidden="true"></i>Upload</button>
-      </div>
+  
+  </div>
 
-       <!-- -----------------------AFTER UPLOAD--------------------->
-            <!-- <div class="col-12 px-0 mb-2 img-c">
-              <div class="col-6 px-0">
-                <img src="./assets/images/pro.png">
-              </div>
-              <div class="col-6 pt-3 pl-0 cet">
-                <p class=""><b>Certificate_001.jpg</b></p>
-                <span class="text-secondary">1000 kb</span>
-              </div>
-            </div>
-            <div class="col-12 px-0 cet-2">
-              <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></p>
-            </div> -->
-<!-- -----------------------AFTER UPLOAD--------------------->
-      
-  <!-- </div> -->
-        </div>
-       
-      </div>
-      
-      <div class="col-lg-6 cell-box col-6">
-        <div class="col-12 hide-box">
-<div class="container px-0">
-    <p class="p-h mt-1"><b>No-Objection Certificate</b></p>
-    
-      <!-- <ngx-file-drop dropZoneLabel="Drop files here">
+      <div class="col-12 mt-2 typ px-0 pb-3" id="add-project">
+        <ngx-file-drop dropZoneLabel="Drop files here">
           <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-     <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
+            <img src="./assets/images/upload icon.png" height="60px">
+     <p class="p-y">Drag and drop your files here</p>
+     <p>OR</p>
+     <span (click)="openFileSelector()" class="text-primary">Browse files</span> 
           </ng-template>
-      </ngx-file-drop> -->
-
-
-</div>
-<!-- <div id="progress1" class="progress-div"> -->
-    <!-- <div class="col-12 mt-2 typ">
-      <mat-form-field appearance="standard">
-        <mat-label>DOCUMENT TYPE</mat-label>
-        <mat-select>
-          <mat-option value="option">Option</mat-option>
-          <mat-option value="option">m1</mat-option>
-        </mat-select>
-      </mat-form-field>
-       </div>
-       <div class="col-12 px-0 mt-2">
-        <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
-       </div>
-       <div class="text-center col-lg-12 mb-2"> 
-        <span class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1" aria-hidden="true"></i>Upload</span>
-    </div> -->
-
-     <!-- -----------------------AFTER UPLOAD--------------------->
-     <div class="col-12 px-0 mb-2 img-c">
-      <div class="col-4 px-0 img">
-        <img src="./assets/images/pro.png">
-      </div>
-      <div class="col-8 pt-1 pr-0 cet">
-        <p class="mb-0"><b>no-objection Certificate_001.jpg</b></p>
-        <span class="text-secondary">1000 kb</span>
-      </div>
-    </div>
-    <div class="col-12 px-0 cet-2">
-      <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></p>
-    </div>
-<!-- -----------------------AFTER UPLOAD--------------------->
-    
-<!-- </div> -->
-      </div>
-     
-    </div>
-    </div>
-
-    <div class="col-lg-6 mt-2 col-12 px-0 last">
-      <div class="col-lg-6 cell-box col-6">
-             <div class="col-12 hide-box">
-     <div class="container px-0">
-         <p class="p-h mt-1"><b>Sales Agreement</b></p>
-         
-           <ngx-file-drop dropZoneLabel="Drop files here">
-               <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-          <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
-               </ng-template>
-           </ngx-file-drop>
-   
-     
-     </div>
-     <!-- <div id="progress1" class="progress-div"> -->
-         <div class="col-12 mt-2 typ">
-           <mat-form-field appearance="standard">
-             <mat-label>DOCUMENT TYPE</mat-label>
-             <mat-select>
-               <mat-option value="option">Option</mat-option>
-               <mat-option value="option">m1</mat-option>
-             </mat-select>
-           </mat-form-field>
-            </div>
-            <div class="col-12 px-0 mt-2">
-             <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
-            </div>
-            <div class="text-center col-lg-12 mb-2"> 
-             <button type="submit" class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1" aria-hidden="true"></i>Upload</button>
+      </ngx-file-drop>
          </div>
-   
-          <!-- -----------------------AFTER UPLOAD--------------------->
-               <!-- <div class="col-12 px-0 mb-2 img-c">
-                 <div class="col-6 px-0">
-                   <img src="./assets/images/pro.png">
-                 </div>
-                 <div class="col-6 pt-3 pl-0 cet">
-                   <p class=""><b>Certificate_001.jpg</b></p>
-                   <span class="text-secondary">1000 kb</span>
-                 </div>
-               </div>
-               <div class="col-12 px-0 cet-2">
-                 <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></p>
-               </div> -->
-   <!-- -----------------------AFTER UPLOAD--------------------->
-         
-     <!-- </div> -->
-           </div>
-          
-         </div>
-         
-         <div class="col-lg-6 cell-box col-6">
-           <div class="col-12 hide-box">
-   <div class="container px-0">
-       <p class="p-h mt-1"><b>Mutation Register Extract</b></p>
-       
-         <ngx-file-drop dropZoneLabel="Drop files here">
-             <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-        <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
-             </ng-template>
-         </ngx-file-drop>
-   
-   
-   </div>
-   <!-- <div id="progress1" class="progress-div"> -->
-       <div class="col-12 mt-2 typ">
-         <mat-form-field appearance="standard">
-           <mat-label>DOCUMENT TYPE</mat-label>
-           <mat-select>
-             <mat-option value="option">Option</mat-option>
-             <mat-option value="option">m1</mat-option>
-           </mat-select>
-         </mat-form-field>
-          </div>
-          <div class="col-12 px-0 mt-2">
-           <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
-          </div>
-          <div class="text-center col-lg-12 mb-2"> 
-           <button type="submit" class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1" aria-hidden="true"></i>Upload</button>
-       </div>
-   
-        <!-- -----------------------AFTER UPLOAD--------------------->
-             <!-- <div class="col-12 px-0 mb-2 img-c">
-               <div class="col-6 px-0">
-                 <img src="./assets/images/pro.png">
-               </div>
-               <div class="col-6 pt-3 pl-0 cet">
-                 <p class=""><b>Certificate_001.jpg</b></p>
-                 <span class="text-secondary">1000 kb</span>
-               </div>
-             </div>
-             <div class="col-12 px-0 cet-2">
-               <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></p>
-             </div> -->
-   <!-- -----------------------AFTER UPLOAD--------------------->
-       
-   <!-- </div> -->
-         </div>
-        
-       </div>
-       </div>
-       </div>
-
-
-
-
-
-
-
-
-
-       <div class="col-lg-12 px-0 last-one alternative">
-        <div class="col-lg-6 mt-2 col-12 px-0 last">
-       <div class="col-lg-6 cell-box col-6">
-              <div class="col-12 hide-box">
-      <div class="container px-0">
-          <p class="p-h mt-1"><b>Power of Attorney</b></p>
-          
-            <ngx-file-drop dropZoneLabel="Drop files here">
-                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-           <p class="p-y">Drag or <span (click)="openFileSelector()" class="text-primary">Browse</span> file.</p>
-                </ng-template>
-            </ngx-file-drop>
-    
-      
-      </div>
-      <!-- <div id="progress1" class="progress-div"> -->
-          <div class="col-12 mt-2 typ">
-            <mat-form-field appearance="standard">
-              <mat-label>DOCUMENT TYPE</mat-label>
-              <mat-select>
-                <mat-option value="option">Option</mat-option>
-                <mat-option value="option">m1</mat-option>
-              </mat-select>
-            </mat-form-field>
-             </div>
-             <div class="col-12 px-0 mt-2">
-              <textarea class="textarea" rows="4" placeholder="REMARKS"></textarea>
-             </div>
-             <div class="text-center col-lg-12 mb-2"> 
-              <button type="submit" class="main_btn_log"><i class="fa fa-cloud-upload text-white pr-1" aria-hidden="true"></i>Upload</button>
-          </div>
-    
-           <!-- -----------------------AFTER UPLOAD--------------------->
-                <!-- <div class="col-12 px-0 mb-2 img-c">
-                  <div class="col-4 px-0 img">
-                    <img src="./assets/images/pro.png">
-                  </div>
-                  <div class="col-8 pt-1 pr-0 cet">
-                    <p class="mb-0"><b>no-objection Certificate_001.jpg</b></p>
-                    <span class="text-secondary">1000 kb</span>
-                  </div>
-                </div>
-                <div class="col-12    px-0 cet-2">
-                  <p class="font-italic"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b></p>
-                </div> -->
-    <!-- -----------------------AFTER UPLOAD--------------------->
-          
-      <!-- </div> -->
-            </div>
-           
-          </div>
         </div>
-           </div>
+      </div>
+      
+    </div>
+<!-- --------------------------------------------uploaded-------------------------- -->
+
+    <div class="col-lg-8 mt-2 px-0">
+      <div class="col-lg-12  px-0 col-12">
+        <div class="col-lg-12 col-12 px-0 pb-3 hide-box shadow">
+       <div class="container px-0 last-one mt-3">
+   <div class="col-lg-6 m-top">
+    <div class="col-lg-12 px-0 flex red-box">
+      <div class="col-lg-2 col-2 pt-2 pr-0">
+        <img src="./assets/images/pdf.png" alt="" width="35px">
+    </div>
+    <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+    <div class="col-lg-2 col-2 pt-2 text-right">
+        <img src="./assets/images/tick icon.png" alt="" width="18px">
+    </div>
+  </div>  
+  </div>
+   <div class="col-lg-6 m-top">
+    <div class="col-lg-12 px-0 flex green-box">
+      <div class="col-lg-2 col-2 pt-2 pr-0">
+        <img src="./assets/images/excel icon.png" alt="" width="35px">
+    </div>
+    <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+    <div class="col-lg-2 col-2 pt-2 text-right">
+        <img src="./assets/images/tick icon.png" alt="" width="18px">
+    </div>
+  </div>   
+  </div>
+
+       </div>
+
+       <div class="container px-0 last-one mt-3">
+        <div class="col-lg-6 m-top">
+         <div class="col-lg-12 px-0 flex red-box">
+           <div class="col-lg-2 col-2 pt-2 pr-0">
+             <img src="./assets/images/pdf.png" alt="" width="35px">
+         </div>
+         <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+         <div class="col-lg-2 col-2 pt-2 text-right">
+             <img src="./assets/images/tick icon.png" alt="" width="18px">
+         </div>
+       </div>  
+       </div>
+        <div class="col-lg-6 m-top">
+         <div class="col-lg-12 px-0 flex blue-box">
+           <div class="col-lg-2 col-2 pt-2 pr-0">
+             <img src="./assets/images/word icon.png" alt="" width="35px">
+         </div>
+         <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+         <div class="col-lg-2 col-2 pt-2 text-right">
+             <img src="./assets/images/tick icon.png" alt="" width="18px">
+         </div>
+       </div>   
+       </div>
+     
+            </div>
+
+            <div class="container px-0 last-one mt-3">
+              <div class="col-lg-6 m-top">
+               <div class="col-lg-12 px-0 flex red-box">
+                 <div class="col-lg-2 col-2 pt-2 pr-0">
+                   <img src="./assets/images/pdf.png" alt="" width="35px">
+               </div>
+               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+               <div class="col-lg-2 col-2 pt-2 text-right">
+                   <img src="./assets/images/tick icon.png" alt="" width="18px">
+               </div>
+             </div>  
+             </div>
+              <div class="col-lg-6 m-top">
+               <div class="col-lg-12 px-0 flex green-box">
+                 <div class="col-lg-2 col-2 pt-2 pr-0">
+                   <img src="./assets/images/excel icon.png" alt="" width="35px">
+               </div>
+               <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+               <div class="col-lg-2 col-2 pt-2 text-right">
+                   <img src="./assets/images/tick icon.png" alt="" width="18px">
+               </div>
+             </div>   
+             </div>
+           
+                  </div>
+
+                  <div class="container px-0 last-one mt-3">
+                    <div class="col-lg-6 m-top">
+                     <div class="col-lg-12 px-0 flex red-box">
+                       <div class="col-lg-2 col-2 pt-2 pr-0">
+                         <img src="./assets/images/pdf.png" alt="" width="35px">
+                     </div>
+                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+                     <div class="col-lg-2 col-2 pt-2 text-right">
+                         <img src="./assets/images/tick icon.png" alt="" width="18px">
+                     </div>
+                   </div>  
+                   </div>
+                    <div class="col-lg-6 m-top">
+                     <div class="col-lg-12 px-0 flex blue-box">
+                       <div class="col-lg-2 col-2 pt-2 pr-0">
+                         <img src="./assets/images/word icon.png" alt="" width="35px">
+                     </div>
+                     <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+                     <div class="col-lg-2 col-2 pt-2 text-right">
+                         <img src="./assets/images/tick icon.png" alt="" width="18px">
+                     </div>
+                   </div>   
+                   </div>
+                 
+                        </div>
+
+                        <div class="container px-0 last-one mt-3">
+                          <div class="col-lg-6 m-top">
+                           <div class="col-lg-12 px-0 flex red-box">
+                             <div class="col-lg-2 col-2 pt-2 pr-0">
+                               <img src="./assets/images/pdf.png" alt="" width="35px">
+                           </div>
+                           <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+                           <div class="col-lg-2 col-2 pt-2 text-right">
+                               <img src="./assets/images/tick icon.png" alt="" width="18px">
+                           </div>
+                         </div>  
+                         </div>
+                          <div class="col-lg-6 m-top">
+                           <div class="col-lg-12 px-0 flex blue-box">
+                             <div class="col-lg-2 col-2 pt-2 pr-0">
+                               <img src="./assets/images/word icon.png" alt="" width="35px">
+                           </div>
+                           <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+                           <div class="col-lg-2 col-2 pt-2 text-right">
+                               <img src="./assets/images/tick icon.png" alt="" width="18px">
+                           </div>
+                         </div>   
+                         </div>
+                       
+                              </div>
+
+                              <div class="container px-0 last-one mt-3">
+                                <div class="col-lg-6 m-top">
+                                 <div class="col-lg-12 px-0 flex red-box">
+                                   <div class="col-lg-2 col-2 pt-2 pr-0">
+                                     <img src="./assets/images/pdf.png" alt="" width="35px">
+                                 </div>
+                                 <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+                                 <div class="col-lg-2 col-2 pt-2 text-right">
+                                     <img src="./assets/images/tick icon.png" alt="" width="18px">
+                                 </div>
+                               </div>  
+                               </div>
+                                <div class="col-lg-6 m-top">
+                                 <div class="col-lg-12 px-0 flex blue-box">
+                                   <div class="col-lg-2 col-2 pt-2 pr-0">
+                                     <img src="./assets/images/word icon.png" alt="" width="35px">
+                                 </div>
+                                 <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left"><p class="para-dou mb-0"><b>Property_Document-1</b></p><label>Upload size - <span>3.5 mb</span></label></div>
+                                 <div class="col-lg-2 col-2 pt-2 text-right">
+                                     <img src="./assets/images/tick icon.png" alt="" width="18px">
+                                 </div>
+                               </div>   
+                               </div>
+                             
+                                    </div>
+
+       
+
+      </div>
+    </div>
+
+    
+    </div>
+
+       </div>
+
+
+
+
+
+
+
+
+
+
 
           <div class=" col-lg-12 col-12 text-right mt-5">
         <div class="col-lg-4 px-0 button text-right ">

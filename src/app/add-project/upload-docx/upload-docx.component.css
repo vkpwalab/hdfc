@@ -3,39 +3,51 @@
 .button {display: inline-flex;padding-bottom: 4%;}
 .draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 .badge{font-size: 80%;border-radius: 0 !important;padding: 0.25em .6em !important;}
-.last{display: inline-flex;}
 .last-one{display: inline-flex;}
-.inner-1 { display: inline-flex;}
-.browse {border: 0.5px solid grey;border-style: dashed;border-radius: 8px;font-size: 12px;height: 30px;padding: 15px 30px 30px 30px;cursor: pointer;}
+.flex {display: inline-flex;}
+
 .mat-form-field {font-family: 'Titillium Web' !important;}
-#upload-photo {opacity: 0;position: absolute;}
-.typ {border: 0.5px solid grey;border-radius: 8px;}
-.textarea{width: 100% !important;font-size: 10px !important;border-radius: 8px;padding: 5px}
-/* .main_btn_log{border-radius: 9px !important;} */
-.hide-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);}
+
+
+.drag-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);}
+.hide-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);overflow-y: scroll; height: 312px;}
 .p-h{font-size: 15px;}
 .p-y{margin: auto;}
-.cet{font-size: 10px;text-align: left;}
-.cet-2 {font-size: 10px;}
-.img-c {display: inline-flex;}
+
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
 
-.button {display: inline-flex;padding-bottom: 5%;}
-.draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 
+
+
+.fs-12 {font-size: 12px;}
+#add-project span {background-color: #007bff;color: white !important;padding-left: 10px;padding-right: 10px;border-radius: 3px;}
+#add-project img {padding-top: 10px;padding-bottom: 10px;}
+.red-box{border: 0.5px solid #e3310d;display: inline-flex;border-radius: 9px;border-bottom:10px solid #e3310d}
+.blue-box{border: 0.5px solid #007bff;display: inline-flex;border-radius: 9px;border-bottom:10px solid #007bff}
+.green-box{border: 0.5px solid #1f7244;display: inline-flex;border-radius: 9px;border-bottom:10px solid #1f7244}
+.doc {font-size: 12px !important;}
+/* width */
+.hide-box::-webkit-scrollbar {
+    width: 3px;
+  }
+   
+  /* Handle */
+  .hide-box::-webkit-scrollbar-thumb {
+    background: lightgrey; 
+  }
+  
+  
 @media screen and (min-width:320px) and (max-width: 576px){
 
         .mat-form-field{width: 100%;}
         .last-one{display: block;}
-        .last{display: inline-flex;padding-left: 0px !important;padding-right: 0 !important;}
-        .hide-box {padding-left: 8px !important;padding-right: 8px !important;}
-        .cell-box{padding-left: 0px !important;padding-right: 0 !important;margin-right: 15px !important;
-            margin-left: -5px !important;}
-        .browse {padding: 10px 30px 40px 30px;}
+        .m-top {margin-top: 10px !important;}
+        .flex {display: inline-flex !important;}
         .p-h{font-size: 10px;}
         .cet {padding-left: 10px !important;}
-        p{font-size: 8px !important;}
+        p{font-size: 13px !important;}
         .img img{height: 45px;}
+        .px-zero {padding-left: 0px !important;padding-right: 0px !important;}
     }
     
 
