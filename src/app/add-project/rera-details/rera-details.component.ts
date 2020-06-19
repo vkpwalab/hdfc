@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SharedService } from 'src/app/services/shared.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import $ from 'jquery';
 
 @Component({
