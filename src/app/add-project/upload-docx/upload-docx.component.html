@@ -1,8 +1,8 @@
 <div class="col-lg-12 pb-4 alternative">
   <h6 class="pt-2"><span style="background-color: #e3310d !important;" class="badge badge-danger pr-1 mar-14">1.</span>
     Property Documents</h6>
-    <div class="col-lg-12 px-0 last-one">
-      <div class="col-lg-4 mt-2 col-12 px-0">
+  <div class="col-lg-12 px-0 last-one">
+    <div class="col-lg-4 mt-2 col-12 px-0">
       <form [formGroup]="upload_form" (ngSubmit)="sendResponse(upload_form.value)">
         <div class="col-lg-12  col-12 px-zero">
           <div class="col-12 drag-box shadow">
@@ -34,8 +34,6 @@
                 </ng-template>
               </ngx-file-drop>
 
-
-
               <div class="col-lg-12 px-0 flex" [ngClass]="file_color" *ngIf="file_uploaded">
                 <div class="col-lg-2 col-2 pt-2 pr-0">
                   <img [src]="file_icon" alt="" width="35px">
@@ -58,52 +56,31 @@
         </div>
 
       </form>
-      </div>
-  <!-- --------------------------------------------uploaded-------------------------- -->
+    </div>
+    <!-- --------------------------------------------uploaded-------------------------- -->
 
-  <div class="col-lg-8 mt-2 px-0">
-    <div class="col-lg-12  px-0 col-12">
-      <div class="col-lg-12 col-12 px-0 pb-3 hide-box shadow">
-        <div class="col-lg-12 px-0 row mt-3">
-          <div class="col-lg-6 m-top padd" *ngFor="let doc_up of uploaded_doc">
-            <div class="col-lg-12 px-0 flex" [ngClass]="doc_up.file_color">
-              <div class="col-lg-2 col-2 pt-2 pr-0">
-                <img [src]="doc_up.file_img" alt="" width="35px">
-              </div>
-              <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
-                <p class="para-dou mb-0"><b>{{ doc_up.file_name }}</b></p><label>Upload size -
-                  <span>{{ doc_up.file_size }}
-                    mb</span></label>
-              </div>
-              <!-- <div class="col-lg-2 col-2 pt-2 text-right">
+    <div class="col-lg-8 mt-2 px-0">
+      <div class="col-lg-12  px-0 col-12">
+        <div class="col-lg-12 col-12 px-0 pb-3 hide-box shadow">
+          <div class="col-lg-12 px-0 row mt-3">
+            <div class="col-lg-6 m-top padd" *ngFor="let doc_up of uploaded_doc">
+              <div class="col-lg-12 px-0 flex" [ngClass]="doc_up.file_color">
+                <div class="col-lg-2 col-2 pt-2 pr-0">
+                  <img [src]="doc_up.file_img" alt="" width="35px">
+                </div>
+                <div class="col-lg-8 col-8 doc pr-0 pt-2 text-left">
+                  <p class="para-dou mb-0"><b>{{ doc_up.file_name }}</b></p><label>Upload size -
+                    <span>{{ doc_up.file_size }}
+                      mb</span></label>
+                </div>
+                <!-- <div class="col-lg-2 col-2 pt-2 text-right">
                 <img src="./assets/images/bar-x.png" alt="" width="15px">
               </div> -->
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<div class=" col-lg-12 col-12 text-right mt-5">
-  <div class="col-lg-4 px-0 button text-right ">
-    <div class="text-center col-lg-6">
-      <input type="submit" class="main_btn_log " value="SUBMIT">
-    </div>
-    <div class="text-center col-lg-6">
-      <button class="main_btn_log draft">DRAFT</button>
-    </div>
-  </div>
-</div>
 </div>

@@ -9,15 +9,15 @@
 .mat-form-field {font-family: 'Titillium Web' !important;}
 
 
-.drag-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);}
-.hide-box {border-radius: 9px;border: 0.5px solid rgb(199, 197, 197);overflow-y: scroll; height: 400px;}
+.drag-box {border-radius: 9px;;}
+.hide-box {border-radius: 9px;overflow-y: scroll; height: 450px;}
 .p-h{font-size: 15px;}
 .p-y{margin: auto;}
 
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
-
+.btn-upload {margin: auto;}
 textarea {width: 100% !important;font-size: 13px !important;}
-
+.padd {padding: 0px 0px 15px 30px !important ;}
 
 .fs-12 {font-size: 12px;}
 #add-project span {background-color: #007bff;color: white !important;padding-left: 10px;padding-right: 10px;border-radius: 3px;}
@@ -41,7 +41,7 @@ textarea {width: 100% !important;font-size: 13px !important;}
 
         .mat-form-field{width: 100%;}
         .last-one{display: block;}
-        .m-top {margin-top: 10px !important;}
+        /* .m-top {margin-top: 10px !important;} */
         .flex {display: inline-flex !important;}
         .p-h{font-size: 10px;}
         .cet {padding-left: 10px !important;}

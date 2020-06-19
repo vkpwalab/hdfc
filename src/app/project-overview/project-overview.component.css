@@ -116,6 +116,10 @@
         top: 5px;}
 }
 
+@media(min-width: 300px) and (max-width: 350px){
+.left-pad {padding-left: 12px !important;}
+}
+
 @media(min-width: 300px) and (max-width: 576px)
 {
     .btn3{
