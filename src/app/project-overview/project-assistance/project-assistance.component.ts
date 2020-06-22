@@ -90,7 +90,7 @@ export class ProjectAssistanceComponent implements OnInit {
       let result_tag = 's:Body';
       this.shared.getData(soapaction, body_reach_us_form, result_tag).subscribe(
         (data) => {
-          alert('Thank you.Your Reach-Us Form is Submitted Successfully.')
+          alert('Thank you.Form is Submitted Successfully.')
           location.reload();
         }
       );
