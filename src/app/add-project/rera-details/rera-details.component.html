@@ -3,7 +3,7 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>RERA REGISTRATION STATUS</mat-label>
-        <mat-select formControlName="rera_regi_status">
+        <mat-select formControlName="rera_regi_status" (selectionChange)="reraStatusChange($event)">
           <mat-option *ngFor="let rera of rera_status_list" [value]="rera.CD_VAL">{{rera.CD_DESC}}
           </mat-option>
         </mat-select>
@@ -13,7 +13,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>RERA APPLICATION DATE</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="rera_app_date">
+        <input matInput [matDatepicker]="picker" formControlName="rera_app_date" [disabled]="app_date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -21,13 +21,13 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>RERA REGISTRATION NUMBER</mat-label>
-        <input matInput formControlName="rera_regi_number">
+        <input matInput formControlName="rera_regi_number" [readonly]="reg_num">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field id="calendar">
-        <mat-label>VALID FROM DATE</mat-label>
-        <input matInput [matDatepicker]="picker2" formControlName="valid_from_date">
+        <mat-label>VALID FROM DATE<span class="text-danger">*</span></mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="valid_from_date" [disabled]="from_date">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
@@ -37,8 +37,8 @@
   <div class="col-lg-12 mt-2 project alternative">
     <div class="col-lg-3">
       <mat-form-field id="calendar">
-        <mat-label>VALID TO DATE</mat-label>
-        <input matInput [matDatepicker]="picker3" formControlName="valid_to_date">
+        <mat-label>VALID TO DATE<span class="text-danger">*</span></mat-label>
+        <input matInput [matDatepicker]="picker3" formControlName="valid_to_date" [disabled]="to_date">
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
@@ -47,7 +47,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>PROJECT LAUNCH DATE</mat-label>
-        <input matInput [matDatepicker]="picker4" formControlName="project_launch_date">
+        <input matInput [matDatepicker]="picker4" formControlName="project_launch_date" [disabled]="launch_date">
         <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
         <mat-datepicker #picker4></mat-datepicker>
       </mat-form-field>

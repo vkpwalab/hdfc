@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-upload-docx',
   templateUrl: './upload-docx.component.html',
@@ -15,8 +15,6 @@ export class UploadDocxComponent implements OnInit {
   file_ext: any;
   file_size: string;
   project_id: string;
-  message:any = '';
-  doc_type:any;
   uploaded_doc: any = [];
   doc_ext_image: any = {};
   builder_detail: any;
@@ -27,8 +25,8 @@ export class UploadDocxComponent implements OnInit {
   file_icon: any;
   file_color: any;
   doc_ext_color: any;
-
-  constructor(private shared:SharedService) { }
+  upload_form: FormGroup;
+  constructor(private shared:SharedService,private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.builder_id = '510673';
@@ -52,6 +50,11 @@ export class UploadDocxComponent implements OnInit {
       docx: 'blue-box',
       other:'blue-box'
     }
+
+    this.upload_form = this.fb.group({
+      'message': [''],
+      'doc_type': ['',[Validators.required]],
+    });
 
     this.shared.project_id.subscribe(
       (res) => {
@@ -109,13 +112,13 @@ export class UploadDocxComponent implements OnInit {
     );
   }
   
-  sendResponse() {
-    if (this.message != '') {
+  sendResponse(data) {
+    if (this.upload_form.valid) {
       if (this.file_uploaded) {
-        this.shared.uploadDoc(this.file, this.file_ext, this.project_id, this.doc_type, this.file_name).subscribe(
+        this.shared.uploadDoc(this.file, this.file_ext, this.project_id, data.doc_type, this.file_name).subscribe(
           (res) => {
             if (res == 'OK') {
-              this.shared.updateDocDetail(this.project_id, this.file_name, this.file_ext, this.doc_type, this.message).subscribe(
+              this.shared.updateDocDetail(this.project_id, this.file_name, this.file_ext, data.doc_type, data.message).subscribe(
                 (doc_data) => {
          
                   let doc = {
@@ -126,12 +129,16 @@ export class UploadDocxComponent implements OnInit {
                   }
                   this.uploaded_doc.push(doc);
                   console.log(doc_data)
+                  this.removeFile();
+                  this.upload_form.reset();
                 }
               )
             }
           }
         )
       }
+    }else{
+
     }
   }
 
@@ -162,5 +169,13 @@ export class UploadDocxComponent implements OnInit {
         console.log(droppedFile.relativePath, fileEntry);
       }
     }
+  }
+
+  removeFile() {
+    this.file = '';
+    this.file_name = '';
+    this.file_uploaded = false;
+    this.file_ext = '';
+    this.file_size = '';
   }
 }
