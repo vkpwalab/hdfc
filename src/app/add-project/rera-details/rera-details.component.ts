@@ -15,7 +15,12 @@ export class RERADetailsComponent implements OnInit {
   project_id: string;
   builder_id: string;
   token: string;
-  constructor(private shared:SharedService, private fb: FormBuilder) { }
+  app_date: boolean = true;
+  reg_num: boolean = true;
+  from_date: boolean = true;
+  to_date: boolean = true;
+  launch_date: boolean = false;
+  constructor(private shared: SharedService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.builder_id = '510673';
@@ -24,8 +29,8 @@ export class RERADetailsComponent implements OnInit {
       'rera_regi_status': [''],
       'rera_app_date': [''],
       'rera_regi_number': [''],
-      'valid_from_date': [''],
-      'valid_to_date': [''],
+      'valid_from_date': ['',[Validators.required]],
+      'valid_to_date': ['',[Validators.required]],
       'project_launch_date': [''],
       'remark': [''],
     });
@@ -41,7 +46,7 @@ export class RERADetailsComponent implements OnInit {
     }, 2000);
   }
 
-  getReraStatus(){
+  getReraStatus() {
     let body_rera_status = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                   <soapenv:Header/>
                                   <soapenv:Body>
@@ -64,9 +69,29 @@ export class RERADetailsComponent implements OnInit {
     );
   }
 
+  reraStatusChange(event){
+    let status = event.value;
+    if(status == "Registered"){
+      this.from_date = false;
+      this.to_date = false;
+      this.reg_num = false;
+      this.app_date = true;
+    }else if(status == "Applied"){
+      this.from_date = true;
+      this.to_date = true;
+      this.reg_num = true;
+      this.app_date = false;
+    }else{
+      this.from_date = true;
+      this.to_date = true;
+      this.reg_num = true;
+      this.app_date = true;
+    }
+  }
+
   submitReraDetail(data) {
     console.log(data);
-    if(this.rera_detail_form.valid){
+    if (this.rera_detail_form.valid) {
       let body_rera_submit = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                 <soapenv:Header/>
                                 <soapenv:Body>
@@ -97,18 +122,18 @@ export class RERADetailsComponent implements OnInit {
                                 </soapenv:Body>
                             </soapenv:Envelope>`;
 
-    let soapaction = 'http://tempuri.org/IService1/Insert_Rera_details';
-    let result_tag = 'Insert_Rera_detailsResult';
-    this.shared.getData(soapaction, body_rera_submit, result_tag).subscribe(
-      (data) => {
-        if(data == 'Success'){
-          $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
-          $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+      let soapaction = 'http://tempuri.org/IService1/Insert_Rera_details';
+      let result_tag = 'Insert_Rera_detailsResult';
+      this.shared.getData(soapaction, body_rera_submit, result_tag).subscribe(
+        (data) => {
+          if (data == 'Success') {
+            $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
+            $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+          }
+          console.log(data);
         }
-        console.log(data);
-      }
-    );
-  
+      );
+
     }
 
   }
