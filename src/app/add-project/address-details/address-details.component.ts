@@ -31,7 +31,7 @@ export class AddressDetailsComponent implements OnInit {
       'location': ['', Validators.required],
       'state': ['', Validators.required],
       'city': ['', Validators.required],
-      'pincode': ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
+      'pincode': ['', [Validators.required, Validators.pattern(/^[1-9][0-9]{5}$/)]],
       'lat': ['', Validators.required],
       'long': ['', Validators.required],
       'east': ['', Validators.required],
