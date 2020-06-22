@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import $ from 'jquery';
 import { SharedService } from '../services/shared.service';
+import { HttpClient } from '@angular/common/http';
 
 declare var MapmyIndia;
 declare var L;
@@ -35,7 +36,7 @@ export class AddProjectComponent implements OnInit {
   pt: any;
   latlong: any;
 
-  constructor(private shared: SharedService) { }
+  constructor(private shared: SharedService, private http:HttpClient) { }
 
   ngOnInit(): void {
     this.builder_id = '510673';
@@ -56,11 +57,12 @@ export class AddProjectComponent implements OnInit {
       this.getDraftProjects();
     }, 2000);
 
-    //map code
+    //map code start
     this.map = new MapmyIndia.Map("map", { center: [28.61, 77.23], zoomControl: true, hybrid: true });
-    console.log(this.map);
+
     let that = this;
     this.map.on("click", function (e) {
+      console.log(e);
       that.pt = e.latlng; //event returns lat lng of clicked point
 
       if (that.curr_marker) {
@@ -154,6 +156,11 @@ export class AddProjectComponent implements OnInit {
   }
 
   selectLocation(){
+    // this.http.get('http://apis.mapmyindia.com/advancedmaps/v1/41b62ae939b22c697ba605376401e08d/rev_geocode?lat='+this.pt.lat+'&lng='+this.pt.lng).subscribe(
+    //   (res)=>{
+    //     console.log(res);
+    //   }
+    // )
     this.latlong = this.pt;
   }
   addMarker(position, title, draggable) {

@@ -350,20 +350,24 @@ export class AddressDetailsComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
 
     if(changes['draft_data'] !== undefined){
-      this.address_detail_form.controls['sno'].setValue(this.draft_data.PROJECT_NAME);
+      this.address_detail_form.controls['sno'].setValue(this.draft_data.CTS_NO);
       this.address_detail_form.controls['plot_no'].setValue(this.draft_data.PLOT_NO);
       this.address_detail_form.controls['address'].setValue(this.draft_data.ADDRESS_LINE);
       this.address_detail_form.controls['popular_landmark'].setValue(this.draft_data.POPULAR_LANDMARK);
       this.address_detail_form.controls['location'].setValue(this.draft_data.LOCATIONS);
       this.address_detail_form.controls['state'].setValue(this.draft_data.STATE);
-      this.address_detail_form.controls['city'].setValue(this.draft_data.CITY_DISTRICT);
       this.address_detail_form.controls['pincode'].setValue(this.draft_data.PIN_CODE);
-      this.address_detail_form.controls['lat'].setValue(this.draft_data.LATLONG);
-      this.address_detail_form.controls['long'].setValue(this.draft_data.LATLONG);
       this.address_detail_form.controls['east'].setValue(this.draft_data.BOUNDARY_DET_EAST);
       this.address_detail_form.controls['west'].setValue(this.draft_data.BOUNDARY_DET_WEST);
       this.address_detail_form.controls['north'].setValue(this.draft_data.BOUNDARY_DET_NORTH);
       this.address_detail_form.controls['south'].setValue(this.draft_data.BOUNDARY_DET_SOUTH);
+      let event = {value:this.draft_data.STATE};
+      this.stateChange(event);
+      this.address_detail_form.controls['city'].setValue(this.draft_data.CITY_DISTRICT);
+
+      let latlng = this.draft_data.LATLONG.split(",");
+      this.address_detail_form.controls['lat'].setValue(latlng[0]);
+      this.address_detail_form.controls['long'].setValue(latlng[1]);
     }
 
     if(changes['latlong'] !== undefined){
