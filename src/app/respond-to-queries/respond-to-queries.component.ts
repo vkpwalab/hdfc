@@ -25,6 +25,8 @@ export class RespondToQueriesComponent implements OnInit {
   file_ext: any;
   file_size: string;
   query_id: any;
+  doc_ext_image: any;
+  file_icon: any;
 
   constructor(private shared: SharedService) { }
 
@@ -32,6 +34,18 @@ export class RespondToQueriesComponent implements OnInit {
     this.shared.headerTitle('Respond To Queries');
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
+    this.doc_ext_image = {
+      pdf: './assets/images/pdf.png',
+      xls: './assets/images/excel_icon.png',
+      xlsx: './assets/images/excel_icon.png',
+      csv: './assets/images/excel_icon.png',
+      doc: './assets/images/word_icon.png',
+      docx: './assets/images/word_icon.png',
+      other: './assets/images/word_icon.png',
+      png: './assets/images/png_icon.png',
+      jpeg: './assets/images/png_icon.png',
+      jpg: './assets/images/png_icon.png',
+    }
     this.getBuilersDetails();
   }
 
@@ -300,6 +314,8 @@ export class RespondToQueriesComponent implements OnInit {
       this.file_uploaded = true;
       this.file_ext = this.file.name.split('.').pop();
       this.file_size = (this.file.size / (1024 * 1024)).toFixed(2);
+      let ext = this.file_ext.toLowerCase();
+      this.file_icon = this.doc_ext_image[ext]
 
     }
   }
