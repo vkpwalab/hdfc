@@ -58,17 +58,17 @@
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
+    <div class="col-xl-12 col-12 main-list mt-3 px-0" *ngFor="let dl of demand_letter">
 
         <div class="col-xl-1 col-6 pr-0 mb-1 name">
-            <span class="badge badge-light">1684****</span>
+            <span class="badge badge-light">{{ dl.FILE_NO }}</span>
         </div>
         <div class="col-xl-3 col-6 pr-0 mb-0 address">
-            <p class="top mb-0"><b>Gustam Shiryagopal Vnkatraman</b>
+            <p class="top mb-0"><b>{{ dl.CUSTOMER_NAME }}</b>
             </p>
         </div>
         <div class="col-xl-2 col-10 pr-0 ltd mb-0">
-            <p class="top mb-0"><b>A-204 / Second Floor</b></p>
+            <p class="top mb-0"><b>{{ dl.FLAT_NO }} / {{ dl.FLOOR_NO }}</b></p>
         </div>
         <div class="col-xl-2 col-10 pl-0 mt-3 colour">
             <p class="font-italic mb-0"><i class="fa fa-circle text-success" aria-hidden="true"></i> Completion store</p>

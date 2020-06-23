@@ -38,9 +38,9 @@ export class RaiseDemandComponent implements OnInit {
                                   <soapenv:Body>
                                     <tem:get_file_list>
                                         <!--Optional:-->
-                                        <tem:i_project_id>${this.project_id}</tem:i_project_id>
+                                        <tem:i_project_id>47091</tem:i_project_id>
                                         <!--Optional:-->
-                                        <tem:i_proj_bldg_no>${this.building_id}</tem:i_proj_bldg_no>
+                                        <tem:i_proj_bldg_no>96354</tem:i_proj_bldg_no>
                                         <!--Optional:-->
                                         <tem:Token>${this.token}</tem:Token>
                                     </tem:get_file_list>

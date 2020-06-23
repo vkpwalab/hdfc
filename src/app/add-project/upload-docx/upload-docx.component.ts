@@ -33,12 +33,15 @@ export class UploadDocxComponent implements OnInit {
     this.token = 'MH3NPYK34J0KHDI';
     this.doc_ext_image = {
       pdf: './assets/images/pdf.png',
-      xls: './assets/images/excel icon.png',
-      xlsx: './assets/images/excel icon.png',
-      csv: './assets/images/excel icon.png',
-      doc: './assets/images/word icon.png',
-      docx: './assets/images/word icon.png',
-      other: './assets/images/word icon.png',
+      xls: './assets/images/excel_icon.png',
+      xlsx: './assets/images/excel_icon.png',
+      csv: './assets/images/excel_icon.png',
+      doc: './assets/images/word_icon.png',
+      docx: './assets/images/word_icon.png',
+      other: './assets/images/word_icon.png',
+      png: './assets/images/png_icon.png',
+      jpeg: './assets/images/png_icon.png',
+      jpg: './assets/images/png_icon.png',
     }
 
     this.doc_ext_color = {
@@ -48,7 +51,10 @@ export class UploadDocxComponent implements OnInit {
       csv: 'green-box',
       doc: 'blue-box',
       docx: 'blue-box',
-      other:'blue-box'
+      other:'blue-box',
+      png: 'red-box',
+      jpeg: 'red-box',
+      jpg: 'red-box',
     }
 
     this.upload_form = this.fb.group({

@@ -334,7 +334,7 @@
         </div>
         <div class="col-lg-6 btn-radio">
             <p class="para">ANY REQUIREMENT FOR CONSTRUCTION FINANCE<span class="text-danger">*</span></p>
-                <mat-radio-group aria-label="Select an option" formControlName="contruction_finance">
+                <mat-radio-group aria-label="Select an option" formControlName="contruction_finance" [disabled]="!show_fin_inst">
                     <mat-radio-button value="Y" color="primary">YES</mat-radio-button>
                     <mat-radio-button value="N" color="primary" class="ml-3">NO</mat-radio-button>
                 </mat-radio-group>
