@@ -37,6 +37,7 @@ export class BuildersBankComponent implements OnInit {
       'payment_for': ['', Validators.required],
       'rera_coll_account': ['', Validators.required],
     });
+    this.file_name[0] = '';
 
     this.shared.project_id.subscribe(
       (res) => {
@@ -132,6 +133,7 @@ export class BuildersBankComponent implements OnInit {
     });
 
     this.dynamic_forms.push(fd);
+    this.file_name[this.file_name.length] = '';
   }
 
   removeBank(index) {

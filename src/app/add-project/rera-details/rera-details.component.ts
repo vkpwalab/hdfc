@@ -29,8 +29,8 @@ export class RERADetailsComponent implements OnInit {
       'rera_regi_status': [''],
       'rera_app_date': [''],
       'rera_regi_number': [''],
-      'valid_from_date': ['',[Validators.required]],
-      'valid_to_date': ['',[Validators.required]],
+      'valid_from_date': [''],
+      'valid_to_date': [''],
       'project_launch_date': [''],
       'remark': [''],
     });
@@ -76,17 +76,30 @@ export class RERADetailsComponent implements OnInit {
       this.to_date = false;
       this.reg_num = false;
       this.app_date = true;
+      this.rera_detail_form.controls['valid_from_date'].setValidators([Validators.required]);
+      this.rera_detail_form.controls['valid_to_date'].setValidators([Validators.required]);
     }else if(status == "Applied"){
       this.from_date = true;
       this.to_date = true;
       this.reg_num = true;
       this.app_date = false;
+      this.rera_detail_form.controls['valid_from_date'].reset();
+      this.rera_detail_form.controls['valid_to_date'].reset();
+      this.rera_detail_form.controls['valid_from_date'].clearValidators();
+      this.rera_detail_form.controls['valid_to_date'].clearValidators();
     }else{
       this.from_date = true;
       this.to_date = true;
       this.reg_num = true;
       this.app_date = true;
+      this.rera_detail_form.controls['valid_from_date'].reset();
+      this.rera_detail_form.controls['valid_to_date'].reset();
+      this.rera_detail_form.controls['valid_from_date'].clearValidators();
+      this.rera_detail_form.controls['valid_to_date'].clearValidators();
     }
+
+    this.rera_detail_form.controls['valid_from_date'].updateValueAndValidity({onlySelf: true});
+    this.rera_detail_form.controls['valid_to_date'].updateValueAndValidity({onlySelf: true});
   }
 
   submitReraDetail(data) {

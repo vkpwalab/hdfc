@@ -35,7 +35,7 @@ export class ProjectFeaturesComponent implements OnInit {
       'mortgaged': ['', Validators.required],
       'financial_institute': [''],
       'hdfc_clip_no': [''],
-      'contruction_finance': ['', Validators.required],
+      'contruction_finance': [''],
       'residencial_total_unit': [0],
       'residencial_solid_unit': [0],
       'residencial_available_sale': [0],
@@ -64,9 +64,15 @@ export class ProjectFeaturesComponent implements OnInit {
   mortgageChange(event) {
     if (event.value == 'Y') {
       this.show_fin_inst = false;
+      this.project_feature_form.controls['contruction_finance'].reset();
+      this.project_feature_form.controls['contruction_finance'].clearValidators();
+      this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({onlySelf: true});
     } else {
       this.show_fin_inst = true;
       this.project_feature_form.controls['financial_institute'].setValue('');
+      this.project_feature_form.controls['contruction_finance'].setValidators([Validators.required]);
+      this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({onlySelf: true});
+
     }
   }
 
@@ -81,6 +87,7 @@ export class ProjectFeaturesComponent implements OnInit {
   }
   submitProjectFeature(data) {
     console.log(data);
+    console.log(this.project_feature_form.controls['contruction_finance'].valid);
     if (this.project_feature_form.valid) {
 
       localStorage.setItem('project_feature', JSON.stringify(data));
