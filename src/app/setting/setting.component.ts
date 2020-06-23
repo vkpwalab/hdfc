@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
-
+import $ from 'jquery';
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.component.html',
@@ -12,6 +12,10 @@ export class SettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.shared.headerTitle('Settings');
+    $('.card-header').click(function() { 
+      $(this).find('i').toggleClass('fas fa-plus fas fa-minus'); 
+  }); 
   }
+
 
 }

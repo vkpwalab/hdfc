@@ -57,7 +57,11 @@ export class ProjectFeaturesComponent implements OnInit {
       'bungalow_rate_per_sqft': [0],
       'bungalow_area_unit': [''],
     })
-
+      //  for accordion
+    $('.card-header').click(function() { 
+      $(this).find('i').toggleClass('fas fa-plus fas fa-minus'); 
+  });
+        //  for accordion
   }
 
 

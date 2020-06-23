@@ -3,7 +3,7 @@
 /* .mat-label {padding-bottom: 10px;} */
 .drop{margin-top: 11px;}
 .six{width: 100%;}
-.button {display: inline-flex;padding-bottom: 4%;}
+.button {padding-bottom: 4%;}
 .draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 /* .radio {width: 25px !important;} */
 .btn-radio{color: grey;font-size: 12px;}
@@ -18,7 +18,10 @@
 .main-box {border: 1px solid lightgray;border-radius: 9px ;}
 .label {font-size: 12px;}
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
+.row {margin-left: 0px !important;}
 @media screen and (min-width:320px) and (max-width: 576px){
     .project{display: block;padding-left: 0px !important;}
     .mat-form-field{width: 100%;}
+    .pleft-0 {padding-left: 0px !important;}
+    .margin-cel {margin-top: 15px;float: right !important;}
 }

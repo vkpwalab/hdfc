@@ -16,6 +16,7 @@
     box-shadow: 1px 3px 8px #ed1c2452;
 
 }
+.btn-x img {cursor: pointer;}
 .ADD-BANK {border-top: 1px solid lightgrey;}
 .btn-modal-2 {
     background-color: white;
