@@ -156,7 +156,7 @@ export class AddProjectComponent implements OnInit {
   }
 
   selectLocation(){
-    // this.http.get('http://apis.mapmyindia.com/advancedmaps/v1/41b62ae939b22c697ba605376401e08d/rev_geocode?lat='+this.pt.lat+'&lng='+this.pt.lng).subscribe(
+    // this.http.get('http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/rev_geocode?lat=26.5645&lng=85.9914').subscribe(
     //   (res)=>{
     //     console.log(res);
     //   }
