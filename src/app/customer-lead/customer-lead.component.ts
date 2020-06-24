@@ -29,7 +29,7 @@ export class CustomerLeadComponent implements OnInit {
   branch_no: any;
   project_list: any;
   project_selected: any;
-  AllowedFile: any = ['jpeg', 'jpg', 'png'];
+  AllowedFile: any = ['xls', 'xlsx'];
   file: any;
   file_name: any = '';
   sheet_data: any;
@@ -249,10 +249,10 @@ export class CustomerLeadComponent implements OnInit {
   ExcelFileEvent($event) {
     if ($event.target.files[0]) {
       var file: File = $event.target.files[0];
-      // if (!this.validateFile(file)) {
-      //   alert("Unsupported image format");
-      //   return false;
-      // }
+      if (!this.validateFile(file)) {
+        alert("Unsupported excel format");
+        return false;
+      }
 
       if (file.size > 4294967296) {
         alert("Max. File size: 4GB");
@@ -337,6 +337,9 @@ export class CustomerLeadComponent implements OnInit {
           }
         );
       }
+      alert('Thank you.Your Form is Submitted Successfully.');
+      this.file_name = '';
+      this.sheet_uploaded = false;
     }
   }
 
@@ -345,6 +348,10 @@ export class CustomerLeadComponent implements OnInit {
     let extension = file.name.split('.').pop().toLowerCase();
 
     return this.AllowedFile.indexOf(extension) > -1;
+  }
+
+  downloadSample(){
+    window.location.href='../../assets/Customer_Lead.xls';
   }
 
 }
