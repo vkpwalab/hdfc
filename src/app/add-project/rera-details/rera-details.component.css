@@ -9,4 +9,5 @@
 @media screen and (min-width:320px) and (max-width: 576px){
     .project{display: block;padding-left: 0px !important;}
     .mat-form-field{width: 100%;}
+    .main_btn_log {width: 50% !important;border: 1px solid #e3310d;margin: auto;}
 }
