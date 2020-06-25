@@ -9,7 +9,7 @@ import { SharedService } from '../services/shared.service';
 export class RespondToQueriesComponent implements OnInit {
   branch_no: any;
   project_list: any;
-  query_list: any;
+  query_list: any = [];
   project_selected: any;
   builder_detail: any;
   builder_names: any = {};
@@ -27,6 +27,8 @@ export class RespondToQueriesComponent implements OnInit {
   query_id: any;
   doc_ext_image: any;
   file_icon: any;
+  responded_query: any = [];
+  query_view_type: any;
 
   constructor(private shared: SharedService) { }
 
@@ -47,6 +49,7 @@ export class RespondToQueriesComponent implements OnInit {
       jpg: './assets/images/png_icon.png',
     }
     this.getBuilersDetails();
+
   }
 
   getBuilersDetails() {
@@ -122,10 +125,14 @@ export class RespondToQueriesComponent implements OnInit {
     let result_tag = 'P_Get_Query_DataResult';
     this.shared.getData(soapaction, body_get_query_data, result_tag).subscribe(
       (data) => {
-        this.query_list = data.Table;
         let count = 0;
-        this.query_list.forEach(element => {
+        data.Table.forEach(element => {
           this.getBuilderName(element.CREATED_BY, element.QUERY_TYPE);
+          if(element.STATUS == "RESPONDED"){
+            this.responded_query.push(element);
+          }else{
+            this.query_list.push(element);
+          }
         });
 
         console.log(this.query_list)
@@ -166,9 +173,10 @@ export class RespondToQueriesComponent implements OnInit {
     }
   }
 
-  queryData(id, raised_by, query) {
+  queryData(id, raised_by, query,type) {
     this.selected_query = query;
     this.raised_by = raised_by;
+    this.query_view_type = type;
 
     let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                               <soapenv:Header/>
