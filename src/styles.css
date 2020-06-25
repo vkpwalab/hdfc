@@ -90,11 +90,13 @@ textarea{outline: none !important;}
 }
 #submit .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
 #submit2 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
+#submit3 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
 
 #submit1 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
 
 #submit1 .mat-ink-bar {height: 4px !important;}
 #submit2 .mat-ink-bar {height: 4px !important;}
+#submit3 .mat-ink-bar {height: 4px !important;}
 
 /* #submit1 .mat-ink-bar {height: 4px !important;} */
 #submit .mat-tab-label .mat-tab-label-content{
@@ -327,6 +329,7 @@ text-align: center;display: block;}
 #matnewtabs .mat-tab-body-wrapper{box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important;background-color: #fff;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;}
 #submit .mat-tab-body-wrapper{box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important;background-color: #fff;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;}
 #submit2 .mat-tab-body-wrapper{box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important;background-color: #fff;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;}
+#submit3 .mat-tab-body-wrapper{background-color: #fff;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;padding-bottom: 15px;}
 
 #matnewtabs .mat-tab-header{
   background-color: black;
