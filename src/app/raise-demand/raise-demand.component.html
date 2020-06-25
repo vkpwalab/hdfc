@@ -20,22 +20,23 @@
         </div>
         <div class="col-lg-3 col-sm-12 search-bar px-0">
             <!-- <div class="col-lg-12 col-12 Q-ser pr-0 pl-0"> -->
-                <div class="col-lg-12 col-12 px-0 py-0 mt-3 search">
-                    <form class="mx-0">
-                        <i class="fa fa-search pr-1" aria-hidden="true"></i>
-                        <input type="search" placeholder="Search">
-                    </form>
-                </div>
+            <div class="col-lg-12 col-12 px-0 py-0 mt-3 search">
+                <form class="mx-0">
+                    <i class="fa fa-search pr-1" aria-hidden="true"></i>
+                    <input type="search" placeholder="Search" name="search" aria-label="Search"
+                        [(ngModel)]="search_text">
+                </form>
+            </div>
         </div>
     </div>
 
     <!-- -------------------------------HEAD TITLE ENDS HERE------------------------------------- -->
 
     <div class="col-lg-12 pl-0 search-result">
-            <!-- <p class="font-italic mb-0 pt-1">To raise demand letter click on this icon
+        <!-- <p class="font-italic mb-0 pt-1">To raise demand letter click on this icon
                 <img class="w-02 ml-1" src="./assets/images/icons/upload.png">
             </p> -->
-            <p><b>Moti Nagar</b></p>
+        <p><b>Moti Nagar</b></p>
 
 
     </div>
@@ -46,7 +47,7 @@
 
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
-<!-- 
+    <!-- 
     <div class="col-xl-12 col-12 main-list mt-3 px-0" *ngFor="let dl of demand_letter">
 
         <div class="col-xl-1 col-6 pr-0 mb-1 name">
@@ -80,107 +81,45 @@
 
     <!-- <<<<<<<<<<<<<<<<<<<<<<< static start here >>>>>>>>>>>>>>>>>>>>>>>>> -->
 
-    <div class="col-xl-12 col-12 main-list mt-3 px-0 pt-1">
+    <div *ngFor="let dl of demand_letter | filter:search_text;let i = index;">
+        <form [formGroup]="dynamic_forms[dl.FILE_NO]"
+            (ngSubmit)="updateDemandLetter(dynamic_forms[dl.FILE_NO].value,dl,i)">
+            <div class="col-xl-12 col-12 main-list mt-3 px-0 pt-1">
 
-        <div class="col-xl-1 col-6 pr-0 mb-1 name">
-            <span class="badge badge-light">1684****</span>
-        </div>
-        <div class="col-xl-3 col-6 pr-0 mb-0 address">
-            <p class="top mb-0"><b>Gustam Shiryagopal Vnkatraman</b>
-            </p>
-        </div>
-        <div class="col-xl-2 col-10 pr-0 ltd mb-0">
-            <p class="top mb-0"><b>A-204 / Second Floor</b></p>
-        </div>
-        <div class="col-xl-2 col-9 px-2 pad-l alternative">
-            <mat-form-field class="example-full-width">
-                <mat-label>State of Construction</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-        <div class="col-xl-2 col-9 px-2 pad-l alternative">
-            <mat-form-field class="example-full-width">
-                <mat-label>Due Percentage</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-        <div class="col-xl-1 col-3 i-con py-2 pl-2 pr-0">
-            <img class="w-01 pr-1" src="./assets/images/icons/attach icon.png" data-toggle="modal" data-target="#example">
-            <img class="w-01 pr-1" src="./assets/images/icons/view icon.png" data-toggle="modal" data-target="#example2">
-        </div>
-        <div class="col-xl-1  pr-2 pl-0 pt-2 text-center">
-           <input type="submit" class="btn-submit">
-        </div>
-    </div>
-
-
-
-
-
-    <div class="col-xl-12 col-12 main-list mt-3 px-0 pt-1">
-
-        <div class="col-xl-1 col-6 pr-0 mb-1 name">
-            <span class="badge badge-light">1684****</span>
-        </div>
-        <div class="col-xl-3 col-6 pr-0 mb-0 address">
-            <p class="top mb-0"><b>Gustam Shiryagopal Vnkatraman</b>
-            </p>
-        </div>
-        <div class="col-xl-2 col-10 pr-0 ltd mb-0">
-            <p class="top mb-0"><b>A-204 / Second Floor</b></p>
-        </div>
-        <div class="col-xl-2 col-9 px-2 pad-l alternative">
-            <mat-form-field class="example-full-width">
-                <mat-label>State of Construction</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-        <div class="col-xl-2 col-9 px-2 pad-l alternative">
-            <mat-form-field class="example-full-width">
-                <mat-label>Due Percentage</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-        <div class="col-xl-1 col-3 i-con py-2 pl-2 pr-0">
-            <img class="w-01 pr-1" src="./assets/images/icons/attach icon.png" data-toggle="modal" data-target="#example">
-            <img class="w-01 pr-1" src="./assets/images/icons/view icon.png" data-toggle="modal" data-target="#example2">
-        </div>
-        <div class="col-xl-1  pr-2 pl-0 pt-2 text-center">
-           <input type="submit" class="btn-submit">
-        </div>
-    </div>
-
-
-    <div class="col-xl-12 col-12 main-list mt-3 px-0">
-
-        <div class="col-xl-1 col-6 pr-0 mb-1 name">
-            <span class="badge badge-light">1684****</span>
-        </div>
-        <div class="col-xl-3 col-6 pr-0 mb-0 address">
-            <p class="top mb-0"><b>Gustam Shiryagopal Vnkatraman</b>
-            </p>
-        </div>
-        <div class="col-xl-2 col-10 pr-0 ltd mb-0">
-            <p class="top mb-0"><b>A-204 / Second Floor</b></p>
-        </div>
-        <div class="col-xl-2 col-10 pl-0 mt-3 colour">
-            <p class="font-italic mb-0"><i class="fa fa-circle text-danger" aria-hidden="true"></i> Lockup Stage</p>
-        </div>
-        <div class="col-xl-2 col-8 pl-0 pt-2 bar">
-            <label class="text-secondary font-italic mb-0">As on 04 sep'19</label>
-            <span class="float-right span-50"><b>50%</b></span>
-            <div class="progress " style="height: 5px;">
-                <div class="progress-bar bar-green" role="progressbar" style="width: 50%;" aria-valuenow="50"
-                    aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="col-xl-1 col-6 pr-0 mb-1 name">
+                    <span class="badge badge-light">{{ dl.FILE_NO }}</span>
+                </div>
+                <div class="col-xl-3 col-6 pr-0 mb-0 address">
+                    <p class="top mb-0"><b>{{ dl.CUSTOMER_NAME }}</b>
+                    </p>
+                </div>
+                <div class="col-xl-2 col-10 pr-0 ltd mb-0">
+                    <p class="top mb-0"><b>{{ dl.FLAT_NO }} / {{ dl.FLOOR_NO }}</b></p>
+                </div>
+                <div class="col-xl-2 col-9 px-2 pad-l alternative">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Stage of Construction</mat-label>
+                        <input matInput type="text" formControlName="soc">
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-2 col-9 px-2 pad-l alternative">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Due Percentage</mat-label>
+                        <input matInput type="text" formControlName="due_perc">
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-1 col-3 i-con py-2 pl-2 pr-0">
+                    <img class="w-01 pr-1" src="./assets/images/icons/attach icon.png" data-toggle="modal"
+                        data-target="#example" (click)="openModel(dl.FILE_NO,dl.CUSTOMER_NAME,i)">
+                    <img class="w-01 pr-1" src="./assets/images/icons/view icon.png" data-toggle="modal"
+                        data-target="#example2">
+                </div>
+                <div class="col-xl-1  pr-2 pl-0 pt-2 text-center">
+                    <input type="submit" class="btn-submit">
+                </div>
             </div>
-        </div>
-        <div class="col-xl-2 col-6 i-con py-1">
-            <img class="w-01 pr-1" src="./assets/images/icons/attach icon.png">
-            <img class="w-01 pr-1" src="./assets/images/icons/view icon.png"alt="">
-            <img class="w-01 ml-5 last-img" src="./assets/images/icons/upload.png">
-        </div>
+        </form>
     </div>
-
 
 </div>
 
@@ -195,10 +134,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content col-lg-12 col-12 bg-white shadow brnew p-3 alternative">
             <div class="modal-header">
-            <h5 class="modal-title">Upload Document</h5>
-            <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
-            </button>
+                <h5 class="modal-title">Upload Document</h5>
+                <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </button>
             </div>
             <!-- <hr> -->
             <div class="col-lg-12 col-12 row m-0 px-0">
@@ -206,27 +145,27 @@
                     <p class="top fs-13"><b>Building Name: Moti Nagar (44436)</b></p>
                 </div>
                 <div class="col-lg-6 col-6 pr-0 pt-2">
-                    <p class="top fs-13"><b>Customer Name: Moti Nagar Type 1 Wing 1</b></p>
+                    <p class="top fs-13"><b>Customer Name: {{ cust_name_selected }}</b></p>
                 </div>
             </div>
             <div class="col-lg-12 col-12 px-0">
                 <mat-form-field class="example-full-width">
                     <mat-label>Remark</mat-label>
-                    <input matInput type="text" placeholder="">
+                    <input matInput type="text" placeholder="" [(ngModel)]="remark">
                 </mat-form-field>
             </div>
             <div class="col-lg-12 alternative px-0" id="upload">
                 <mat-form-field appearance="standard">
                     <mat-label>CHOOSE FILES</mat-label>
-                    <input matInput>
-                    <input class="float-right up" type="file">
+                    <input matInput [value]="file_name[index]">
+                    <input class="float-right up" type="file" (change)="uploadFileEvent($event,index)">
                     <span class="btn-upload text-center">Upload Files</span>
 
                 </mat-form-field>
             </div>
             <div class="col-lg-12 col12 px-0mt-4 text-center">
                 <div class="col-lg-5 col-6 sub-btn">
-                    <input type="submit" value="SUBMIT" class="btn-submit btn-sub" data-dismiss="modal">
+                    <input type="submit" value="SUBMIT" class="btn-submit btn-sub" (click)="uploadDemandDoc(file_selected,index)" data-dismiss="modal">
                 </div>
             </div>
         </div>
@@ -236,14 +175,15 @@
 
 
 <!-- Modal Number - 2 -->
-<div class="modal fade" id="example2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="example2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content modal-2 col-lg-12 col-12 bg-white shadow brnew p-3 alternative">
             <div class="modal-header modal-h2">
-            <h5 class="modal-title">View Document</h5>
-            <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
-            </button>
+                <h5 class="modal-title">View Document</h5>
+                <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </button>
             </div>
             <!-- <hr> -->
             <div class="col-lg-12 col-12 row m-0">
@@ -256,26 +196,26 @@
             </div>
             <div class="modal-body px-0">
                 <table class="table">
-                  <thead class="thead-dark text-center">
-                    <tr>
-                      <th scope="col">File Name</th>
-                      <th scope="col">Remark</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="">Moti Nagar</td>
-                      <!-- <td>15 Dec'18</td> -->
-                      <td class="text-left">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
-                    </tr>
-                    <tr>
-                        <td class="">Moti Nagar</td>
-                        <!-- <td>15 Dec'18</td> -->
-                        <td class="text-left">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
-                      </tr>
-                  </tbody>
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="">Moti Nagar</td>
+                            <!-- <td>15 Dec'18</td> -->
+                            <td class="text-left">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
+                        </tr>
+                        <tr>
+                            <td class="">Moti Nagar</td>
+                            <!-- <td>15 Dec'18</td> -->
+                            <td class="text-left">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
+                        </tr>
+                    </tbody>
                 </table>
-              </div>
+            </div>
         </div>
     </div>
 </div>

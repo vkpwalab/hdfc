@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,8 +14,18 @@ export class RaiseDemandComponent implements OnInit {
   demand_letter: any = [];
   builder_id: string;
   token: string;
-
-  constructor(private shared : SharedService, private activatedRoute: ActivatedRoute, private route:Router) { }
+  dynamic_forms: any = {};
+  search_text: any;
+  file_selected: any;
+  cust_name_selected: any;
+  file: any = [];
+  file_name: any = [];
+  file_ext: any = [];
+  file_uploaded: any = [];
+  index: any;
+  doc_srno: any = [];
+  remark: any = '';
+  constructor(private shared: SharedService, private activatedRoute: ActivatedRoute, private route: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.shared.headerTitle('Raise Demand Letter');
@@ -32,7 +43,7 @@ export class RaiseDemandComponent implements OnInit {
     this.getRaiseDemandLetter();
   }
 
-  getRaiseDemandLetter(){
+  getRaiseDemandLetter() {
     let body_raise_demand_letter = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                   <soapenv:Header/>
                                   <soapenv:Body>
@@ -51,9 +62,130 @@ export class RaiseDemandComponent implements OnInit {
     let result_tag = 'get_file_listResult';
     this.shared.getData(soapaction, body_raise_demand_letter, result_tag).subscribe(
       (data) => {
+        data.Table.forEach(element => {
+          this.dynamic_forms[element.FILE_NO] = this.fb.group({
+            'soc': [element.STAGE_OF_CONST, Validators.required],
+            'due_perc': [element.DUE_PERC, Validators.required],
+          });
+
+        });
         this.demand_letter = data.Table;
         console.log(this.demand_letter);
       }
     );
+  }
+
+
+  updateDemandLetter(data,demand, index) {
+    console.log(data);
+    if (this.dynamic_forms[demand.FILE_NO].valid) {
+      if (this.file_uploaded[index] == 'Y') {
+        let body_insert_demand= `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                    <soapenv:Header/>
+                                    <soapenv:Body>
+                                        <tem:ins_dev_port_demand_ltr>
+                                          <!--Optional:-->
+                                          <tem:i_project_id>${this.project_id}</tem:i_project_id>
+                                          <!--Optional:-->
+                                          <tem:i_proj_bldg_no>${this.building_id}</tem:i_proj_bldg_no>
+                                          <!--Optional:-->
+                                          <tem:i_file_no>${demand.FILE_NO}</tem:i_file_no>
+                                          <!--Optional:-->
+                                          <tem:i_CUSTOMER_NAME>${demand.CUSTOMER_NAME}</tem:i_CUSTOMER_NAME>
+                                          <!--Optional:-->
+                                          <tem:i_FLAT_NO>${demand.FLAT_NO}</tem:i_FLAT_NO>
+                                          <!--Optional:-->
+                                          <tem:i_FLOOR_NO>${demand.FLOOR_NO}</tem:i_FLOOR_NO>
+                                          <!--Optional:-->
+                                          <tem:i_STAGE_OF_CONST>${data.soc}</tem:i_STAGE_OF_CONST>
+                                          <!--Optional:-->
+                                          <tem:i_DUE_PERC>${data.due_perc}</tem:i_DUE_PERC>
+                                          <!--Optional:-->
+                                          <tem:i_PENDING_DISB_AMT>${demand.PENDING_DISB_AMOUNT}</tem:i_PENDING_DISB_AMT>
+                                          <!--Optional:-->
+                                          <tem:i_UPLD_DEMAND_LTR_FLAG>${this.file_uploaded[index]}</tem:i_UPLD_DEMAND_LTR_FLAG>
+                                          <!--Optional:-->
+                                          <tem:i_DEMAND_LETTER_RAISE_STS>${demand.DEMAND_LETTER_RAISE_STS}</tem:i_DEMAND_LETTER_RAISE_STS>
+                                          <!--Optional:-->
+                                          <tem:i_user>${this.builder_id}</tem:i_user>
+                                          <!--Optional:-->
+                                          <tem:i_doc_upld_srno>${this.doc_srno[index]}</tem:i_doc_upld_srno>
+                                          <!--Optional:-->
+                                          <tem:Token>${this.token}</tem:Token>
+                                        </tem:ins_dev_port_demand_ltr>
+                                    </soapenv:Body>
+                                  </soapenv:Envelope>`;
+
+        let soapaction = 'http://tempuri.org/IService1/ins_dev_port_demand_ltr';
+        let result_tag = 'ins_dev_port_demand_ltrResult';
+        this.shared.getData(soapaction, body_insert_demand, result_tag).subscribe(
+          (data) => {
+            this.remark = '';
+            this.file_name[index] = '';
+            this.file_ext[index] = '';
+            this.file[index] = '';
+            this.file_uploaded[index] = 'N';
+            console.log(data)
+          }
+        );
+      }
+    }
+  }
+  
+  openModel(file_no, cust_name, index) {
+    this.file_selected = file_no;
+    this.cust_name_selected = cust_name;
+    this.index = index;
+  }
+
+  uploadDemandDoc(file_no, index) {
+
+    if (this.file_uploaded[index] == 'Y') {
+      this.shared.uploadDoc(this.file[index], this.file_ext[index], this.project_id, 'DEV_LTR', this.file_name[index]).subscribe(
+        (res) => {
+          if (res == 'OK') {
+            this.shared.updateDocDetail(this.project_id, this.file_name[index], this.file_ext[index], 'DEV_LTR', this.remark).subscribe(
+              (doc_data) => {
+                this.doc_srno[index] = doc_data.o_srno;
+                console.log(doc_data)
+              }
+            )
+          }
+        }
+      )
+    } else {
+      alert('Check if you have uploaded the file.')
+    }
+  }
+
+  uploadFileEvent($event, index) {
+    if ($event.target.files[0]) {
+      var file: File = $event.target.files[0];
+      // if (!this.validateFile(file)) {
+      //   alert("Unsupported image format");
+      //   return false;
+      // }
+
+      if (file.size > 4294967296) {
+        alert("Max. File size: 4GB");
+        return false;
+      }
+
+      this.file[index] = $event.target.files[0];
+      console.log(this.file)
+      this.file_name[index] = this.file[index].name.split('.')[0]
+      this.file_uploaded[index] = 'Y';
+      this.file_ext[index] = this.file[index].name.split('.').pop();
+
+      // var myReader: FileReader = new FileReader();
+      // var that = this;
+      // myReader.readAsDataURL(file);
+      // myReader.onloadend = function (loadEvent: any) {
+      //   that.file_base64 = loadEvent.target.result;
+      //   console.log(that.file_base64);
+      // };
+
+
+    }
   }
 }

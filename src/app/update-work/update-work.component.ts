@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -28,6 +28,7 @@ export class UpdateWorkComponent implements OnInit {
   selected_building: any;
   remark: any = '';
   search_text:any;
+  selected_building_name: any;
   constructor(private shared: SharedService, private fb: FormBuilder) {
     // this.show_progress=false;
   }
@@ -220,7 +221,8 @@ export class UpdateWorkComponent implements OnInit {
     }
   }
 
-  openModel(bld_no, index) {
+  openModel(bld_no,bld_name, index) {
+    this.selected_building_name = bld_name;
     this.selected_building = bld_no;
     this.index = index;
   }
