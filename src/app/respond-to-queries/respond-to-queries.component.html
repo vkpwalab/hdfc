@@ -53,7 +53,41 @@
 
     <!-- -----------------------------------------------------------------MAIN -->
 
-    <div class="col-lg-12 col-12 row px-0 m-0 shadow brnew mt-3">
+    <!-- <div class="col-lg-12 col-12 row px-0 m-0 shadow brnew mt-3">
+        <div class="col-lg-3 col-12 py-3" *ngFor="let query of query_list">
+            <div style="border: 1px solid lightgray;" class="card p-2 brnew">
+                <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
+                        class="font-weight-bold pl-1">{{builder_names[query.CREATED_BY] | titlecase}}</span> </p>
+                <div class="col-lg-4 col-4 px-0 mt-2">
+                    <p style="background-color: rgb(246,179,21);"
+                        class="fs-12 border-0 text-center wcolor mb-0 rounded">General
+                    </p>
+                </div>
+                <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi deserunt distinctio
+                    consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum, vero quae culpa
+                    asperiores ea laudantium beatae.</p>
+                <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2"
+                        src="./assets/images/clock_1.png" alt="">1 day
+                    ago</span>
+                <p class="fs-10 pt-2">You responded on 16 sep'19</p>
+                <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal" data-target="#example">
+                    <button type="button" class="btn btn1 active"
+                        (click)="queryData(query.QUEST_ID,builder_names[query.CREATED_BY],query)">
+                        <span><img style="width: 20px;" class="pr-1" src="./assets/images/icons/respondicon.png" alt="">
+                            Respond</span></button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+<!-- -----------------------------------STATIC START HERE--------------------------- -->
+
+    <div class="col-lg-12 col-sm-12 px-0 shadow main-box" id="submit3">
+
+        <mat-tab-group mat-align-tabs="center" id="submit3">
+            <div class="col-lg-12 col-12">
+                <mat-tab label="Pending">
+        <div class="col-lg-12 col-12 row px-0 m-0  brnew mt-3">
         <div class="col-lg-3 col-12 py-3" *ngFor="let query of query_list">
             <div style="border: 1px solid lightgray;" class="card p-2 brnew">
                 <p class="fs-12 mb-0"><span style="color: gray;">Raised by:</span><span
@@ -79,13 +113,55 @@
             </div>
         </div>
     </div>
+
+                </mat-tab>
+
+                <!-- ---------------------------------------------------------------------------- -->
+
+                <mat-tab label="Respond">
+            <div class="col-lg-12">
+            <div class="col-lg-12 mt-3 px-0 main-list py-2 flex-list">
+                <div class="col-lg-3 col-12">
+                    <p class="mb-0 p-top"><span class="text-secondary f-13">Raised by:</span><span
+                    class="font-weight-bold pl-1 f-13">Survey Shetty</span> </p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <p class=" m-top text-center wcolor w-yel mb-0">General
+                    </p>
+                </div>
+                <div class="col-lg-4 col-12 pl-0 para-left">
+                    <p class="mb-0 f-11 para-00">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem eos unde atque asperiores fugiat adipisci eligendi at debitis</p>
+                </div>
+                <div class="col-lg-1 text-center col-6 date">
+                    <p class="mb-0 f-12 p-top">16 July 20</p>
+                </div>
+                <div class="col-lg-2 col-5 btn-mob">
+                    <button type="button" class="btn btn1 active">View</button>
+                </div>
+                    </div>
+                </div>
+                </mat-tab>
+            </div>
+        </mat-tab-group>
+        </div>
+
 </div>
 
 
 
+
+
+
+
+
+
+
+<!-- -------------------------------MODAL-BOX----------------------------- -->
+
+
 <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div style="top: 80px;" class="modal-content shadow bg-white brnew p-2">
+        <div class="modal-content shadow bg-white brnew p-2">
             <div class="col-lg-12 col-12 mt-2 padr" id="forresopnd">
                 <div class="col-lg-12 col-12">
                     <div class="w-20 close" data-dismiss="modal" aria-label="Close">
