@@ -115,6 +115,12 @@ export class AllProjectsComponent implements OnInit {
 
   openQueryModel(project) {
     this.selected_project = project;
+    this.message = '';
+    this.file = '';
+    this.file_name = '';
+    this.file_uploaded = false;
+    this.file_ext = '';
+
   }
 
   sendResponse() {
