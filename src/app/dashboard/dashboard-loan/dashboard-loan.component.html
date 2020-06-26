@@ -8,15 +8,15 @@
                 <ul class="nav nav-pills justify-content-end">
                     <li class="nav-item fs-12 font-weight-bold">
                         <a class="nav-link active pt-1 pb-1" data-toggle="tab" href="#week" id="week-tab"
-                            aria-controls="week" aria-selected="true"  (click)="getTotalLoan('WEEK')" >Weekly</a>
+                            aria-controls="week" aria-selected="true" (click)="getTotalLoan('WEEK')">Weekly</a>
                     </li>
                     <li class="nav-item fs-12 font-weight-bold">
                         <a class="nav-link pb-1 pt-1" data-toggle="tab" href="#month" id="month-tab"
-                        aria-controls="month" aria-selected="false" (click)="getTotalLoan('MONTH')">Monthly</a>
+                            aria-controls="month" aria-selected="false" (click)="getTotalLoan('MONTH')">Monthly</a>
                     </li>
                     <li class="nav-item fs-12 font-weight-bold">
-                        <a class="nav-link pb-1 pt-1" data-toggle="tab" href="#year" id="year-tab"
-                        aria-controls="year" aria-selected="false" (click)="getTotalLoan('YEAR')">Yearly</a>
+                        <a class="nav-link pb-1 pt-1" data-toggle="tab" href="#year" id="year-tab" aria-controls="year"
+                            aria-selected="false" (click)="getTotalLoan('YEAR')">Yearly</a>
                     </li>
 
                 </ul>
@@ -27,12 +27,12 @@
 
 
         </div>
-        
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" >
-            </canvas>
-       
-        
+
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+
+
     </div>
     <div class="col-lg-12 pl-0 pr-0">
         <!-- <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
@@ -57,11 +57,7 @@
                                     target="blank">{{data.LINK_URL}}</a></p>
                             <p class="fs-12">{{data.LINK_DESC}}</p>
                         </div>
-                        <div class="col-lg-2 col-2 text-right pl-0 pr-0">
-                            <!-- <img class="newimg" src="./assets/images/notification.png"> -->
-                            <span><img style="width: 12px;height: 12px;" src="./assets/images/share_icon.png" alt="">
-                            </span>
-                        </div>
+             
                     </div>
                     <!-- <div class="line"></div> -->
                     <hr class="hr-primary">
@@ -96,52 +92,5 @@
             </div>
 
         </div>
-        <!-- <div class="col-lg-4 pr-0 pl-0">
-            <div class="col-lg-12 pl-0 pr-0">
-                <div class="col-lg-12 d-inline-flex pl-0 pr-0">
-                    <div class="col-lg-12 row">
-
-
-                        <div class="col-lg-10 bl pr-0 col-10">
-                            <p class="fs-12 m-0 font-weight-bold pl-4">News & Articles</p>
-                        </div>
-                        <div class="col-lg-2 pl-0 pr-0 col-2 text-right"><img class="newimg" src="./assets/images/notification.png"></div>
-    
-    
-                    </div>
-                    <div class="col-lg-3 pl-0 col-4 text-right">
-                        <img src="./assets/images/superstar.png" alt="">
-                    </div>
-                    <div class="col-lg-9 pl-2 pr-0 col-8">
-                      
-                            <p class="fs-12 m-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                            <p class="fs-12"><a class="new" href="">Read More</a></p>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-12 row pl-0 pr-0 mt-3">
-                    <div class="col-lg-3 pl-0 col-4  text-right">
-                        <img src="./assets/images/superstar.png" alt="">
-                    </div>
-                    <div class="col-lg-9 pl-2 pr-0 col-8">
-                      
-                            <p class="fs-12 m-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                            <p class="fs-12"><a class="new" href="">Read More</a></p>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-12 row pl-0 pr-0 mt-3">
-                    <div class="col-lg-3 pl-0 col-4  text-right">
-                        <img src="./assets/images/superstar.png" alt="">
-                    </div>
-                    <div class="col-lg-9 pl-2 pr-0 col-8">
-                      
-                            <p class="fs-12 m-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                            <p class="fs-12"><a class="new" href="">Read More</a></p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
 </div>

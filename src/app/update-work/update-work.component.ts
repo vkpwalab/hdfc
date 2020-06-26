@@ -26,7 +26,7 @@ export class UpdateWorkComponent implements OnInit {
   index: any;
   doc_srno: any = [];
   selected_building: any;
-  remark: any = '';
+  remark: any = [];
   search_text:any;
   selected_building_name: any;
   constructor(private shared: SharedService, private fb: FormBuilder) {
@@ -135,6 +135,8 @@ export class UpdateWorkComponent implements OnInit {
     let result_tag = 'get_project_buildingResult';
     this.shared.getData(soapaction, body_Building_List, result_tag).subscribe(
       (data) => {
+        let count = 0;
+        this.dynamic_forms = {};
         data.Table.forEach(element => {
           this.dynamic_forms[element.PROJ_BLDG_NO] = this.fb.group({
             'update_current_progress': [element.STAGE_OF_CONS, Validators.required],
@@ -145,6 +147,8 @@ export class UpdateWorkComponent implements OnInit {
             'build_name': [element.BLDG_NAME],
           });
 
+          this.file_name[count] = '';
+          count++;
         });
         this.building_list = data.Table;
         console.log(this.building_list);
@@ -167,9 +171,9 @@ export class UpdateWorkComponent implements OnInit {
                                       <!--Optional:-->
                                       <tem:i_proj_bldg_no>${data.build_no}</tem:i_proj_bldg_no>
                                       <!--Optional:-->
-                                      <tem:i_STAGE_OF_CONS></tem:i_STAGE_OF_CONS>
+                                      <tem:i_STAGE_OF_CONS>${data.update_current_progress}</tem:i_STAGE_OF_CONS>
                                       <!--Optional:-->
-                                      <tem:i_PROGRESS>${data.update_current_progress}</tem:i_PROGRESS>
+                                      <tem:i_PROGRESS>${data.progress_date}</tem:i_PROGRESS>
                                       <!--Optional:-->
                                       <tem:i_UPLD_DOC_FLAG>Y</tem:i_UPLD_DOC_FLAG>
                                       <!--Optional:-->
@@ -193,6 +197,7 @@ export class UpdateWorkComponent implements OnInit {
             this.file_ext[index] = '';
             this.file[index] = '';
             this.file_uploaded[index] = 'N';
+            alert('Building data updated!')
             console.log(data)
           }
         );
@@ -207,7 +212,7 @@ export class UpdateWorkComponent implements OnInit {
       this.shared.uploadDoc(this.file[index], this.file_ext[index], this.project_selected, doc_type, this.file_name[index]).subscribe(
         (res) => {
           if (res == 'OK') {
-            this.shared.updateDocDetail(this.project_selected, this.file_name[index], this.file_ext[index], doc_type, this.remark).subscribe(
+            this.shared.updateDocDetail(this.project_selected, this.file_name[index], this.file_ext[index], doc_type, this.remark[index]).subscribe(
               (doc_data) => {
                 this.doc_srno[index] = doc_data.o_srno;
                 console.log(doc_data)
