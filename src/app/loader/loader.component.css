@@ -1,0 +1,40 @@
+div.loader-div
+{
+   z-index: 1999;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: 100vh;
+   /* background-color: rgba(255, 255, 255, 0.3); */
+   background-color:rgba(0,0,0,0.3);
+    /* padding: 80% 0%; */
+}
+div.gif-div
+{
+   /* width: 70px; */
+   text-align: center;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: 20px;
+   margin: auto;
+   z-index: 2000;
+}
+@media only screen and (max-width:766px)
+{
+   div.loader-div
+{
+   z-index: 1999;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(0, 0, 0, 0.3);
+    padding: 50% 0%;
+}
+}

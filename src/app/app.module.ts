@@ -57,6 +57,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queries.component';
 import { TruncatePipe } from './truncate.pipe';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -93,6 +94,7 @@ import { TruncatePipe } from './truncate.pipe';
     SettingComponent,
     ReachUsComponent,
     RespondToQueriesComponent,
+    LoaderComponent,
 
   ],
   imports: [

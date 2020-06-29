@@ -23,6 +23,7 @@ export class ProjectDistursementComponent implements OnInit {
   search_text: string;
   builder_id: string;
   token: string;
+  loading: boolean;
 
   constructor(private shared: SharedService) { }
 
@@ -30,6 +31,7 @@ export class ProjectDistursementComponent implements OnInit {
     this.shared.headerTitle('Project Disbursement');
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
+    this.loading = true;
     this.getBuilersDetails();
 
   }
@@ -80,11 +82,13 @@ export class ProjectDistursementComponent implements OnInit {
       (data) => {
         this.project_list = data.Table;
         console.log(this.project_list);
+        this.loading = false;
       }
     );
   }
 
   projectChange(event) {
+    this.loading = true;
     this.project_selected = event.value;
     let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                 <soapenv:Header/>
@@ -104,11 +108,13 @@ export class ProjectDistursementComponent implements OnInit {
       (data) => {
         this.building_list = data.Table;
         console.log(this.building_list);
+        this.loading = false;
       }
     );
   }
 
   buildingChange(event) {
+    this.loading = true;
     this.building_selected = event.value;
     let body_Project_Disb = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                               <soapenv:Header/>
@@ -130,6 +136,7 @@ export class ProjectDistursementComponent implements OnInit {
       (data) => {
         this.disbursement_list = data.Table;
         console.log(this.disbursement_list);
+        this.loading = false;
       }
     );
   }

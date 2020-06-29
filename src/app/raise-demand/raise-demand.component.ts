@@ -25,6 +25,7 @@ export class RaiseDemandComponent implements OnInit {
   index: any;
   doc_srno: any = [];
   remark: any = '';
+  loading: boolean;
   constructor(private shared: SharedService, private activatedRoute: ActivatedRoute, private route: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -40,6 +41,7 @@ export class RaiseDemandComponent implements OnInit {
       }
     });
 
+    this.loading = true;
     this.getRaiseDemandLetter();
   }
 
@@ -70,6 +72,7 @@ export class RaiseDemandComponent implements OnInit {
 
         });
         this.demand_letter = data.Table;
+        this.loading = false;
         console.log(this.demand_letter);
       }
     );
@@ -125,6 +128,7 @@ export class RaiseDemandComponent implements OnInit {
             this.file_ext[index] = '';
             this.file[index] = '';
             this.file_uploaded[index] = 'N';
+            alert('Demand Letter Updated')
             console.log(data)
           }
         );

@@ -29,6 +29,7 @@ export class RespondToQueriesComponent implements OnInit {
   file_icon: any;
   responded_query: any = [];
   query_view_type: any;
+  loading: boolean;
 
   constructor(private shared: SharedService) { }
 
@@ -48,6 +49,7 @@ export class RespondToQueriesComponent implements OnInit {
       jpeg: './assets/images/png_icon.png',
       jpg: './assets/images/png_icon.png',
     }
+    this.loading = true;
     this.getBuilersDetails();
 
   }
@@ -100,6 +102,7 @@ export class RespondToQueriesComponent implements OnInit {
       (data) => {
         this.project_list = data.Table;
         console.log(this.project_list);
+        this.loading = false;
       }
     );
 
@@ -107,6 +110,7 @@ export class RespondToQueriesComponent implements OnInit {
   }
 
   projectChange(event) {
+    this.loading = true;
     this.project_selected = event.value;
 
     let body_get_query_data = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
@@ -134,7 +138,7 @@ export class RespondToQueriesComponent implements OnInit {
             this.query_list.push(element);
           }
         });
-
+        this.loading = false;
         console.log(this.query_list)
       }
     );

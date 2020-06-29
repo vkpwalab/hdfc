@@ -29,6 +29,7 @@ export class UpdateWorkComponent implements OnInit {
   remark: any = [];
   search_text:any;
   selected_building_name: any;
+  loading: boolean;
   constructor(private shared: SharedService, private fb: FormBuilder) {
     // this.show_progress=false;
   }
@@ -37,6 +38,7 @@ export class UpdateWorkComponent implements OnInit {
     this.shared.headerTitle('Project Progress');
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
+    this.loading = true;
     this.getBuilersDetails();
   }
 
@@ -87,6 +89,7 @@ export class UpdateWorkComponent implements OnInit {
       (data) => {
         this.project_list = data.Table;
         console.log(this.project_list);
+        this.loading = false;
       }
     );
   }
@@ -116,6 +119,7 @@ export class UpdateWorkComponent implements OnInit {
 
 
   projectChange(event) {
+    this.loading = true;
     this.project_selected = event.value;
     this.project_selected_detail = this.project_list.filter(p => p.PROJECTID == this.project_selected);
 
@@ -151,6 +155,7 @@ export class UpdateWorkComponent implements OnInit {
           count++;
         });
         this.building_list = data.Table;
+        this.loading = false;
         console.log(this.building_list);
       }
     );

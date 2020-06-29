@@ -596,8 +596,8 @@ export class ProjectFeaturesComponent implements OnInit {
     this.project_feature_form.controls['mention_specfic_detail'].setValue(this.draft_data.LANDOWN_SPEC_DETAILS);
     this.project_feature_form.controls['financial_institute'].setValue(this.draft_data.FINANCIAL_INST);
     this.project_feature_form.controls['hdfc_clip_no'].setValue(this.draft_data.CLPS_NO);
-    this.project_feature_form.controls['contruction_finance'].setValue(this.draft_data.CONSTRUCTION_FINANCE_INST);
-    this.project_feature_form.controls['mortgaged'].setValue(this.draft_data.IS_PROJ_MORGAGE);
+    this.project_feature_form.controls['contruction_finance'].setValue(this.draft_data.REQ_CONST_FIN);
+    this.project_feature_form.controls['mortgaged'].setValue(this.draft_data.IS_MORTGAGE_BY_OTH_INST);
     this.project_feature_form.controls['residencial_total_unit'].setValue(this.draft_data.RESIDENTIAL_PROPOSED_UNIT);
     this.project_feature_form.controls['residencial_solid_unit'].setValue(this.draft_data.RESIDENTIAL_SOLD_UNIT);
     this.project_feature_form.controls['residencial_available_sale'].setValue(this.draft_data.RESIDENTIAL_AVAILABLE_FOR_SALE);

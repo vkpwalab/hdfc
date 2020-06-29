@@ -31,6 +31,7 @@ export class AllProjectsComponent implements OnInit {
   file_uploaded: boolean;
   file_ext: any;
   query_id: any;
+  loading: boolean;
   constructor(private shared: SharedService, private ar: ActivatedRoute) {
     console.log(ar)
   }
@@ -40,6 +41,7 @@ export class AllProjectsComponent implements OnInit {
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
 
+    this.loading = true;
     this.selectStatusOption();
     this.getBuilersDetails();
 
@@ -102,6 +104,7 @@ export class AllProjectsComponent implements OnInit {
           let doc_perc = (element.PENDING_DOC / element.UPL_DOC_CNT) * 100;
           this.project_list[0].doc_perc = doc_perc;
         });
+        this.loading = false;
         console.log(this.project_list);
       }
     );
