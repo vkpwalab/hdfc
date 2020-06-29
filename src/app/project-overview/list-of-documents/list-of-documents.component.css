@@ -20,12 +20,14 @@ textarea {width: 100% !important;font-size: 13px !important;}
 .padd {padding: 0px 0px 15px 30px !important ;}
 
 .fs-12 {font-size: 12px;}
-#add-project span {background-color: #007bff;color: white !important;padding-left: 10px;padding-right: 10px;border-radius: 3px;}
+.Browse {background-color: #007bff;color: white !important;padding-left: 10px;padding-right: 10px;border-radius: 3px;cursor: pointer;}
 #add-project img {padding-top: 10px;padding-bottom: 10px;}
 .red-box{border: 0.5px solid #e3310d;display: inline-flex;border-radius: 9px;border-bottom:10px solid #e3310d}
 .blue-box{border: 0.5px solid #007bff;display: inline-flex;border-radius: 9px;border-bottom:10px solid #007bff}
 .green-box{border: 0.5px solid #1f7244;display: inline-flex;border-radius: 9px;border-bottom:10px solid #1f7244}
 .doc {font-size: 12px !important;}
+img {cursor: pointer;}
+
 /* width */
 .hide-box::-webkit-scrollbar {
     width: 3px;
