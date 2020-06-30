@@ -10,9 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class QueriesComponent implements OnInit {
   @Input() project_id: any;
   token: string;
-  query_list: any;
+  query_list: any = [];
   builder_names: any = {};
   @Output() query: EventEmitter<any> = new EventEmitter<any>();
+  responded_query: any = [];
 
   constructor(private shared:SharedService, private http:HttpClient) { }
 
@@ -39,10 +40,14 @@ export class QueriesComponent implements OnInit {
     let result_tag = 'P_Get_Query_DataResult';
     this.shared.getData(soapaction, body_get_query_data, result_tag).subscribe(
       (data) => {
-        this.query_list = data.Table;
         let count = 0;
-        this.query_list.forEach(element => {
+        data.Table.forEach(element => {
           this.getBuilderName(element.CREATED_BY, element.QUERY_TYPE);
+          if(element.STATUS == "RESPONDED"){
+            this.responded_query.push(element);
+          }else{
+            this.query_list.push(element);
+          }
         });
 
         console.log(this.query_list)
