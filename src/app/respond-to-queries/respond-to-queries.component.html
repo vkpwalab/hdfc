@@ -99,16 +99,12 @@
                                         class="fs-12 border-0 text-center wcolor mb-0 rounded">General
                                     </p>
                                 </div>
-                                <p class="fs-10 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-                                    deserunt distinctio
-                                    consectetur est ullam, placeat explicabo magnam dolor nesciunt id quo odit laborum,
-                                    vero quae culpa
-                                    asperiores ea laudantium beatae.</p>
+                                <p class="fs-10 pt-1">{{query.QUERY}}</p>
                                 <span class="fs-12" style="color: gray;"> <img style="width: 18px;" class="pr-2"
-                                        src="./assets/images/clock_1.png" alt="">1 day
+                                        src="./assets/images/clock_1.png" alt="">{{ timeSince(query.CREATED_ON) }}
                                     ago</span>
-                                <p class="fs-10 pt-2">You responded on 16 sep'19</p>
-                                <div class="col-lg-12 col-12 text-center pb-2" data-toggle="modal"
+                                <!-- <p class="fs-10 pt-2">You responded on 16 sep'19</p> -->
+                                <div class="col-lg-12 col-12 text-center pb-2 pt-2" data-toggle="modal"
                                     data-target="#example">
                                     <button type="button" class="btn btn1 active"
                                         (click)="queryData(query.QUEST_ID,builder_names[query.CREATED_BY],query,'response')">
@@ -136,11 +132,10 @@
                                 </p>
                             </div>
                             <div class="col-lg-4 col-12 pl-0 para-left">
-                                <p class="mb-0 f-11 para-00">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Voluptatem eos unde atque asperiores fugiat adipisci eligendi at debitis</p>
+                                <p class="mb-0 f-11 para-00">{{query.QUERY}}</p>
                             </div>
                             <div class="col-lg-1 text-center col-6 date">
-                                <p class="mb-0 f-12 p-top">{{ query.CREATED_ON }}</p>
+                                <p class="mb-0 f-12 p-top">{{ query.CREATED_ON | date: 'dd/MM/yyyy' }}</p>
                             </div>
                             <div class="col-lg-2 col-5 btn-mob" >
                                 <button type="button" class="btn btn1 active" data-toggle="modal"
