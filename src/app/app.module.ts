@@ -58,6 +58,7 @@ import { environment } from '../environments/environment';
 import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queries.component';
 import { TruncatePipe } from './truncate.pipe';
 import { LoaderComponent } from './loader/loader.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -95,6 +96,7 @@ import { LoaderComponent } from './loader/loader.component';
     ReachUsComponent,
     RespondToQueriesComponent,
     LoaderComponent,
+    ForgotPasswordComponent,
 
   ],
   imports: [

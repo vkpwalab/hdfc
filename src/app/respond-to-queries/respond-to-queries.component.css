@@ -168,5 +168,9 @@
 .f-12 {font-size: 12px;}
 .f-13 {font-size: 13px !important;}
 .p-top {padding-top: 8px;}
-.m-top {margin-top: 8px;}
+.m-top {margin: 8px auto;}
 .main-list{border: 0.5px solid rgb(230, 229, 229);font-size: 13px;border-radius: 10px;}
+
+@media screen and (min-width:300px) and (max-width: 340px){
+    .btn-mob {right: 15px !important;}
+}
