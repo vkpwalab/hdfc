@@ -71,6 +71,10 @@ export class AddProjectComponent implements OnInit {
       that.curr_marker = that.addMarker(e.latlng, 'Project Location', true);
 
     });
+
+    localStorage.removeItem('project_detail');
+    localStorage.removeItem('address_detail');
+    localStorage.removeItem('project_feature');
   }
 
   applyFilter(event: Event) {
@@ -175,6 +179,14 @@ export class AddProjectComponent implements OnInit {
       //your code about what you want to do on a marker click 
     });
     return mk;
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    localStorage.removeItem('project_detail');
+    localStorage.removeItem('address_detail');
+    localStorage.removeItem('project_feature');
   }
 }
 
