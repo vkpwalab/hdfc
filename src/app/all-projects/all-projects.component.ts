@@ -129,10 +129,10 @@ export class AllProjectsComponent implements OnInit {
   sendResponse() {
     if (this.message != '') {
       if (this.file_uploaded) {
-        this.shared.uploadDoc(this.file, this.file_ext, this.selected_project.PROJECT_ID, 'RTQUERIES', this.file_name).subscribe(
+        this.shared.uploadDoc(this.file, this.file_ext, this.selected_project.PROJECTID, 'RTQUERIES', this.file_name).subscribe(
           (res) => {
             if (res == 'OK') {
-              this.shared.updateDocDetail(this.selected_project.PROJECT_ID, this.file_name, this.file_ext, 'RTQUERIES', '').subscribe(
+              this.shared.updateDocDetail(this.selected_project.PROJECTID, this.file_name, this.file_ext, 'RTQUERIES', '').subscribe(
                 (doc_data) => {
                   this.getQueryId(doc_data.o_srno);
                   console.log(doc_data)
@@ -169,12 +169,13 @@ export class AllProjectsComponent implements OnInit {
   }
 
   updateQuery(srno) {
+    console.log(this.selected_project);
     let body_query_detail = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                               <soapenv:Header/>
                               <soapenv:Body>
                                 <tem:Insert_Query>
                                     <!--Optional:-->
-                                    <tem:PROJECT_ID>${this.selected_project.PROJECT_ID}</tem:PROJECT_ID>
+                                    <tem:PROJECT_ID>${this.selected_project.PROJECTID}</tem:PROJECT_ID>
                                     <!--Optional:-->
                                     <tem:PHASE_ID></tem:PHASE_ID>
                                     <!--Optional:-->

@@ -104,6 +104,9 @@ export class RERADetailsComponent implements OnInit {
 
   submitReraDetail(data) {
     console.log(data);
+    data.project_launch_date = data.project_launch_date ? data.project_launch_date : '';
+    data.valid_from_date = data.valid_from_date ? data.valid_from_date : '';
+    data.valid_to_date = data.valid_to_date ? data.valid_to_date : '';
     if (this.rera_detail_form.valid) {
       let body_rera_submit = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                 <soapenv:Header/>
