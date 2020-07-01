@@ -158,7 +158,7 @@
     border-radius: 50%;
     height: 15px;
   }
-  
+  .span {outline: none !important; cursor: pointer;}
 
   @media screen and (min-width:360px) and (max-width: 576px){
   .bk-img{background-image: none;}
@@ -167,4 +167,5 @@
   .border {height: 45px;}
   .pt3pl10{padding-left: 0%;}
   .hide{display: none;}
+  mat-label {font-size: 15px !important;}
   }

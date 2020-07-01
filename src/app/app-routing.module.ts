@@ -15,6 +15,7 @@ import { RaiseDemandComponent } from './raise-demand/raise-demand.component';
 import { SettingComponent } from './setting/setting.component';
 import { ReachUsComponent } from './reach-us/reach-us.component';
 import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queries.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -22,6 +23,7 @@ import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queri
 const routes: Routes = [
   { path: '' , redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'login', component: LoginComponent},
+  { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: 'side-menubar', component: SideMenubarComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'calculator', component: CalculatorComponent},
