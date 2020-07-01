@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import $ from 'jquery';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-rera-details',
@@ -20,7 +21,10 @@ export class RERADetailsComponent implements OnInit {
   from_date: boolean = true;
   to_date: boolean = true;
   launch_date: boolean = false;
-  constructor(private shared: SharedService, private fb: FormBuilder) { }
+  pipe: DatePipe;
+  constructor(private shared: SharedService, private fb: FormBuilder) {
+    this.pipe = new DatePipe('en-US');
+   }
 
   ngOnInit(): void {
     this.builder_id = '510673';
@@ -104,9 +108,10 @@ export class RERADetailsComponent implements OnInit {
 
   submitReraDetail(data) {
     console.log(data);
-    data.project_launch_date = data.project_launch_date ? data.project_launch_date : '';
-    data.valid_from_date = data.valid_from_date ? data.valid_from_date : '';
-    data.valid_to_date = data.valid_to_date ? data.valid_to_date : '';
+    data.rera_app_date = data.rera_app_date ? this.pipe.transform(data.rera_app_date, 'dd-MMM-yyyy') : '';
+    data.project_launch_date = data.project_launch_date ? this.pipe.transform(data.project_launch_date, 'dd-MMM-yyyy') : '';
+    data.valid_from_date = data.valid_from_date ? this.pipe.transform(data.valid_from_date, 'dd-MMM-yyyy') : '';
+    data.valid_to_date = data.valid_to_date ? this.pipe.transform(data.valid_to_date, 'dd-MMM-yyyy') : '';
     if (this.rera_detail_form.valid) {
       let body_rera_submit = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                 <soapenv:Header/>
