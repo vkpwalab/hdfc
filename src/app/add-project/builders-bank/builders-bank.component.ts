@@ -21,6 +21,7 @@ export class BuildersBankComponent implements OnInit {
   payment_for: any;
   file_base64: string | ArrayBuffer;
   file_ext: any = [];
+  bank_added: boolean;
   constructor(private shared: SharedService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -204,6 +205,7 @@ export class BuildersBankComponent implements OnInit {
     this.shared.getData(soapaction, body_acc_types, result_tag).subscribe(
       (data) => {
         console.log(data);
+        this.bank_added = true;
         alert('Bank detail updated');
       }
     );
@@ -232,7 +234,11 @@ export class BuildersBankComponent implements OnInit {
   }
 
   next(){
-    $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
-    $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+    if(this.bank_added){
+      $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
+      $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+    }else{
+      alert('Add atleast one bank detail')
+    }
   }
 }

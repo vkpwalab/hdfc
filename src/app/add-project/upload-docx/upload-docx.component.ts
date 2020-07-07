@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -26,7 +26,9 @@ export class UploadDocxComponent implements OnInit {
   file_color: any;
   doc_ext_color: any;
   upload_form: FormGroup;
-  constructor(private shared:SharedService,private fb: FormBuilder) { }
+  doc_uploaded: boolean;
+  @Input() draft_data: any;
+  constructor(private shared: SharedService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.builder_id = '510673';
@@ -51,7 +53,7 @@ export class UploadDocxComponent implements OnInit {
       csv: 'green-box',
       doc: 'blue-box',
       docx: 'blue-box',
-      other:'blue-box',
+      other: 'blue-box',
       png: 'red-box',
       jpeg: 'red-box',
       jpg: 'red-box',
@@ -59,7 +61,7 @@ export class UploadDocxComponent implements OnInit {
 
     this.upload_form = this.fb.group({
       'message': [''],
-      'doc_type': ['',[Validators.required]],
+      'doc_type': ['', [Validators.required]],
     });
 
     this.shared.project_id.subscribe(
@@ -70,7 +72,7 @@ export class UploadDocxComponent implements OnInit {
 
     this.getBuilersDetails();
   }
-  
+
   getBuilersDetails() {
     let body_builders_details = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                     <soapenv:Header/>
@@ -117,7 +119,7 @@ export class UploadDocxComponent implements OnInit {
       }
     );
   }
-  
+
   sendResponse(data) {
     if (this.upload_form.valid) {
       if (this.file_uploaded) {
@@ -126,7 +128,7 @@ export class UploadDocxComponent implements OnInit {
             if (res == 'OK') {
               this.shared.updateDocDetail(this.project_id, this.file_name, this.file_ext, data.doc_type, data.message).subscribe(
                 (doc_data) => {
-         
+
                   let doc = {
                     file_name: this.file_name,
                     file_size: this.file_size,
@@ -134,6 +136,7 @@ export class UploadDocxComponent implements OnInit {
                     file_color: this.file_color
                   }
                   this.uploaded_doc.push(doc);
+                  this.doc_uploaded = true;
                   console.log(doc_data)
                   this.removeFile();
                   this.upload_form.reset();
@@ -143,7 +146,7 @@ export class UploadDocxComponent implements OnInit {
           }
         )
       }
-    }else{
+    } else {
 
     }
   }
@@ -151,12 +154,12 @@ export class UploadDocxComponent implements OnInit {
   dropped(files: NgxFileDropEntry[]) {
     this.files = files;
     for (const droppedFile of files) {
- 
+
       // Is it a file?
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
- 
+
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
           this.file = file;
@@ -167,7 +170,7 @@ export class UploadDocxComponent implements OnInit {
 
           let ext = this.file_ext.toLowerCase();
           this.file_icon = this.doc_ext_image[ext] ? this.doc_ext_image[ext] : this.doc_ext_image['other'];
-          this.file_color = this.doc_ext_color[ext] ? this.doc_ext_color[ext] : this.doc_ext_color['other'] ;
+          this.file_color = this.doc_ext_color[ext] ? this.doc_ext_color[ext] : this.doc_ext_color['other'];
         });
       } else {
         // It was a directory (empty directories are added, otherwise only files)
@@ -183,5 +186,65 @@ export class UploadDocxComponent implements OnInit {
     this.file_uploaded = false;
     this.file_ext = '';
     this.file_size = '';
+  }
+
+  saveProject() {
+    if(this.doc_uploaded){
+      let body_submit_project = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                    <tem:project_push_to_lms>
+                                        <!--Optional:-->
+                                        <tem:i_project_id>${this.project_id}</tem:i_project_id>
+                                        <!--Optional:-->
+                                        <tem:i_user>${this.builder_id}</tem:i_user>
+                                        <!--Optional:-->
+                                        <tem:Token>${this.token}</tem:Token>
+                                    </tem:project_push_to_lms>
+                                  </soapenv:Body>
+                              </soapenv:Envelope>`;
+  
+      let soapaction = 'http://tempuri.org/IService1/project_push_to_lms';
+      let result_tag = 'project_push_to_lmsResult';
+      this.shared.getData(soapaction, body_submit_project, result_tag).subscribe(
+        (data) => {
+          this.removeDraft();
+          console.log(data);
+          location.reload();
+        }
+      );
+    }
+  }
+
+  removeDraft() {
+    if(this.draft_data){
+      let body_delete_draft = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                    <soapenv:Header/>
+                                    <soapenv:Body>
+                                      <tem:UPD_DRAFT_PROJECT>
+                                          <!--Optional:-->
+                                          <tem:I_DRAFT_ID>${this.draft_data.DRAFT_ID}</tem:I_DRAFT_ID>
+                                          <!--Optional:-->
+                                          <tem:Token>?</tem:Token>
+                                      </tem:UPD_DRAFT_PROJECT>
+                                    </soapenv:Body>
+                                </soapenv:Envelope>`;
+  
+      let soapaction = 'http://tempuri.org/IService1/UPD_DRAFT_PROJECT';
+      let result_tag = 'UPD_DRAFT_PROJECTResult';
+      this.shared.getData(soapaction, body_delete_draft, result_tag).subscribe(
+        (data) => {
+          alert('Project added successfully');
+          console.log(data);
+          location.reload();
+        }
+      );
+    }else{
+      alert('Project added successfully');
+      location.reload();
+    }
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('value changed', this.draft_data);
   }
 }
