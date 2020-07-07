@@ -158,10 +158,8 @@ export class ProjectProgressComponent implements OnInit {
 
     },
   }
-  public doughnutChartLabels: Label[] = ['150 uploaded', '65 documents approved', '145 Documents Pending'];
-  public doughnutChartData: MultiDataSet = [
-    [50, 150, 120]
-  ];
+  public doughnutChartLabels: Label[] = [];
+  public doughnutChartData: MultiDataSet = [];
 
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors: Color[] = [
@@ -173,11 +171,15 @@ export class ProjectProgressComponent implements OnInit {
   @Input() project_id: any;
   token: string;
   building_list: any;
+  uploaded_doc: any = 0;
+  pending_doc: any = 0;
+  approved_doc: any = 0;
   constructor( private shared:SharedService) { }
 
   ngOnInit(): void {
     this.token = 'MH3NPYK34J0KHDI';
     this.getBuildingProgress();
+    this.getAllDoc();
    }
 
   getBuildingProgress() {
@@ -203,7 +205,7 @@ export class ProjectProgressComponent implements OnInit {
         this.barChartData[0].data = [];
         let graph_data = [];
         this.building_list.forEach(element => {
-          this.barChartLabels.push(element.BLDG_NAME);
+          this.barChartLabels.push(element.BLDG_SHORT_NAME);
 
           if(element.BLDG_CONS_STATUS != null){
             graph_data.push(element.BLDG_CONS_STATUS);
@@ -214,6 +216,36 @@ export class ProjectProgressComponent implements OnInit {
         });
 
         this.barChartData[0].data = graph_data;
+      }
+    );
+  }
+
+  getAllDoc(){
+    let body_Show_All_Doc = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:Show_All_Doc>
+                                    <!--Optional:-->
+                                    <tem:I_PROJECT_No>${this.project_id}</tem:I_PROJECT_No>
+                                </tem:Show_All_Doc>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Show_All_Doc';
+    let result_tag = 'Show_All_DocResult';
+    this.shared.getData(soapaction, body_Show_All_Doc, result_tag).subscribe(
+      (data) => {
+        let all_doc = data.Table;
+        this.uploaded_doc = all_doc.length;
+        all_doc.forEach(element => {   
+          if(element.STATUS == 'NOT OK'){
+            this.pending_doc = this.pending_doc + 1;
+          }else if(element.STATUS == 'EVALUATION OK'){
+            this.approved_doc = this.approved_doc + 1;
+          }
+        });
+        this.doughnutChartLabels = ['Uploaded', 'Pending','Reviewed']
+        this.doughnutChartData = [[this.uploaded_doc,this.pending_doc,this.approved_doc]];
       }
     );
   }

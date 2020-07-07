@@ -18,9 +18,9 @@
     <div class="col-lg-12 col-12 padlr">
       <div class="col-lg-12 col-12 row m-0 px-0">
         <h6 class="font-weight-bold">Wing-wise Progress</h6>
-          <canvas id="chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
-          </canvas>
+        <canvas id="chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
         <!-- <div class="col-lg-6 col-6 px-0 mt-2">
           <h6 class="font-weight-bold">Wing-wise Progress</h6>
           <canvas id="chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
@@ -115,18 +115,18 @@
       <div class="col-lg-12 col-12 row m-0 px-0">
         <div class="col-lg-4 col-4">
           <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(92, 122, 255);" class="fa fa-circle-o"
-                aria-hidden="true"></i> 150</span> Uploaded</p>
+                aria-hidden="true"></i> {{ uploaded_doc }}</span> Uploaded</p>
 
 
         </div>
         <div class="col-lg-4 col-4">
           <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(251, 203, 38);" class="fa fa-circle-o"
-                aria-hidden="true"></i> 65</span> Pending</p>
+                aria-hidden="true"></i> {{ pending_doc }}</span> Pending</p>
 
         </div>
         <div class="col-lg-4 col-4">
           <p class="fs-12"><span class="font-weight-bold"><i style="color: rgb(11, 210, 173);" class="fa fa-circle-o"
-                aria-hidden="true"></i> 145</span> Approved</p>
+                aria-hidden="true"></i> {{ approved_doc }}</span> Approved</p>
 
         </div>
 
@@ -139,7 +139,7 @@
             </canvas>
           </div>
         </div>
-        <div class="col-4">
+        <!-- <div class="col-4">
           <div>
 
             <canvas baseChart [options]="doughnutChartOptions" [data]="doughnutChartData" [labels]="doughnutChartLabels"
@@ -154,7 +154,7 @@
               [chartType]="doughnutChartType" [colors]="doughnutChartColors">
             </canvas>
           </div>
-        </div>
+        </div> -->
       </div>
 
 

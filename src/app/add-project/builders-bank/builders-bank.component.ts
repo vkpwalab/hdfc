@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import $ from "jquery";
 @Component({
   selector: 'app-builders-bank',
   templateUrl: './builders-bank.component.html',
@@ -227,15 +228,11 @@ export class BuildersBankComponent implements OnInit {
       this.file_uploaded[index] = 'Y';
       this.file_ext[index] = this.file[index].name.split('.').pop();
 
-      // var myReader: FileReader = new FileReader();
-      // var that = this;
-      // myReader.readAsDataURL(file);
-      // myReader.onloadend = function (loadEvent: any) {
-      //   that.file_base64 = loadEvent.target.result;
-      //   console.log(that.file_base64);
-      // };
-
-
     }
+  }
+
+  next(){
+    $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
+    $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
   }
 }
