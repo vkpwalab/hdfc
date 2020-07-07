@@ -159,7 +159,16 @@
     height: 15px;
   }
   .span {outline: none !important; cursor: pointer;}
-
+  
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lightgrey; 
+}
   @media screen and (min-width:360px) and (max-width: 576px){
   .bk-img{background-image: none;}
   .login_title{font-size: 20px;margin-top: 50px;margin-bottom: 20px;}
