@@ -29,6 +29,7 @@ export class ListOfDocumentsComponent implements OnInit {
   doc_ext_color: any;
   upload_form: FormGroup;
   all_doc: any;
+  pending_doc: any;
   constructor(private shared:SharedService, private http:HttpClient, private fb: FormBuilder) {
 
   }
@@ -67,6 +68,7 @@ export class ListOfDocumentsComponent implements OnInit {
     });
     this.getBuilersDetails();
     this.getAllDoc();
+    this.getPendingDoc();
   }
 
   getBuilersDetails() {
@@ -209,6 +211,32 @@ export class ListOfDocumentsComponent implements OnInit {
           }
           this.uploaded_doc.push(doc);
         });
+      }
+    );
+  }
+
+  getPendingDoc(){
+    let body_Pending_Doc = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                <soapenv:Header/>
+                                <soapenv:Body>
+                                  <tem:GET_PROJ_PEND_DOC>
+                                      <!--Optional:-->
+                                      <tem:i_project_id>574999</tem:i_project_id>
+                                      <!--Optional:-->
+                                      <tem:I_TYPE>?</tem:I_TYPE>
+                                      <!--Optional:-->
+                                      <tem:Token>${this.token}</tem:Token>
+                                  </tem:GET_PROJ_PEND_DOC>
+                                </soapenv:Body>
+                            </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/GET_PROJ_PEND_DOC';
+    let result_tag = 'GET_PROJ_PEND_DOCResult';
+    this.shared.getData(soapaction, body_Pending_Doc, result_tag).subscribe(
+      (data) => {
+        this.pending_doc = data.Table;
+        console.log(this.pending_doc);
+       
       }
     );
   }

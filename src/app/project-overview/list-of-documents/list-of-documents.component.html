@@ -136,64 +136,17 @@
             <div class="col-lg-12 col-12 px-0 pb-3 hide-box shadow">
               <div class="col-lg-12 px-0 row mt-3">
 
-                <div class="col-lg-4 m-top padd">
+                <div class="col-lg-4 m-top padd" *ngFor="let doc of pending_doc; let i=index">
                   <div class="col-lg-12 px-0 flex grey-box">
                     <div class="col-lg-1 col-1 pt-2 pr-0">
-                    <label class="font-13"><b>1.</b></label>
+                    <label class="font-13"><b>{{ i }}.</b></label>
                     </div>
                     <div class="col-lg-11 col-11 doc-2 pl-2 text-left">
-                      <p class="para-dou mb-0"><b>DOC_DEC:"SOCIETY RESOLUTION ACCEPTING CONTRACTOR/BUILDER"</b></p>
+                      <p class="para-dou mb-0"><b>{{ doc.DOC_DEC }}</b></p>
                     </div>
                   </div>
                 </div>
-
-                <div class="col-lg-4 m-top padd">
-                  <div class="col-lg-12 px-0 flex grey-box">
-                    <div class="col-lg-1 col-1 pt-2 pr-0">
-                    <label class="font-13"><b>2.</b></label>
-                    </div>
-                    <div class="col-lg-11 col-11 doc-2 pl-2 text-left">
-                      <p class="para-dou mb-0"><b>DOC_DEC:"SOCIETY RESOLUTION ACCEPTING CONTRACTOR/BUILDER"</b></p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 m-top padd">
-                  <div class="col-lg-12 px-0 flex grey-box">
-                    <div class="col-lg-1 col-1 pt-2 pr-0">
-                    <label class="font-13"><b>3.</b></label>
-                    </div>
-                    <div class="col-lg-11 col-11 doc-2 pl-2 text-left">
-                      <p class="para-dou mb-0"><b>DOC_DEC:"SOCIETY RESOLUTION ACCEPTING CONTRACTOR/BUILDER"</b></p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 m-top padd">
-                  <div class="col-lg-12 px-0 flex grey-box">
-                    <div class="col-lg-1 col-1 pt-2 pr-0">
-                    <label class="font-13"><b>4.</b></label>
-                    </div>
-                    <div class="col-lg-11 col-11 doc-2 pl-2 text-left">
-                      <p class="para-dou mb-0"><b>DOC_DEC:"SOCIETY RESOLUTION ACCEPTING CONTRACTOR/BUILDER"</b></p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 m-top padd">
-                  <div class="col-lg-12 px-0 flex grey-box">
-                    <div class="col-lg-1 col-1 pt-2 pr-0">
-                    <label class="font-13"><b>5.</b></label>
-                    </div>
-                    <div class="col-lg-11 col-11 doc-2 pl-2 text-left">
-                      <p class="para-dou mb-0"><b>DOC_DEC:"SOCIETY RESOLUTION ACCEPTING CONTRACTOR/BUILDER"</b></p>
-                    </div>
-                  </div>
-                </div>
-
-
               </div>
-
             </div>
           </div>
         </div>
