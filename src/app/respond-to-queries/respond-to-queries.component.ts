@@ -30,6 +30,7 @@ export class RespondToQueriesComponent implements OnInit {
   responded_query: any = [];
   query_view_type: any;
   loading: boolean;
+  query_list_len: any = 0;
 
   constructor(private shared: SharedService) { }
 
@@ -138,6 +139,7 @@ export class RespondToQueriesComponent implements OnInit {
             this.query_list.push(element);
           }
         });
+        this.query_list_len = this.query_list.length;
         this.loading = false;
         console.log(this.query_list)
       }

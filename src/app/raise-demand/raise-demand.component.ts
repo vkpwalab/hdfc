@@ -26,6 +26,9 @@ export class RaiseDemandComponent implements OnInit {
   doc_srno: any = [];
   remark: any = '';
   loading: boolean;
+  raise_doc: any;
+  demand_letter_len: any = 0;
+  building_name: any;
   constructor(private shared: SharedService, private activatedRoute: ActivatedRoute, private route: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -36,6 +39,7 @@ export class RaiseDemandComponent implements OnInit {
       if (params['pid']) {
         this.project_id = params['pid'];
         this.building_id = params['bid'];
+        this.building_name = params['b_name'];
       } else {
         this.route.navigate(['dashboard']);
       }
@@ -51,9 +55,9 @@ export class RaiseDemandComponent implements OnInit {
                                   <soapenv:Body>
                                     <tem:get_file_list>
                                         <!--Optional:-->
-                                        <tem:i_project_id>47091</tem:i_project_id>
+                                        <tem:i_project_id>${this.project_id}</tem:i_project_id>
                                         <!--Optional:-->
-                                        <tem:i_proj_bldg_no>96354</tem:i_proj_bldg_no>
+                                        <tem:i_proj_bldg_no>${this.building_id}</tem:i_proj_bldg_no>
                                         <!--Optional:-->
                                         <tem:Token>${this.token}</tem:Token>
                                     </tem:get_file_list>
@@ -72,6 +76,7 @@ export class RaiseDemandComponent implements OnInit {
 
         });
         this.demand_letter = data.Table;
+        this.demand_letter_len = this.demand_letter.length;
         this.loading = false;
         console.log(this.demand_letter);
       }
@@ -181,15 +186,31 @@ export class RaiseDemandComponent implements OnInit {
       this.file_uploaded[index] = 'Y';
       this.file_ext[index] = this.file[index].name.split('.').pop();
 
-      // var myReader: FileReader = new FileReader();
-      // var that = this;
-      // myReader.readAsDataURL(file);
-      // myReader.onloadend = function (loadEvent: any) {
-      //   that.file_base64 = loadEvent.target.result;
-      //   console.log(that.file_base64);
-      // };
-
-
     }
+  }
+
+  getAllDoc(){
+    let body_Show_All_Doc = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                              <soapenv:Header/>
+                              <soapenv:Body>
+                                <tem:Show_All_Doc>
+                                    <!--Optional:-->
+                                    <tem:I_PROJECT_No>${this.project_id}</tem:I_PROJECT_No>
+                                </tem:Show_All_Doc>
+                              </soapenv:Body>
+                          </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Show_All_Doc';
+    let result_tag = 'Show_All_DocResult';
+    this.shared.getData(soapaction, body_Show_All_Doc, result_tag).subscribe(
+      (data) => {
+        let all_doc = data.Table;
+        all_doc.forEach(element => {   
+          if(element.DOCUMENTCODE == 'DEV_LTR'){
+            this.raise_doc.push(element);
+          }
+        });
+      }
+    );
   }
 }

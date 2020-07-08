@@ -30,6 +30,7 @@ export class UpdateWorkComponent implements OnInit {
   search_text:any;
   selected_building_name: any;
   loading: boolean;
+  building_list_len: any = 0;
   constructor(private shared: SharedService, private fb: FormBuilder) {
     // this.show_progress=false;
   }
@@ -155,6 +156,7 @@ export class UpdateWorkComponent implements OnInit {
           count++;
         });
         this.building_list = data.Table;
+        this.building_list_len = this.building_list.length;
         this.loading = false;
         console.log(this.building_list);
       }

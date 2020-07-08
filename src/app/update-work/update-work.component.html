@@ -15,7 +15,7 @@
     <div class="col-lg-12 col-12 px-0 first-line">
         <div class="col-lg-7 mx-0 mt-2 list pl-0">
             <h5>Update Work Progress</h5>
-            <span class="badge badge-primary ml-2 mt-1">22</span>
+            <span class="badge badge-primary ml-2 mt-1">{{ building_list_len }}</span>
         </div>
     </div>
     <!-- --------------------------------------------------new -->
@@ -125,7 +125,7 @@
                     </div>
                     <div class="col-lg-7 col-6 top px-0  pad-x">
                         <button class="fs-13 btn web_btn auto-btn" type="button"
-                            [routerLink]="['/raise-demand',project_selected,data.PROJ_BLDG_NO]">Raise Demand
+                            [routerLink]="['/raise-demand',project_selected,data.PROJ_BLDG_NO,data.BLDG_NAME]">Raise Demand
                             Letter</button>
                     </div>
                     <!-- for desktop view only -->

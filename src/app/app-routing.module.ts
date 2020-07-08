@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'project-overview/:pid', component: ProjectOverviewComponent},
   { path: 'customer-lead', component: CustomerLeadComponent},
   { path: 'project-disbursement', component: ProjectDistursementComponent},
-  { path: 'raise-demand/:pid/:bid', component: RaiseDemandComponent},
+  { path: 'raise-demand/:pid/:bid/:b_name', component: RaiseDemandComponent},
   { path: 'setting', component: SettingComponent},
   { path: 'reach-us', component: ReachUsComponent},
   { path: 'respond-to-queries', component: RespondToQueriesComponent}

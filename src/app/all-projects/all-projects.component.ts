@@ -32,6 +32,7 @@ export class AllProjectsComponent implements OnInit {
   file_ext: any;
   query_id: any;
   loading: boolean;
+  project_list_len: any = 0;
   constructor(private shared: SharedService, private ar: ActivatedRoute) {
     console.log(ar)
   }
@@ -99,7 +100,7 @@ export class AllProjectsComponent implements OnInit {
     this.shared.getData(soapaction, body_pac_project_list, result_tag).subscribe(
       (data) => {
         this.project_list = data.Table;
-        let count = 0;
+        this.project_list_len = this.project_list.length;
         this.project_list.forEach(element => {
           let doc_perc = (element.PENDING_DOC / element.UPL_DOC_CNT) * 100;
           this.project_list[0].doc_perc = doc_perc;
