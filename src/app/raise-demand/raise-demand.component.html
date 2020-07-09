@@ -113,7 +113,7 @@
                     <img class="w-01 pr-1" src="./assets/images/icons/attach icon.png" data-toggle="modal"
                         data-target="#example" (click)="openModel(dl.FILE_NO,dl.CUSTOMER_NAME,i)">
                     <img class="w-01 pr-1" src="./assets/images/icons/view icon.png" data-toggle="modal"
-                        data-target="#example2">
+                        data-target="#example2" (click)="getFiles(dl.DOC_UPLD_SRNO,dl.CUSTOMER_NAME)">
                 </div>
                 <div class="col-xl-1  pr-2 pl-0 pt-2 text-center">
                     <input type="submit" class="btn-submit">
@@ -189,10 +189,10 @@
             <!-- <hr> -->
             <div class="col-lg-12 col-12 row m-0">
                 <div class="col-lg-6 col-6 pl-0 pt-2">
-                    <p class="top fs-13"><b>Building Name: Moti Nagar (44436)</b></p>
+                    <p class="top fs-13"><b>Building Name: {{ building_name }}</b></p>
                 </div>
                 <div class="col-lg-6 col-6 pr-0 pt-2">
-                    <p class="top fs-13"><b>Customer Name: Moti Nagar Type 1 Wing 1</b></p>
+                    <p class="top fs-13"><b>Customer Name: {{ cust_name_file }}</b></p>
                 </div>
             </div>
             <div class="modal-body px-0">
@@ -204,15 +204,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="">Moti Nagar</td>
-                            <!-- <td>15 Dec'18</td> -->
-                            <td class="text-left">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
-                        </tr>
-                        <tr>
-                            <td class="">Moti Nagar</td>
-                            <!-- <td>15 Dec'18</td> -->
-                            <td class="text-left">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
+                        <tr *ngFor="let doc of raise_doc">
+                            <td class="">{{ doc.UPLOAD_FILE_NAME }}</td>
+                            <td class="text-left">{{ doc.REMARK }}</td>
                         </tr>
                     </tbody>
                 </table>

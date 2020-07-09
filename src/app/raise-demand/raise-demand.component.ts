@@ -26,9 +26,10 @@ export class RaiseDemandComponent implements OnInit {
   doc_srno: any = [];
   remark: any = '';
   loading: boolean;
-  raise_doc: any;
+  raise_doc: any = [];
   demand_letter_len: any = 0;
   building_name: any;
+  cust_name_file: any;
   constructor(private shared: SharedService, private activatedRoute: ActivatedRoute, private route: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -55,9 +56,9 @@ export class RaiseDemandComponent implements OnInit {
                                   <soapenv:Body>
                                     <tem:get_file_list>
                                         <!--Optional:-->
-                                        <tem:i_project_id>${this.project_id}</tem:i_project_id>
+                                        <tem:i_project_id>47091</tem:i_project_id>
                                         <!--Optional:-->
-                                        <tem:i_proj_bldg_no>${this.building_id}</tem:i_proj_bldg_no>
+                                        <tem:i_proj_bldg_no>96354</tem:i_proj_bldg_no>
                                         <!--Optional:-->
                                         <tem:Token>${this.token}</tem:Token>
                                     </tem:get_file_list>
@@ -84,11 +85,11 @@ export class RaiseDemandComponent implements OnInit {
   }
 
 
-  updateDemandLetter(data,demand, index) {
+  updateDemandLetter(data, demand, index) {
     console.log(data);
     if (this.dynamic_forms[demand.FILE_NO].valid) {
       if (this.file_uploaded[index] == 'Y') {
-        let body_insert_demand= `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+        let body_insert_demand = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                     <soapenv:Header/>
                                     <soapenv:Body>
                                         <tem:ins_dev_port_demand_ltr>
@@ -140,7 +141,7 @@ export class RaiseDemandComponent implements OnInit {
       }
     }
   }
-  
+
   openModel(file_no, cust_name, index) {
     this.file_selected = file_no;
     this.cust_name_selected = cust_name;
@@ -189,28 +190,34 @@ export class RaiseDemandComponent implements OnInit {
     }
   }
 
-  getAllDoc(){
-    let body_Show_All_Doc = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
-                              <soapenv:Header/>
-                              <soapenv:Body>
-                                <tem:Show_All_Doc>
-                                    <!--Optional:-->
-                                    <tem:I_PROJECT_No>${this.project_id}</tem:I_PROJECT_No>
-                                </tem:Show_All_Doc>
-                              </soapenv:Body>
-                          </soapenv:Envelope>`;
+  getFiles(sr_no,cust_name) {
+    let sr_no_arr = sr_no ? sr_no.split(',') : [];
+    this.raise_doc = [];
+    this.cust_name_file = cust_name; 
+    sr_no_arr.forEach(element => {
+      let body_get_upld_doc_name = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                      <soapenv:Header/>
+                                      <soapenv:Body>
+                                        <tem:get_upld_doc_name>
+                                            <!--Optional:-->
+                                            <tem:i_doc_upld_srno>${element}</tem:i_doc_upld_srno>
+                                        </tem:get_upld_doc_name>
+                                      </soapenv:Body>
+                                  </soapenv:Envelope>`;
 
-    let soapaction = 'http://tempuri.org/IService1/Show_All_Doc';
-    let result_tag = 'Show_All_DocResult';
-    this.shared.getData(soapaction, body_Show_All_Doc, result_tag).subscribe(
-      (data) => {
-        let all_doc = data.Table;
-        all_doc.forEach(element => {   
-          if(element.DOCUMENTCODE == 'DEV_LTR'){
-            this.raise_doc.push(element);
-          }
-        });
-      }
-    );
+      let soapaction = 'http://tempuri.org/IService1/get_upld_doc_name';
+      let result_tag = 'get_upld_doc_nameResult';
+      this.shared.getData(soapaction, body_get_upld_doc_name, result_tag).subscribe(
+        (data) => {
+          let all_doc = data.Table;
+          all_doc.forEach(element => {
+              this.raise_doc.push(element);
+          });
+        }
+      );
+    });
+
   }
+
+
 }
