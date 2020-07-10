@@ -69,12 +69,15 @@ export class RaiseDemandComponent implements OnInit {
     let result_tag = 'get_file_listResult';
     this.shared.getData(soapaction, body_raise_demand_letter, result_tag).subscribe(
       (data) => {
+        let count = 0;
         data.Table.forEach(element => {
           this.dynamic_forms[element.FILE_NO] = this.fb.group({
             'soc': [element.STAGE_OF_CONST, Validators.required],
             'due_perc': [element.DUE_PERC, Validators.required],
           });
 
+          this.file_name[count] = '';
+          count++;
         });
         this.demand_letter = data.Table;
         this.demand_letter_len = this.demand_letter.length;
@@ -158,6 +161,7 @@ export class RaiseDemandComponent implements OnInit {
               (doc_data) => {
                 this.doc_srno[index] = doc_data.o_srno;
                 console.log(doc_data)
+                alert('Document uploaded')
               }
             )
           }
@@ -210,6 +214,7 @@ export class RaiseDemandComponent implements OnInit {
       this.shared.getData(soapaction, body_get_upld_doc_name, result_tag).subscribe(
         (data) => {
           let all_doc = data.Table;
+          let count = 0;
           all_doc.forEach(element => {
               this.raise_doc.push(element);
           });

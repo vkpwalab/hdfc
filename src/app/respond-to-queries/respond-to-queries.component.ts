@@ -304,6 +304,7 @@ export class RespondToQueriesComponent implements OnInit {
           this.message = '';
           this.removeFile();
           alert('Your query is submitted');
+          location.reload();
         }
       }
     );

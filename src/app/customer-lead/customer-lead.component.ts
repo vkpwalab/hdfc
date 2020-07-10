@@ -339,7 +339,9 @@ export class CustomerLeadComponent implements OnInit {
       }
       alert('Thank you.Your Form is Submitted Successfully.');
       this.file_name = '';
+      this.project_selected = '';
       this.sheet_uploaded = false;
+      location.reload();
     }
   }
 
