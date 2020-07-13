@@ -43,11 +43,11 @@
 
                         <div class="form-group Captcha">
                             <div class="col-7 mt-1 border border-dark">
-                                <input type="text" class="input" placeholder="Insert Captcha">
+                                <input type="text" class="input" placeholder="Insert Captcha" formControlName="captcha">
                             </div>
                             <div class="col-5 Captcha-text ml-1">
-                                <p class="float-left pt-2 "><b>3RUSIC</b></p>
-                                <i class="fa fa-refresh float-right text-secondary pt-2" aria-hidden="true"></i>
+                                <p class="float-left pt-2 "><b>{{ captcha }}</b></p>
+                                <i class="fa fa-refresh float-right text-secondary pt-2" aria-hidden="true" (click)="generateCaptcha()"></i>
                             </div>
                         </div>
 
