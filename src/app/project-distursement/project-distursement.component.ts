@@ -88,6 +88,7 @@ export class ProjectDistursementComponent implements OnInit {
   }
 
   projectChange(event) {
+    this.disbursement_list = [];
     this.loading = true;
     this.project_selected = event.value;
     let body_Building_List = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">

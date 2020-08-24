@@ -343,6 +343,9 @@ export class CustomerLeadComponent implements OnInit {
       this.sheet_uploaded = false;
       location.reload();
     }
+    else{
+      alert("Please select all the fields.")
+    }
   }
 
 
