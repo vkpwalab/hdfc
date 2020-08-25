@@ -170,6 +170,7 @@ export class ProjectDetailsComponent implements OnInit {
       $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
 
       localStorage.setItem('project_detail', JSON.stringify(data));
+      this.shared.sharedTab.tab = false;
     }
   }
 

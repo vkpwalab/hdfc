@@ -75,6 +75,8 @@ export class RespondToQueriesComponent implements OnInit {
         this.builder_detail = data.Table[0];
         this.branch_no = this.builder_detail.BRANCH_NO;
         console.log(this.builder_detail);
+        console.log(typeof this.builder_detail);
+        
         this.getPacProjectList();
       }
     );
@@ -111,6 +113,8 @@ export class RespondToQueriesComponent implements OnInit {
   }
 
   projectChange(event) {
+    this.query_list = [];
+    this.responded_query = [];
     this.loading = true;
     this.project_selected = event.value;
 
@@ -180,6 +184,7 @@ export class RespondToQueriesComponent implements OnInit {
   }
 
   queryData(id, raised_by, query,type) {
+  
     this.selected_query = query;
     this.raised_by = raised_by;
     this.query_view_type = type;

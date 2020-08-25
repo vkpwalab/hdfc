@@ -27,7 +27,6 @@ export class BuildersBankComponent implements OnInit {
   ngOnInit(): void {
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
-    this.file_uploaded = 'N';
 
     this.dynamic_forms[0] = this.fb.group({
       'payee_name': ['', Validators.required],
@@ -144,6 +143,7 @@ export class BuildersBankComponent implements OnInit {
 
   uploadBankFile(data,index) {
     console.log(data)
+    console.log(this.file_uploaded[index]);
     if (this.file_uploaded[index] == 'Y') {
       this.shared.uploadDoc(this.file[index], this.file_ext[index], this.project_id, 'CHQ', this.file_name[index]).subscribe(
         (res) => {
@@ -157,6 +157,8 @@ export class BuildersBankComponent implements OnInit {
           }
         }
       )
+    }else{
+      alert('Please upload document');
     }
 
   }
@@ -191,11 +193,11 @@ export class BuildersBankComponent implements OnInit {
                                   <!--Optional:-->
                                   <tem:i_remarks>?</tem:i_remarks>
                                   <!--Optional:-->
-                                  <tem:i_user_id>?</tem:i_user_id>
+                                  <tem:i_user_id>${this.builder_id}</tem:i_user_id>
                                   <!--Optional:-->
                                   <tem:i_doc_upld_srno>${srno}</tem:i_doc_upld_srno>
                                   <!--Optional:-->
-                                  <tem:Token>?</tem:Token>
+                                  <tem:Token>${this.token}</tem:Token>
                               </tem:ins_devport_project_bank>
                             </soapenv:Body>
                         </soapenv:Envelope>`;
@@ -229,7 +231,7 @@ export class BuildersBankComponent implements OnInit {
       this.file_name[index] = this.file[index].name.split('.')[0]
       this.file_uploaded[index] = 'Y';
       this.file_ext[index] = this.file[index].name.split('.').pop();
-
+      console.log(this.file_uploaded);
     }
   }
 
@@ -237,6 +239,8 @@ export class BuildersBankComponent implements OnInit {
     if(this.bank_added){
       $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
       $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+      this.shared.sharedTab4.tab = false;
+      
     }else{
       alert('Add atleast one bank detail')
     }

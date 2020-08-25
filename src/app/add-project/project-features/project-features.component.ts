@@ -93,6 +93,7 @@ export class ProjectFeaturesComponent implements OnInit {
     console.log(data);
     console.log(this.project_feature_form.controls['contruction_finance'].valid);
     if (this.project_feature_form.valid) {
+      this.shared.sharedTab2.tab = false;
 
       localStorage.setItem('project_feature', JSON.stringify(data));
       let project_detail = JSON.parse(localStorage.getItem('project_detail'));

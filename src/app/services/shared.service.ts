@@ -29,9 +29,13 @@ export class SharedService {
 
   project_id = new BehaviorSubject('')
   projectId(v) {
-    this.project_id.next(v)
+    this.project_id.next(v)   
   }
-
+  sharedTab = {"tab" :true}
+  sharedTab1 = {"tab" :true}
+  sharedTab2 = {"tab" :true}
+  sharedTab3 = {"tab" :true}
+  sharedTab4 = {"tab" :true}
   isMobile() {
     {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

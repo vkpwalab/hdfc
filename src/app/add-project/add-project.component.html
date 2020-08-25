@@ -43,32 +43,32 @@
                 <h6>Projects Details</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-Address-tab" data-toggle="pill" href="#pills-2" role="tab"
+                <a class="nav-link" [ngClass]="shared.sharedTab.tab == true ? 'disabled' : 'active'" id="pills-Address-tab" data-toggle="pill" href="#pills-2" role="tab"
                     aria-controls="pills-Address" aria-selected="false">2</a>
                 <h6>Address Details</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-Features-tab" data-toggle="pill" href="#pills-3" role="tab"
+                <a class="nav-link" [ngClass]="shared.sharedTab1.tab == true ? 'disabled' : 'active'" id="pills-Features-tab" data-toggle="pill" href="#pills-3" role="tab"
                     aria-controls="pills-Features" aria-selected="false">3</a>
                 <h6>Projcets Features</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-RERA-tab" data-toggle="pill" href="#pills-4" role="tab"
+                <a class="nav-link" [ngClass]="shared.sharedTab2.tab == true ? 'disabled' : 'active'" id="pills-RERA-tab" data-toggle="pill" href="#pills-4" role="tab"
                     aria-controls="pills-RERA" aria-selected="false">4</a>
                 <h6>RERA Details</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-Builders-tab" data-toggle="pill" href="#pills-5" role="tab"
+                <a class="nav-link" [ngClass]="shared.sharedTab3.tab == true ? 'disabled' : 'active'" id="pills-Builders-tab" data-toggle="pill" href="#pills-5" role="tab"
                     aria-controls="pills-Builders" aria-selected="false">5</a>
                 <h6>Builders Bank a/c</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-Upload-tab" data-toggle="pill" href="#pills-6" role="tab"
+                <a class="nav-link" [ngClass]="shared.sharedTab4.tab == true ? 'disabled' : 'active'" id="pills-Upload-tab" data-toggle="pill" href="#pills-6" role="tab"
                     aria-controls="pills-Upload" aria-selected="false">6</a>
                 <h6>Upload Docx.</h6>
             </li>
         </ul>
-
+\
     </div>
 
     <!--------------- BOTTOM CARD -------------- -->

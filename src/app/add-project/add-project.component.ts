@@ -35,10 +35,14 @@ export class AddProjectComponent implements OnInit {
   curr_marker: any;
   pt: any;
   latlong: any;
+  changeTab: any;
 
   constructor(private shared: SharedService, private http:HttpClient) { }
 
   ngOnInit(): void {
+    // this.changeTab = this.shared.sharedTab.tab;
+    console.log(this.changeTab);
+    
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
 

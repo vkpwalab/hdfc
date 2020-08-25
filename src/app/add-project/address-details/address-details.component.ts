@@ -40,8 +40,8 @@ export class AddressDetailsComponent implements OnInit {
       'south': ['', Validators.required],
     })
 
-      this.getState();
- 
+    this.getState();
+
   }
 
   getState() {
@@ -96,6 +96,8 @@ export class AddressDetailsComponent implements OnInit {
       $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
 
       localStorage.setItem('address_detail', JSON.stringify(data));
+      this.shared.sharedTab1.tab = false;
+
     }
 
   }
@@ -349,7 +351,7 @@ export class AddressDetailsComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
 
-    if(changes['draft_data'] !== undefined){
+    if (changes['draft_data'] !== undefined) {
       this.address_detail_form.controls['sno'].setValue(this.draft_data.CTS_NO);
       this.address_detail_form.controls['plot_no'].setValue(this.draft_data.PLOT_NO);
       this.address_detail_form.controls['address'].setValue(this.draft_data.ADDRESS_LINE);
@@ -361,7 +363,7 @@ export class AddressDetailsComponent implements OnInit {
       this.address_detail_form.controls['west'].setValue(this.draft_data.BOUNDARY_DET_WEST);
       this.address_detail_form.controls['north'].setValue(this.draft_data.BOUNDARY_DET_NORTH);
       this.address_detail_form.controls['south'].setValue(this.draft_data.BOUNDARY_DET_SOUTH);
-      let event = {value:this.draft_data.STATE};
+      let event = { value: this.draft_data.STATE };
       this.stateChange(event);
       this.address_detail_form.controls['city'].setValue(this.draft_data.CITY_DISTRICT);
 
@@ -370,10 +372,34 @@ export class AddressDetailsComponent implements OnInit {
       this.address_detail_form.controls['long'].setValue(latlng[1]);
     }
 
-    if(changes['latlong'] !== undefined){
+    if (changes['latlong'] !== undefined) {
       this.address_detail_form.controls['lat'].setValue(this.latlong.lat);
       this.address_detail_form.controls['long'].setValue(this.latlong.lng);
+      this.getAddressFromLatLng(this.latlong.lat, this.latlong.lng);
     }
   }
 
+  getAddressFromLatLng(lat, lng) {
+    let body_get_addres = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                            <soapenv:Header/>
+                            <soapenv:Body>
+                              <tem:Get_Addr_lat_long_addr>
+                                  <!--Optional:-->
+                                  <tem:latitude>${lat}</tem:latitude>
+                                  <!--Optional:-->
+                                  <tem:longitude>${lng}</tem:longitude>
+                                  <!--Optional:-->
+                                  <tem:Token>${this.token}</tem:Token>
+                              </tem:Get_Addr_lat_long_addr>
+                            </soapenv:Body>
+                        </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/Get_Addr_lat_long_addr';
+    let result_tag = 'Get_Addr_lat_long_addrResult';
+    this.shared.getData(soapaction, body_get_addres, result_tag).subscribe(
+      (data) => {
+        console.log(data.Table);
+      }
+    );
+  }
 }
