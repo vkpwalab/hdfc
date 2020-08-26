@@ -12,6 +12,11 @@ export class SharedService {
   path: string;
   token: string;
   builder_id: string;
+  sharedTab = {"tab" :true}
+  sharedTab1 = {"tab" :true}
+  sharedTab2 = {"tab" :true}
+  sharedTab3 = {"tab" :true}
+  sharedTab4 = {"tab" :true}
   api_path: string = environment.Baseurl;
   constructor(private ar: ActivatedRoute, private http: HttpClient) {
     this.builder_id = '510673';
@@ -31,11 +36,7 @@ export class SharedService {
   projectId(v) {
     this.project_id.next(v)   
   }
-  sharedTab = {"tab" :true}
-  sharedTab1 = {"tab" :true}
-  sharedTab2 = {"tab" :true}
-  sharedTab3 = {"tab" :true}
-  sharedTab4 = {"tab" :true}
+  
   isMobile() {
     {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

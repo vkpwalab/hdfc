@@ -37,7 +37,7 @@ export class AddProjectComponent implements OnInit {
   latlong: any;
   changeTab: any;
 
-  constructor(private shared: SharedService, private http:HttpClient) { }
+  constructor(public shared: SharedService, private http:HttpClient) { }
 
   ngOnInit(): void {
     // this.changeTab = this.shared.sharedTab.tab;
