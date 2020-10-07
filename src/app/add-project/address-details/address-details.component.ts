@@ -398,6 +398,8 @@ export class AddressDetailsComponent implements OnInit {
     let result_tag = 'Get_Addr_lat_long_addrResult';
     this.shared.getData(soapaction, body_get_addres, result_tag).subscribe(
       (data) => {
+        console.log(data);
+        
         console.log(data.Table);
       }
     );

@@ -148,7 +148,7 @@ export class RERADetailsComponent implements OnInit {
       this.shared.getData(soapaction, body_rera_submit, result_tag).subscribe(
         (data) => {
           if (data == 'Success') {
-            this.shared.sharedTab2.tab = false;
+            this.shared.sharedTab3.tab = false;
 
             $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
             $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');

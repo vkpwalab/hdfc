@@ -93,7 +93,6 @@ export class ProjectFeaturesComponent implements OnInit {
     console.log(data);
     console.log(this.project_feature_form.controls['contruction_finance'].valid);
     if (this.project_feature_form.valid) {
-      this.shared.sharedTab2.tab = false;
 
       localStorage.setItem('project_feature', JSON.stringify(data));
       let project_detail = JSON.parse(localStorage.getItem('project_detail'));
@@ -329,6 +328,8 @@ export class ProjectFeaturesComponent implements OnInit {
     this.shared.getData(soapaction, body_draft_xml, result_tag).subscribe(
       (data) => {
         if (data.O_Project_id) {
+          this.shared.sharedTab2.tab = false;
+
           this.shared.projectId(data.O_Project_id);
           $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
           $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
