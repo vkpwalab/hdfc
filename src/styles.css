@@ -1,3 +1,26 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height: 10px !important;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:#e3310d; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+html,body {
+  scroll-behavior: smooth !important;
+}
+
 @font-face {
   font-family: 'Titillium Web';
   font-style: normal;
@@ -62,7 +85,7 @@ html, body {font-family: 'Titillium Web'!important;}
 }
 .main_btn_log:focus{outline: none}
 /* .btn:focus {outline: none;} */
-.main-list:focus{outline: none}
+.main-list:focus, div ,p{outline: none}
 .mat-tab-label {font-family: 'Titillium Web'!important;}
 .mat-input-element {font-family: 'Titillium Web'!important;}
 .mat-select {font-family: 'Titillium Web'!important;}
@@ -88,11 +111,11 @@ textarea{outline: none !important;}
   background-color:white!important;
   color: black;
 }
-#submit .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
-#submit2 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
-#submit3 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
+#submit .mat-tab-group.mat-primary .mat-ink-bar{background-color: #e3310d !important;}
+#submit2 .mat-tab-group.mat-primary .mat-ink-bar{background-color: #e3310d !important;}
+#submit3 .mat-tab-group.mat-primary .mat-ink-bar{background-color: #e3310d !important;}
 
-#submit1 .mat-tab-group.mat-primary .mat-ink-bar{background-color: red !important;}
+#submit1 .mat-tab-group.mat-primary .mat-ink-bar{background-color: #e3310d !important;}
 
 #submit1 .mat-ink-bar {height: 4px !important;}
 #submit2 .mat-ink-bar {height: 4px !important;}

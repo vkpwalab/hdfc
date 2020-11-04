@@ -135,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "hdfc-loan"
+  "defaultProject": "hdfc-loan",
+  "cli": {
+    "analytics": "7eb03bba-ff69-40b5-a0de-fca93fc37423"
+  }
 }

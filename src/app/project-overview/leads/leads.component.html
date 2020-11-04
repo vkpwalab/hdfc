@@ -1,6 +1,16 @@
+<div class="col-lg-12 text-right">
+    <div class="col-lg-3 col-12 px-0 pt-3 search">
+        <form class="form-inline  mx-0">
+            <i class="fa fa-search pr-1" aria-hidden="true"></i>
+            <input type="search" placeholder="Search" name="search" [(ngModel)]="search_number" [(ngModel)]="search_text" aria-label="Search">
+
+        </form>
+    </div>
+</div>
+
 <div class="col-lg-12 col-12 padlr">
     <div class="col-lg-12 col-12 row px-0 m-0 pb-4">
-        <div class="col-lg-3 col-12 mt-4 " *ngFor="let lead of leads">
+        <div class="col-lg-3 col-12 mt-4 " *ngFor="let lead of leads | filter:search_number | filter:search_text">
             <div style="border: 1px solid lightgray;" class="card p-2 brnew">
                 <div class="col-lg-12 col-12 d-inline-flex px-0">
                     <div class="col-lg-6 col-6 px-0">

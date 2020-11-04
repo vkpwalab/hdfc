@@ -3,25 +3,25 @@
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>PLOT AREA (IN SQMTR)<span class="text-danger">*</span></mat-label>
-                <input matInput formControlName="plot_area">
+                <input type="number" matInput formControlName="plot_area">
             </mat-form-field>
         </div>
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>TOTAL NUMBER OF BUILDINGS<span class="text-danger">*</span></mat-label>
-                <input matInput formControlName="total_no_of_building">
+                <input type="number" matInput formControlName="total_no_of_building">
             </mat-form-field>
         </div>
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>TOTAL BUILD-UP AREA(IN SQMTR)</mat-label>
-                <input matInput formControlName="total_buildup_area">
+                <input type="number" matInput formControlName="total_buildup_area">
             </mat-form-field>
         </div>
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>PROJECT COST IN CRS.(APPX)</mat-label>
-                <input matInput formControlName="project_cost">
+                <input type="number" matInput formControlName="project_cost">
             </mat-form-field>
         </div>
 
@@ -54,19 +54,19 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input matInput formControlName="residencial_total_unit">
+                                        <input type="number" matInput formControlName="residencial_total_unit">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input matInput formControlName="residencial_solid_unit">
+                                        <input type="number" matInput formControlName="residencial_solid_unit">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AVAILABLE FOR SALE</mat-label>
-                                        <input matInput formControlName="residencial_available_sale">
+                                        <input type="number" matInput formControlName="residencial_available_sale">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>RATE PER SQFT</mat-label>
-                                        <input matInput formControlName="residencial_rate_per_sqft">
+                                        <input type="number" matInput formControlName="residencial_rate_per_sqft">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
@@ -85,7 +85,6 @@
                                             <mat-option value="option">Super Built-up Area</mat-option>
                                             <mat-option value="option">Built-up Area</mat-option>
                                             <mat-option value="option">Carpet Area</mat-option>
-                                            <mat-option value="option">Hall Area</mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
@@ -115,19 +114,19 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input matInput formControlName="commercial_total_unit">
+                                        <input type="number" matInput formControlName="commercial_total_unit">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input matInput formControlName="commercial_solid_unit">
+                                        <input type="number" matInput formControlName="commercial_solid_unit">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AVAILABLE FOR SALE</mat-label>
-                                        <input matInput formControlName="commercial_available_sale">
+                                        <input type="number" matInput formControlName="commercial_available_sale">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -136,7 +135,7 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>RATE PER SQFT</mat-label>
-                                        <input matInput formControlName="commercial_rate_per_sqft">
+                                        <input type="number" matInput formControlName="commercial_rate_per_sqft">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
@@ -146,7 +145,6 @@
                                             <mat-option value="option">Super Built-up Area</mat-option>
                                             <mat-option value="option">Built-up Area</mat-option>
                                             <mat-option value="option">Carpet Area</mat-option>
-                                            <mat-option value="option">Hall Area</mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
@@ -176,19 +174,19 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input matInput formControlName="plot_total_unit">
+                                        <input type="number" matInput formControlName="plot_total_unit">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input matInput formControlName="plot_solid_unit">
+                                        <input type="number" matInput formControlName="plot_solid_unit">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AVAILABLE FOR SALE</mat-label>
-                                        <input matInput formControlName="plot_available_sale">
+                                        <input type="number" matInput formControlName="plot_available_sale">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -197,17 +195,14 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>RATE PER SQFT</mat-label>
-                                        <input matInput formControlName="plot_rate_per_sqft">
+                                        <input type="number" matInput formControlName="plot_rate_per_sqft">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AREA UNIT</mat-label>
                                         <mat-select formControlName="plot_area_unit">
-                                            <mat-option value="option">Super Built-up Area</mat-option>
-                                            <mat-option value="option">Built-up Area</mat-option>
-                                            <mat-option value="option">Carpet Area</mat-option>
-                                            <mat-option value="option">Hall Area</mat-option>
+                                            <mat-option value="option">Plot Area</mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
@@ -237,19 +232,19 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input matInput formControlName="bungalow_total_unit">
+                                        <input type="number" matInput formControlName="bungalow_total_unit">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input matInput formControlName="bungalow_solid_unit">
+                                        <input type="number" matInput formControlName="bungalow_solid_unit">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AVAILABLE FOR SALE</mat-label>
-                                        <input matInput formControlName="bungalow_available_sale">
+                                        <input type="number" matInput formControlName="bungalow_available_sale">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -258,7 +253,7 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>RATE PER SQFT</mat-label>
-                                        <input matInput formControlName="bungalow_rate_per_sqft">
+                                        <input type="number" matInput formControlName="bungalow_rate_per_sqft">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
@@ -268,7 +263,6 @@
                                             <mat-option value="option">Super Built-up Area</mat-option>
                                             <mat-option value="option">Built-up Area</mat-option>
                                             <mat-option value="option">Carpet Area</mat-option>
-                                            <mat-option value="option">Hall Area</mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
@@ -293,13 +287,13 @@
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>UNITS ALLOTED TO LANDOWNER TOTAL NUMBERS<span class="text-danger">*</span></mat-label>
-                <input matInput formControlName="total_number">
+                <input type="number" matInput formControlName="total_number">
             </mat-form-field>
         </div>
 
         <div class="col-lg-6">
             <mat-form-field appearance="standard">
-                <mat-label> MENTION SPECFIC DETAILS(UNDER DEYAILS)<span class="text-danger">*</span></mat-label>
+                <mat-label> MENTION SPECFIC DETAILS(UNDER DETAILS)<span class="text-danger">*</span></mat-label>
                 <input matInput formControlName="mention_specfic_detail">
             </mat-form-field>
         </div>

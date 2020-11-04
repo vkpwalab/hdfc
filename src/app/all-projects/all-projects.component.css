@@ -1,5 +1,6 @@
 @media screen and (min-width:320px) and (max-width: 576px){
             /* MAIN CONTAIN  */
+            .title-bar {display: none;}
             .flex-mobile {display: inline-flex;}
             .main-list{margin-top: 20px;border: 1px solid rgb(156, 155, 155);padding: 10px;border-radius: 10px;}
             .main_btn_log{ display: none;}

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
-
+import $ from 'jquery';
 @Component({
   selector: 'app-leads',
   templateUrl: './leads.component.html',
@@ -10,11 +10,21 @@ export class LeadsComponent implements OnInit {
   @Input() project_id: any;
   token: string;
   leads: any;
+  search_text: string;
+  search_number: string;
   constructor( private shared:SharedService) { }
 
   ngOnInit(): void {
     this.token = 'MH3NPYK34J0KHDI';
     this.getProjectLead();
+  }
+
+  showFilter(id) {
+    if ($('#filter' + id).is(':visible')) {
+      $('#filter' + id).hide();
+    } else {
+      $('#filter' + id).show();
+    }
   }
 
   getProjectLead() {
