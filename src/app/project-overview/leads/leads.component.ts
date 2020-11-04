@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import $ from 'jquery';
+
 @Component({
   selector: 'app-leads',
   templateUrl: './leads.component.html',
@@ -12,7 +13,7 @@ export class LeadsComponent implements OnInit {
   leads: any;
   search_text: string;
   search_number: string;
-  constructor( private shared:SharedService) { }
+  constructor( private shared:SharedService) {  }
 
   ngOnInit(): void {
     this.token = 'MH3NPYK34J0KHDI';
