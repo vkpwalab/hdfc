@@ -3,7 +3,7 @@
 .button {display: inline-flex;}
 .next {border: 1px solid red;}
 .draft {background-color: white;color: #e3310d ;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
-.chos {position: absolute;top: 0;right: -3px;opacity: 0;width: 20%;}
+.chos {position: absolute;top: 0;right: 7px;opacity: 0;width: 20%;}
 #chos .main_btn_log {width: 20%;position: absolute;top: -8px;right: 0%;height: 30px !important;z-index: -1;padding: 6px;}
 .para:hover{cursor: pointer;text-decoration: underline;}
 .para {font-family: 'Titillium Web' !important;font-size: 14px;}

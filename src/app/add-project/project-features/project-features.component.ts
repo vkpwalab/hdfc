@@ -21,6 +21,43 @@ export class ProjectFeaturesComponent implements OnInit {
     this.show_clps = true;
   }
 
+  // for RESIDENTIAL
+  public greaterThanValue = 0;
+  public lessThanValue = 1;
+  public isInvalid: boolean = false;
+
+  public onChange(event: any): void {
+    this.isInvalid = this.lessThanValue > this.greaterThanValue;    
+  }
+
+   // for COMMERCIAL
+   public greaterThanValuec = 0;
+   public lessThanValuec = 1;
+   public isInvalidc: boolean = false;
+ 
+   public onChangec(event: any): void {
+     this.isInvalidc = this.lessThanValuec > this.greaterThanValuec;    
+   } 
+
+    // for PLOTS
+    public greaterThanValuep = 0;
+    public lessThanValuep = 1;
+    public isInvalidp: boolean = false;
+
+    public onChangep(event: any): void {
+      this.isInvalidp = this.lessThanValuep > this.greaterThanValuep;    
+    }
+
+    // for BUNGALOWS
+    public greaterThanValueb = 0;
+    public lessThanValueb = 1;
+    public isInvalidb: boolean = false;
+
+    public onChangeb(event: any): void {
+      this.isInvalidb = this.lessThanValueb > this.greaterThanValueb;    
+    }
+
+
   ngOnInit(): void {
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
