@@ -3,6 +3,8 @@ import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import $ from 'jquery';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { } from 'googlemaps';
 
 @Component({
   selector: 'app-address-details',
@@ -18,7 +20,11 @@ export class AddressDetailsComponent implements OnInit {
   @Input() latlong: any;
   builder_id: string;
   token: string;
-  constructor(private shared: SharedService, private fb: FormBuilder) { }
+
+  closeResult = '';
+  map: google.maps.Map;
+
+  constructor(private shared: SharedService, private fb: FormBuilder, public modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.builder_id = '510673';
@@ -41,6 +47,7 @@ export class AddressDetailsComponent implements OnInit {
     })
 
     this.getState();
+    //this.initMap();
 
   }
 
@@ -399,9 +406,98 @@ export class AddressDetailsComponent implements OnInit {
     this.shared.getData(soapaction, body_get_addres, result_tag).subscribe(
       (data) => {
         console.log(data);
-        
+
         console.log(data.Table);
       }
     );
   }
+
+  open(content) {
+
+    const sno = this.address_detail_form.get('sno');
+    const plotNo = this.address_detail_form.get('plot_no');
+    const address = this.address_detail_form.get('address');
+    const popularLandmark = this.address_detail_form.get('popular_landmark');
+    const location = this.address_detail_form.get('location');
+    const state = this.address_detail_form.get('state');
+    const city = this.address_detail_form.get('city');
+    const pincode = this.address_detail_form.get('pincode')
+
+    if (sno.valid && plotNo.valid && address.valid && popularLandmark.valid && location.valid && state.valid && city.valid && pincode.valid) {
+      const finalAddress = sno.value + "," + plotNo.value + "," + address.value + "," + popularLandmark.value + "," + location.value + "," + state.value + "," + city.value + "," + pincode.value;
+      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+      this.initMap(finalAddress);
+    } else {
+      sno.markAsTouched()
+      plotNo.markAsTouched()
+      address.markAsTouched()
+      popularLandmark.markAsTouched()
+      location.markAsTouched()
+      state.markAsTouched()
+      city.markAsTouched()
+      pincode.markAsTouched()
+    }
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  initMap(finalAddress: string) {
+    this.map = new google.maps.Map(
+      document.getElementById("map2") as HTMLElement,
+      {
+        zoom: 50,
+        center: { lat: 40.731, lng: -73.997 },
+      }
+    );
+    console.log("map init called");
+    const geocoder = new google.maps.Geocoder();
+    const infowindow = new google.maps.InfoWindow();
+
+    this.geocodeAddress(geocoder, this.map, finalAddress);
+    const lat = this.address_detail_form.get('lat')
+    const long = this.address_detail_form.get('long')
+    this.map.addListener("click", (mapsMouseEvent) => {
+      lat.setValue(mapsMouseEvent.latLng.toJSON().lat)
+      long.setValue(mapsMouseEvent.latLng.toJSON().lng)
+    });
+  }
+
+  geocodeAddress(
+    geocoder: google.maps.Geocoder,
+    resultsMap: google.maps.Map,
+    finalAddress: string
+  ) {
+
+    const lat = this.address_detail_form.get('lat')
+    const long = this.address_detail_form.get('long')
+
+    geocoder.geocode({ address: finalAddress }, (results, status) => {
+      if (status === "OK") {
+        console.log(results[0].geometry.location);
+        lat.setValue(results[0].geometry.location.lat())
+        long.setValue(results[0].geometry.location.lng())
+        resultsMap.setCenter(results[0].geometry.location);
+        new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location,
+        });
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+
+  }
+
 }
