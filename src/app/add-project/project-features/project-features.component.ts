@@ -20,6 +20,13 @@ export class ProjectFeaturesComponent implements OnInit {
     this.show_fin_inst = true;
     this.show_clps = true;
   }
+  options = {
+    options : false,
+  }
+  form = new FormGroup({
+    first: new FormControl({value: 'HDFC', disabled: true}, Validators.required),
+    last: new FormControl('Other', Validators.required)
+  }); 
 
   // for RESIDENTIAL
   public greaterThanValue = 0;
@@ -93,6 +100,10 @@ export class ProjectFeaturesComponent implements OnInit {
       'bungalow_available_sale': [0],
       'bungalow_rate_per_sqft': [0],
       'bungalow_area_unit': [''],
+      'options':[''],
+      'bank_name':[''],
+      'mortgaged1': ['', Validators.required],
+      
     })
       //  for accordion
     $('.card-header').click(function() { 
