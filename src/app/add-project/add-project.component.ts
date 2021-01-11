@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+/// <reference types="@types/googlemaps" />
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import $ from 'jquery';
 import { SharedService } from '../services/shared.service';
 import { HttpClient } from '@angular/common/http';
+import { } from 'googlemaps';
 
 declare var MapmyIndia;
 declare var L;
@@ -32,17 +34,20 @@ export class AddProjectComponent implements OnInit {
   builder_id: string;
   token: string;
   map: any;
+  Gmap: google.maps.Map;
   curr_marker: any;
   pt: any;
   latlong: any;
   changeTab: any;
 
-  constructor(public shared: SharedService, private http:HttpClient) { }
+  constructor(public shared: SharedService, private http: HttpClient) { }
+
+
 
   ngOnInit(): void {
     // this.changeTab = this.shared.sharedTab.tab;
     console.log(this.changeTab);
-    
+
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
 
@@ -79,6 +84,7 @@ export class AddProjectComponent implements OnInit {
     localStorage.removeItem('project_detail');
     localStorage.removeItem('address_detail');
     localStorage.removeItem('project_feature');
+    //this.initMap();
   }
 
   applyFilter(event: Event) {
@@ -163,7 +169,7 @@ export class AddProjectComponent implements OnInit {
     );
   }
 
-  selectLocation(){
+  selectLocation() {
     // this.http.get('http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/rev_geocode?lat=26.5645&lng=85.9914').subscribe(
     //   (res)=>{
     //     console.log(res);
@@ -180,7 +186,7 @@ export class AddProjectComponent implements OnInit {
     this.map.addLayer(mk);
 
     mk.on("click", function (e) {
-      //your code about what you want to do on a marker click 
+      //your code about what you want to do on a marker click
     });
     return mk;
   }
@@ -192,6 +198,27 @@ export class AddProjectComponent implements OnInit {
     localStorage.removeItem('address_detail');
     localStorage.removeItem('project_feature');
   }
+
+  initMap() {
+    this.Gmap = new google.maps.Map(
+      document.getElementById("map1") as HTMLElement,
+      {
+        zoom: 50,
+        center: { lat: 40.731, lng: -73.997 },
+      }
+    );
+    console.log("map init called");
+    const geocoder = new google.maps.Geocoder();
+    const infowindow = new google.maps.InfoWindow();
+
+    // (document.getElementById("submit") as HTMLElement).addEventListener(
+    //   "click",
+    //   () => {
+    //     geocodeLatLng(geocoder, map, infowindow);
+    //   }
+    // );
+  }
+
 }
 
 

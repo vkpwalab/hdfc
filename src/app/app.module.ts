@@ -1,24 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle'
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule} from '@angular/material/select';
-import { MatRadioModule} from '@angular/material/radio';
-import { DragDropModule} from '@angular/cdk/drag-drop';
-import { MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
 // import {ReactiveFormsModule} from '@angular/forms'
-import { ReactiveFormsModule,FormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
@@ -59,6 +59,7 @@ import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queri
 import { TruncatePipe } from './truncate.pipe';
 import { LoaderComponent } from './loader/loader.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -100,7 +101,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 
   ],
   imports: [
-    
+
     Ng2SearchPipeModule,
     FormsModule,
     ReactiveFormsModule,
@@ -134,9 +135,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AgmCoreModule.forRoot({
       apiKey: 'CHAVES_GOOGLE_MAPS'
     }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-    
-  
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgbModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -145,6 +147,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     NO_ERRORS_SCHEMA
   ]
 })
-export class AppModule { 
-  
+export class AppModule {
+
 }
