@@ -128,7 +128,7 @@
 
 </form>
 
-<ng-template #content let-modal>
+<ng-template #content let-modal $modal-lg:>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Profile Update</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -139,6 +139,6 @@
     <div id="map2" style="height: 500px; width: 100%;"></div>
   </div>
   <div class="modal-footer text-center">
-    <button type="button" class="btn btn-outline-dark main_btn_log w-50 mx-auto" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="main_btn_log w-50 mx-auto" (click)="modal.close('Save click')">Save</button>
   </div>
 </ng-template>

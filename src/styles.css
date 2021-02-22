@@ -536,3 +536,11 @@ text-align: center;display: block;}
   .close {outline: none !important;}
   .mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button {outline: none !important;}
   
+  @media screen and (min-width:576px) and (max-width: 2500px){
+    .modal-content {
+    width: 800px !important;
+    margin: auto !important;
+    position: absolute !important;
+    left: -15vh;
+    }
+}
