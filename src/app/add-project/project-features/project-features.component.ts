@@ -102,7 +102,7 @@ export class ProjectFeaturesComponent implements OnInit {
       'bungalow_area_unit': [''],
       'options':[''],
       'bank_name':[''],
-      'mortgaged1': ['', Validators.required],
+      //'mortgaged1': ['', Validators.required],
       
     })
       //  for accordion
@@ -140,6 +140,7 @@ export class ProjectFeaturesComponent implements OnInit {
   submitProjectFeature(data) {
     console.log(data);
     console.log(this.project_feature_form.controls['contruction_finance'].valid);
+    console.log(this.project_feature_form.valid);
     if (this.project_feature_form.valid) {
 
       localStorage.setItem('project_feature', JSON.stringify(data));

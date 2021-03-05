@@ -489,9 +489,15 @@ export class AddressDetailsComponent implements OnInit {
         lat.setValue(results[0].geometry.location.lat())
         long.setValue(results[0].geometry.location.lng())
         resultsMap.setCenter(results[0].geometry.location);
-        new google.maps.Marker({
+        let myMarker = new google.maps.Marker({
           map: resultsMap,
+          draggable: true,
           position: results[0].geometry.location,
+        });
+        google.maps.event.addListener(myMarker,'dragend',function(evt){
+          lat.setValue(evt.latlng.lat())
+          long.setValue(evt.latlng.lng())
+
         });
       } else {
         alert("Geocode was not successful for the following reason: " + status);

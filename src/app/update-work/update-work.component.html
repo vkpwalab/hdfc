@@ -84,7 +84,7 @@
                     <div class="col-lg-2 px-2 padtop-5 pad-x">
                         <mat-form-field class="example-full-width">
                             <mat-label>Percent Payment Due</mat-label>
-                            <input matInput type="text" placeholder="" formControlName="percent_payment_due">
+                            <input matInput  min="0" step="1"  matInput oninput="validity.valid||(value='');"  type="number" placeholder="" formControlName="percent_payment_due">
                         </mat-form-field>
                     </div>
                     <div class="col-lg-2 px-2 padtop-5 pad-x">

@@ -291,7 +291,7 @@
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>UNITS ALLOTED TO LANDOWNER TOTAL NUMBERS<span class="text-danger">*</span></mat-label>
-                <input type="number" matInput formControlName="total_number">
+                <input type="number" min="0" step="1"  matInput oninput="validity.valid||(value='');" formControlName="total_number">
             </mat-form-field>
         </div>
 
