@@ -89,11 +89,17 @@
                     </div>
                     <div class="col-lg-2 px-2 padtop-5 pad-x">
 
-                        <mat-form-field class="example-full-width">
+                        <!-- <mat-form-field class="example-full-width">
                             <mat-label>Progress As On Date</mat-label>
                             <input matInput type="text" placeholder="" formControlName="progress_date">
                         </mat-form-field>
-
+                         -->
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Progress As On Date</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="progress_date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
                     </div>
                     <div class="col-lg-2 padlr padtop-4 pad-x mob-pl pr-2">
                         <mat-form-field>
