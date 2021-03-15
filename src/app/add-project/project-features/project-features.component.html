@@ -316,18 +316,23 @@
         </div>
 
         <div class="col-lg-6">
-            <mat-form-field appearance="standard" class="six">
+            <mat-form-field appearance="standard" class="six" *ngIf="!hide">
                 <mat-label>FINANCIAL INSTITUDE NAME</mat-label>
                 <input matInput formControlName="financial_institute" [readonly]="show_fin_inst" (keyup)="enterFinInst($event)">
             </mat-form-field>
         </div>
     </div>
 
-    <div class="col-lg-12 mt-2 project alternative">
-        <div class="col-lg-6">
-            <input name="options" formControlName="options" [(ngModel)]="options" type="radio" [value]="true"/> HDFC
+    <div class="col-lg-12 mt-2 project alternative" *ngIf="!hide">
+        <div class="col-lg-6 btn-radio">
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button name="options" formControlName="options" (change)="onchangeradio($event)" type="radio" [value]="true">HDFC</mat-radio-button>
+                <mat-radio-button  name="options" formControlName="options"  (change)="onchangeradio($event)" type="radio" [value]="false" [checked]="!options" class="ml-3">Other</mat-radio-button>
+              </mat-radio-group>
 
-            <input name="options" formControlName="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options"/> OTHER
+            <!-- <input name="options" formControlName="options" [(ngModel)]="options" type="radio" [value]="true"/> HDFC
+
+            <input name="options" formControlName="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options"/> OTHER -->
 
                    
         </div>
@@ -341,7 +346,7 @@
     </div>
 
     <div class="col-lg-12 mt-2 project alternative">
-        <div class="col-lg-6">
+        <div class="col-lg-6"  *ngIf="!hide">
             <mat-form-field appearance="standard" class="six">
                 <mat-label>HDFC CLPS NO</mat-label>
                 <input matInput formControlName="hdfc_clip_no" [readonly]="show_clps">
@@ -349,7 +354,8 @@
         </div>
         <div class="col-lg-6 btn-radio">
             <p class="para">ANY REQUIREMENT FOR CONSTRUCTION FINANCE<span class="text-danger">*</span></p>
-                <mat-radio-group aria-label="Select an option" formControlName="contruction_finance" [disabled]="!show_fin_inst">
+                <!-- <mat-radio-group aria-label="Select an option" formControlName="contruction_finance" [disabled]="!show_fin_inst"> -->
+                    <mat-radio-group aria-label="Select an option" formControlName="contruction_finance">    
                     <mat-radio-button value="Y" color="primary">YES</mat-radio-button>
                     <mat-radio-button value="N" color="primary" class="ml-3">NO</mat-radio-button>
                 </mat-radio-group>

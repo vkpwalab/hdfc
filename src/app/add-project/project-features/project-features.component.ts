@@ -20,9 +20,14 @@ export class ProjectFeaturesComponent implements OnInit {
     this.show_fin_inst = true;
     this.show_clps = true;
   }
-  options = {
-    options : false,
+
+  onchangeradio(value){
+    this.options = value.value;
+    console.log(value)
   }
+  options = false;
+  hide = false;
+
   form = new FormGroup({
     first: new FormControl({value: 'HDFC', disabled: true}, Validators.required),
     last: new FormControl('Other', Validators.required)
@@ -119,12 +124,13 @@ export class ProjectFeaturesComponent implements OnInit {
       this.project_feature_form.controls['contruction_finance'].reset();
       this.project_feature_form.controls['contruction_finance'].clearValidators();
       this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({onlySelf: true});
+      this.hide = false;
     } else {
       this.show_fin_inst = true;
       this.project_feature_form.controls['financial_institute'].setValue('');
       this.project_feature_form.controls['contruction_finance'].setValidators([Validators.required]);
       this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({onlySelf: true});
-
+      this.hide = true;
     }
   }
 
