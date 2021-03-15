@@ -169,7 +169,7 @@ export class BuildersBankComponent implements OnInit {
                             <soapenv:Body>
                               <tem:ins_devport_project_bank>
                                   <!--Optional:-->
-                                  <tem:i_sr_no>?</tem:i_sr_no>
+                                  <tem:i_sr_no>${srno}</tem:i_sr_no>
                                   <!--Optional:-->
                                   <tem:i_project_id>${this.project_id}</tem:i_project_id>
                                   <!--Optional:-->
