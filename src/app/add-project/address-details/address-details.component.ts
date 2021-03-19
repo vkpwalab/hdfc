@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import $ from 'jquery';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { } from 'googlemaps';
+import { LatLng } from '@agm/core';
+import { GoogleMap } from '@agm/core/services/google-maps-types';
 
 @Component({
   selector: 'app-address-details',
@@ -20,6 +22,7 @@ export class AddressDetailsComponent implements OnInit {
   @Input() latlong: any;
   builder_id: string;
   token: string;
+  myMarker!: any;
 
   closeResult = '';
   map: google.maps.Map;
@@ -45,6 +48,25 @@ export class AddressDetailsComponent implements OnInit {
       'north': ['', Validators.required],
       'south': ['', Validators.required],
     })
+
+    const upperAddress = [
+      'sno',
+      'plot_no',
+      'popular_landmark',
+      'location',
+      'state',
+      'city',
+      'pincode'
+    ]
+
+    upperAddress.forEach(element => {
+      console.log("changed element ", +element);
+      this.address_detail_form.get(element).valueChanges.subscribe(() => {
+        localStorage.removeItem("lat");
+        localStorage.removeItem("lng");
+      })
+    });
+
 
     this.getState();
     //this.initMap();
@@ -358,6 +380,8 @@ export class AddressDetailsComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
 
+    console.log(changes);
+
     if (changes['draft_data'] !== undefined) {
       this.address_detail_form.controls['sno'].setValue(this.draft_data.CTS_NO);
       this.address_detail_form.controls['plot_no'].setValue(this.draft_data.PLOT_NO);
@@ -454,6 +478,11 @@ export class AddressDetailsComponent implements OnInit {
   }
 
   initMap(finalAddress: string) {
+    const latFromStorage = localStorage.getItem("lat");
+    const lngFromStorage = localStorage.getItem("lng");
+
+
+
     this.map = new google.maps.Map(
       document.getElementById("map2") as HTMLElement,
       {
@@ -461,23 +490,28 @@ export class AddressDetailsComponent implements OnInit {
         center: { lat: 40.731, lng: -73.997 },
       }
     );
+
     console.log("map init called");
     const geocoder = new google.maps.Geocoder();
-    const infowindow = new google.maps.InfoWindow();
 
-    this.geocodeAddress(geocoder, this.map, finalAddress);
+    this.geocodeAddress(geocoder, this.map, finalAddress, latFromStorage, lngFromStorage);
     const lat = this.address_detail_form.get('lat')
     const long = this.address_detail_form.get('long')
     this.map.addListener("click", (mapsMouseEvent) => {
       lat.setValue(mapsMouseEvent.latLng.toJSON().lat)
       long.setValue(mapsMouseEvent.latLng.toJSON().lng)
     });
+
+
+
   }
 
   geocodeAddress(
     geocoder: google.maps.Geocoder,
     resultsMap: google.maps.Map,
-    finalAddress: string
+    finalAddress: string,
+    latFromStorage: any,
+    lngFromStorage: any
   ) {
 
     const lat = this.address_detail_form.get('lat')
@@ -486,17 +520,33 @@ export class AddressDetailsComponent implements OnInit {
     geocoder.geocode({ address: finalAddress }, (results, status) => {
       if (status === "OK") {
         console.log(results[0].geometry.location);
-        lat.setValue(results[0].geometry.location.lat())
-        long.setValue(results[0].geometry.location.lng())
+
+        let latVal;
+        let lngVal;
+
+        if (latFromStorage !== null && lngFromStorage !== null) {
+          latVal = parseFloat(latFromStorage);
+          lngVal = parseFloat(lngFromStorage);
+        } else {
+          latVal = results[0].geometry.location.lat();
+          lngVal = results[0].geometry.location.lng()
+        }
+
+        lat.setValue(latVal)
+        long.setValue(lngVal);
+
         resultsMap.setCenter(results[0].geometry.location);
-        let myMarker = new google.maps.Marker({
+        this.myMarker = new google.maps.Marker({
           map: resultsMap,
           draggable: true,
-          position: results[0].geometry.location,
+          position: { lat: latVal, lng: lngVal },
         });
-        google.maps.event.addListener(myMarker,'dragend',function(evt){
-          lat.setValue(evt.latlng.lat())
-          long.setValue(evt.latlng.lng())
+        google.maps.event.addListener(this.myMarker, 'dragend', function (evt) {
+          console.log(evt.latLng);
+          localStorage.setItem("lat", evt.latLng.lat());
+          localStorage.setItem("lng", evt.latLng.lng())
+          lat.setValue(evt.latLng.lat())
+          long.setValue(evt.latLng.lng())
 
         });
       } else {
