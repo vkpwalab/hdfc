@@ -535,6 +535,12 @@ text-align: center;display: block;}
 
   .close {outline: none !important;}
   .mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button {outline: none !important;}
+  .alternative .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color: black !important;
+  }
+  .alternative .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: black;
+  }
   
   @media screen and (min-width:576px) and (max-width: 2500px){
     .modal-content {
