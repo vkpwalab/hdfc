@@ -12,11 +12,11 @@ export class SharedService {
   path: string;
   token: string;
   builder_id: string;
-  sharedTab = {"tab" :true}
-  sharedTab1 = {"tab" :true}
-  sharedTab2 = {"tab" :true}
-  sharedTab3 = {"tab" :true}
-  sharedTab4 = {"tab" :true}
+  sharedTab = { "tab": true }
+  sharedTab1 = { "tab": true }
+  sharedTab2 = { "tab": true }
+  sharedTab3 = { "tab": true }
+  sharedTab4 = { "tab": true }
   api_path: string = environment.Baseurl;
   constructor(private ar: ActivatedRoute, private http: HttpClient) {
     this.builder_id = '510673';
@@ -34,9 +34,9 @@ export class SharedService {
 
   project_id = new BehaviorSubject('')
   projectId(v) {
-    this.project_id.next(v)   
+    this.project_id.next(v)
   }
-  
+
   isMobile() {
     {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -60,12 +60,29 @@ export class SharedService {
 
   }
 
+
+  getDataArray(soapaction, body, result_tag) {
+    const header = new HttpHeaders({
+      'Content-Type': 'text/xml',
+      'soapaction': soapaction
+    })
+
+    return this.http.post(this.api_path, body, { headers: header, responseType: "text" }).pipe(map((res: any) => {
+      // console.log(res);
+      const parser = new DOMParser();
+      let xml = parser.parseFromString(res, 'text/xml');
+      let xml_body_arr = xml.getElementsByTagName(result_tag)[0].children;
+      return xml_body_arr;
+    }))
+
+  }
+
   uploadDoc(file_base64, doc_ext, proj_no, doc_code, file_name) {
 
     let fd = new FormData;
     fd.append('78676798', file_base64);
 
-    return this.http.post('https://pws.hdfc.com/Upload_Devport_Doc_Dmz/API/UploadDoc?I_Project_ID=' + 85536 + '&I_Builder_ID=' + this.builder_id + '&I_DOC_CODE=' + doc_code + '&i_Document_Name=' + file_name + '&i_Document_Type=' + doc_ext + '&i_Login_Id=' + this.builder_id, fd).pipe(map(
+    return this.http.post('https://pws.hdfc.com/Upload_Devport_Doc_Dmz/API/UploadDoc?I_Project_ID=' + proj_no + '&I_Builder_ID=' + this.builder_id + '&I_DOC_CODE=' + doc_code + '&i_Document_Name=' + file_name + '&i_Document_Type=' + doc_ext + '&i_Login_Id=' + this.builder_id, fd).pipe(map(
       (res) => {
         return res;
         console.log(res);
@@ -84,7 +101,7 @@ export class SharedService {
                                  <!--Optional:-->
                                  <tem:i_Login_Id>${this.builder_id}</tem:i_Login_Id>
                                  <!--Optional:-->
-                                 <tem:I_Project_ID>85536</tem:I_Project_ID>
+                                 <tem:I_Project_ID>${proj_no}</tem:I_Project_ID>
                                  <!--Optional:-->
                                  <tem:I_Builder_ID>${this.builder_id}</tem:I_Builder_ID>
                                  <!--Optional:-->
@@ -123,5 +140,27 @@ export class SharedService {
       let json_res = JSON.parse(xml_body);
       return json_res;
     }));
+  }
+
+  downlodFileFromBase64(data, contentType, doc_name) {
+    const byteCharacters = atob(data);
+
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    const byteArray = new Uint8Array(byteNumbers);
+
+    const blob = new Blob([byteArray], { type: contentType });
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    document.body.appendChild(a);
+    a.href = url;
+    a.download = doc_name;
+    a.click();
+
+    window.URL.revokeObjectURL(url);
   }
 }
