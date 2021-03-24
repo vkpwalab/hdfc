@@ -166,6 +166,7 @@ export class ProjectDetailsComponent implements OnInit {
   submitProjectDetail(data) {
     console.log(data);
     if (this.project_detail_form.valid) {
+      this.project_detail_form.controls['hdfc_branch'].setValue("201");
       $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
       $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
 
@@ -178,7 +179,7 @@ export class ProjectDetailsComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('value changed', this.draft_data);
     this.project_detail_form.controls['project_name'].setValue(this.draft_data.PROJECT_NAME);
-    this.project_detail_form.controls['hdfc_branch'].setValue(this.draft_data.BRANCH);
+    this.project_detail_form.controls['hdfc_branch'].setValue("201");
     this.project_detail_form.controls['project_category'].setValue(this.draft_data.PROJECT_CATEGORY);
     this.project_detail_form.controls['stage_of_construction'].setValue(this.draft_data.STAGE_OF_CONST);
     this.project_detail_form.controls['project_launch_date'].setValue(this.draft_data.PROJECT_LAUNCH_DATE);
