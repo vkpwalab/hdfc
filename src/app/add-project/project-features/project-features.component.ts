@@ -23,10 +23,25 @@ export class ProjectFeaturesComponent implements OnInit {
 
   onchangeradio(value){
     this.options = value.value;
+    if (value.value == 'false') {
+      this.hideclif = false;
+    } else {
+      this.hideclif = true;
+    }
     console.log(value)
   }
-  options = false;
-  hide = false;
+
+
+  options = true;
+  hide = true;
+  hideclif = true;
+
+  // hidehdfc(event) {
+    
+  // }
+
+
+
 
   form = new FormGroup({
     first: new FormControl({value: 'HDFC', disabled: true}, Validators.required),
