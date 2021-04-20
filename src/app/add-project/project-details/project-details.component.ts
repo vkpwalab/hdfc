@@ -4,10 +4,14 @@ import { SharedService } from 'src/app/services/shared.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import $ from 'jquery';
 
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
-  styleUrls: ['./project-details.component.css']
+  styleUrls: ['./project-details.component.css'],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+  ],
 })
 export class ProjectDetailsComponent implements OnInit {
   project_category: any = [];
@@ -19,7 +23,9 @@ export class ProjectDetailsComponent implements OnInit {
   @Input() draft_data: any;
   builder_id: string;
   token: string;
-  constructor(private shared: SharedService, private fb: FormBuilder) { }
+  constructor(private shared: SharedService, private fb: FormBuilder,private dateAdapter: DateAdapter<Date>) {
+    this.dateAdapter.setLocale('en-GB');
+   }
 
   ngOnInit(): void {
     this.builder_id = '510673';
