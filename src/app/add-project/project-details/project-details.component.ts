@@ -20,14 +20,19 @@ export class ProjectDetailsComponent implements OnInit {
   project_detail_form: FormGroup;
   developer_names: any;
   builder_detail: any;
+  public form: FormGroup;
   @Input() draft_data: any;
   builder_id: string;
   token: string;
+  disabled: any;
   constructor(private shared: SharedService, private fb: FormBuilder,private dateAdapter: DateAdapter<Date>) {
     this.dateAdapter.setLocale('en-GB');
    }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      project_type: new FormControl({ value: 'BUILDER/SOCIETY', disabled: true })
+  });
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
 
@@ -40,7 +45,7 @@ export class ProjectDetailsComponent implements OnInit {
       'project_launch_date': [''],
       'work_comm_date': [''],
       'expected_comp_date': [''],
-      'developer_name': [''],
+      'developer_name': ['DINESH P CHAWDA,ARUN P CHAWDA'],
       'website': [''],
       'remark': ['', Validators.required],
     })
