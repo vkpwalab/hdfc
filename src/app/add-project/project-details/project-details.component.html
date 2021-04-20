@@ -22,12 +22,16 @@
       </mat-form-field>
     </div>
     <div class="col-lg-3">
-      <mat-form-field appearance="standard">
+      <!-- <mat-form-field appearance="standard">
         <mat-label>PROJECT TYPE<span class="text-danger">*</span></mat-label>
         <mat-select formControlName="project_type">
           <mat-option *ngFor="let project of project_type" value="{{project.PROJECT_TYPE}}">{{project.PROJECT_TYPE}}
           </mat-option>
         </mat-select>
+      </mat-form-field> -->
+      <mat-form-field appearance="standard">
+        <mat-label>PROJECT TYPE<span class="text-danger">*</span></mat-label>
+        <input matInput formControlName="project_type">
       </mat-form-field>
     </div>
 
@@ -73,7 +77,7 @@
       <mat-form-field appearance="standard">
         <mat-label>DEVELOPER NAME</mat-label>
         <mat-select formControlName="developer_name">
-          <mat-option *ngFor="let developer of developer_names" value="{{ developer.BUILDERID }}">{{ developer.BUILDER_NAME }} 
+          <mat-option *ngFor="let developer of developer_names" value="{{ developer.BUILDERID }}">{{ developer.BUILDER_NAME }}
           </mat-option>
         </mat-select>
       </mat-form-field>
