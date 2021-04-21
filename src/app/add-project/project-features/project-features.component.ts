@@ -49,8 +49,8 @@ export class ProjectFeaturesComponent implements OnInit {
   });
 
   // for RESIDENTIAL
-  public greaterThanValue = 0;
-  public lessThanValue = 1;
+  public greaterThanValue = null;
+  public lessThanValue = null;
   public isInvalid: boolean = false;
 
   public onChange(event: any): void {
@@ -58,8 +58,8 @@ export class ProjectFeaturesComponent implements OnInit {
   }
 
    // for COMMERCIAL
-   public greaterThanValuec = 0;
-   public lessThanValuec = 1;
+   public greaterThanValuec = null;
+   public lessThanValuec = null;
    public isInvalidc: boolean = false;
 
    public onChangec(event: any): void {
@@ -67,8 +67,8 @@ export class ProjectFeaturesComponent implements OnInit {
    }
 
     // for PLOTS
-    public greaterThanValuep = 0;
-    public lessThanValuep = 1;
+    public greaterThanValuep = null;
+    public lessThanValuep = null;
     public isInvalidp: boolean = false;
 
     public onChangep(event: any): void {
@@ -76,8 +76,8 @@ export class ProjectFeaturesComponent implements OnInit {
     }
 
     // for BUNGALOWS
-    public greaterThanValueb = 0;
-    public lessThanValueb = 1;
+    public greaterThanValueb = null;
+    public lessThanValueb = null;
     public isInvalidb: boolean = false;
 
     public onChangeb(event: any): void {
