@@ -27,7 +27,7 @@
             .flex {display: block !important;}
             .drop-d {padding-left: 0px !important;padding-right: 0px !important;}
             mat-label {font-size: 13px !important;}
-           
+
 
 }
 
@@ -53,10 +53,10 @@
     .icons{padding: 8px;height: 30px;width: 30px;font-size: 15px;}
     .top{padding-top: 15px;}
     .first-line{margin-right: 0px !important;display: inline-flex;}
-    input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;} 
+    input{border: none;padding: 0px;width: 80%!important;font-size: 12px;padding-top: 4px;}
     .main_btn_log {width: 100%;border:1px solid #e3310d;}
 
-        
+
 /* ------------------------------MODAL---------------------------- */
 
      .modal-dialog{top:10%}
@@ -69,8 +69,17 @@
      tr {text-align: center;}
      .flex {display: inline-flex;}
      .search {height: 45px;}
+     .table td, .table th{
+       vertical-align: middle !important;
+     }
 }
 .fa-times{cursor: pointer;}
 .mat-form-field{font-size: 13px;width: 100%;}
 
 .close {outline: none !important;}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}

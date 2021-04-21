@@ -3,25 +3,25 @@
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>PLOT AREA (IN SQMTR)<span class="text-danger">*</span></mat-label>
-                <input type="text" matInput formControlName="plot_area">
+                <input type="number" min="0" matInput formControlName="plot_area">
             </mat-form-field>
         </div>
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>TOTAL NUMBER OF BUILDINGS<span class="text-danger">*</span></mat-label>
-                <input type="text" matInput formControlName="total_no_of_building">
+                <input type="number" min="0" matInput formControlName="total_no_of_building">
             </mat-form-field>
         </div>
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>TOTAL BUILT-UP AREA(IN SQMTR)</mat-label>
-                <input type="text" matInput formControlName="total_buildup_area">
+                <input type="number" min="0" matInput formControlName="total_buildup_area">
             </mat-form-field>
         </div>
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>PROJECT COST IN CRS.(APPX)</mat-label>
-                <input type="text" matInput formControlName="project_cost">
+                <input type="number" min="0" matInput formControlName="project_cost">
             </mat-form-field>
         </div>
 
@@ -54,20 +54,20 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input type="text" matInput formControlName="residencial_total_unit" name="greaterThanValue" [(ngModel)]="greaterThanValue" (ngModelChange)="onChange($event)">
+                                        <input type="number" min="0" matInput formControlName="residencial_total_unit" name="greaterThanValue" [(ngModel)]="greaterThanValue" (ngModelChange)="onChange($event)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input type="text" matInput formControlName="residencial_solid_unit" name="lessThanValue" [(ngModel)]="lessThanValue" (ngModelChange)="onChange($event)">
+                                        <input type="number" min="0" matInput formControlName="residencial_solid_unit" name="lessThanValue" [(ngModel)]="lessThanValue" (ngModelChange)="onChange($event)">
                                     </mat-form-field>
                                     <div style="color: red;font-size: 13px;" *ngIf="isInvalid">SOLD UNITS should not be greater then TOTAL UNITS</div>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AVAILABLE FOR SALE</mat-label>
-                                        <input type="text" matInput formControlName="residencial_available_sale">
+                                        <input type="number" min="0" matInput formControlName="residencial_available_sale">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>RATE PER SQFT</mat-label>
-                                        <input type="text" matInput formControlName="residencial_rate_per_sqft">
+                                        <input type="number" min="0" matInput formControlName="residencial_rate_per_sqft">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
@@ -115,20 +115,20 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input type="text" matInput formControlName="commercial_total_unit"  name="greaterThanValuec" [(ngModel)]="greaterThanValuec" (ngModelChange)="onChangec($event)">
+                                        <input type="number" min="0" matInput formControlName="commercial_total_unit"  name="greaterThanValuec" [(ngModel)]="greaterThanValuec" (ngModelChange)="onChangec($event)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input type="text" matInput formControlName="commercial_solid_unit"  name="lessThanValuec" [(ngModel)]="lessThanValuec" (ngModelChange)="onChangec($event)">
+                                        <input type="number" min="0" matInput formControlName="commercial_solid_unit"  name="lessThanValuec" [(ngModel)]="lessThanValuec" (ngModelChange)="onChangec($event)">
                                     </mat-form-field>
                                     <div style="color: red;font-size: 13px;" *ngIf="isInvalidc">SOLD UNITS should not be greater then TOTAL UNITS</div>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AVAILABLE FOR SALE</mat-label>
-                                        <input type="text" matInput formControlName="commercial_available_sale">
+                                        <input type="number" min="0" matInput formControlName="commercial_available_sale">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>RATE PER SQFT</mat-label>
-                                        <input type="text" matInput formControlName="commercial_rate_per_sqft">
+                                        <input type="number" min="0" matInput formControlName="commercial_rate_per_sqft">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
@@ -176,20 +176,20 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input type="text" matInput formControlName="plot_total_unit"  name="greaterThanValuep" [(ngModel)]="greaterThanValuep" (ngModelChange)="onChangep($event)">
+                                        <input type="number" min="0" matInput formControlName="plot_total_unit"  name="greaterThanValuep" [(ngModel)]="greaterThanValuep" (ngModelChange)="onChangep($event)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input type="text" matInput formControlName="plot_solid_unit" name="lessThanValuep" [(ngModel)]="lessThanValuep" (ngModelChange)="onChangep($event)">
+                                        <input type="number" min="0" matInput formControlName="plot_solid_unit" name="lessThanValuep" [(ngModel)]="lessThanValuep" (ngModelChange)="onChangep($event)">
                                     </mat-form-field>
                                     <div style="color: red;font-size: 13px;" *ngIf="isInvalidp">SOLD UNITS should not be greater then TOTAL UNITS</div>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AVAILABLE FOR SALE</mat-label>
-                                        <input type="text" matInput formControlName="plot_available_sale">
+                                        <input type="number" min="0" matInput formControlName="plot_available_sale">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -235,20 +235,20 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input type="text" matInput formControlName="bungalow_total_unit"  name="greaterThanValueb" [(ngModel)]="greaterThanValueb" (ngModelChange)="onChangeb($event)">
+                                        <input type="number" min="0" matInput formControlName="bungalow_total_unit"  name="greaterThanValueb" [(ngModel)]="greaterThanValueb" (ngModelChange)="onChangeb($event)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input type="text" matInput formControlName="bungalow_solid_unit" name="lessThanValueb" [(ngModel)]="lessThanValueb" (ngModelChange)="onChangeb($event)">
+                                        <input type="number" min="0" matInput formControlName="bungalow_solid_unit" name="lessThanValueb" [(ngModel)]="lessThanValueb" (ngModelChange)="onChangeb($event)">
                                     </mat-form-field>
                                     <div style="color: red;font-size: 13px;" *ngIf="isInvalidb">SOLD UNITS should not be greater then TOTAL UNITS</div>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>AVAILABLE FOR SALE</mat-label>
-                                        <input type="text" matInput formControlName="bungalow_available_sale">
+                                        <input type="number" min="0" matInput formControlName="bungalow_available_sale">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -257,7 +257,7 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>RATE PER SQFT</mat-label>
-                                        <input type="text" matInput formControlName="bungalow_rate_per_sqft">
+                                        <input type="number" min="0" matInput formControlName="bungalow_rate_per_sqft">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
