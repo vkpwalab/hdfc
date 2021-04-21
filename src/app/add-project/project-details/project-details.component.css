@@ -1,7 +1,7 @@
 .project{display: inline-flex; }
 .mat-form-field{font-size: 12px;width: 100%;}
 .button {display: inline-flex;padding-bottom: 4%;}
-.mat-datepicker-toggle{font-size: 18px;} 
+.mat-datepicker-toggle{font-size: 18px;}
 .draft {background-color: white;color: #e3310d;border-color: #e3310d;box-shadow: none;border: 1px solid #e3310d;}
 .mat-form-field {font-family: 'Titillium Web' !important;}
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
@@ -9,4 +9,10 @@
     .project{display: block;padding-left: 0px !important;}
     .mat-form-field{width: 100%;}
     .nex-btn {margin: auto !important;}
+}
+::ng-deep.mat-form-field-disabled .mat-form-field-underline
+{
+background-image: linear-gradient( to right, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0.42) 33%, #c2c7cc 0 ) !important;
+background-size: 1.5px 100% !important;
+ background-repeat: repeat-x !important;
 }
