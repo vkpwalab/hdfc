@@ -37,7 +37,7 @@ export class ProjectFeaturesComponent implements OnInit {
   hideclif = true;
 
   // hidehdfc(event) {
-    
+
   // }
 
 
@@ -46,42 +46,42 @@ export class ProjectFeaturesComponent implements OnInit {
   form = new FormGroup({
     first: new FormControl({value: 'HDFC', disabled: true}, Validators.required),
     last: new FormControl('Other', Validators.required)
-  }); 
+  });
 
   // for RESIDENTIAL
-  public greaterThanValue = 0;
-  public lessThanValue = 1;
+  public greaterThanValue = null;
+  public lessThanValue = null;
   public isInvalid: boolean = false;
 
   public onChange(event: any): void {
-    this.isInvalid = this.lessThanValue > this.greaterThanValue;    
+    this.isInvalid = this.lessThanValue > this.greaterThanValue;
   }
 
    // for COMMERCIAL
-   public greaterThanValuec = 0;
-   public lessThanValuec = 1;
+   public greaterThanValuec = null;
+   public lessThanValuec = null;
    public isInvalidc: boolean = false;
- 
+
    public onChangec(event: any): void {
-     this.isInvalidc = this.lessThanValuec > this.greaterThanValuec;    
-   } 
+     this.isInvalidc = this.lessThanValuec > this.greaterThanValuec;
+   }
 
     // for PLOTS
-    public greaterThanValuep = 0;
-    public lessThanValuep = 1;
+    public greaterThanValuep = null;
+    public lessThanValuep = null;
     public isInvalidp: boolean = false;
 
     public onChangep(event: any): void {
-      this.isInvalidp = this.lessThanValuep > this.greaterThanValuep;    
+      this.isInvalidp = this.lessThanValuep > this.greaterThanValuep;
     }
 
     // for BUNGALOWS
-    public greaterThanValueb = 0;
-    public lessThanValueb = 1;
+    public greaterThanValueb = null;
+    public lessThanValueb = null;
     public isInvalidb: boolean = false;
 
     public onChangeb(event: any): void {
-      this.isInvalidb = this.lessThanValueb > this.greaterThanValueb;    
+      this.isInvalidb = this.lessThanValueb > this.greaterThanValueb;
     }
 
 
@@ -100,34 +100,34 @@ export class ProjectFeaturesComponent implements OnInit {
       'financial_institute': [''],
       'hdfc_clip_no': [''],
       'contruction_finance': [''],
-      'residencial_total_unit': [0],
-      'residencial_solid_unit': [0],
-      'residencial_available_sale': [0],
-      'residencial_rate_per_sqft': [0],
+      'residencial_total_unit': [''],
+      'residencial_solid_unit': [''],
+      'residencial_available_sale': [''],
+      'residencial_rate_per_sqft': [''],
       'residencial_area_unit': [''],
-      'commercial_total_unit': [0],
-      'commercial_solid_unit': [0],
-      'commercial_available_sale': [0],
-      'commercial_rate_per_sqft': [0],
+      'commercial_total_unit': [''],
+      'commercial_solid_unit': [''],
+      'commercial_available_sale': [''],
+      'commercial_rate_per_sqft': [''],
       'commercial_area_unit': [''],
-      'plot_total_unit': [0],
-      'plot_solid_unit': [0],
-      'plot_available_sale': [0],
-      'plot_rate_per_sqft': [0],
+      'plot_total_unit': [''],
+      'plot_solid_unit': [''],
+      'plot_available_sale': [''],
+      'plot_rate_per_sqft': [''],
       'plot_area_unit': [''],
-      'bungalow_total_unit': [0],
-      'bungalow_solid_unit': [0],
-      'bungalow_available_sale': [0],
-      'bungalow_rate_per_sqft': [0],
+      'bungalow_total_unit': [],
+      'bungalow_solid_unit': [],
+      'bungalow_available_sale': [''],
+      'bungalow_rate_per_sqft': [''],
       'bungalow_area_unit': [''],
       'options':[''],
       'bank_name':[''],
       //'mortgaged1': ['', Validators.required],
-      
+
     })
       //  for accordion
-    $('.card-header').click(function() { 
-      $(this).find('i').toggleClass('fas fa-plus fas fa-minus'); 
+    $('.card-header').click(function() {
+      $(this).find('i').toggleClass('fas fa-plus fas fa-minus');
   });
         //  for accordion
   }
@@ -407,7 +407,7 @@ export class ProjectFeaturesComponent implements OnInit {
         console.log(data);
       }
     );
-      
+
     }
   }
 

@@ -40,14 +40,14 @@
         </mat-form-field>
       </div>
       <!-- <div [routerLink]="['/add-project']" class="col-4 pt-2 icon-add text-right">
-            <img src="./assets/images/icons/add-project.png">    
+            <img src="./assets/images/icons/add-project.png">
          </div> -->
     </div>
     <div class="col-lg-4 col-12 px-0 pt-3 search">
       <form class="form-inline  mx-0">
         <i class="fa fa-search pr-1" aria-hidden="true"></i>
         <input type="search" placeholder="Search" name="search"  [(ngModel)]="search_text" aria-label="Search">
-               
+
 
       </form>
     </div>
@@ -80,7 +80,7 @@
   <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
  <div *ngFor="let disb of disbursement_list | filter:search_text">
    <div class="col-xl-12 col-12 pb-2 main-list mt-3 px-0" data-toggle="modal" data-target="#exampleModal" (click)="getDisbDetail(disb)" >
- 
+
      <div class="col-xl-3 col-8 pr-0 mb-0 name">
        <p class="top mb-0"><b>{{ disb.CUSTOMER_NAME | titlecase }}</b>
        </p>
@@ -107,7 +107,7 @@
    </div>
  </div>
 </div>
-<!-- 
+<!--
 <div class="col-lg-12 col-12 text-center pt-2">
   <span><img style="width: 20px;" src="./assets/images/loadmoreicon.png" alt=""></span> <button
     style="color: rgb(63,151,255);" class="btn fs-12 font-italic">Load More</button>
@@ -126,13 +126,15 @@
           <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
         </button>
       </div>
-      <div class="modal-body px-0">
-        <table class="table">
+      <div class="modal-body px-0" style="overflow-x: auto !important;">
+        <div class="table-responsive">
+        <table class="table" style="overflow-x: auto !important;">
           <thead class="thead-dark text-center">
             <tr>
               <th scope="col">DISBMT NO</th>
               <!-- <th scope="col">DISBMT DATE</th> -->
-              <th scope="col">PAYEE NAME</th>
+              <th scope="col" style="vertical-align: middle;">PAYEE NAME</th>
+              <th scope="col">Mode of disbursement (EFT/Cheque)</th>
               <th scope="col">CHEQUE/UTR NO</th>
               <th scope="col">DISBMT AMT</th>
             </tr>
@@ -142,17 +144,19 @@
               <td class="text-primary">{{ detail.DISB_NO }}</td>
               <!-- <td>15 Dec'18</td> -->
               <td class="text-left">{{ detail.PAYABLE_TO | titlecase}}</td>
+              <td>test</td>
               <td>{{ detail.CHEQUE_NO }}</td>
-              <td class="text-left">$ {{ detail.AMOUNT }}</td>
+              <td class="text-left">&#x20b9;{{ detail.AMOUNT }}</td>
             </tr>
           </tbody>
         </table>
+      </div>
       </div>
       <div class="modal-footer">
         <div class="col-12">
           <div class="col-4 col-10 px-0 float-right footer">
             <div class="col-8 px-0">TOTAL DISBURSEMENT</div>
-            <div class="col-4 px-0">$ {{ total_disbusment }}</div>
+            <div class="col-4 px-0">&#x20b9;{{ total_disbusment }}</div>
           </div>
         </div>
       </div>

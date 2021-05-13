@@ -19,9 +19,22 @@
 .label {font-size: 12px;}
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
 .row {margin-left: 0px !important;}
+
 @media screen and (min-width:320px) and (max-width: 576px){
     .project{display: block;padding-left: 0px !important;}
     .mat-form-field{width: 100%;}
     .pleft-0 {padding-left: 0px !important;}
     .margin-cel {margin-top: 15px;float: right !important;}
+}
+
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

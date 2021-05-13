@@ -10,7 +10,7 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>PLOT NO</mat-label>
-        <input matInput formControlName="plot_no">
+        <input type="number" min="0" matInput formControlName="plot_no">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
@@ -55,7 +55,7 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>PIN CODE<span class="text-danger">*</span></mat-label>
-        <input matInput formControlName="pincode">
+        <input type="number" min="0" matInput formControlName="pincode">
       </mat-form-field>
     </div>
 
@@ -71,13 +71,13 @@
     <div class="col-lg-6">
       <mat-form-field appearance="standard">
         <mat-label>LATITUDE<span class="text-danger">*</span></mat-label>
-        <input matInput formControlName="lat">
+        <input type="number" min="0" matInput formControlName="lat">
       </mat-form-field>
     </div>
     <div class="col-lg-6">
       <mat-form-field appearance="standard">
         <mat-label>LONGITUDE<span class="text-danger">*</span></mat-label>
-        <input matInput formControlName="long">
+        <input type="number" min="0" matInput formControlName="long">
       </mat-form-field>
     </div>
   </div>
@@ -89,25 +89,25 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard" color="warn">
         <mat-label>EAST<span class="text-danger">*</span></mat-label>
-        <input type="text" matInput formControlName="east">
+        <input type="number" min="0" matInput formControlName="east">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>WEST<span class="text-danger">*</span></mat-label>
-        <input type="text" matInput formControlName="west">
+        <input type="number" min="0" matInput formControlName="west">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>NORTH<span class="text-danger">*</span></mat-label>
-        <input type="text" matInput formControlName="north">
+        <input type="number" min="0" matInput formControlName="north">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>SOUTH<span class="text-danger">*</span></mat-label>
-        <input type="text" matInput formControlName="south">
+        <input type="number" min="0" matInput formControlName="south">
       </mat-form-field>
     </div>
 
