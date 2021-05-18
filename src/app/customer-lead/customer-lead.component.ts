@@ -52,7 +52,7 @@ export class CustomerLeadComponent implements OnInit {
       'I_PROJECT_ID': ['', Validators.required],
       'I_BOOKING_STATUS': ['', Validators.required],
       'I_REMARKS': ['', Validators.required],
-      'I_OTHER_PROJ_INFO': ['', Validators.required],
+      'I_OTHER_PROJ_INFO': [''],
       'I_STATE': ['', Validators.required]
       // 'myfile': ['', Validators.required],
       // 'myprofile': ['', Validators.required]
@@ -116,6 +116,21 @@ export class CustomerLeadComponent implements OnInit {
   }
   selectProjectOption(event) {
     this.project_selected = event.value;
+    console.log(this.project_selected)
+  }
+
+
+  projectChange(event){
+    this.project_selected = event.value;
+
+    if(this.project_selected=="OTHER"){
+      this.customer_lead_form.controls['I_OTHER_PROJ_INFO'].setValidators([Validators.required]);
+      this.customer_lead_form.controls['I_OTHER_PROJ_INFO'].updateValueAndValidity({ onlySelf: true });
+    }else{
+      this.customer_lead_form.controls['I_OTHER_PROJ_INFO'].clearValidators();
+      this.customer_lead_form.controls['I_OTHER_PROJ_INFO'].updateValueAndValidity({ onlySelf: true });
+    }
+    
     console.log(this.project_selected)
   }
 
