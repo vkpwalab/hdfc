@@ -16,6 +16,9 @@
     box-shadow: 1px 3px 8px #ed1c2452;
 
 }
+input{
+  text-transform: uppercase !important;
+}
 .btn-x img {cursor: pointer;}
 .ADD-BANK {border-top: 1px solid lightgrey;}
 .btn-modal-2 {
@@ -60,5 +63,5 @@
         opacity: 0;
         top: -8px !important;
         height: 30px;}
-        .main_btn_log {width: 50%;border: 1px solid #e3310d; margin: auto;}   
+        .main_btn_log {width: 50%;border: 1px solid #e3310d; margin: auto;}
 }

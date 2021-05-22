@@ -39,13 +39,15 @@ img {cursor: pointer;}
 .hide-box::-webkit-scrollbar {
     width: 3px;
   }
-   
+
   /* Handle */
   .hide-box::-webkit-scrollbar-thumb {
-    background: lightgrey; 
+    background: lightgrey;
   }
-  
-  
+  input{
+    text-transform: uppercase !important;
+  }
+
 @media screen and (min-width:320px) and (max-width: 576px){
 
         .mat-form-field{width: 100%;}
@@ -59,10 +61,10 @@ img {cursor: pointer;}
         .px-zero {padding-left: 0px !important;padding-right: 0px !important;}
         .mob-center {padding-left: 0px !important;padding-right: 0px !important;margin: auto;}
     }
-    
+
 
     @media screen and (min-width:576px) and (max-width: 2000px){
         .mar-14{ margin-left: -14px;}
- 
-       
-    } 
+
+
+    }
