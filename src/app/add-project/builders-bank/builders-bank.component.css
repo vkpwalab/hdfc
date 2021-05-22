@@ -16,7 +16,7 @@
     box-shadow: 1px 3px 8px #ed1c2452;
 
 }
-input{
+input, mat-select{
   text-transform: uppercase !important;
 }
 .btn-x img {cursor: pointer;}

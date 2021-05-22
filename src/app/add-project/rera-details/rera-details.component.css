@@ -6,7 +6,8 @@
 .mat-form-field-flex {padding-top: 9px !important;}
 .mat-form-field {font-family: 'Titillium Web' !important;}
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
-input{
+
+input, mat-select {
   text-transform: uppercase !important;
 }
 

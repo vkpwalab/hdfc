@@ -26,7 +26,7 @@
     .pleft-0 {padding-left: 0px !important;}
     .margin-cel {margin-top: 15px;float: right !important;}
 }
-input{
+input, mat-select{
   text-transform: uppercase !important;
 }
 

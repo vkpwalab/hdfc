@@ -44,7 +44,7 @@ img {cursor: pointer;}
   .hide-box::-webkit-scrollbar-thumb {
     background: lightgrey;
   }
-  input{
+  input, mat-select{
     text-transform: uppercase !important;
   }
 
