@@ -21,7 +21,7 @@ export class ProjectFeaturesComponent implements OnInit {
     this.show_clps = true;
   }
 
-  onchangeradio(value){
+  onchangeradio(value) {
     this.options = value.value;
     if (value.value == 'false') {
       this.hideclif = false;
@@ -44,7 +44,7 @@ export class ProjectFeaturesComponent implements OnInit {
 
 
   form = new FormGroup({
-    first: new FormControl({value: 'HDFC', disabled: true}, Validators.required),
+    first: new FormControl({ value: 'HDFC', disabled: true }, Validators.required),
     last: new FormControl('Other', Validators.required)
   });
 
@@ -57,32 +57,32 @@ export class ProjectFeaturesComponent implements OnInit {
     this.isInvalid = this.lessThanValue > this.greaterThanValue;
   }
 
-   // for COMMERCIAL
-   public greaterThanValuec = null;
-   public lessThanValuec = null;
-   public isInvalidc: boolean = false;
+  // for COMMERCIAL
+  public greaterThanValuec = null;
+  public lessThanValuec = null;
+  public isInvalidc: boolean = false;
 
-   public onChangec(event: any): void {
-     this.isInvalidc = this.lessThanValuec > this.greaterThanValuec;
-   }
+  public onChangec(event: any): void {
+    this.isInvalidc = this.lessThanValuec > this.greaterThanValuec;
+  }
 
-    // for PLOTS
-    public greaterThanValuep = null;
-    public lessThanValuep = null;
-    public isInvalidp: boolean = false;
+  // for PLOTS
+  public greaterThanValuep = null;
+  public lessThanValuep = null;
+  public isInvalidp: boolean = false;
 
-    public onChangep(event: any): void {
-      this.isInvalidp = this.lessThanValuep > this.greaterThanValuep;
-    }
+  public onChangep(event: any): void {
+    this.isInvalidp = this.lessThanValuep > this.greaterThanValuep;
+  }
 
-    // for BUNGALOWS
-    public greaterThanValueb = null;
-    public lessThanValueb = null;
-    public isInvalidb: boolean = false;
+  // for BUNGALOWS
+  public greaterThanValueb = null;
+  public lessThanValueb = null;
+  public isInvalidb: boolean = false;
 
-    public onChangeb(event: any): void {
-      this.isInvalidb = this.lessThanValueb > this.greaterThanValueb;
-    }
+  public onChangeb(event: any): void {
+    this.isInvalidb = this.lessThanValueb > this.greaterThanValueb;
+  }
 
 
   ngOnInit(): void {
@@ -120,16 +120,16 @@ export class ProjectFeaturesComponent implements OnInit {
       'bungalow_available_sale': [''],
       'bungalow_rate_per_sqft': [''],
       'bungalow_area_unit': [''],
-      'options':[''],
-      'bank_name':[''],
+      'options': [''],
+      'bank_name': [''],
       //'mortgaged1': ['', Validators.required],
 
     })
-      //  for accordion
-    $('.card-header').click(function() {
+    //  for accordion
+    $('.card-header').click(function () {
       $(this).find('i').toggleClass('fas fa-plus fas fa-minus');
-  });
-        //  for accordion
+    });
+    //  for accordion
   }
 
 
@@ -138,19 +138,19 @@ export class ProjectFeaturesComponent implements OnInit {
       this.show_fin_inst = false;
       this.project_feature_form.controls['contruction_finance'].reset();
       this.project_feature_form.controls['contruction_finance'].clearValidators();
-      this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({onlySelf: true});
+      this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({ onlySelf: true });
       this.hide = false;
     } else {
       this.show_fin_inst = true;
       this.project_feature_form.controls['financial_institute'].setValue('');
       this.project_feature_form.controls['contruction_finance'].setValidators([Validators.required]);
-      this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({onlySelf: true});
+      this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({ onlySelf: true });
       this.hide = true;
     }
   }
 
   enterFinInst(event) {
-    console.log(event);
+    console.log('vk' + event);
     if (event.target.value === 'hdfc limited') {
       this.show_clps = false;
     } else {
@@ -393,20 +393,20 @@ export class ProjectFeaturesComponent implements OnInit {
                                   </soapenv:Body>
                                 </soapenv:Envelope>`;
 
-    let soapaction = 'http://tempuri.org/IService1/Create_project';
-    let result_tag = 'Create_projectResult';
-    this.shared.getData(soapaction, body_draft_xml, result_tag).subscribe(
-      (data) => {
-        if (data.O_Project_id) {
-          this.shared.sharedTab2.tab = false;
+      let soapaction = 'http://tempuri.org/IService1/Create_project';
+      let result_tag = 'Create_projectResult';
+      this.shared.getData(soapaction, body_draft_xml, result_tag).subscribe(
+        (data) => {
+          if (data.O_Project_id) {
+            this.shared.sharedTab2.tab = false;
 
-          this.shared.projectId(data.O_Project_id);
-          $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
-          $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+            this.shared.projectId(data.O_Project_id);
+            $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
+            $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+          }
+          console.log(data);
         }
-        console.log(data);
-      }
-    );
+      );
 
     }
   }
