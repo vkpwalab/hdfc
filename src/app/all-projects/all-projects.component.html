@@ -28,10 +28,10 @@
                 </div> -->
                 <!-- <div class="col-3  cell px-0 ml-2 pl-2 mt-2">
                     <div class="col-2 pr-4">
-                        <img src="./assets/images/icons/filter.png" (click)="showFilter(1)"> 
+                        <img src="./assets/images/icons/filter.png" (click)="showFilter(1)">
                     </div>
                     <div [routerLink]="['/add-project']" class="col-2">
-                    <img src="./assets/images/icons/add-project.png">    
+                    <img src="./assets/images/icons/add-project.png">
                     </div>
                 </div> -->
                 <div class="col-lg-12 f-btn ">
@@ -97,7 +97,7 @@
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
     <div class="col-xl-12 col-12 px-0" *ngFor="let ans of project_list | filter:search_text">
-        <div class="col-lg-12 col-12 main-list mt-3 px-0" 
+        <div class="col-lg-12 col-12 main-list mt-3 px-0"
             *ngIf="select_values_of_status==ans.PROJECT_STAUS || !select_values_of_status || select_values_of_status == status_all">
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
                 <div class="col-12 px-0 top">
@@ -159,7 +159,7 @@
         <div class="modal-body">
             <div class="col-lg-12 px-0 nopadding">
                 <label>Query :</label>
-                <textarea 
+                <textarea
                   rows="5"
                   [(ngModel)]="message"
                   [maxlength]="maxChars">
