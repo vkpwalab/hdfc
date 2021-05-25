@@ -105,7 +105,7 @@ export class SharedService {
                                  <!--Optional:-->
                                  <tem:I_Builder_ID>${this.builder_id}</tem:I_Builder_ID>
                                  <!--Optional:-->
-                                 <tem:i_file_no></tem:i_file_no>
+                                 <tem:i_file_no>${proj_no}</tem:i_file_no>
                                  <!--Optional:-->
                                  <tem:I_DOC_CODE>${doc_code}</tem:I_DOC_CODE>
                                  <!--Optional:-->

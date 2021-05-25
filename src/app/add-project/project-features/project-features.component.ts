@@ -1,7 +1,7 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, ValidationErrors } from '@angular/forms';
 import $ from 'jquery';
 
 @Component({
@@ -159,10 +159,23 @@ export class ProjectFeaturesComponent implements OnInit {
     }
   }
   submitProjectFeature(data) {
+
+    Object.keys(this.project_feature_form.controls).forEach(key => {
+
+      const controlErrors: ValidationErrors = this.project_feature_form.get(key).errors;
+      if (controlErrors != null) {
+        Object.keys(controlErrors).forEach(keyError => {
+          console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+        });
+      }
+    });
+
     console.log(data);
     console.log(this.project_feature_form.controls['contruction_finance'].valid);
     console.log(this.project_feature_form.valid);
     if (this.project_feature_form.valid) {
+
+      console.log("vkTEST")
 
       localStorage.setItem('project_feature', JSON.stringify(data));
       let project_detail = JSON.parse(localStorage.getItem('project_detail'));
