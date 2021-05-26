@@ -24,6 +24,7 @@ export class ProjectDetailsComponent implements OnInit {
   @Input() draft_data: any;
   builder_id: string;
   token: string;
+  branch_value:any;
   disabled: any;
   constructor(private shared: SharedService, private fb: FormBuilder,private dateAdapter: DateAdapter<Date>) {
     this.dateAdapter.setLocale('en-GB');
@@ -168,6 +169,8 @@ export class ProjectDetailsComponent implements OnInit {
     this.shared.getData(soapaction, body_builders_details, result_tag).subscribe(
       (data) => {
         this.builder_detail = data.Table;
+        console.log("vk"+this.builder_detail[0]);
+          this.branch_value = this.builder_detail[0].CD_VAL;
           this.project_detail_form.controls['hdfc_branch'].setValue(this.builder_detail[0].CD_DESC);
           console.log(this.builder_detail);
       }
@@ -175,7 +178,9 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   submitProjectDetail(data) {
-    console.log(data);
+    console.log("kk"+JSON.stringify(data) );
+    data.hdfc_branch = parseInt(this.branch_value) ;
+    console.log("kl"+JSON.stringify(data) );
     if (this.project_detail_form.valid) {
      // this.project_detail_form.controls['hdfc_branch'].setValue("201");
       $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
