@@ -60,6 +60,7 @@ import { TruncatePipe } from './truncate.pipe';
 import { LoaderComponent } from './loader/loader.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotificationComponent } from './notification/notification.component';
 
 
 @NgModule({
@@ -98,6 +99,7 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RespondToQueriesComponent,
     LoaderComponent,
     ForgotPasswordComponent,
+    NotificationComponent,
 
   ],
   imports: [

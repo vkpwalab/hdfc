@@ -3,6 +3,9 @@
         <app-side-menubar></app-side-menubar>
     </div>
     <div class="col-lg-10 px-0 mb-footer">
+      <div class="col-xl-12 text-right hide noti">
+        <img [routerLink]="['/notification']" src="./assets/images/notification.png" width="25px">
+      </div>
         <router-outlet></router-outlet>
     </div>
     <!-- <div class="col-lg-12 col-12 hide" [routerLink]="['/customer-lead']" >

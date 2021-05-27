@@ -16,6 +16,7 @@ import { SettingComponent } from './setting/setting.component';
 import { ReachUsComponent } from './reach-us/reach-us.component';
 import { RespondToQueriesComponent } from './respond-to-queries/respond-to-queries.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path: 'raise-demand/:pid/:bid/:b_name', component: RaiseDemandComponent},
   { path: 'setting', component: SettingComponent},
   { path: 'reach-us', component: ReachUsComponent},
-  { path: 'respond-to-queries', component: RespondToQueriesComponent}
+  { path: 'respond-to-queries', component: RespondToQueriesComponent},
+  { path: 'notification', component: NotificationComponent}
 
 
 ];

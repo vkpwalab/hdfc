@@ -1,0 +1,12 @@
+.main-list{border: 0.5px solid #dfdede;font-size: 13px;display: inline-flex;border-radius: 10px;box-shadow: 0px 0px 1.5px 0px rgb(167, 166, 166);margin-top: 20px;}
+.main-list:hover{border: 1px solid grey;box-shadow: 0px 2px 2px grey;}
+
+
+@media screen and (min-width:300px) and (max-width: 576px){
+  .mb-15{
+    margin-bottom: 15px;
+  }
+  .d-flex{
+    display: block !important;
+  }
+}

@@ -3,7 +3,7 @@
     <span class="closebtn" (click)="closeNav()">&times;</span>
     <div class="mb-4 top">
       <div class="newimg mx-auto d-block">
-      <img src="./assets/images/hdfcnew.png" width="100%"> 
+      <img src="./assets/images/hdfcnew.png" width="100%">
 
       </div>
       <div class="col-12 text-center">
@@ -21,20 +21,20 @@
     <a routerLink="setting" (click)="closeNav()" routerLinkActive="active"><img class="w-10" src="./assets/images/Settings.png" alt=""><span class="fs-13 pl-2">Settings</span></a>
     <a routerLink="/reach-us" (click)="closeNav()" routerLinkActive="active"><img class="w-10" src="./assets/images/Project_Assistance.png" alt=""><span class="fs-13 pl-2">Reach Us</span></a>
     <a (click)="logout()" class="cursor"><img class="w-10" src="./assets/images/Settings.png" alt=""><span class="fs-13 pl-2">Log out</span></a>
-    
+
   </div>
-  
-  
-  
+
+
+
   <div class="col-12 head d-md-none">
     <div class="row">
       <div class="col-3 menu pr-2 pt-1">
         <span style="font-size:20px;cursor:pointer" (click)="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>
       </div>
       <div class="col-6 title text-center px-0"><h6>{{ header_title }}</h6></div>
-    
+      <div class="col-3 text-right" style="padding-top: 8px;">
+        <img [routerLink]="['/notification']" src="./assets/images/notification.png" width="20px">
+      </div>
     </div>
-    
   </div>
 
-  
