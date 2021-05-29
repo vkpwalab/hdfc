@@ -27,7 +27,7 @@ export class UpdateWorkComponent implements OnInit {
   doc_srno: any = [];
   selected_building: any;
   remark: any = [];
-  search_text:any;
+  search_text: any;
   selected_building_name: any;
   loading: boolean;
   building_list_len: any = 0;
@@ -167,6 +167,9 @@ export class UpdateWorkComponent implements OnInit {
   updateBuildingData(data, index) {
     console.log(data);
     if (this.dynamic_forms[data.build_no].valid) {
+
+      const date = new Intl.DateTimeFormat(['ban', 'id']).format(data.progress_date);
+     
       if (this.file_uploaded[index] == 'Y') {
         let body_insert_query = `
                               <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
@@ -189,6 +192,8 @@ export class UpdateWorkComponent implements OnInit {
                                       <tem:i_doctype>${data.doc_type}</tem:i_doctype>
                                       <!--Optional:-->
                                       <tem:i_doc_upld_srno>${this.doc_srno[index]}</tem:i_doc_upld_srno>
+                                      <tem:i_PERC_DUE>${data.percent_payment_due}</tem:i_PERC_DUE>
+                                      <tem:I_PROG_DATE>${date}</tem:I_PROG_DATE>
                                       <!--Optional:-->
                                       <tem:Token>${this.token}</tem:Token>
                                     </tem:ins_work_progress_det>
@@ -233,7 +238,7 @@ export class UpdateWorkComponent implements OnInit {
     }
   }
 
-  openModel(bld_no,bld_name, index) {
+  openModel(bld_no, bld_name, index) {
     this.selected_building_name = bld_name;
     this.selected_building = bld_no;
     this.index = index;
