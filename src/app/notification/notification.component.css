@@ -9,4 +9,7 @@
   .d-flex{
     display: block !important;
   }
+  .bell{
+    width: 15px !important;
+  }
 }
