@@ -2,6 +2,19 @@
     margin-bottom: 3% !important;
 }
 
+.noti{
+  padding-top: 12px;
+  cursor: pointer;
+}
+
+.badge{
+  background-color: #e3310d;
+  position: absolute;
+  right: 25px;
+  border-radius: 50% !important;
+  color: white;
+  font-size: 70% !important;
+}
 @media(min-width:320px) and (max-width: 576px){
     .mb-footer{
         margin-bottom: 20% !important;

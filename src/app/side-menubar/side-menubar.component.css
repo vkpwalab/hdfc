@@ -73,8 +73,8 @@
       }
       .sidenav .closebtn {display: none;}
       .sidenav a {font-size: 13px;padding: 8px 8px 10px 23px;}
-  
-      
+
+
 }
 
 .menu{height: 40px;margin-top: 0px;}
@@ -93,3 +93,12 @@
   /* height: 48px; */
 }
 
+
+.badge{
+  background-color: white;
+  position: absolute;
+  right: 10px;
+  border-radius: 50% !important;
+  color: #e3310d;
+  font-size: 70% !important;
+}
