@@ -1,51 +1,21 @@
 <div class="col-xl-12 whole">
 
-  <div class="col-xl-12 col-12 row mx-0 py-3 main-list">
-      <div class="col-xl-6 col-8 mb-15 d-flex">
-        <p class="mb-0 justify-content-center align-self-center"><img class="bell mr-3" src="./assets/images/notification.png" width="20px">You have a message</p>
-      </div>
-      <div class="col-xl-5 col-6 d-flex">
-        <p class="mb-0 justify-content-center align-self-center">May 27 2021</p>
-      </div>
-      <div class="col-xl-1 col-6 text-right d-flex">
-        <p class="mb-0 justify-content-center align-self-center">06:00 PM</p>
-      </div>
+  <div class="col-xl-12 col-12 row mx-0 py-3 main-list" *ngFor="let notification of notifications ">
+    <div class="col-xl-6 col-8 mb-15 d-flex">
+      <p class="mb-0 justify-content-center align-self-center"><img class="bell mr-3"
+          src="./assets/images/notification.png" width="20px">{{ notification.NOTIFICATION }}
+
+       
+      </p>
+      
+    </div>
+    <div class="col-xl-5 col-6 d-flex">
+      <p class="mb-0 justify-content-center align-self-center">May 27 2021</p>
+    </div>
+    <div class="col-xl-1 col-6 text-right d-flex">
+      <p class="mb-0 justify-content-center align-self-center">06:00 PM</p>
+    </div>
+    <img class="bell" src="./assets/images/notification.png" width="20px">
   </div>
-
-      <div class="col-xl-12 col-12 row mx-0 py-3 main-list">
-        <div class="col-xl-6 col-8 mb-15 d-flex">
-          <p class="mb-0 justify-content-center align-self-center"><img class="bell mr-3" src="./assets/images/notification.png" width="20px">You have a message</p>
-        </div>
-        <div class="col-xl-5 col-6 d-flex">
-          <p class="mb-0 justify-content-center align-self-center">May 27 2021</p>
-        </div>
-        <div class="col-xl-1 col-6 text-right d-flex">
-          <p class="mb-0 justify-content-center align-self-center">06:00 PM</p>
-        </div>
-    </div>
-
-    <div class="col-xl-12 col-12 row mx-0 py-3 main-list">
-      <div class="col-xl-6 col-8 mb-15 d-flex">
-        <p class="mb-0 justify-content-center align-self-center"><img class="bell mr-3" src="./assets/images/notification.png" width="20px">You have a message</p>
-      </div>
-      <div class="col-xl-5 col-6 d-flex">
-        <p class="mb-0 justify-content-center align-self-center">May 27 2021</p>
-      </div>
-      <div class="col-xl-1 col-6 text-right d-flex">
-        <p class="mb-0 justify-content-center align-self-center">06:00 PM</p>
-      </div>
-    </div>
-
-    <div class="col-xl-12 col-12 row mx-0 py-3 main-list">
-      <div class="col-xl-6 col-8 mb-15 d-flex">
-        <p class="mb-0 justify-content-center align-self-center"><img class="bell mr-3" src="./assets/images/notification.png" width="20px">You have a message</p>
-      </div>
-      <div class="col-xl-5 col-6 d-flex">
-        <p class="mb-0 justify-content-center align-self-center">May 27 2021</p>
-      </div>
-      <div class="col-xl-1 col-6 text-right d-flex">
-        <p class="mb-0 justify-content-center align-self-center">06:00 PM</p>
-      </div>
-    </div>
 
 </div>
