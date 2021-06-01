@@ -4,7 +4,8 @@ import { SharedService } from 'src/app/services/shared.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import $ from 'jquery';
 
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
@@ -24,18 +25,21 @@ export class ProjectDetailsComponent implements OnInit {
   @Input() draft_data: any;
   builder_id: string;
   token: string;
-  branch_value:any;
+  branch_value: any;
   disabled: any;
-  constructor(private shared: SharedService, private fb: FormBuilder,private dateAdapter: DateAdapter<Date>) {
+  constructor(private shared: SharedService, private fb: FormBuilder, private dateAdapter: DateAdapter<Date>) {
     this.dateAdapter.setLocale('en-GB');
-   }
+  }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       project_type: new FormControl({ value: 'BUILDER/SOCIETY', disabled: true })
-  });
+    });
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
+
+
+
 
     this.project_detail_form = this.fb.group({
       'project_name': ['', Validators.required],
@@ -50,6 +54,7 @@ export class ProjectDetailsComponent implements OnInit {
       'website': [''],
       'remark': ['', Validators.required],
     })
+
 
     this.getBuilersDetails();
     this.getProjCategory();
@@ -169,20 +174,20 @@ export class ProjectDetailsComponent implements OnInit {
     this.shared.getData(soapaction, body_builders_details, result_tag).subscribe(
       (data) => {
         this.builder_detail = data.Table;
-        console.log("vk"+this.builder_detail[0]);
-          this.branch_value = this.builder_detail[0].CD_VAL;
-          this.project_detail_form.controls['hdfc_branch'].setValue(this.builder_detail[0].CD_DESC);
-          console.log(this.builder_detail);
+        console.log("vk" + this.builder_detail[0]);
+        this.branch_value = this.builder_detail[0].CD_VAL;
+        this.project_detail_form.controls['hdfc_branch'].setValue(this.builder_detail[0].CD_DESC);
+        console.log(this.builder_detail);
       }
     );
   }
 
   submitProjectDetail(data) {
-    console.log("kk"+JSON.stringify(data) );
-    data.hdfc_branch = parseInt(this.branch_value) ;
-    console.log("kl"+JSON.stringify(data) );
+    console.log("kk" + JSON.stringify(data));
+    data.hdfc_branch = parseInt(this.branch_value);
+    console.log("kl" + JSON.stringify(data));
     if (this.project_detail_form.valid) {
-     // this.project_detail_form.controls['hdfc_branch'].setValue("201");
+      // this.project_detail_form.controls['hdfc_branch'].setValue("201");
       $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
       $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
 

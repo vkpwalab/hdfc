@@ -54,13 +54,13 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input type="number" min="0" matInput formControlName="residencial_total_unit" name="greaterThanValue" [(ngModel)]="greaterThanValue" (ngModelChange)="onChange($event)">
+                                        <input type="number" value="1" min="0" matInput formControlName="residencial_total_unit" (ngModelChange)="onChange($event)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input type="number" min="0" matInput formControlName="residencial_solid_unit" name="lessThanValue" [(ngModel)]="lessThanValue" (ngModelChange)="onChange($event)">
+                                        <input type="number" min="0" matInput formControlName="residencial_solid_unit"  (ngModelChange)="onChange($event)">
                                     </mat-form-field>
                                     <div style="color: red;font-size: 13px;" *ngIf="isInvalid">SOLD UNITS should not be greater then TOTAL UNITS</div>
                                 </div>
@@ -115,13 +115,13 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input type="number" min="0" matInput formControlName="commercial_total_unit"  name="greaterThanValuec" [(ngModel)]="greaterThanValuec" (ngModelChange)="onChangec($event)">
+                                        <input type="number" min="0" matInput formControlName="commercial_total_unit" (ngModelChange)="onChangec($event)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input type="number" min="0" matInput formControlName="commercial_solid_unit"  name="lessThanValuec" [(ngModel)]="lessThanValuec" (ngModelChange)="onChangec($event)">
+                                        <input type="number" min="0" matInput formControlName="commercial_solid_unit" (ngModelChange)="onChangec($event)">
                                     </mat-form-field>
                                     <div style="color: red;font-size: 13px;" *ngIf="isInvalidc">SOLD UNITS should not be greater then TOTAL UNITS</div>
                                 </div>
@@ -176,13 +176,13 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input type="number" min="0" matInput formControlName="plot_total_unit"  name="greaterThanValuep" [(ngModel)]="greaterThanValuep" (ngModelChange)="onChangep($event)">
+                                        <input type="number" value="0" min="0" matInput formControlName="plot_total_unit"  (ngModelChange)="onChangep($event)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input type="number" min="0" matInput formControlName="plot_solid_unit" name="lessThanValuep" [(ngModel)]="lessThanValuep" (ngModelChange)="onChangep($event)">
+                                        <input type="number" min="0" matInput formControlName="plot_solid_unit" (ngModelChange)="onChangep($event)">
                                     </mat-form-field>
                                     <div style="color: red;font-size: 13px;" *ngIf="isInvalidp">SOLD UNITS should not be greater then TOTAL UNITS</div>
                                 </div>
@@ -235,13 +235,13 @@
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>TOTAL UNITS</mat-label>
-                                        <input type="number" min="0" matInput formControlName="bungalow_total_unit"  name="greaterThanValueb" [(ngModel)]="greaterThanValueb" (ngModelChange)="onChangeb($event)">
+                                        <input type="number" min="0" matInput formControlName="bungalow_total_unit"   (ngModelChange)="onChangeb($event)">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-lg-4">
                                     <mat-form-field appearance="standard">
                                         <mat-label>SOLD UNITS</mat-label>
-                                        <input type="number" min="0" matInput formControlName="bungalow_solid_unit" name="lessThanValueb" [(ngModel)]="lessThanValueb" (ngModelChange)="onChangeb($event)">
+                                        <input type="number" min="0" matInput formControlName="bungalow_solid_unit" (ngModelChange)="onChangeb($event)">
                                     </mat-form-field>
                                     <div style="color: red;font-size: 13px;" *ngIf="isInvalidb">SOLD UNITS should not be greater then TOTAL UNITS</div>
                                 </div>
@@ -306,13 +306,15 @@
     </div>
     <div class="col-lg-12 mt-2 project alternative">
         <div class="col-lg-6 btn-radio">
+
             <p class="para"><b>CONSTRUCTION FINANCE DETAILS</b><br>
                 IS THE PROJECT MORTGAGED WITH ANY FINANCIAL INSTITUTE
                 <span class="text-danger">*</span></p>
-                <mat-radio-group aria-label="Select an option" formControlName="mortgaged" >
+                <mat-radio-group [ngClass]="{'invalid': project_feature_form.get('mortgaged').invalid}" aria-label="Select an option" formControlName="mortgaged" >
                     <mat-radio-button value="Y" color="primary"  (change)="mortgageChange($event)">YES</mat-radio-button>
                     <mat-radio-button value="N" color="primary" class="ml-3" (change)="mortgageChange($event)">NO</mat-radio-button>
                 </mat-radio-group>
+            
         </div>
 
         <!-- <div class="col-lg-6">

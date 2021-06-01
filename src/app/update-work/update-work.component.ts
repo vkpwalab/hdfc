@@ -146,7 +146,7 @@ export class UpdateWorkComponent implements OnInit {
           this.dynamic_forms[element.PROJ_BLDG_NO] = this.fb.group({
             'update_current_progress': [element.STAGE_OF_CONS, Validators.required],
             'percent_payment_due': [element.PERC_DUE, Validators.required],
-            'progress_date': [element.PROGRESS, Validators.required],
+            'progress_date': [this.shared.stringToDate(element.PROGRESS) , Validators.required],
             'doc_type': [element.DOCUMENT_TYPE, Validators.required],
             'build_no': [element.PROJ_BLDG_NO],
             'build_name': [element.BLDG_NAME],
@@ -168,7 +168,9 @@ export class UpdateWorkComponent implements OnInit {
     console.log(data);
     if (this.dynamic_forms[data.build_no].valid) {
 
-      const date = new Intl.DateTimeFormat(['ban', 'id']).format(data.progress_date);
+
+      const progress_date = this.shared.formatDate(data.progress_date)
+      //const date = new Intl.DateTimeFormat(['ban', 'id']).format(data.progress_date);
      
       if (this.file_uploaded[index] == 'Y') {
         let body_insert_query = `
@@ -183,7 +185,7 @@ export class UpdateWorkComponent implements OnInit {
                                       <!--Optional:-->
                                       <tem:i_STAGE_OF_CONS>${data.update_current_progress}</tem:i_STAGE_OF_CONS>
                                       <!--Optional:-->
-                                      <tem:i_PROGRESS>${data.progress_date}</tem:i_PROGRESS>
+                                      <tem:i_PROGRESS>${progress_date}</tem:i_PROGRESS>
                                       <!--Optional:-->
                                       <tem:i_UPLD_DOC_FLAG>Y</tem:i_UPLD_DOC_FLAG>
                                       <!--Optional:-->
@@ -193,7 +195,7 @@ export class UpdateWorkComponent implements OnInit {
                                       <!--Optional:-->
                                       <tem:i_doc_upld_srno>${this.doc_srno[index]}</tem:i_doc_upld_srno>
                                       <tem:i_PERC_DUE>${data.percent_payment_due}</tem:i_PERC_DUE>
-                                      <tem:I_PROG_DATE>${date}</tem:I_PROG_DATE>
+                                      <tem:I_PROG_DATE>${progress_date}</tem:I_PROG_DATE>
                                       <!--Optional:-->
                                       <tem:Token>${this.token}</tem:Token>
                                     </tem:ins_work_progress_det>

@@ -7,6 +7,8 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { } from 'googlemaps';
 import { LatLng } from '@agm/core';
 import { GoogleMap } from '@agm/core/services/google-maps-types';
+import { env } from 'process';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-address-details',
@@ -32,6 +34,7 @@ export class AddressDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
+    
     this.address_detail_form = this.fb.group({
       'sno': [''],
       'plot_no': [''],
@@ -48,6 +51,8 @@ export class AddressDetailsComponent implements OnInit {
       'north': ['', Validators.required],
       'south': ['', Validators.required],
     })
+
+
 
     const upperAddress = [
       'sno',

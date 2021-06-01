@@ -163,4 +163,25 @@ export class SharedService {
 
     window.URL.revokeObjectURL(url);
   }
+
+  formatDate(date) {
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+      "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    ];
+
+    const month = monthNames[date.getMonth()];
+    const day = (date.getDate());
+    const year = (date.getFullYear());
+    return day + "-" + month + "-" + year;
+  }
+
+  stringToDate(str) {
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+      "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    ];
+    const day = str.split('-')[0]
+    const month = monthNames.indexOf(str.split('-')[1])
+    const year = str.split('-')[2]
+    return new Date(year, month, day);
+  }
 }
