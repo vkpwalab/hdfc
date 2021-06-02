@@ -10,12 +10,12 @@
 
     </div>
     <div class="col-xl-5 col-6 d-flex">
-      <p class="mb-0 justify-content-center align-self-center">May 27 2021</p>
+      <p class="mb-0 justify-content-center align-self-center">{{ notification.CREATED_ON }}</p>
     </div>
     <div class="col-xl-1 col-6 text-right d-flex">
-      <p class="mb-0 justify-content-center align-self-center">06:00 PM</p>
+      <!-- <p class="mb-0 justify-content-center align-self-center">Created By{{ notification.CREATED_BY }}</p> -->
     </div>
-    <img class="bell cancel" src="./assets/images/bar-x.png" width="15px">
+    <img class="bell cancel" (click)="delete(notification)" src="./assets/images/bar-x.png" width="15px">
   </div>
 
 </div>

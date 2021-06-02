@@ -6,6 +6,7 @@ import $ from 'jquery';
 
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { environment } from 'src/environments/environment';
+import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
@@ -185,6 +186,9 @@ export class ProjectDetailsComponent implements OnInit {
   submitProjectDetail(data) {
     console.log("kk" + JSON.stringify(data));
     data.hdfc_branch = parseInt(this.branch_value);
+    data.project_launch_date = this.shared.formatDate(data.project_launch_date)
+    data.work_comm_date = this.shared.formatDate(data.work_comm_date)
+    data.expected_comp_date = this.shared.formatDate(data.expected_comp_date)
     console.log("kl" + JSON.stringify(data));
     if (this.project_detail_form.valid) {
       // this.project_detail_form.controls['hdfc_branch'].setValue("201");
@@ -203,11 +207,12 @@ export class ProjectDetailsComponent implements OnInit {
     this.project_detail_form.controls['hdfc_branch'].setValue(this.draft_data.BRANCH_NO);
     this.project_detail_form.controls['project_category'].setValue(this.draft_data.PROJECT_CATEGORY);
     this.project_detail_form.controls['stage_of_construction'].setValue(this.draft_data.STAGE_OF_CONST);
-    this.project_detail_form.controls['project_launch_date'].setValue(this.draft_data.PROJECT_LAUNCH_DATE);
-    this.project_detail_form.controls['work_comm_date'].setValue(this.draft_data.WORK_COMMENCEMENT_DATE);
-    this.project_detail_form.controls['expected_comp_date'].setValue(this.draft_data.PROPOSED_ACTL_COMPTION_DATE);
+    this.project_detail_form.controls['project_launch_date'].setValue(this.shared.formatDate(this.draft_data.PROJECT_LAUNCH_DATE));
+    this.project_detail_form.controls['work_comm_date'].setValue(this.shared.formatDate(this.draft_data.WORK_COMMENCEMENT_DATE));
+    this.project_detail_form.controls['expected_comp_date'].setValue(this.shared.formatDate(this.draft_data.PROPOSED_ACTL_COMPTION_DATE));
     this.project_detail_form.controls['developer_name'].setValue(this.draft_data.DEVELOPER_NAME);
     this.project_detail_form.controls['website'].setValue(this.draft_data.WEBSITE_URL);
     this.project_detail_form.controls['remark'].setValue(this.draft_data.REMARK);
+    console.log(this.project_detail_form);
   }
 }
