@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { SharedService } from 'src/app/services/shared.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -10,7 +10,9 @@ import { DatePipe } from '@angular/common'
   templateUrl: './rera-details.component.html',
   styleUrls: ['./rera-details.component.css']
 })
+
 export class RERADetailsComponent implements OnInit {
+  @ViewChild('name') inputName;
   rera_status_list: any = [];
   rera_detail_form: FormGroup;
   project_id: string;
@@ -50,6 +52,9 @@ export class RERADetailsComponent implements OnInit {
     }, 2000);
   }
 
+
+
+
   getReraStatus() {
     let body_rera_status = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                   <soapenv:Header/>
@@ -87,6 +92,7 @@ export class RERADetailsComponent implements OnInit {
       this.to_date = true;
       this.reg_num = true;
       this.app_date = false;
+      this.rera_detail_form.controls['rera_regi_number'].reset();
       this.rera_detail_form.controls['valid_from_date'].reset();
       this.rera_detail_form.controls['valid_to_date'].reset();
       this.rera_detail_form.controls['valid_from_date'].clearValidators();
@@ -96,6 +102,7 @@ export class RERADetailsComponent implements OnInit {
       this.to_date = true;
       this.reg_num = true;
       this.app_date = true;
+      this.rera_detail_form.controls['rera_regi_number'].reset();
       this.rera_detail_form.controls['valid_from_date'].reset();
       this.rera_detail_form.controls['valid_to_date'].reset();
       this.rera_detail_form.controls['valid_from_date'].clearValidators();

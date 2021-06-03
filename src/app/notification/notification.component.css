@@ -5,6 +5,9 @@
   position: absolute;
     right: 10px;
     top: 10px;
+    color: #e3310d;
+    font-size: 15px;
+    cursor: pointer;
 }
 @media screen and (min-width:300px) and (max-width: 576px){
   .mb-15{

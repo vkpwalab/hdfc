@@ -2,7 +2,7 @@
   <div class="col-lg-12 project alternative">
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
-        <mat-label>RERA REGISTRATION STATUS</mat-label>
+        <mat-label>RERA REGISTRATION STATUS<span class="text-danger">*</span></mat-label>
         <mat-select formControlName="rera_regi_status" (selectionChange)="reraStatusChange($event)">
           <mat-option *ngFor="let rera of rera_status_list" [value]="rera.CD_VAL">{{rera.CD_DESC}}
           </mat-option>
@@ -12,7 +12,7 @@
 
     <div class="col-lg-3">
       <mat-form-field id="calendar">
-        <mat-label>RERA APPLICATION DATE</mat-label>
+        <mat-label>RERA APPLICATION DATE<span class="text-danger">*</span></mat-label>
         <input matInput [matDatepicker]="picker" formControlName="rera_app_date" [disabled]="app_date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -20,8 +20,8 @@
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
-        <mat-label>RERA REGISTRATION NUMBER</mat-label>
-        <input matInput formControlName="rera_regi_number" [readonly]="reg_num">
+        <mat-label>RERA REGISTRATION NUMBER<span class="text-danger">*</span></mat-label>
+        <input type="number" matInput formControlName="rera_regi_number" [readonly]="reg_num">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
