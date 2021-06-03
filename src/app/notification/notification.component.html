@@ -15,7 +15,8 @@
     <div class="col-xl-1 col-6 text-right d-flex">
       <!-- <p class="mb-0 justify-content-center align-self-center">Created By{{ notification.CREATED_BY }}</p> -->
     </div>
-    <img class="bell cancel" (click)="delete(notification)" src="./assets/images/bar-x.png" width="15px">
+    <!-- <img class="bell cancel" (click)="delete(notification)" src="./assets/images/bar-x.png" width="15px"> -->
+    <i (click)="delete(notification)" class="fa fa-trash cancel" aria-hidden="true"></i>
   </div>
 
 </div>
