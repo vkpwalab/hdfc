@@ -124,7 +124,9 @@ export class AddressDetailsComponent implements OnInit {
   }
 
   submitAddressDetail(data) {
-    console.log(data);
+    //console.log(data);
+    data.city = data.city.split(",")[0];
+    console.log(data)
     if (this.address_detail_form.valid) {
       $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
       $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');

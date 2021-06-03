@@ -169,10 +169,23 @@ export class SharedService {
       "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
     ];
 
-    const month = monthNames[date.getMonth()];
-    const day = (date.getDate());
-    const year = (date.getFullYear());
-    return day + "-" + month + "-" + year;
+    console.log(date);
+
+    if (date !== null && date !== "") {
+      try {
+        const month = monthNames[date.getMonth()];
+        const day = (date.getDate());
+        const year = (date.getFullYear());
+        return day + "-" + month + "-" + year;
+      } catch (error) {
+        return date;
+      }
+
+    } else {
+      return date;
+    }
+
+
   }
 
   stringToDate(str) {
