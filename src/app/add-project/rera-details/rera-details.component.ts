@@ -32,7 +32,7 @@ export class RERADetailsComponent implements OnInit {
     this.builder_id = '510673';
     this.token = 'MH3NPYK34J0KHDI';
     this.rera_detail_form = this.fb.group({
-      'rera_regi_status': [''],
+      'rera_regi_status': ['', Validators.required],
       'rera_app_date': [''],
       'rera_regi_number': [''],
       'valid_from_date': [''],
