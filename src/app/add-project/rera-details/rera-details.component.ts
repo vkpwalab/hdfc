@@ -86,6 +86,12 @@ export class RERADetailsComponent implements OnInit {
     const valid_to_date = this.rera_detail_form.get('valid_to_date')
     const rera_regi_number = this.rera_detail_form.get('rera_regi_number')
     if(status == "Registered"){
+
+      rera_app_date.reset();
+      rera_regi_number.reset();
+      valid_from_date.reset();
+      valid_to_date.reset();
+      
       this.from_date = false;
       this.to_date = false;
       this.reg_num = false;
@@ -103,6 +109,12 @@ export class RERADetailsComponent implements OnInit {
       rera_regi_number.setValidators([Validators.required]);
       rera_regi_number.updateValueAndValidity();
     }else if(status == "Applied"){
+
+      rera_app_date.reset();
+      rera_regi_number.reset();
+      valid_from_date.reset();
+      valid_to_date.reset();
+
       this.from_date = true;
       this.to_date = true;
       this.reg_num = true;
