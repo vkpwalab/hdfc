@@ -101,9 +101,14 @@ export class AllProjectsComponent implements OnInit {
       (data) => {
         this.project_list = data.Table;
         this.project_list_len = this.project_list.length;
-        this.project_list.forEach(element => {
+        this.project_list.forEach((element,key) => {
           let doc_perc = (element.PENDING_DOC / element.UPL_DOC_CNT) * 100;
           this.project_list[0].doc_perc = doc_perc;
+          console.log(key)
+          if(element.PROJECT_STAUS==" "){
+            console.log(key)
+            this.project_list[key].PROJECT_STAUS = "Pending"
+          }
         });
         this.loading = false;
         console.log(this.project_list);

@@ -28,6 +28,7 @@ export class ProjectDetailsComponent implements OnInit {
   token: string;
   branch_value: any;
   disabled: any;
+  branch_desc:any;
   constructor(private shared: SharedService, private fb: FormBuilder, private dateAdapter: DateAdapter<Date>) {
     this.dateAdapter.setLocale('en-GB');
   }
@@ -177,6 +178,7 @@ export class ProjectDetailsComponent implements OnInit {
         this.builder_detail = data.Table;
         console.log("vk" + this.builder_detail[0]);
         this.branch_value = this.builder_detail[0].CD_VAL;
+        this.branch_desc= this.builder_detail[0].CD_DESC;
         this.project_detail_form.controls['hdfc_branch'].setValue(this.builder_detail[0].CD_DESC);
         console.log(this.builder_detail);
       }
@@ -204,12 +206,12 @@ export class ProjectDetailsComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('value changed', this.draft_data);
     this.project_detail_form.controls['project_name'].setValue(this.draft_data.PROJECT_NAME);
-    this.project_detail_form.controls['hdfc_branch'].setValue(this.draft_data.BRANCH_NO);
+    this.project_detail_form.controls['hdfc_branch'].setValue(this.branch_desc);
     this.project_detail_form.controls['project_category'].setValue(this.draft_data.PROJECT_CATEGORY);
     this.project_detail_form.controls['stage_of_construction'].setValue(this.draft_data.STAGE_OF_CONST);
-    this.project_detail_form.controls['project_launch_date'].setValue(this.shared.formatDate(this.draft_data.PROJECT_LAUNCH_DATE));
-    this.project_detail_form.controls['work_comm_date'].setValue(this.shared.formatDate(this.draft_data.WORK_COMMENCEMENT_DATE));
-    this.project_detail_form.controls['expected_comp_date'].setValue(this.shared.formatDate(this.draft_data.PROPOSED_ACTL_COMPTION_DATE));
+    this.project_detail_form.controls['project_launch_date'].setValue(this.shared.stringToDate(this.draft_data.PROJECT_LAUNCH_DATE));
+    this.project_detail_form.controls['work_comm_date'].setValue(this.shared.stringToDate(this.draft_data.WORK_COMMENCEMENT_DATE));
+    this.project_detail_form.controls['expected_comp_date'].setValue(this.shared.stringToDate(this.draft_data.PROPOSED_ACTL_COMPTION_DATE));
     this.project_detail_form.controls['developer_name'].setValue(this.draft_data.DEVELOPER_NAME);
     this.project_detail_form.controls['website'].setValue(this.draft_data.WEBSITE_URL);
     this.project_detail_form.controls['remark'].setValue(this.draft_data.REMARK);

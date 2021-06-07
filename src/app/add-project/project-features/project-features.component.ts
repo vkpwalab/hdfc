@@ -16,6 +16,7 @@ export class ProjectFeaturesComponent implements OnInit {
   @Input() draft_data: any;
   builder_id: string;
   token: string;
+  options = "";
   constructor(private shared: SharedService, private fb: FormBuilder) {
     this.show_fin_inst = true;
     this.show_clps = true;
@@ -23,16 +24,26 @@ export class ProjectFeaturesComponent implements OnInit {
 
   onchangeradio(value) {
     this.options = value.value;
-    if (value.value == 'false') {
+    if (value.value == 'Other') {
       this.hideclif = false;
+      this.project_feature_form.get('hdfc_clip_no').clearValidators();
+      this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
+      this.project_feature_form.get('bank_name').setValidators([Validators.required]);
+      this.project_feature_form.get('bank_name').updateValueAndValidity()
+      this.project_feature_form.get('bank_name').reset()
     } else {
+      this.project_feature_form.get('hdfc_clip_no').setValidators([Validators.required]);
+      this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
+      this.project_feature_form.get('bank_name').clearValidators();
+      this.project_feature_form.get('bank_name').updateValueAndValidity()
+
       this.hideclif = true;
     }
     console.log(value)
   }
 
 
-  options = true;
+  
   hide = true;
   hideclif = true;
 
@@ -99,7 +110,7 @@ export class ProjectFeaturesComponent implements OnInit {
       'mortgaged': ['', Validators.required],
       'financial_institute': [''],
       'hdfc_clip_no': [''],
-      'contruction_finance': [''],
+      'contruction_finance': ['',Validators.required],
       'residencial_total_unit': ['0'],
       'residencial_solid_unit': ['0'],
       'residencial_available_sale': ['0'],
@@ -134,17 +145,23 @@ export class ProjectFeaturesComponent implements OnInit {
 
 
   mortgageChange(event) {
+    console.log(event);
     if (event.value == 'Y') {
       this.show_fin_inst = false;
-      this.project_feature_form.controls['contruction_finance'].reset();
-      this.project_feature_form.controls['contruction_finance'].clearValidators();
-      this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({ onlySelf: true });
+      this.project_feature_form.get('options').setValidators([Validators.required])
+      this.project_feature_form.get('options').updateValueAndValidity()
+      // this.project_feature_form.get('contruction_finance').reset();
+      // this.project_feature_form.get('contruction_finance').clearValidators();
+      // this.project_feature_form.get('contruction_finance').updateValueAndValidity();
       this.hide = false;
     } else {
       this.show_fin_inst = true;
+      this.project_feature_form.get('options').clearValidators();
+      this.project_feature_form.get('options').updateValueAndValidity()
       this.project_feature_form.controls['financial_institute'].setValue('');
-      this.project_feature_form.controls['contruction_finance'].setValidators([Validators.required]);
-      this.project_feature_form.controls['contruction_finance'].updateValueAndValidity({ onlySelf: true });
+      // this.project_feature_form.get('contruction_finance').reset();
+      // this.project_feature_form.get('contruction_finance').setValidators([Validators.required]);
+      // this.project_feature_form.get('contruction_finance').updateValueAndValidity();
       this.hide = true;
     }
   }
@@ -166,6 +183,18 @@ export class ProjectFeaturesComponent implements OnInit {
       if (controlErrors != null) {
         Object.keys(controlErrors).forEach(keyError => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+
+          if(key=="options"){
+            alert("Please select Mortgaged institute")
+          }
+
+          if(key=="contruction_finance"){
+            alert("Please select requirement for construction finance")
+          }
+
+          if(key =="mortgaged"){
+            alert("Please select is the project mortgaged with any financial institue?")
+          }
         });
       }
     });
@@ -499,7 +528,7 @@ export class ProjectFeaturesComponent implements OnInit {
       I_REMARK: project_detail.remark,
       I_IS_MORTGAGE_BY_OTH_ST: data.mortgaged,
       I_FANCIAL_ST: data.financial_institute,
-      I_CTS_NO: '',
+      I_CTS_NO: address_detail.sno,
       Token: 'MH3NPYK34J0KHDI'
     };
     console.log(body_draft_project);

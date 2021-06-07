@@ -310,9 +310,9 @@
             <p class="para"><b>CONSTRUCTION FINANCE DETAILS</b><br>
                 IS THE PROJECT MORTGAGED WITH ANY FINANCIAL INSTITUTE
                 <span class="text-danger">*</span></p>
-                <mat-radio-group [ngClass]="{'invalid': project_feature_form.get('mortgaged').invalid}" aria-label="Select an option" formControlName="mortgaged" >
-                    <mat-radio-button value="Y" color="primary"  (change)="mortgageChange($event)">YES</mat-radio-button>
-                    <mat-radio-button value="N" color="primary" class="ml-3" (change)="mortgageChange($event)">NO</mat-radio-button>
+                <mat-radio-group (change)="mortgageChange($event)" aria-label="Select an option" formControlName="mortgaged" >
+                    <mat-radio-button value="Y" color="primary"  >YES</mat-radio-button>
+                    <mat-radio-button value="N" color="primary" class="ml-3" >NO</mat-radio-button>
                 </mat-radio-group>
             
         </div>
@@ -327,9 +327,9 @@
 
     <div class="col-lg-12 mt-2 project alternative" *ngIf="!hide">
         <div class="col-lg-6 btn-radio">
-            <mat-radio-group aria-label="Select an option">
-                <mat-radio-button name="options" formControlName="options" (change)="onchangeradio($event)" type="radio" [value]="true" >HDFC</mat-radio-button>
-                <mat-radio-button  name="options" formControlName="options"  (change)="onchangeradio($event)" type="radio" [value]="false" class="ml-3">Other</mat-radio-button>
+            <mat-radio-group name="options" aria-label="Select an option" (change)="onchangeradio($event)" formControlName="options">
+                <mat-radio-button type="radio" value="HDFC" >HDFC</mat-radio-button>
+                <mat-radio-button type="radio" value="Other" class="ml-3">Other</mat-radio-button>
               </mat-radio-group>
 
             <!-- <input name="options" formControlName="options" [(ngModel)]="options" type="radio" [value]="true"/> HDFC
@@ -338,7 +338,7 @@
 
 
         </div>
-        <div class="col-lg-6"  *ngIf="!options">
+        <div class="col-lg-6"  *ngIf="options=='Other'">
             <!-- <h2 style="border: 2px solid;"> <input type="text"></h2> -->
             <mat-form-field appearance="standard" class="six">
                 <mat-label>Other Bank</mat-label>
@@ -357,9 +357,9 @@
         <div class="col-lg-6 btn-radio">
             <p class="para">ANY REQUIREMENT FOR CONSTRUCTION FINANCE<span class="text-danger">*</span></p>
                 <!-- <mat-radio-group aria-label="Select an option" formControlName="contruction_finance" [disabled]="!show_fin_inst"> -->
-                    <mat-radio-group aria-label="Select an option" formControlName="contruction_finance">
-                    <mat-radio-button value="Y" color="primary">YES</mat-radio-button>
-                    <mat-radio-button value="N" color="primary" class="ml-3">NO</mat-radio-button>
+                    <mat-radio-group ngModel name="contruction_finance" aria-label="Select an option" formControlName="contruction_finance">
+                    <mat-radio-button type="radio" value="Y" color="primary">YES</mat-radio-button>
+                    <mat-radio-button type="radio" value="N" color="primary" class="ml-3">NO</mat-radio-button>
                 </mat-radio-group>
         </div>
     </div>

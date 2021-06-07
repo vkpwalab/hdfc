@@ -214,7 +214,7 @@ export class AddressDetailsComponent implements OnInit {
       I_REMARK: project_detail.remark,
       I_IS_MORTGAGE_BY_OTH_ST: project_feature.mortgaged ? project_feature.mortgaged : '',
       I_FANCIAL_ST: project_feature.financial_institute ? project_feature.financial_institute : '',
-      I_CTS_NO: '',
+      I_CTS_NO: data.sno,
     };
 
     console.log(body_draft_project);

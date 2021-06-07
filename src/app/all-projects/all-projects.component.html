@@ -102,7 +102,7 @@
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
                 <div class="col-12 px-0 top">
                     <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
-                    <div [routerLink]="['/project-overview',ans.PROJECTID]" class="col-10 px-0 pro-name max-width-50" style="cursor: pointer;"><b>{{ans.PROJECT_NAME | titlecase}}</b></div>
+                    <div matTooltip="{{ans.PROJECT_NAME | titlecase}}"  [routerLink]="['/project-overview',ans.PROJECTID]" class="col-10 px-0 pro-name max-width-50" style="cursor: pointer;"><b >{{ans.PROJECT_NAME | titlecase}}</b></div>
                 </div>
             </div>
             <div class="col-xl-2 col-6 pr-0 mb-0 address">
@@ -122,7 +122,7 @@
                     {{ans.PROJECT_STAUS}}</p>
                 <p class="font-italic pen mb-0" *ngIf="ans.PROJECT_STAUS == 'Pending'"><i aria-hidden="true"
                         class="fa fa-clock-o"></i>
-                    {{ans.PROJECT_STAUS}}</p>
+                        {{ans.PROJECT_STAUS}}</p>
             </div>
             <div class="col-xl-2 col-8 pr-0 circle">
                 <circle-progress [percent]="ans.doc_perc" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"

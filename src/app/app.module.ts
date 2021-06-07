@@ -61,6 +61,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationComponent } from './notification/notification.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -126,6 +127,7 @@ import { NotificationComponent } from './notification/notification.component';
     HttpClientModule,
     DragDropModule,
     MatTabsModule,
+    MatTooltipModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,

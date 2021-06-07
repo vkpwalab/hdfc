@@ -80,37 +80,71 @@ export class RERADetailsComponent implements OnInit {
 
   reraStatusChange(event){
     let status = event.value;
+    console.log(status)
+    const rera_app_date = this.rera_detail_form.get('rera_app_date')
+    const valid_from_date = this.rera_detail_form.get('valid_from_date')
+    const valid_to_date = this.rera_detail_form.get('valid_to_date')
+    const rera_regi_number = this.rera_detail_form.get('rera_regi_number')
     if(status == "Registered"){
       this.from_date = false;
       this.to_date = false;
       this.reg_num = false;
       this.app_date = true;
-      this.rera_detail_form.controls['valid_from_date'].setValidators([Validators.required]);
-      this.rera_detail_form.controls['valid_to_date'].setValidators([Validators.required]);
+
+      rera_app_date.clearValidators()
+      rera_app_date.updateValueAndValidity();
+
+      valid_from_date.setValidators(Validators.required);
+      valid_from_date.updateValueAndValidity()
+
+      valid_to_date.setValidators(Validators.required);
+      valid_to_date.updateValueAndValidity()
+
+      rera_regi_number.setValidators([Validators.required]);
+      rera_regi_number.updateValueAndValidity();
     }else if(status == "Applied"){
       this.from_date = true;
       this.to_date = true;
       this.reg_num = true;
       this.app_date = false;
-      this.rera_detail_form.controls['rera_regi_number'].reset();
-      this.rera_detail_form.controls['valid_from_date'].reset();
-      this.rera_detail_form.controls['valid_to_date'].reset();
-      this.rera_detail_form.controls['valid_from_date'].clearValidators();
-      this.rera_detail_form.controls['valid_to_date'].clearValidators();
+      
+      rera_app_date.setValidators([Validators.required]);
+      rera_app_date.updateValueAndValidity();
+
+      valid_from_date.clearValidators();
+      valid_from_date.updateValueAndValidity()
+
+      valid_to_date.clearValidators();
+      valid_to_date.updateValueAndValidity()
+
+      rera_regi_number.clearValidators();
+      rera_regi_number.updateValueAndValidity();
+      
     }else{
       this.from_date = true;
       this.to_date = true;
       this.reg_num = true;
       this.app_date = true;
-      this.rera_detail_form.controls['rera_regi_number'].reset();
-      this.rera_detail_form.controls['valid_from_date'].reset();
-      this.rera_detail_form.controls['valid_to_date'].reset();
-      this.rera_detail_form.controls['valid_from_date'].clearValidators();
-      this.rera_detail_form.controls['valid_to_date'].clearValidators();
+      this.reg_num = true;
+
+      rera_app_date.reset();
+      rera_regi_number.reset();
+      valid_from_date.reset();
+      valid_to_date.reset();
+
+      rera_app_date.clearValidators();
+      rera_app_date.updateValueAndValidity();
+
+      rera_regi_number.clearValidators();
+      rera_regi_number.updateValueAndValidity();
+
+      valid_from_date.clearValidators();
+      valid_from_date.updateValueAndValidity();
+
+      valid_to_date.clearValidators();
+      valid_to_date.updateValueAndValidity();      
     }
 
-    this.rera_detail_form.controls['valid_from_date'].updateValueAndValidity({onlySelf: true});
-    this.rera_detail_form.controls['valid_to_date'].updateValueAndValidity({onlySelf: true});
   }
 
   submitReraDetail(data) {

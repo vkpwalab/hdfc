@@ -210,7 +210,7 @@ export class UploadDocxComponent implements OnInit {
         (data) => {
           this.removeDraft();
           console.log(data);
-          location.reload();
+          //location.reload();
         }
       );
     }

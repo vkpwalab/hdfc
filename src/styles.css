@@ -17,6 +17,10 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+
+.mat-tooltip{
+  font-size: 14px;
+}  
 html,body {
   scroll-behavior: smooth !important;
 }
