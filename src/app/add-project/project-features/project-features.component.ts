@@ -531,7 +531,7 @@ export class ProjectFeaturesComponent implements OnInit {
       I_BRANCH: project_detail.hdfc_branch,
       I_REMARK: project_detail.remark,
       I_IS_MORTGAGE_BY_OTH_ST: data.mortgaged,
-      I_FANCIAL_ST: data.financial_institute,
+      I_FANCIAL_ST: data.financial_institute =="HDFC" ? data.financial_institute : data.bank_name ,
       I_CTS_NO: address_detail.sno,
       Token: 'MH3NPYK34J0KHDI'
     };
@@ -709,6 +709,23 @@ export class ProjectFeaturesComponent implements OnInit {
       this.hide =  false;
     }else{
       this.hide = true;
+    }
+
+    if(this.draft_data.FINANCIAL_INST =="HDFC"){
+      this.financial_institute =  "HDFC"
+      this.hideclif = true;
+      this.project_feature_form.get('hdfc_clip_no').setValidators([Validators.required]);
+      this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
+      this.project_feature_form.get('bank_name').clearValidators();
+      this.project_feature_form.get('bank_name').updateValueAndValidity()
+    }else{
+      this.financial_institute =  "Other"
+      this.hideclif = false;
+      this.project_feature_form.get('bank_name').setValue(this.draft_data.FINANCIAL_INST)
+      this.project_feature_form.get('bank_name').setValidators([Validators.required]);
+      this.project_feature_form.get('bank_name').updateValueAndValidity()
+      this.project_feature_form.get('hdfc_clip_no').clearValidators()
+      this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
     }
 
     this.project_feature_form.controls['plot_area'].setValue(this.draft_data.PLOT_AREA);

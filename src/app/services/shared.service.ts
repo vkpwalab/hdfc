@@ -178,11 +178,11 @@ export class SharedService {
         const year = (date.getFullYear());
         return day + "-" + month + "-" + year;
       } catch (error) {
-        return date;
+        return ""
       }
 
     } else {
-      return date;
+      return "";
     }
 
 
@@ -192,9 +192,21 @@ export class SharedService {
     const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
       "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
     ];
-    const day = str.split('-')[0]
-    const month = monthNames.indexOf(str.split('-')[1])
-    const year = str.split('-')[2]
-    return new Date(year, month, day);
+
+    if(str !==null && str !==""){
+      try{
+        const day = str.split('-')[0]
+        const month = monthNames.indexOf(str.split('-')[1])
+        const year = str.split('-')[2]
+        return new Date(year, month, day);
+
+      }catch(e){
+
+        return str;
+      }
+   
+    }else{
+      return str
+    }
   }
 }
