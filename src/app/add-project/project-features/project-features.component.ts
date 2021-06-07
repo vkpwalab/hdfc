@@ -16,14 +16,14 @@ export class ProjectFeaturesComponent implements OnInit {
   @Input() draft_data: any;
   builder_id: string;
   token: string;
-  options = "";
+  financial_institute = "";
   constructor(private shared: SharedService, private fb: FormBuilder) {
     this.show_fin_inst = true;
     this.show_clps = true;
   }
 
   onchangeradio(value) {
-    this.options = value.value;
+    this.financial_institute = value.value;
     if (value.value == 'Other') {
       this.hideclif = false;
       this.project_feature_form.get('hdfc_clip_no').clearValidators();
@@ -108,7 +108,7 @@ export class ProjectFeaturesComponent implements OnInit {
       'total_number': ['', Validators.required],
       'mention_specfic_detail': ['', Validators.required],
       'mortgaged': ['', Validators.required],
-      'financial_institute': [''],
+      //'financial_institute': [''],
       'hdfc_clip_no': [''],
       'contruction_finance': ['',Validators.required],
       'residencial_total_unit': ['0'],
@@ -131,7 +131,7 @@ export class ProjectFeaturesComponent implements OnInit {
       'bungalow_available_sale': ['0'],
       'bungalow_rate_per_sqft': ['0'],
       'bungalow_area_unit': [''],
-      'options': [''],
+      'financial_institute': [''],
       'bank_name': [''],
       //'mortgaged1': ['', Validators.required],
 
@@ -148,17 +148,21 @@ export class ProjectFeaturesComponent implements OnInit {
     console.log(event);
     if (event.value == 'Y') {
       this.show_fin_inst = false;
-      this.project_feature_form.get('options').setValidators([Validators.required])
-      this.project_feature_form.get('options').updateValueAndValidity()
+      this.project_feature_form.get('financial_institute').setValidators([Validators.required])
+      this.project_feature_form.get('financial_institute').updateValueAndValidity()
       // this.project_feature_form.get('contruction_finance').reset();
       // this.project_feature_form.get('contruction_finance').clearValidators();
       // this.project_feature_form.get('contruction_finance').updateValueAndValidity();
       this.hide = false;
     } else {
       this.show_fin_inst = true;
-      this.project_feature_form.get('options').clearValidators();
-      this.project_feature_form.get('options').updateValueAndValidity()
+      this.project_feature_form.get('financial_institute').clearValidators();
+      this.project_feature_form.get('financial_institute').updateValueAndValidity()
       this.project_feature_form.controls['financial_institute'].setValue('');
+      this.project_feature_form.get('hdfc_clip_no').clearValidators();
+      this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
+      this.project_feature_form.get('bank_name').clearValidators();
+      this.project_feature_form.get('bank_name').updateValueAndValidity()
       // this.project_feature_form.get('contruction_finance').reset();
       // this.project_feature_form.get('contruction_finance').setValidators([Validators.required]);
       // this.project_feature_form.get('contruction_finance').updateValueAndValidity();
@@ -184,7 +188,7 @@ export class ProjectFeaturesComponent implements OnInit {
         Object.keys(controlErrors).forEach(keyError => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
 
-          if(key=="options"){
+          if(key=="financial_institute"){
             alert("Please select Mortgaged institute")
           }
 
@@ -700,6 +704,12 @@ export class ProjectFeaturesComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('value changed', this.draft_data);
+
+    if(this.draft_data.IS_MORTGAGE_BY_OTH_INST == "Y"){
+      this.hide =  false;
+    }else{
+      this.hide = true;
+    }
 
     this.project_feature_form.controls['plot_area'].setValue(this.draft_data.PLOT_AREA);
     this.project_feature_form.controls['total_no_of_building'].setValue(this.draft_data.TOTAL_NO_OF_BLD);

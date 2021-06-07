@@ -327,7 +327,7 @@
 
     <div class="col-lg-12 mt-2 project alternative" *ngIf="!hide">
         <div class="col-lg-6 btn-radio">
-            <mat-radio-group name="options" aria-label="Select an option" (change)="onchangeradio($event)" formControlName="options">
+            <mat-radio-group name="financial_institute" aria-label="Select an option" (change)="onchangeradio($event)" formControlName="financial_institute">
                 <mat-radio-button type="radio" value="HDFC" >HDFC</mat-radio-button>
                 <mat-radio-button type="radio" value="Other" class="ml-3">Other</mat-radio-button>
               </mat-radio-group>
@@ -338,7 +338,7 @@
 
 
         </div>
-        <div class="col-lg-6"  *ngIf="options=='Other'">
+        <div class="col-lg-6"  *ngIf="financial_institute=='Other'">
             <!-- <h2 style="border: 2px solid;"> <input type="text"></h2> -->
             <mat-form-field appearance="standard" class="six">
                 <mat-label>Other Bank</mat-label>
@@ -348,7 +348,7 @@
     </div>
 
     <div class="col-lg-12 mt-2 project alternative">
-        <div class="col-lg-6"  *ngIf="hideclif">
+        <div class="col-lg-6"  *ngIf="hideclif && !hide">
             <mat-form-field appearance="standard" class="six">
                 <mat-label>HDFC CLPS NO</mat-label>
                 <input matInput formControlName="hdfc_clip_no" >
