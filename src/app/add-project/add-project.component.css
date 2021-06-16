@@ -8,7 +8,7 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{background-color: #e3310d;color: white;}
 .nav-item a {border-radius: 50%;margin: auto;background-color: rgb(226, 223, 223);color: white;
     font-size: 10px;height: 27px;width: 13px;padding-left: 10px;padding-top: 6px;}
-   
+
                 /* BOTTOM CARD  */
 .project{display: inline-flex; }
 .mat-form-field{font-size: 12px;width: 100%;}
@@ -21,7 +21,7 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
 .btn-radio{color: grey;font-size: 12px;}
 .para{margin-bottom: 0px !important;}
 /* .mat-radio-outer-circle{border-color: red;} */
-.mat-datepicker-toggle{font-size: 18px;} 
+.mat-datepicker-toggle{font-size: 18px;}
 .badge{font-size: 100%;}
 .last{display: inline-flex;}
 .browse {border: 0.5px solid grey;border-style: dashed;border-radius: 8px;font-size: 12px;height: 30px;padding: 15px 30px 30px 30px;cursor: pointer;}
@@ -104,18 +104,18 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
             box-shadow: 1px 3px 8px #ed1c2452;
         }
     }
-   
+
 
 
     table {
         width: 100%;
       }
-      
+
       .mat-form-field {
         font-size: 14px;
         width: 100%;
       }
-      
+
       td, th {
         width: 25%;
       }
@@ -123,4 +123,14 @@ h6{font-size: 13px;padding-top: 12px;font-weight: 700;margin-bottom: 8px;}
 .cdk-overlay-container {z-index: 99999!important;}
 #fortabs  .tab-content>.active{
   display: contents;
+}
+
+
+/* / Modal //  */
+
+.error {
+  width: 300px !important;
+  margin: auto !important;
+  position: relative !important;
+  left: 0vh !important;
 }
