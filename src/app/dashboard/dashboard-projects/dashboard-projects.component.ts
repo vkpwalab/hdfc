@@ -13,8 +13,8 @@ export class DashboardProjectsComponent implements OnInit {
   constructor(private shared: SharedService) { }
 
   ngOnInit(): void {
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id");
+    this.token = localStorage.getItem("auth-token")
     this.getTopProject();
 
   }

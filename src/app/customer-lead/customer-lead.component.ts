@@ -41,8 +41,8 @@ export class CustomerLeadComponent implements OnInit {
   ngOnInit(): void {
 
     this.shared.headerTitle('Submit Customer Lead');
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id");
+    this.token = localStorage.getItem("auth-token")
 
     this.customer_lead_form = this.fb.group({
       'I_Cust_Name': ['', Validators.required],

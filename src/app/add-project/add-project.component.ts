@@ -48,8 +48,8 @@ export class AddProjectComponent implements OnInit {
     // this.changeTab = this.shared.sharedTab.tab;
     console.log(this.changeTab);
 
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id")
+    this.token = localStorage.getItem("auth-token")
 
     $('.prev').click(function () {
       $('#pills-tabContent > .active').prev().addClass('active').next().removeClass('active')
@@ -219,6 +219,10 @@ export class AddProjectComponent implements OnInit {
     // );
   }
 
+
+  openModal(){
+    $('#exampleModalCenter').modal('hide');
+  }
 }
 
 

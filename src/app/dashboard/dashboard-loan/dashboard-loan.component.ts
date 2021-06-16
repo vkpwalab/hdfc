@@ -74,8 +74,8 @@ export class DashboardLoanComponent implements OnInit {
   constructor(public router: Router, private shared: SharedService) { }
 
   ngOnInit(): void {
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id");
+    this.token = localStorage.getItem("auth-token")
     this.getGovernmentLink()
     this.getNews();
     this.getTotalLoan('WEEK');
@@ -90,7 +90,7 @@ export class DashboardLoanComponent implements OnInit {
                                   <soapenv:Body>
                                     <tem:GET_LINK_DETAILS>
                                         <!--Optional:-->
-                                        <tem:i_builder_id>466073</tem:i_builder_id>
+                                        <tem:i_builder_id>${this.builder_id}</tem:i_builder_id>
                                         <!--Optional:-->
                                         <tem:I_LINK_TYPE>GL</tem:I_LINK_TYPE>
                                         <!--Optional:-->
@@ -114,7 +114,7 @@ export class DashboardLoanComponent implements OnInit {
                                   <soapenv:Body>
                                     <tem:GET_LINK_DETAILS>
                                         <!--Optional:-->
-                                        <tem:i_builder_id>466073</tem:i_builder_id>
+                                        <tem:i_builder_id>${this.builder_id}</tem:i_builder_id>
                                         <!--Optional:-->
                                         <tem:I_LINK_TYPE>NA</tem:I_LINK_TYPE>
                                         <!--Optional:-->
@@ -138,7 +138,7 @@ export class DashboardLoanComponent implements OnInit {
                               <soapenv:Body>
                                 <tem:GET_PROJECT_MIS>
                                     <!--Optional:-->
-                                    <tem:i_builder_id>466073</tem:i_builder_id>
+                                    <tem:i_builder_id>${this.builder_id}</tem:i_builder_id>
                                     <!--Optional:-->
                                     <tem:I_FREQ>${type}</tem:I_FREQ>
                                     <!--Optional:-->

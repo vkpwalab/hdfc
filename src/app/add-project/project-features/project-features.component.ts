@@ -97,8 +97,8 @@ export class ProjectFeaturesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id");
+    this.token = localStorage.getItem("auth-token")
     this.project_feature_form = this.fb.group({
       'plot_area': ['', Validators.required],
       'total_no_of_building': ['', Validators.required],

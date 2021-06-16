@@ -29,8 +29,8 @@ export class ProjectDistursementComponent implements OnInit {
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Disbursement');
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id");
+    this.token = localStorage.getItem("auth-token")
     this.loading = true;
     this.getBuilersDetails();
 

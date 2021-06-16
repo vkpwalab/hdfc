@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, UrlSegment } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SharedService } from '../services/shared.service';
 
@@ -43,21 +43,21 @@ export class LoginComponent implements OnInit {
         let body_login = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                               <soapenv:Header/>
                               <soapenv:Body>
-                                <tem:authBuilderUser>
+                                <tem:p_get_token>
                                     <!--Optional:-->
-                                    <tem:i_userid>${form_data.email}</tem:i_userid>
+                                    <tem:i_user>${form_data.email}</tem:i_user>
                                     <!--Optional:-->
                                     <tem:i_password>${form_data.password}</tem:i_password>
-                                </tem:authBuilderUser>
+                                </tem:p_get_token>
                               </soapenv:Body>
                           </soapenv:Envelope>`;
   
-        let soapaction = 'http://tempuri.org/IService1/authBuilderUser';
-        let result_tag = 'authBuilderUserResult';
+        let soapaction = 'http://tempuri.org/IService1/p_get_token';
+        let result_tag = 'p_get_tokenResult';
         this.shared.getData(soapaction, body_login, result_tag).subscribe(
           (data) => {
-            if (data.o_msg == 'Success') {
-              this.token = data.o_token;
+            if (data.Status == 'Y') {
+              this.token = data.Token;
               localStorage.setItem('auth-token', this.token);
               localStorage.setItem('from_login', 'yes');
               this.getBuilderID(form_data.email);
@@ -95,6 +95,7 @@ export class LoginComponent implements OnInit {
     this.shared.getData(soapaction, body_login, result_tag).subscribe(
       (data) => {
         let user = data.Table[0];
+        console.log(user);
         localStorage.setItem('builder_id', user.BUILDER_ID);
         this.loading = false;
         this.router.navigate(['dashboard']);

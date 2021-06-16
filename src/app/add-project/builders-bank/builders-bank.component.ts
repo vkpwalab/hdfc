@@ -25,8 +25,8 @@ export class BuildersBankComponent implements OnInit {
   constructor(private shared: SharedService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id");
+    this.token = localStorage.getItem("auth-token")
 
     this.dynamic_forms[0] = this.fb.group({
       'payee_name': ['', Validators.required],

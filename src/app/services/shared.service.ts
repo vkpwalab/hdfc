@@ -19,8 +19,8 @@ export class SharedService {
   sharedTab4 = { "tab": true }
   api_path: string = environment.Baseurl;
   constructor(private ar: ActivatedRoute, private http: HttpClient) {
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id");
+    this.token = localStorage.getItem("auth-token")
   }
 
   header_title = new BehaviorSubject('Dashboard')

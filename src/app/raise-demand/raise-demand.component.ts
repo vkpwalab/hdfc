@@ -35,8 +35,8 @@ export class RaiseDemandComponent implements OnInit {
 
   ngOnInit(): void {
     this.shared.headerTitle('Raise Demand Letter');
-    this.builder_id = '510673';
-    this.token = 'MH3NPYK34J0KHDI';
+    this.builder_id = localStorage.getItem("builder_id");
+    this.token = localStorage.getItem("auth-token")
     this.activatedRoute.params.subscribe(params => {
       if (params['pid']) {
         this.project_id = params['pid'];
