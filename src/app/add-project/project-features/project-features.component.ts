@@ -147,7 +147,7 @@ export class ProjectFeaturesComponent implements OnInit {
       $(this).find('i').toggleClass('fas fa-plus fas fa-minus');
     });
 
-    this.openModal()
+    //this.openModal()
     //  for accordion
   }
 
