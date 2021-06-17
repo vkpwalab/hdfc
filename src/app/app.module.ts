@@ -62,6 +62,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationComponent } from './notification/notification.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ModalComponentComponent } from './modal-component/modal-component.component';
 
 
 @NgModule({
@@ -101,6 +102,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     LoaderComponent,
     ForgotPasswordComponent,
     NotificationComponent,
+    ModalComponentComponent,
 
   ],
   imports: [

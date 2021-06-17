@@ -3,6 +3,9 @@ import { SharedService } from 'src/app/services/shared.service';
 
 import { FormGroup, FormBuilder, Validators, FormControl, ValidationErrors } from '@angular/forms';
 import $ from 'jquery';
+import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponentComponent } from 'src/app/modal-component/modal-component.component';
+
 
 @Component({
   selector: 'app-project-features',
@@ -17,7 +20,10 @@ export class ProjectFeaturesComponent implements OnInit {
   builder_id: string;
   token: string;
   financial_institute = "";
-  constructor(private shared: SharedService, private fb: FormBuilder) {
+  closeResult = "";
+
+  validationError = "";
+  constructor(private shared: SharedService, private fb: FormBuilder,private modalService:NgbModal) {
     this.show_fin_inst = true;
     this.show_clps = true;
   }
@@ -140,6 +146,8 @@ export class ProjectFeaturesComponent implements OnInit {
     $('.card-header').click(function () {
       $(this).find('i').toggleClass('fas fa-plus fas fa-minus');
     });
+
+    this.openModal()
     //  for accordion
   }
 
@@ -180,29 +188,40 @@ export class ProjectFeaturesComponent implements OnInit {
     }
   }
   submitProjectFeature(data) {
+    let str;
 
+    this.validationError = "<ul>";
     Object.keys(this.project_feature_form.controls).forEach(key => {
-
       const controlErrors: ValidationErrors = this.project_feature_form.get(key).errors;
       if (controlErrors != null) {
-        Object.keys(controlErrors).forEach(keyError => {
+
+        Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
 
-          if(key=="financial_institute"){
-            alert("Please select Mortgaged institute")
-          }
+        
+          this.validationError =+ "<li>"+key+" is"+keyError+"</li>";
+         
 
-          if(key=="contruction_finance"){
-            alert("Please select requirement for construction finance")
-          }
+          // if(key=="financial_institute"){
+          //   alert("Please select Mortgaged institute")
+          // }
 
-          if(key =="mortgaged"){
-            alert("Please select is the project mortgaged with any financial institue?")
-          }
+          // if(key=="contruction_finance"){
+          //   alert("Please select requirement for construction finance")
+          // }
+
+          // if(key =="mortgaged"){
+          //   alert("Please select is the project mortgaged with any financial institue?")
+          // }
         });
+
+
+        
       }
     });
 
+    this.validationError += "</ul>";
+    console.log(this.validationError);
     console.log(data);
     console.log(this.project_feature_form.controls['contruction_finance'].valid);
     console.log(this.project_feature_form.valid);
@@ -759,5 +778,23 @@ export class ProjectFeaturesComponent implements OnInit {
     this.project_feature_form.controls['bungalow_available_sale'].setValue(this.draft_data.BUNGLOW_AVAILABLE_FOR_SALE);
     this.project_feature_form.controls['bungalow_rate_per_sqft'].setValue(this.draft_data.BUNGLOW_RATE_SQFT);
     this.project_feature_form.controls['bungalow_area_unit'].setValue(this.draft_data.BUNGLOW_AREA_UNIT);
+  }
+
+  openModal(){
+    this.modalService.open(ModalComponentComponent, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }

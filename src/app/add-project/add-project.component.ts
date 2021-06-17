@@ -7,6 +7,7 @@ import $ from 'jquery';
 import { SharedService } from '../services/shared.service';
 import { HttpClient } from '@angular/common/http';
 import { } from 'googlemaps';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 declare var MapmyIndia;
 declare var L;
@@ -39,8 +40,9 @@ export class AddProjectComponent implements OnInit {
   pt: any;
   latlong: any;
   changeTab: any;
+  closeResult = '';
 
-  constructor(public shared: SharedService, private http: HttpClient) { }
+  constructor(public shared: SharedService, private http: HttpClient, private modalService:NgbModal) { }
 
 
 
@@ -220,8 +222,22 @@ export class AddProjectComponent implements OnInit {
   }
 
 
-  openModal(){
-    $('#exampleModalCenter').modal('hide');
+  openModal(content){
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }
 

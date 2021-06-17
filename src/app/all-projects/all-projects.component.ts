@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import $ from 'jquery';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -33,7 +33,7 @@ export class AllProjectsComponent implements OnInit {
   query_id: any;
   loading: boolean;
   project_list_len: any = 0;
-  constructor(private shared: SharedService, private ar: ActivatedRoute) {
+  constructor(private shared: SharedService, private ar: ActivatedRoute,public router:Router) {
     console.log(ar)
   }
 
@@ -73,10 +73,16 @@ export class AllProjectsComponent implements OnInit {
     let result_tag = 'GetBuilderDetailsResult';
     this.shared.getData(soapaction, body_builders_details, result_tag).subscribe(
       (data) => {
-        this.builder_details = data.Table[0];
+        if(data.o_msg == "You are not authorized.Kindly try again"){
+          this.router.navigate(['login']);
+        }else{
+          this.builder_details = data.Table[0];
         this.branch_no = this.builder_details.BRANCH_NO;
         console.log(this.builder_details);
         this.getPacProjectList();
+
+        }
+        
       }
     );
   }
