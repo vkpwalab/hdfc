@@ -767,8 +767,9 @@ export class ProjectFeaturesComponent implements OnInit {
   }
 
   openModal(name) {
-    const modalRef = this.modalService.open(ModalComponentComponent);
-    modalRef.componentInstance.name = name;
+    const str = name.join().replace(/,/g,'');
+    const modalRef = this.modalService.open(ModalComponentComponent,{size:'sm'});
+    modalRef.componentInstance.name = str;
 
   }
 
