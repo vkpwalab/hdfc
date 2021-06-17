@@ -189,48 +189,26 @@ export class ProjectFeaturesComponent implements OnInit {
   }
   submitProjectFeature(data) {
     const messageArr = [];
-
-   
     messageArr.push("<ul>")
     Object.keys(this.project_feature_form.controls).forEach(key => {
-
       const controlErrors: ValidationErrors = this.project_feature_form.get(key).errors;
       if (controlErrors != null) {
-
-       
+      
         Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
-
           messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
 
-
-
-          // if(key=="financial_institute"){
-          //   alert("Please select Mortgaged institute")
-          // }
-
-          // if(key=="contruction_finance"){
-          //   alert("Please select requirement for construction finance")
-          // }
-
-          // if(key =="mortgaged"){
-          //   alert("Please select is the project mortgaged with any financial institue?")
-          // }
         });
        
-
-
       }
     });
 
-    messageArr.push("</ul>")
+    messageArr.push("</ul>");
 
-    if (messageArr) {
+    if (messageArr.length > 2) {
       this.openModal(messageArr)
     }
 
-
-    console.log(data);
     console.log(this.project_feature_form.controls['contruction_finance'].valid);
     console.log(this.project_feature_form.valid);
     if (this.project_feature_form.valid) {

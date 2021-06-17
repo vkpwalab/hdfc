@@ -29,7 +29,12 @@ export class AppComponent {
 
 
   ngOnInit(): void {
-    this.token = 'MH3NPYK34J0KHDI';
+
+    this.token = localStorage.getItem("auth-token");
+
+    if(this.token==null){
+      this.router.navigate(['login'])
+    }
     this.getNOtification()
   }
   hasRoute(route: string) {
