@@ -23,7 +23,7 @@ export class ProjectFeaturesComponent implements OnInit {
   closeResult = "";
 
   validationError = "";
-  constructor(private shared: SharedService, private fb: FormBuilder,private modalService:NgbModal) {
+  constructor(private shared: SharedService, private fb: FormBuilder, private modalService: NgbModal) {
     this.show_fin_inst = true;
     this.show_clps = true;
   }
@@ -49,7 +49,7 @@ export class ProjectFeaturesComponent implements OnInit {
   }
 
 
-  
+
   hide = true;
   hideclif = true;
 
@@ -116,7 +116,7 @@ export class ProjectFeaturesComponent implements OnInit {
       'mortgaged': ['', Validators.required],
       //'financial_institute': [''],
       'hdfc_clip_no': [''],
-      'contruction_finance': ['',Validators.required],
+      'contruction_finance': ['', Validators.required],
       'residencial_total_unit': ['0'],
       'residencial_solid_unit': ['0'],
       'residencial_available_sale': ['0'],
@@ -188,19 +188,22 @@ export class ProjectFeaturesComponent implements OnInit {
     }
   }
   submitProjectFeature(data) {
-    let str;
+    const messageArr = [];
 
-    this.validationError = "<ul>";
+   
+    messageArr.push("<ul>")
     Object.keys(this.project_feature_form.controls).forEach(key => {
+
       const controlErrors: ValidationErrors = this.project_feature_form.get(key).errors;
       if (controlErrors != null) {
 
+       
         Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
 
-        
-          this.validationError =+ "<li>"+key+" is"+keyError+"</li>";
-         
+          messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
+
+
 
           // if(key=="financial_institute"){
           //   alert("Please select Mortgaged institute")
@@ -214,14 +217,19 @@ export class ProjectFeaturesComponent implements OnInit {
           //   alert("Please select is the project mortgaged with any financial institue?")
           // }
         });
+       
 
 
-        
       }
     });
 
-    this.validationError += "</ul>";
-    console.log(this.validationError);
+    messageArr.push("</ul>")
+
+    if (messageArr) {
+      this.openModal(messageArr)
+    }
+
+
     console.log(data);
     console.log(this.project_feature_form.controls['contruction_finance'].valid);
     console.log(this.project_feature_form.valid);
@@ -550,7 +558,7 @@ export class ProjectFeaturesComponent implements OnInit {
       I_BRANCH: project_detail.hdfc_branch,
       I_REMARK: project_detail.remark,
       I_IS_MORTGAGE_BY_OTH_ST: data.mortgaged,
-      I_FANCIAL_ST: data.financial_institute =="HDFC" ? data.financial_institute : data.bank_name ,
+      I_FANCIAL_ST: data.financial_institute == "HDFC" ? data.financial_institute : data.bank_name,
       I_CTS_NO: address_detail.sno,
       Token: 'MH3NPYK34J0KHDI'
     };
@@ -724,21 +732,21 @@ export class ProjectFeaturesComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('value changed', this.draft_data);
 
-    if(this.draft_data.IS_MORTGAGE_BY_OTH_INST == "Y"){
-      this.hide =  false;
-    }else{
+    if (this.draft_data.IS_MORTGAGE_BY_OTH_INST == "Y") {
+      this.hide = false;
+    } else {
       this.hide = true;
     }
 
-    if(this.draft_data.FINANCIAL_INST =="HDFC"){
-      this.financial_institute =  "HDFC"
+    if (this.draft_data.FINANCIAL_INST == "HDFC") {
+      this.financial_institute = "HDFC"
       this.hideclif = true;
       this.project_feature_form.get('hdfc_clip_no').setValidators([Validators.required]);
       this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
       this.project_feature_form.get('bank_name').clearValidators();
       this.project_feature_form.get('bank_name').updateValueAndValidity()
-    }else{
-      this.financial_institute =  "Other"
+    } else {
+      this.financial_institute = "Other"
       this.hideclif = false;
       this.project_feature_form.get('bank_name').setValue(this.draft_data.FINANCIAL_INST)
       this.project_feature_form.get('bank_name').setValidators([Validators.required]);
@@ -754,7 +762,7 @@ export class ProjectFeaturesComponent implements OnInit {
     this.project_feature_form.controls['plan_approval_auth_name'].setValue(this.draft_data.PLAN_APPROVAL_AUTHORITY);
     this.project_feature_form.controls['total_number'].setValue(this.draft_data.UNITS_ALLOTED_TO_LANDOWN);
     this.project_feature_form.controls['mention_specfic_detail'].setValue(this.draft_data.LANDOWN_SPEC_DETAILS);
-    this.project_feature_form.controls['financial_institute'].setValue(this.draft_data.FINANCIAL_INST =="HDFC" ? this.draft_data.FINANCIAL_INST : "Other");
+    this.project_feature_form.controls['financial_institute'].setValue(this.draft_data.FINANCIAL_INST == "HDFC" ? this.draft_data.FINANCIAL_INST : "Other");
     this.project_feature_form.controls['hdfc_clip_no'].setValue(this.draft_data.CLPS_NO);
     this.project_feature_form.controls['contruction_finance'].setValue(this.draft_data.REQ_CONST_FIN);
     this.project_feature_form.controls['mortgaged'].setValue(this.draft_data.IS_MORTGAGE_BY_OTH_INST);
@@ -780,12 +788,10 @@ export class ProjectFeaturesComponent implements OnInit {
     this.project_feature_form.controls['bungalow_area_unit'].setValue(this.draft_data.BUNGLOW_AREA_UNIT);
   }
 
-  openModal(){
-    this.modalService.open(ModalComponentComponent, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+  openModal(name) {
+    const modalRef = this.modalService.open(ModalComponentComponent);
+    modalRef.componentInstance.name = name;
+
   }
 
   private getDismissReason(reason: any): string {
