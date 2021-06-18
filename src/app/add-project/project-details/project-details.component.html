@@ -3,7 +3,7 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>PROJECT NAME<span class="text-danger">*</span></mat-label>
-        <input matInput formControlName="project_name" maxlength="100" pattern="[A-Za-z0-9]+">
+        <input matInput formControlName="project_name" maxlength="100" pattern="^[A-Za-z0-9-., ]+$">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
@@ -49,7 +49,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>PROJECT LAUNCH DATE</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="project_launch_date">
+        <input readonly matInput [matDatepicker]="picker" formControlName="project_launch_date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -57,7 +57,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>WORK COMMENCEMENT DATE</mat-label>
-        <input matInput [matDatepicker]="picker2" formControlName="work_comm_date">
+        <input readonly matInput [matDatepicker]="picker2" formControlName="work_comm_date">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
@@ -65,7 +65,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>EXPECTED COMPLETION DATE</mat-label>
-        <input matInput [matDatepicker]="picker3" formControlName="expected_comp_date">
+        <input readonly matInput [matDatepicker]="picker3" formControlName="expected_comp_date">
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
@@ -98,7 +98,7 @@
     <div class="col-lg-6">
       <mat-form-field appearance="standard">
         <mat-label>REMARK<span class="text-danger">*</span></mat-label>
-        <input matInput formControlName="remark" maxlength="200" pattern="[A-Za-z0-9]+">
+        <input matInput formControlName="remark" maxlength="200" pattern="^[A-Za-z0-9-., ]+$">
       </mat-form-field>
     </div>
   </div>

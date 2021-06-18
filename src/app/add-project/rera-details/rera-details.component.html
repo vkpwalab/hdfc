@@ -13,7 +13,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>RERA APPLICATION DATE<span class="text-danger">*</span></mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="rera_app_date" [disabled]="app_date">
+        <input readonly matInput [matDatepicker]="picker" formControlName="rera_app_date" [disabled]="app_date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -27,7 +27,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>VALID FROM DATE<span class="text-danger">*</span></mat-label>
-        <input matInput [matDatepicker]="picker2" formControlName="valid_from_date" [disabled]="from_date">
+        <input readonly matInput [matDatepicker]="picker2" formControlName="valid_from_date" [disabled]="from_date">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
@@ -38,7 +38,7 @@
     <div class="col-lg-3">
       <mat-form-field id="calendar">
         <mat-label>VALID TO DATE<span class="text-danger">*</span></mat-label>
-        <input matInput [matDatepicker]="picker3" formControlName="valid_to_date" [disabled]="to_date">
+        <input readonly matInput [matDatepicker]="picker3" formControlName="valid_to_date" [disabled]="to_date">
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
