@@ -25,11 +25,12 @@ export class AppComponent {
       }
       alert(this.status);
     });
+    console.log("app called");
   }
 
 
   ngOnInit(): void {
-
+    console.log("app called");
     this.token = localStorage.getItem("auth-token");
 
     if(this.token==null){
