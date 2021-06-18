@@ -100,6 +100,7 @@ export class LoginComponent implements OnInit {
         let user = data.Table[0];
         console.log(user);
         localStorage.setItem('builder_id', user.BUILDER_ID);
+        localStorage.setItem('username', user.USERNAME);
         this.loading = false;
        this.router.navigate(['dashboard']);
       }
@@ -138,6 +139,7 @@ export class LoginComponent implements OnInit {
         this.shared.getData(soapaction, body_login, result_tag).subscribe(
           (data) => {
             if (data.o_msg == 'Success') {
+              console.log(data);
               this.token = data.o_token;
               localStorage.setItem('auth-token', this.token);
               localStorage.setItem('from_login', 'yes');

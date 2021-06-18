@@ -11,18 +11,22 @@ export class SideMenubarComponent implements OnInit {
   header_title: string;
   token:any;
   notificationCount = 0;
+  username  = "";
+  builder_id = "";
   constructor(private shared: SharedService, private router:Router) { }
 
   ngOnInit(): void {
     
     this.header_title = 'Home';
+    this.username = localStorage.getItem("username");
+    this.builder_id = localStorage.getItem("builder_id")
 
     this.shared.header_title.subscribe(
       (res) => {
         this.header_title = res;
       }
     )
-    this.token = 'MH3NPYK34J0KHDI';
+    this.token = localStorage.getItem("auth-token");
     this.getNOtification()
 
 

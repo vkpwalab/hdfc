@@ -234,13 +234,13 @@ export class UploadDocxComponent implements OnInit {
       let result_tag = 'UPD_DRAFT_PROJECTResult';
       this.shared.getData(soapaction, body_delete_draft, result_tag).subscribe(
         (data) => {
-          alert('Project added successfully');
+          alert('Project created successfully');
           console.log(data);
           location.reload();
         }
       );
     }else{
-      alert('Project added successfully');
+      alert('Project created successfully');
       location.reload();
     }
   }
