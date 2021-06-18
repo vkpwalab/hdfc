@@ -199,6 +199,10 @@ export class ProjectDetailsComponent implements OnInit {
       
         Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+
+          if(keyError=="pattern"){
+            keyError = "invalid"
+          }
           messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
 
         });
