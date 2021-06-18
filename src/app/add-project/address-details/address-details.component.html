@@ -4,7 +4,7 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>S.NO/CTS NO</mat-label>
-        <input matInput formControlName="sno">
+        <input matInput formControlName="sno" maxlength="100">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
@@ -55,7 +55,7 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>PIN CODE<span class="text-danger">*</span></mat-label>
-        <input type="number" min="0" matInput formControlName="pincode">
+        <input type="number" min="0" matInput formControlName="pincode" maxlength="8">
       </mat-form-field>
     </div>
 
@@ -71,13 +71,13 @@
     <div class="col-lg-6">
       <mat-form-field appearance="standard">
         <mat-label>LATITUDE<span class="text-danger">*</span></mat-label>
-        <input type="number" min="0" matInput formControlName="lat">
+        <input type="number" min="0" matInput formControlName="lat" maxlength="100">
       </mat-form-field>
     </div>
     <div class="col-lg-6">
       <mat-form-field appearance="standard">
         <mat-label>LONGITUDE<span class="text-danger">*</span></mat-label>
-        <input type="number" min="0" matInput formControlName="long">
+        <input type="number" min="0" matInput formControlName="long" maxlength="100">
       </mat-form-field>
     </div>
   </div>

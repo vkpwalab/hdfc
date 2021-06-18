@@ -1,12 +1,14 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, ValidationErrors } from '@angular/forms';
 import $ from 'jquery';
 
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { environment } from 'src/environments/environment';
 import { formatDate } from '@angular/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponentComponent } from 'src/app/modal-component/modal-component.component';
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
@@ -29,7 +31,7 @@ export class ProjectDetailsComponent implements OnInit {
   branch_value: any;
   disabled: any;
   branch_desc:any;
-  constructor(private shared: SharedService, private fb: FormBuilder, private dateAdapter: DateAdapter<Date>) {
+  constructor(private shared: SharedService, private fb: FormBuilder, private dateAdapter: DateAdapter<Date>, public modalService:NgbModal) {
     this.dateAdapter.setLocale('en-GB');
   }
 
@@ -188,6 +190,28 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   submitProjectDetail(data) {
+
+    const messageArr = [];
+    messageArr.push("<ul>")
+    Object.keys(this.project_detail_form.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.project_detail_form.get(key).errors;
+      if (controlErrors != null) {
+      
+        Object.keys(controlErrors).forEach((keyError) => {
+          console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+          messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
+
+        });
+       
+      }
+    });
+
+    messageArr.push("</ul>");
+
+    if (messageArr.length > 2) {
+      this.openModal(messageArr)
+    }
+
     console.log("kk" + JSON.stringify(data));
     data.hdfc_branch = parseInt(this.branch_value);
     data.project_launch_date = this.shared.formatDate(data.project_launch_date)
@@ -218,5 +242,12 @@ export class ProjectDetailsComponent implements OnInit {
     this.project_detail_form.controls['website'].setValue(this.draft_data.WEBSITE_URL);
     this.project_detail_form.controls['remark'].setValue(this.draft_data.REMARK);
     console.log(this.project_detail_form);
+  }
+
+  openModal(name) {
+    const str = name.join().replace(/,/g,'');
+    const modalRef = this.modalService.open(ModalComponentComponent,{size:'sm'});
+    modalRef.componentInstance.name = str;
+
   }
 }

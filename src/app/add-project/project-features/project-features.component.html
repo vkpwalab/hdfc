@@ -3,13 +3,13 @@
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>PLOT AREA (IN SQMTR)<span class="text-danger">*</span></mat-label>
-                <input type="number" min="0" matInput formControlName="plot_area">
+                <input type="number" min="0" matInput formControlName="plot_area" maxlength="100">
             </mat-form-field>
         </div>
         <div class="col-lg-3">
             <mat-form-field appearance="standard">
                 <mat-label>TOTAL NUMBER OF BUILDINGS<span class="text-danger">*</span></mat-label>
-                <input type="number" min="0" matInput formControlName="total_no_of_building">
+                <input type="number" min="0" matInput formControlName="total_no_of_building" maxlength="100">
             </mat-form-field>
         </div>
         <div class="col-lg-3">
@@ -342,7 +342,7 @@
             <!-- <h2 style="border: 2px solid;"> <input type="text"></h2> -->
             <mat-form-field appearance="standard" class="six">
                 <mat-label>Other Bank</mat-label>
-                <input matInput formControlName="bank_name">
+                <input matInput formControlName="bank_name" maxlength="50">
             </mat-form-field>
         </div>
     </div>
@@ -351,7 +351,7 @@
         <div class="col-lg-6"  *ngIf="hideclif && !hide">
             <mat-form-field appearance="standard" class="six">
                 <mat-label>HDFC CLPS NO</mat-label>
-                <input matInput formControlName="hdfc_clip_no" >
+                <input matInput formControlName="hdfc_clip_no" maxlength="30">
             </mat-form-field>
         </div>
         <div class="col-lg-6 btn-radio">

@@ -1,7 +1,7 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 
 import { SharedService } from 'src/app/services/shared.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, ValidationErrors } from '@angular/forms';
 import $ from 'jquery';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { } from 'googlemaps';
@@ -9,6 +9,7 @@ import { LatLng } from '@agm/core';
 import { GoogleMap } from '@agm/core/services/google-maps-types';
 import { env } from 'process';
 import { environment } from 'src/environments/environment';
+import { ModalComponentComponent } from 'src/app/modal-component/modal-component.component';
 
 @Component({
   selector: 'app-address-details',
@@ -127,6 +128,29 @@ export class AddressDetailsComponent implements OnInit {
     //console.log(data);
     data.city = data.city.split(",")[0];
     console.log(data)
+
+    const messageArr = [];
+    messageArr.push("<ul>")
+    Object.keys(this.address_detail_form.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.address_detail_form.get(key).errors;
+      if (controlErrors != null) {
+      
+        Object.keys(controlErrors).forEach((keyError) => {
+          console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+          messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
+
+        });
+       
+      }
+    });
+
+    messageArr.push("</ul>");
+
+    if (messageArr.length > 2) {
+      this.openModal(messageArr)
+    }
+
+
     if (this.address_detail_form.valid) {
       $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
       $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
@@ -560,6 +584,14 @@ export class AddressDetailsComponent implements OnInit {
         alert("Geocode was not successful for the following reason: " + status);
       }
     });
+
+  }
+
+  
+  openModal(name) {
+    const str = name.join().replace(/,/g,'');
+    const modalRef = this.modalService.open(ModalComponentComponent,{size:'sm'});
+    modalRef.componentInstance.name = str;
 
   }
 

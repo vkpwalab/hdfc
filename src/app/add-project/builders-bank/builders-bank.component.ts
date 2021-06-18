@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import $ from "jquery";
+import { ModalComponentComponent } from 'src/app/modal-component/modal-component.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-builders-bank',
   templateUrl: './builders-bank.component.html',
@@ -22,7 +24,7 @@ export class BuildersBankComponent implements OnInit {
   file_base64: string | ArrayBuffer;
   file_ext: any = [];
   bank_added: boolean;
-  constructor(private shared: SharedService, private fb: FormBuilder) { }
+  constructor(private shared: SharedService, private fb: FormBuilder, public modalService:NgbModal) { }
 
   ngOnInit(): void {
     this.builder_id = localStorage.getItem("builder_id");
@@ -158,7 +160,7 @@ export class BuildersBankComponent implements OnInit {
         }
       )
     }else{
-      alert('Please upload document');
+      this.openModal("Please upload document");
     }
 
   }
@@ -208,6 +210,7 @@ export class BuildersBankComponent implements OnInit {
       (data) => {
         console.log(data);
         this.bank_added = true;
+        
         alert('Bank detail updated');
       }
     );
@@ -242,7 +245,15 @@ export class BuildersBankComponent implements OnInit {
       this.shared.sharedTab4.tab = false;
       
     }else{
-      alert('Add atleast one bank detail')
+      this.openModal("Add atleast one bank detail")
+      //alert()
     }
+  }
+
+  openModal(name) {
+    const str = name;
+    const modalRef = this.modalService.open(ModalComponentComponent,{size:'sm'});
+    modalRef.componentInstance.name = str;
+
   }
 }

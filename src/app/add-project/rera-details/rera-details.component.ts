@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { SharedService } from 'src/app/services/shared.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
 import $ from 'jquery';
 import { DatePipe } from '@angular/common'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponentComponent } from 'src/app/modal-component/modal-component.component';
 
 @Component({
   selector: 'app-rera-details',
@@ -24,7 +26,7 @@ export class RERADetailsComponent implements OnInit {
   to_date: boolean = true;
   launch_date: boolean = false;
   pipe: DatePipe;
-  constructor(private shared: SharedService, private fb: FormBuilder) {
+  constructor(private shared: SharedService, private fb: FormBuilder, public modalService:NgbModal) {
     this.pipe = new DatePipe('en-US');
    }
 
@@ -161,6 +163,28 @@ export class RERADetailsComponent implements OnInit {
 
   submitReraDetail(data) {
     console.log(data);
+
+    const messageArr = [];
+    messageArr.push("<ul>")
+    Object.keys(this.rera_detail_form.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.rera_detail_form.get(key).errors;
+      if (controlErrors != null) {
+      
+        Object.keys(controlErrors).forEach((keyError) => {
+          console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+          messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
+
+        });
+       
+      }
+    });
+
+    messageArr.push("</ul>");
+
+    if (messageArr.length > 2) {
+      this.openModal(messageArr)
+    }
+
     data.rera_app_date = data.rera_app_date ? this.pipe.transform(data.rera_app_date, 'dd-MMM-yyyy') : '';
     data.project_launch_date = data.project_launch_date ? this.pipe.transform(data.project_launch_date, 'dd-MMM-yyyy') : '';
     data.valid_from_date = data.valid_from_date ? this.pipe.transform(data.valid_from_date, 'dd-MMM-yyyy') : '';
@@ -211,6 +235,13 @@ export class RERADetailsComponent implements OnInit {
       );
 
     }
+
+  }
+
+  openModal(name) {
+    const str = name.join().replace(/,/g,'');
+    const modalRef = this.modalService.open(ModalComponentComponent,{size:'sm'});
+    modalRef.componentInstance.name = str;
 
   }
 }

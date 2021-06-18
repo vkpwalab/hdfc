@@ -16,7 +16,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import {ReactiveFormsModule} from '@angular/forms'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SideMenubarComponent } from './side-menubar/side-menubar.component';
@@ -63,6 +63,7 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationComponent } from './notification/notification.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ModalComponentComponent } from './modal-component/modal-component.component';
+import { InterceptorService } from './services/interceptor.service';
 
 
 @NgModule({
@@ -146,7 +147,13 @@ import { ModalComponentComponent } from './modal-component/modal-component.compo
 
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
