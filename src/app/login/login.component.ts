@@ -129,7 +129,7 @@ export class LoginComponent implements OnInit {
                                     <!--Optional:-->
                                     <tem:i_userid>${form_data.email}</tem:i_userid>
                                     <!--Optional:-->
-                                    <tem:i_password>${form_data.password}</tem:i_password>
+                                    <tem:i_password>${this.shared.encryptUsingAES256(form_data.password)}</tem:i_password>
                                 </tem:authBuilderUser>
                               </soapenv:Body>
                           </soapenv:Envelope>`;
