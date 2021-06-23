@@ -37,6 +37,7 @@ export class UpdateWorkComponent implements OnInit {
 
   ngOnInit(): void {
     this.shared.headerTitle('Project Progress');
+    console.log("ghere");
     this.builder_id = localStorage.getItem("builder_id");
     this.token = localStorage.getItem("auth-token")
     this.loading = true;
@@ -44,6 +45,7 @@ export class UpdateWorkComponent implements OnInit {
   }
 
   getBuilersDetails() {
+    console.log("gher1e");
     let body_builders_details = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                     <soapenv:Header/>
                                     <soapenv:Body>

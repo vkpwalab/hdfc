@@ -167,8 +167,10 @@ export class AddProjectComponent implements OnInit {
         });
 
         console.log(this.draft_list);
+        
       }
     );
+    location.reload();
   }
 
   selectLocation() {

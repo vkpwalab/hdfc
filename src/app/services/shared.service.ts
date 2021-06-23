@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 import * as CryptoJS from 'crypto-js';
@@ -19,7 +19,7 @@ export class SharedService {
   sharedTab3 = { "tab": true }
   sharedTab4 = { "tab": true }
   api_path: string = environment.Baseurl;
-  constructor(private ar: ActivatedRoute, private http: HttpClient) {
+  constructor(private ar: ActivatedRoute, private http: HttpClient, private router: Router) {
     this.builder_id = localStorage.getItem("builder_id");
     this.token = localStorage.getItem("auth-token")
   }
@@ -56,7 +56,15 @@ export class SharedService {
       let xml = parser.parseFromString(res, 'text/xml');
       let xml_body = xml.getElementsByTagName(result_tag)[0].childNodes[0].nodeValue;
       let json_res = JSON.parse(xml_body);
-      return json_res;
+      console.log("resvk", json_res);
+
+      if (json_res.o_msg && json_res.o_msg == "You are not authorized.Kindly try again") {
+        this.router.navigate(['/login'])
+        //return true;
+      }else{
+        return json_res;
+      }
+      
     }))
 
   }

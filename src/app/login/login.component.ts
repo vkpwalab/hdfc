@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private login_fb: FormBuilder, private shared: SharedService) { }
 
   ngOnInit() {
-    if (localStorage.getItem('auth-token')) {
-      this.router.navigate(['dashboard']);
-    }
+    // if (localStorage.getItem('auth-token')) {
+    //   this.router.navigate(['dashboard']);
+    // }
     this.login_form = this.login_fb.group(
       {
         'email': ['', [Validators.required, Validators.email, Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$')]],
@@ -143,6 +143,7 @@ export class LoginComponent implements OnInit {
               this.token = data.o_token;
               localStorage.setItem('auth-token', this.token);
               localStorage.setItem('from_login', 'yes');
+              localStorage.setItem("login_time","1");
               this.getBuilderID(form_data.email);
             }else{
               this.loading = false;

@@ -24,4 +24,24 @@
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdOX_iLaQuJgdBJs8sZhfdjb79cLIa6N8"></script>
 </script>
 
+<script>
+
+  setInterval(() => {
+    if (localStorage.getItem('login_time') !== null) {
+      const time = parseInt(localStorage.getItem("login_time").toString());
+
+      if (time >= 29) {
+        localStorage.removeItem("auth-token");
+        localStorage.removeItem("login_time")
+        location.href = "/login";
+
+      } else {
+        const increase = time + 1;
+        localStorage.setItem("login_time", increase.toString());
+      }
+    }
+  }, 60000)
+</script>
+
+
 </html>

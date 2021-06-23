@@ -131,8 +131,8 @@
                 <p class="font-italic mt-3 text-secondary">Document pending</p>
             </div>
             <div class="col-xl-2 col-6 i-con pt-2 px-0">
-                <img class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
-                <img class="w-01 ml-1" src="./assets/images/icons/view icon.png">
+                <img [routerLink]="['/project-overview',ans.PROJECTID]" class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
+                <img [routerLink]="['/project-overview',ans.PROJECTID]" class="w-01 ml-1" src="./assets/images/icons/view icon.png">
                 <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png"
                      data-toggle="modal" data-target="#exampleModal" (click)="openQueryModel(ans)">
                 <!-- <span class="badge badge-danger">12</span> -->

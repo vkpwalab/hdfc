@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -41,9 +41,14 @@ export class ProjectOverviewComponent implements OnInit {
   query_id: any;
   doc_ext_image: any;
   file_icon: any;
+
+  @Input()
+  selectedIndex: number | null
+
   constructor(private shared: SharedService, private activatedRoute: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
+    console.log("seles"+this.selectedIndex)
     this.shared.headerTitle('Project Overview');
     this.builder_id = localStorage.getItem("builder_id");
     this.token = localStorage.getItem("auth-token")

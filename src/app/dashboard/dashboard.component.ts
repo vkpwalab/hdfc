@@ -14,14 +14,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.shared.headerTitle('Dashboard');
-    if(!localStorage.getItem('auth-token')){
-      this.router.navigate(['login']);
-    }
+    // if(!localStorage.getItem('auth-token')){
+    //   this.router.navigate(['login']);
+    // }
     
-    if(localStorage.getItem('from_login')){
-      localStorage.removeItem('from_login');
-      location.reload();
-    }
+    // if(localStorage.getItem('from_login')){
+    //   localStorage.removeItem('from_login');
+    //   location.reload();
+    // }
   }
 
  
