@@ -123,7 +123,7 @@ export class RespondToQueriesComponent implements OnInit {
                                   <soapenv:Body>
                                     <tem:P_Get_Query_Data>
                                         <!--Optional:-->
-                                        <tem:I_PROJECT_NO>575029</tem:I_PROJECT_NO>
+                                        <tem:I_PROJECT_NO>${this.project_selected}</tem:I_PROJECT_NO>
                                         <!--Optional:-->
                                         <tem:Token>${this.token}</tem:Token>
                                     </tem:P_Get_Query_Data>

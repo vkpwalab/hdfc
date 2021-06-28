@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loading: boolean;
   err: boolean;
   captcha: string;
-
+  loginSlider:any;
 
   constructor(private router: Router, private login_fb: FormBuilder, private shared: SharedService) { }
 
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     )
 
     this.generateCaptcha();
+    this.getLoginSliderData()
   }
 
   // login(form_data) {
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
   //                               </tem:p_get_token>
   //                             </soapenv:Body>
   //                         </soapenv:Envelope>`;
-  
+
   //       let soapaction = 'http://tempuri.org/IService1/p_get_token';
   //       let result_tag = 'p_get_tokenResult';
   //       this.shared.getData(soapaction, body_login, result_tag).subscribe(
@@ -102,12 +103,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('builder_id', user.BUILDER_ID);
         localStorage.setItem('username', user.USERNAME);
         this.loading = false;
-       this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard']);
       }
     );
   }
 
-  generateCaptcha(){
+  generateCaptcha() {
     let text = "";
     let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
@@ -120,7 +121,7 @@ export class LoginComponent implements OnInit {
 
   login(form_data) {
     if (this.login_form.valid) {
-      if(this.captcha === form_data.captcha){
+      if (this.captcha === form_data.captcha) {
         this.loading = true;
         let body_login = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                               <soapenv:Header/>
@@ -133,7 +134,7 @@ export class LoginComponent implements OnInit {
                                 </tem:authBuilderUser>
                               </soapenv:Body>
                           </soapenv:Envelope>`;
-  
+
         let soapaction = 'http://tempuri.org/IService1/authBuilderUser';
         let result_tag = 'authBuilderUserResult';
         this.shared.getData(soapaction, body_login, result_tag).subscribe(
@@ -143,21 +144,52 @@ export class LoginComponent implements OnInit {
               this.token = data.o_token;
               localStorage.setItem('auth-token', this.token);
               localStorage.setItem('from_login', 'yes');
-              localStorage.setItem("login_time","1");
+              localStorage.setItem("login_time", "1");
               this.getBuilderID(form_data.email);
-            }else{
+            } else {
               this.loading = false;
               this.err = true;
             }
           }
         );
       }
-      else{
+      else {
         alert('Please enter correct captcha');
         this.generateCaptcha();
       }
     }
 
     // location.reload();
+  }
+
+  getLoginSliderData() {
+   
+    let body_government_link = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+                                  <soapenv:Header/>
+                                  <soapenv:Body>
+                                    <tem:GET_LINK_DETAILS>
+                                        <!--Optional:-->
+                                        <tem:i_builder_id>424489</tem:i_builder_id>
+                                        <!--Optional:-->
+                                        <tem:I_LINK_TYPE>LP_LINK</tem:I_LINK_TYPE>
+                                        <!--Optional:-->
+                                        <tem:Token></tem:Token>
+                                    </tem:GET_LINK_DETAILS>
+                                  </soapenv:Body>
+                              </soapenv:Envelope>`;
+
+    let soapaction = 'http://tempuri.org/IService1/GET_LINK_DETAILS';
+    let result_tag = 'GET_LINK_DETAILSResult';
+    
+    this.shared.getData(soapaction, body_government_link, result_tag).subscribe(
+      (data) => {
+        this.loginSlider = data.Table;
+        console.log(this.loginSlider)
+      },
+      (error)=>{
+        console.log(error)
+      }
+    );
+
   }
 }
