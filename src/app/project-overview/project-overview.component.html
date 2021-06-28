@@ -77,7 +77,10 @@
 
             </div>
             <div class="col-lg-2 col-2 pl-0">
-              <p class="fs-12 m-0">60%</p>
+              <p class="fs-12 m-0" *ngIf="bldg.PROGRESS!=' ';else other_content">{{bldg.PROGRESS}}%</p>
+              <ng-template #other_content>
+                <p class="fs-12 m-0" >0%</p>
+              </ng-template>
             </div>
           </div>
         </div>

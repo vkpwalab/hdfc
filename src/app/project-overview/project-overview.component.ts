@@ -98,7 +98,7 @@ export class ProjectOverviewComponent implements OnInit {
 
         $('#disb-progress').css('width', this.disb_percent + '%');
         console.log(this.project_detail);
-        // this.getBuildingProgress();
+        this.getBuildingProgress();
       }
     );
   }
@@ -121,6 +121,7 @@ export class ProjectOverviewComponent implements OnInit {
     this.shared.getData(soapaction, body_Building_List, result_tag).subscribe(
       (data) => {
         this.building_list = data.Table;
+        console.log("check"+this.building_list[0].PROJ_BLDG_NO);
         console.log(this.building_list);
       }
     );

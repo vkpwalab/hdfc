@@ -8,6 +8,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class ReachUsComponent implements OnInit {
 
+  hide= true;
+
   slide_toggle_form: FormGroup;
   reachus: FormGroup;
   project_list: any;

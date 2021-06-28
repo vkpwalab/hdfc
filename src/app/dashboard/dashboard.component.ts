@@ -18,10 +18,10 @@ export class DashboardComponent implements OnInit {
     //   this.router.navigate(['login']);
     // }
     
-    // if(localStorage.getItem('from_login')){
-    //   localStorage.removeItem('from_login');
-    //   location.reload();
-    // }
+    if(localStorage.getItem('from_login')){
+      localStorage.removeItem('from_login');
+      location.reload();
+    }
   }
 
  

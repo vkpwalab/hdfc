@@ -213,8 +213,6 @@ export class ProjectFeaturesComponent implements OnInit {
     console.log(this.project_feature_form.valid);
     if (this.project_feature_form.valid) {
 
-      console.log("vkTEST")
-
       localStorage.setItem('project_feature', JSON.stringify(data));
       let project_detail = JSON.parse(localStorage.getItem('project_detail'));
       let address_detail = JSON.parse(localStorage.getItem('address_detail'));

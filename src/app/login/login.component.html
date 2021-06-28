@@ -23,7 +23,8 @@
                             <span class="text-danger fs-12 pt-5"
                                 *ngIf="login_form.controls['email'].hasError('required') && (login_form.controls['email'].touched)">
                                 Please enter your email.
-                            </span></div>
+                            </span>
+                        </div>
                         <!-- <br> -->
                         <div class="form-group form-type mt-0 pt-0 alternative">
                             <mat-form-field appearance="standard">
@@ -36,10 +37,12 @@
                             <span class="text-danger fs-12 pt-5"
                                 *ngIf="login_form.controls['password'].hasError('required') && (login_form.controls['password'].touched)">
                                 Please enter your password.
-                            </span></div>
+                            </span>
+                        </div>
 
 
-                        <span [routerLink]="['/forgot-password']" class="float-right text-primary span mt-3">Forgot/Change Password?</span>
+                        <span [routerLink]="['/forgot-password']"
+                            class="float-right text-primary span mt-3">Forgot/Change Password?</span>
 
                         <div class="form-group Captcha">
                             <div class="col-7 mt-1 border border-dark">
@@ -47,7 +50,8 @@
                             </div>
                             <div class="col-5 Captcha-text ml-1">
                                 <p class="float-left pt-2 "><b>{{ captcha }}</b></p>
-                                <i class="fa fa-refresh float-right text-secondary pt-2" aria-hidden="true" (click)="generateCaptcha()"></i>
+                                <i class="fa fa-refresh float-right text-secondary pt-2" aria-hidden="true"
+                                    (click)="generateCaptcha()"></i>
                             </div>
                         </div>
 
@@ -68,9 +72,9 @@
                 <div id="carousel-example-1z" class="carousel slide carousel-fade mb-5" data-ride="carousel">
                     <!--Indicators-->
                     <ol class="carousel-indicators">
-                        <!-- <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li> -->
-                        <!-- <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-1z" data-slide-to="2"></li> -->
+                        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
                     </ol>
                     <!--/.Indicators-->
                     <!--Slides-->
@@ -80,99 +84,92 @@
                             <div class="box1 float-left login-box">
                                 <div class="add_img_01"> <img src="./assets/images/ad_img_01.jpg" class="add_img01">
                                 </div>
-                                <div *ngIf="loginSlider[0]" class="add_text_01 margin20"> <strong>{{loginSlider[0].HEADING}}</strong> <br> 
+                                <div *ngIf="loginSlider[0]" class="add_text_01 margin20">
+                                    <strong>{{loginSlider[0].HEADING}}</strong> <br>
                                     {{loginSlider[0].LINK_URL}}
                                 </div>
                             </div>
                             <div class="box2 float-left login-box">
                                 <div class="add_img_02"> <img src="./assets/images/ad_img_01.jpg" class="add_img02">
                                 </div>
-                                <div  *ngIf="loginSlider[1]" class="add_text_02 margin20"> <strong>{{loginSlider[1].HEADING}}</strong> <br> 
+                                <!-- <div  *ngIf="loginSlider[1]" class="add_text_02 margin20"> <strong>{{loginSlider[1].HEADING}}</strong> <br> 
                                     {{loginSlider[1].LINK_URL}}
-                                </div>
+                                </div> -->
                             </div>
                             <div class="box3 float-left login-box">
-                                <div *ngIf="loginSlider[2]" class="add_text_03 margin20"> <strong>{{loginSlider[2].HEADING}}</strong> <br> 
+                                <!-- <div *ngIf="loginSlider[2]" class="add_text_03 margin20"> <strong>{{loginSlider[2].HEADING}}</strong> <br> 
                                     {{loginSlider[2].LINK_URL}}
-                                </div>
+                                </div> -->
                                 <div class="add_img_03 "> <img src="./assets/images/ad_img_01.jpg" class="add_img03">
                                 </div>
                             </div>
                         </div>
                         <!--/First slide-->
                         <!--Second slide-->
-                        <!-- <div class="carousel-item">
+                        <div *ngIf="loginSlider[1]" class="carousel-item">
                             <div class="box1 float-left login-box">
                                 <div class="add_img_01"> <img src="./assets/images/ad_img_02.jpg" class="add_img01">
                                 </div>
-                                <div class="add_text_01 margin20"> <strong> HDFC reduces home loan rates by 10 basis
-                                        points </strong> <br> Largest private sector lender HDFC Bank Tuesday has cut
-                                    its lending rates by 0.10 percent across all tenors, effective Wednesday, sources
-                                    said. The move comes a day ahead of the policy review by the Reserve Bank, which is
-                                    reportedly peeved at lenders for not passing on its three consecutive rate cuts of
-                                    0.75 percent to the borrowers.
+                                <div class="add_text_01 margin20"> <strong>{{loginSlider[1].HEADING}}
+                                    </strong> <br>{{loginSlider[1].LINK_URL}}
                                 </div>
                             </div>
                             <div class="box2 float-left login-box">
                                 <div class="add_img_02"> <img src="./assets/images/ad_img_02.jpg" class="add_img02">
                                 </div>
-                                <div class="add_text_02 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
+                                <!-- <div class="add_text_02 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
                                     </strong> <br> Largest private sector lender HDFC Bank Tuesday has cut its lending
                                     rates by 0.10 percent across all tenors, effective Wednesday, sources said. <br> The
                                     move comes a day ahead of the policy review by the Reserve Bank, which is reportedly
                                     peeved at lenders for not passing on its three consecutive rate cuts of 0.75 percent
                                     to the borrowers.
-                                </div>
+                                </div> -->
                             </div>
                             <div class="box3 float-left login-box">
-                                <div class="add_text_03 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
+                                <!-- <div class="add_text_03 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
                                     </strong> <br> Largest private sector lender HDFC Bank Tuesday has cut its lending
                                     rates by 0.10 percent across all tenors, effective Wednesday, sources said. <br> The
                                     move comes a day ahead of the policy review by the Reserve Bank, which is reportedly
                                     peeved at lenders for not passing on its three consecutive rate cuts of 0.75 percent
                                     to the borrowers.
-                                </div>
+                                </div> -->
                                 <div class="add_img_03 "> <img src="./assets/images/ad_img_02.jpg" class="add_img03">
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <!--/Second slide-->
                         <!--Third slide-->
-                        <!-- <div class="carousel-item">
+                        <div *ngIf="loginSlider[2]" class="carousel-item">
                             <div class="box1 float-left login-box">
                                 <div class="add_img_01"> <img src="./assets/images/ad_img_03.jpg" class="add_img01">
                                 </div>
-                                <div class="add_text_01 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
-                                    </strong> <br> Largest private sector lender HDFC Bank Tuesday has cut its lending
-                                    rates by 0.10 percent across all tenors, effective Wednesday, sources said. The move
-                                    comes a day ahead of the policy review by the Reserve Bank, which is reportedly
-                                    peeved at lenders for not passing on its three consecutive rate cuts of 0.75 percent
-                                    to the borrowers.
+                                <div class="add_text_01 margin20"> <strong> {{loginSlider[2].HEADING}}
+                                    </strong> <br>{{loginSlider[2].LINK_URL}}
                                 </div>
                             </div>
                             <div class="box2 float-left login-box">
                                 <div class="add_img_02"> <img src="./assets/images/ad_img_03.jpg" class="add_img02">
                                 </div>
-                                <div class="add_text_02 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
+                                <!-- <div class="add_text_02 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
                                     </strong> <br> Largest private sector lender HDFC Bank Tuesday has cut its lending
                                     rates by 0.10 percent across all tenors, effective Wednesday, sources said. <br> The
                                     move comes a day ahead of the policy review by the Reserve Bank, which is reportedly
                                     peeved at lenders for not passing on its three consecutive rate cuts of 0.75 percent
                                     to the borrowers.
-                                </div>
+                                </div> -->
                             </div>
                             <div class="box3 float-left login-box">
-                                <div class="add_text_03 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
+                                <!-- <div class="add_text_03 margin20"> <strong> HDFC Bank cuts MCLR by 0.10% acrosstenors
                                     </strong> <br> Largest private sector lender HDFC Bank Tuesday has cut its lending
                                     rates by 0.10 percent across all tenors, effective Wednesday, sources said. <br> The
                                     move comes a day ahead of the policy review by the Reserve Bank, which is reportedly
                                     peeved at lenders for not passing on its three consecutive rate cuts of 0.75 percent
                                     to the borrowers.
-                                </div>
+                                </div> -->
                                 <div class="add_img_03 "> <img src="./assets/images/ad_img_03.jpg" class="add_img03">
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <!--/Third slide-->
                     </div>
                     <!--/.Slides-->
