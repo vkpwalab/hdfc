@@ -14,7 +14,9 @@ export class InterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log("inte call")
     const reqBody = req.body;
-    if (reqBody.search("authBuilderUser") == -1 || reqBody.search("GET_LINK_DETAILS") == -1) {
+    const typeOfReq = typeof reqBody
+    //console.log("type",)
+    if ((typeOfReq != "object") && (reqBody.search("authBuilderUser") == -1 || reqBody.search("GET_LINK_DETAILS") == -1)) {
       if (localStorage.getItem("auth-token") == null) {
         this.router.navigate(['/login'])
       } else {

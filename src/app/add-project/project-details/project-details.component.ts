@@ -56,7 +56,7 @@ export class ProjectDetailsComponent implements OnInit {
       'project_launch_date': [''],
       'work_comm_date': [''],
       'expected_comp_date': [''],
-      'developer_name': ['DINESH P CHAWDA,ARUN P CHAWDA'],
+      'developer_name': [''],
       'website': [''],
       'remark': ['', Validators.required],
     })
@@ -183,6 +183,8 @@ export class ProjectDetailsComponent implements OnInit {
         console.log("vk" + this.builder_detail[0]);
         this.branch_value = this.builder_detail[0].CD_VAL;
         this.branch_desc= this.builder_detail[0].CD_DESC;
+        this.project_detail_form.controls['developer_name'].setValue(this.builder_detail[0].BUILDER_NAME);
+        //this.developer_names.push() 
         this.project_detail_form.controls['hdfc_branch'].setValue(this.builder_detail[0].CD_DESC);
         console.log(this.builder_detail);
       }

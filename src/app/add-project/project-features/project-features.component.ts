@@ -287,7 +287,7 @@ export class ProjectFeaturesComponent implements OnInit {
         I_IS_MORTGAGE_BY_OTH_ST: data.mortgaged,
         I_FANCIAL_ST: data.financial_institute,
         I_CTS_NO: '',
-        Token: 'MH3NPYK34J0KHDI'
+        Token: this.token
       };
 
       console.log(body_create_project);
@@ -536,7 +536,7 @@ export class ProjectFeaturesComponent implements OnInit {
       I_IS_MORTGAGE_BY_OTH_ST: data.mortgaged,
       I_FANCIAL_ST: data.financial_institute == "HDFC" ? data.financial_institute : data.bank_name,
       I_CTS_NO: address_detail.sno,
-      Token: 'MH3NPYK34J0KHDI'
+      Token: this.token
     };
     console.log(body_draft_project);
 
@@ -697,7 +697,7 @@ export class ProjectFeaturesComponent implements OnInit {
     this.shared.getData(soapaction, body_draft_xml, result_tag).subscribe(
       (data) => {
         if (data.O_Msg == 'Project DRAFT created.') {
-          alert("Project drafted successfully");
+          alert("Project draft saved successfully");
           // location.reload();
         }
       }

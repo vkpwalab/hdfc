@@ -177,7 +177,7 @@ export class ProjectProgressComponent implements OnInit {
   constructor( private shared:SharedService) { }
 
   ngOnInit(): void {
-    this.token = 'MH3NPYK34J0KHDI';
+    this.token = localStorage.getItem('auth-token');
     this.getBuildingProgress();
     this.getAllDoc();
    }

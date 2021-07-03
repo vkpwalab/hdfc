@@ -169,7 +169,7 @@ export class LoginComponent implements OnInit {
                                   <soapenv:Body>
                                     <tem:GET_LINK_DETAILS>
                                         <!--Optional:-->
-                                        <tem:i_builder_id>424489</tem:i_builder_id>
+                                        
                                         <!--Optional:-->
                                         <tem:I_LINK_TYPE>LP_LINK</tem:I_LINK_TYPE>
                                         <!--Optional:-->

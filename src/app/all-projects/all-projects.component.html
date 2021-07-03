@@ -60,6 +60,7 @@
                         <mat-option value="All">All</mat-option>
                         <mat-option value="Completed">Completed</mat-option>
                         <mat-option value="Pending">Pending</mat-option>
+                        <mat-option value="Draft">Draft</mat-option>
                     </mat-select>
                 </mat-form-field>
 
@@ -85,14 +86,26 @@
 
 
 
-<div class="col-lg-12 row mx-0 mt-3 title-bar">
-    <div class="col-xl-2 pl-0"><h6><b>Project Name</b></h6></div>
-    <div class="col-xl-2 pl-0"><h6><b>Location</b></h6></div>
-    <div class="col-xl-2"><h6><b>Developer Firm</b></h6></div>
-    <div class="col-xl-2 text-right"><h6><b>Project Status</b></h6></div>
-    <div class="col-xl-2 text-center"><h6><b>Document Upload</b></h6></div>
-    <div class="col-xl-2 text-right pr-0"><h6><b>Respond to Queries</b></h6></div>
-</div>
+    <div class="col-lg-12 row mx-0 mt-3 title-bar">
+        <div class="col-xl-2 pl-0">
+            <h6><b>Project Name</b></h6>
+        </div>
+        <div class="col-xl-2 pl-0">
+            <h6><b>Location</b></h6>
+        </div>
+        <div class="col-xl-2">
+            <h6><b>Developer Firm</b></h6>
+        </div>
+        <div class="col-xl-2 text-right">
+            <h6><b>Project Status</b></h6>
+        </div>
+        <div class="col-xl-2 text-center">
+            <h6><b>Document Upload</b></h6>
+        </div>
+        <div class="col-xl-2 text-right pr-0">
+            <h6><b>Respond to Queries</b></h6>
+        </div>
+    </div>
 
     <!-- ------------------------------MAIN CONTAIN------------------------------------ -->
 
@@ -102,7 +115,9 @@
             <div class="col-xl-2 col-6 pr-0 mb-0 name">
                 <div class="col-12 px-0 top">
                     <div class="col-2 px-0"><img src="./assets/images/icons/building2.png" height="22px"></div>
-                    <div matTooltip="{{ans.PROJECT_NAME | titlecase}}"  [routerLink]="['/project-overview',ans.PROJECTID]" class="col-10 px-0 pro-name max-width-50" style="cursor: pointer;"><b >{{ans.PROJECT_NAME | titlecase}}</b></div>
+                    <div matTooltip="{{ans.PROJECT_NAME | titlecase}}"
+                        [routerLink]="['/project-overview',ans.PROJECTID]" class="col-10 px-0 pro-name max-width-50"
+                        style="cursor: pointer;"><b>{{ans.PROJECT_NAME | titlecase}}</b></div>
                 </div>
             </div>
             <div class="col-xl-2 col-6 pr-0 mb-0 address">
@@ -110,31 +125,35 @@
                         aria-hidden="true"></i><b>{{ans.LOCATIONS | titlecase}}</b>
                 </p>
             </div>
-            <div class="col-xl-3 col-10 pr-0 ltd mb-0" >
+            <div class="col-xl-3 col-10 pr-0 ltd mb-0">
                 <p class="top"><b>{{builder_details.BUILDER_NAME | titlecase}}</b></p>
             </div>
             <div class="col-xl-1 col-4 pl-0 mt-3 px-0 tick">
                 <!-- <p class="font-italic app mb-0" *ngIf="select_values_of_status == 'All' || select_values_of_status == 'Completed'"><i
                         class="fa fa-check-circle pr-1 text-success" aria-hidden="true"></i>
                     {{ans.PROJECT_STAUS}}</p> -->
-                <p class="font-italic app mb-0" *ngIf="ans.PROJECT_STAUS == 'Completed'"><i
+                <p class="font-italic app mb-0" *ngIf="ans.PROJECT_STAUS == 'Completed' || ans.PROJECT_STAUS == 'APPROVED' "><i
                         class="fa fa-check-circle pr-1 text-success" aria-hidden="true"></i>
                     {{ans.PROJECT_STAUS}}</p>
                 <p class="font-italic pen mb-0" *ngIf="ans.PROJECT_STAUS == 'Pending'"><i aria-hidden="true"
                         class="fa fa-clock-o"></i>
-                        {{ans.PROJECT_STAUS}}</p>
+                    {{ans.PROJECT_STAUS}}</p>
+               
             </div>
             <div class="col-xl-2 col-8 pr-0 circle">
-                <circle-progress [percent]="ans.doc_perc" [radius]="15" [innerStrokeWidth]="2" [space]="-2" [showUnits]="false"
-                    [titleFontSize]="12" [showSubtitle]="false" [outerStrokeWidth]="3" [innerStrokeColor]="'lightblue'"
-                    [outerStrokeColor]="'#3f98fd'" [animation]="true" [animationDuration]="300"></circle-progress>
+                <circle-progress [percent]="ans.doc_perc" [radius]="15" [innerStrokeWidth]="2" [space]="-2"
+                    [showUnits]="false" [titleFontSize]="12" [showSubtitle]="false" [outerStrokeWidth]="3"
+                    [innerStrokeColor]="'lightblue'" [outerStrokeColor]="'#3f98fd'" [animation]="true"
+                    [animationDuration]="300"></circle-progress>
                 <p class="font-italic mt-3 text-secondary">Document pending</p>
             </div>
             <div class="col-xl-2 col-6 i-con pt-2 px-0">
-                <img [routerLink]="['/project-overview',ans.PROJECTID]" class="w-01 ml-1" src="./assets/images/icons/upload icon.png">
-                <img [routerLink]="['/project-overview',ans.PROJECTID]" class="w-01 ml-1" src="./assets/images/icons/view icon.png">
-                <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png"
-                     data-toggle="modal" data-target="#exampleModal" (click)="openQueryModel(ans)">
+                <img [routerLink]="['/project-overview',ans.PROJECTID]" class="w-01 ml-1"
+                    src="./assets/images/icons/upload icon.png">
+                <img [routerLink]="['/project-overview',ans.PROJECTID]" class="w-01 ml-1"
+                    src="./assets/images/icons/view icon.png">
+                <img class="ml-1 fa-comments pl-2 pt-0" src="./assets/images/icons/commet.png" data-toggle="modal"
+                    data-target="#exampleModal" (click)="openQueryModel(ans)">
                 <!-- <span class="badge badge-danger">12</span> -->
             </div>
         </div>
@@ -146,39 +165,38 @@
 <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<MODAL BOX>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Respond To The Queries</h5>
-          <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="col-lg-12 px-0 nopadding">
-                <label>Query :</label>
-                <textarea
-                  rows="5"
-                  [(ngModel)]="message"
-                  [maxlength]="maxChars">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Respond To The Queries</h5>
+                <button type="button" class="close pt-1" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-12 px-0 nopadding">
+                    <label>Query :</label>
+                    <textarea rows="5" [(ngModel)]="message" [maxlength]="maxChars">
                 </textarea>
-                <label class="nopadding clrlbl">Remaining Characters : {{message.length}}/{{maxChars}}</label>
-              </div>
+                    <label class="nopadding clrlbl">Remaining Characters : {{message.length}}/{{maxChars}}</label>
+                </div>
 
-              <div class="col-lg-12 alternative px-0" id="upload">
-                <mat-form-field appearance="standard">
-                    <mat-label>CHOOSE FILES</mat-label>
-                    <input matInput [value]="file_name">
-                    <input class="float-right up" type="file" (change)="uploadFileEvent($event)">
-                    <span class="btn-upload text-center">Upload Files</span>
-                </mat-form-field>
+                <div class="col-lg-12 alternative px-0" id="upload">
+                    <mat-form-field appearance="standard">
+                        <mat-label>CHOOSE FILES</mat-label>
+                        <input matInput [value]="file_name">
+                        <input class="float-right up" type="file" (change)="uploadFileEvent($event)">
+                        <span class="btn-upload text-center">Upload Files</span>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <div class="col-lg-12"><input type="submit" class="btn submit-btn" value="SUBMIT"
+                        (click)="sendResponse()" data-dismiss="modal"></div>
             </div>
         </div>
-        <div class="modal-footer text-center">
-            <div class="col-lg-12"><input type="submit" class="btn submit-btn" value="SUBMIT" (click)="sendResponse()" data-dismiss="modal"></div>
-        </div>
-      </div>
     </div>
-  </div>
+</div>

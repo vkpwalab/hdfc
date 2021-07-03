@@ -114,6 +114,8 @@ export class AllProjectsComponent implements OnInit {
           if(element.PROJECT_STAUS==" "){
             console.log(key)
             this.project_list[key].PROJECT_STAUS = "Pending"
+          }else if(element.PROJECT_STAUS = "APPROVED"){
+            this.project_list[key].PROJECT_STAUS = "Completed"
           }
         });
         this.loading = false;
@@ -197,7 +199,7 @@ export class AllProjectsComponent implements OnInit {
                                     <!--Optional:-->
                                     <tem:I_QUERY_ID></tem:I_QUERY_ID>
                                     <!--Optional:-->
-                                    <tem:STATUS></tem:STATUS>
+                                    <tem:STATUS>PENDING</tem:STATUS>
                                     <!--Optional:-->
                                     <tem:I_PARENT_QUEST_ID></tem:I_PARENT_QUEST_ID>
                                     <!--Optional:-->

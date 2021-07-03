@@ -272,7 +272,7 @@ export class RespondToQueriesComponent implements OnInit {
                                     <!--Optional:-->
                                     <tem:I_QUERY_ID>${this.query_id}</tem:I_QUERY_ID>
                                     <!--Optional:-->
-                                    <tem:STATUS>${this.selected_query.STATUS}</tem:STATUS>
+                                    <tem:STATUS>RESPONDED</tem:STATUS>
                                     <!--Optional:-->
                                     <tem:I_PARENT_QUEST_ID>${this.selected_query.QUEST_ID}</tem:I_PARENT_QUEST_ID>
                                     <!--Optional:-->
@@ -309,7 +309,7 @@ export class RespondToQueriesComponent implements OnInit {
           this.message = '';
           this.removeFile();
           alert('Your query is submitted');
-          location.reload();
+          //location.reload();
         }
       }
     );

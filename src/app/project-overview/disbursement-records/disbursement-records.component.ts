@@ -64,7 +64,7 @@ export class DisbursementRecordsComponent implements OnInit {
   constructor(private shared: SharedService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.token = 'MH3NPYK34J0KHDI';
+    this.token = localStorage.getItem("auth-token")
     this.getDisbursmentRecord('Y');
   }
 

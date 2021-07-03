@@ -225,7 +225,7 @@ export class UploadDocxComponent implements OnInit {
                                           <!--Optional:-->
                                           <tem:I_DRAFT_ID>${this.draft_data.DRAFT_ID}</tem:I_DRAFT_ID>
                                           <!--Optional:-->
-                                          <tem:Token>?</tem:Token>
+                                          <tem:Token>${this.token}</tem:Token>
                                       </tem:UPD_DRAFT_PROJECT>
                                     </soapenv:Body>
                                 </soapenv:Envelope>`;
@@ -236,12 +236,12 @@ export class UploadDocxComponent implements OnInit {
         (data) => {
           alert('Project created successfully');
           console.log(data);
-          location.reload();
+          //location.reload();
         }
       );
     }else{
       alert('Project created successfully');
-      location.reload();
+      //location.reload();
     }
   }
   ngOnChanges(changes: SimpleChanges): void {

@@ -122,9 +122,9 @@ export class ProjectDistursementComponent implements OnInit {
                               <soapenv:Body>
                                 <tem:get_devport_disb_summ>
                                     <!--Optional:-->
-                                    <tem:i_project_id>61222</tem:i_project_id>
+                                    <tem:i_project_id>${this.project_selected}</tem:i_project_id>
                                     <!--Optional:-->
-                                    <tem:i_proj_bldg_no>105641</tem:i_proj_bldg_no>
+                                    <tem:i_proj_bldg_no>${this.building_selected}</tem:i_proj_bldg_no>
                                     <!--Optional:-->
                                     <tem:Token>${this.token}</tem:Token>
                                 </tem:get_devport_disb_summ>
