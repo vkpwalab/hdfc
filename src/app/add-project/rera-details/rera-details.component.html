@@ -55,7 +55,7 @@
     <div class="col-lg-6">
       <mat-form-field appearance="standard">
         <mat-label>REMARK</mat-label>
-        <input matInput formControlName="remark">
+        <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="remark">
       </mat-form-field>
     </div>
   </div>

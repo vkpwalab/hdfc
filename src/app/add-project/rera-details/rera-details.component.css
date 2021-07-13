@@ -7,9 +7,9 @@
 .mat-form-field {font-family: 'Titillium Web' !important;}
 .main_btn_log {width: 100%;border: 1px solid #e3310d;}
 
-input, mat-select {
+/* input, mat-select {
   text-transform: uppercase !important;
-}
+} */
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;

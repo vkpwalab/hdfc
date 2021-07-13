@@ -42,12 +42,23 @@ export class AddProjectComponent implements OnInit {
   changeTab: any;
   closeResult = '';
 
-  constructor(public shared: SharedService, private http: HttpClient, private modalService:NgbModal) { }
+  constructor(public shared: SharedService, private http: HttpClient, private modalService: NgbModal) { }
 
 
 
   ngOnInit(): void {
     // this.changeTab = this.shared.sharedTab.tab;
+
+    const inputs = document.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('keyup', () => {
+        
+        const x = document.getElementsByTagName('input')[i];
+        console.log(x)
+        x.value = x.value.toUpperCase();
+      });
+    }
+
     console.log(this.changeTab);
 
     this.builder_id = localStorage.getItem("builder_id")
@@ -167,7 +178,7 @@ export class AddProjectComponent implements OnInit {
         });
 
         console.log(this.draft_list);
-        
+
       }
     );
     location.reload();
@@ -224,8 +235,8 @@ export class AddProjectComponent implements OnInit {
   }
 
 
-  openModal(content){
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  openModal(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

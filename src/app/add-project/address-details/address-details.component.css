@@ -28,6 +28,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input, mat-select{
+/* input, mat-select{
   text-transform: uppercase !important;
-}
+} */

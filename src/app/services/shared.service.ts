@@ -56,8 +56,8 @@ export class SharedService {
       let xml = parser.parseFromString(res, 'text/xml');
       let xml_body = xml.getElementsByTagName(result_tag)[0].childNodes[0].nodeValue;
       let json_res = JSON.parse(xml_body);
-      console.log("resapi",this.api_path)
-      console.log("resvk", json_res);
+      //console.log("resapi",this.api_path)
+      //console.log("resvk", json_res);
 
       if (json_res.o_msg && json_res.o_msg == "You are not authorized.Kindly try again") {
         this.router.navigate(['/login'])

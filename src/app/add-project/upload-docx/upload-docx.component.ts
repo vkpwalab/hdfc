@@ -208,9 +208,11 @@ export class UploadDocxComponent implements OnInit {
       let result_tag = 'project_push_to_lmsResult';
       this.shared.getData(soapaction, body_submit_project, result_tag).subscribe(
         (data) => {
-          this.removeDraft();
-          console.log(data);
           //location.reload();
+          //this.removeDraft();
+          alert('Project created successfully');
+          console.log(data);
+          location.reload();
         }
       );
     }
@@ -236,7 +238,7 @@ export class UploadDocxComponent implements OnInit {
         (data) => {
           alert('Project created successfully');
           console.log(data);
-          //location.reload();
+          location.reload();
         }
       );
     }else{

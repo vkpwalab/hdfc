@@ -15,7 +15,7 @@
             <div class="col-lg-3">
                 <mat-form-field appearance="standard">
                     <mat-label>PAYEE NAME<span class="text-danger">*</span></mat-label>
-                    <input matInput formControlName="payee_name">
+                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="payee_name">
                 </mat-form-field>
             </div>
             <div class="col-lg-3">
@@ -46,13 +46,13 @@
             <div class="col-lg-3">
                 <mat-form-field appearance="standard">
                     <mat-label>IFSC CODE<span class="text-danger">*</span></mat-label>
-                    <input matInput formControlName="ifcs_code">
+                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="ifcs_code">
                 </mat-form-field>
             </div>
             <div class="col-lg-3">
                 <mat-form-field appearance="standard">
                     <mat-label>BANK BRANCH<span class="text-danger">*</span></mat-label>
-                    <input matInput formControlName="bank_branch">
+                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="bank_branch">
                 </mat-form-field>
             </div>
             <div class="col-lg-6">

@@ -4,25 +4,25 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>S.NO/CTS NO</mat-label>
-        <input matInput formControlName="sno" maxlength="100">
+        <input matInput oninput="this.value = this.value.toUpperCase()"  formControlName="sno" maxlength="100">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>PLOT NO</mat-label>
-        <input type="text" matInput formControlName="plot_no">
+        <input oninput="this.value = this.value.toUpperCase()"  type="text" matInput formControlName="plot_no">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>ADDRESS<span class="text-danger">*</span></mat-label>
-        <input matInput formControlName="address">
+        <input oninput="this.value = this.value.toUpperCase()"  matInput formControlName="address">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>POPULAR LANDMARK<span class="text-danger">*</span></mat-label>
-        <input matInput formControlName="popular_landmark">
+        <input oninput="this.value = this.value.toUpperCase()"  matInput formControlName="popular_landmark">
       </mat-form-field>
     </div>
 
@@ -31,7 +31,7 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>LOCATION<span class="text-danger">*</span></mat-label>
-        <input matInput formControlName="location">
+        <input oninput="this.value = this.value.toUpperCase()"  matInput formControlName="location">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
@@ -55,7 +55,7 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>PIN CODE<span class="text-danger">*</span></mat-label>
-        <input type="number" min="0" matInput formControlName="pincode" maxlength="8">
+        <input oninput="this.value = this.value.toUpperCase()"  type="number" min="0" matInput formControlName="pincode" maxlength="8">
       </mat-form-field>
     </div>
 
@@ -89,25 +89,25 @@
     <div class="col-lg-3">
       <mat-form-field appearance="standard" color="warn">
         <mat-label>EAST<span class="text-danger">*</span></mat-label>
-        <input type="text" min="0" matInput formControlName="east">
+        <input oninput="this.value = this.value.toUpperCase()" type="text" min="0" matInput formControlName="east">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>WEST<span class="text-danger">*</span></mat-label>
-        <input type="text" min="0" matInput formControlName="west">
+        <input oninput="this.value = this.value.toUpperCase()"  type="text" min="0" matInput formControlName="west">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>NORTH<span class="text-danger">*</span></mat-label>
-        <input type="text" min="0" matInput formControlName="north">
+        <input oninput="this.value = this.value.toUpperCase()"  type="text" min="0" matInput formControlName="north">
       </mat-form-field>
     </div>
     <div class="col-lg-3">
       <mat-form-field appearance="standard">
         <mat-label>SOUTH<span class="text-danger">*</span></mat-label>
-        <input type="text" min="0" matInput formControlName="south">
+        <input oninput="this.value = this.value.toUpperCase()"  type="text" min="0" matInput formControlName="south">
       </mat-form-field>
     </div>
 

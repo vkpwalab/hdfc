@@ -193,13 +193,13 @@ export class ProjectFeaturesComponent implements OnInit {
     Object.keys(this.project_feature_form.controls).forEach(key => {
       const controlErrors: ValidationErrors = this.project_feature_form.get(key).errors;
       if (controlErrors != null) {
-      
+
         Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
           messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
 
         });
-       
+
       }
     });
 
@@ -216,6 +216,8 @@ export class ProjectFeaturesComponent implements OnInit {
       localStorage.setItem('project_feature', JSON.stringify(data));
       let project_detail = JSON.parse(localStorage.getItem('project_detail'));
       let address_detail = JSON.parse(localStorage.getItem('address_detail'));
+
+
 
       let body_create_project = {
         BUILDERID: this.builder_id,
@@ -444,18 +446,32 @@ export class ProjectFeaturesComponent implements OnInit {
 
       let soapaction = 'http://tempuri.org/IService1/Create_project';
       let result_tag = 'Create_projectResult';
-      this.shared.getData(soapaction, body_draft_xml, result_tag).subscribe(
-        (data) => {
-          if (data.O_Project_id) {
-            this.shared.sharedTab2.tab = false;
 
-            this.shared.projectId(data.O_Project_id);
-            $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
-            $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+      if (localStorage.getItem(body_create_project.Project_Name) == null) {
+        this.shared.getData(soapaction, body_draft_xml, result_tag).subscribe(
+          (data) => {
+            if (data.O_Project_id) {
+
+              localStorage.setItem(body_create_project.Project_Name, data.O_Project_id)
+              this.shared.sharedTab2.tab = false;
+
+              this.shared.projectId(data.O_Project_id);
+              $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
+              $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+            }
+            console.log(data);
           }
-          console.log(data);
-        }
-      );
+        );
+      } else {
+
+        this.shared.sharedTab2.tab = false;
+
+        this.shared.projectId(parseInt(localStorage.getItem(body_create_project.Project_Name)));
+        $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
+        $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+
+      }
+
 
     }
   }
@@ -734,7 +750,7 @@ export class ProjectFeaturesComponent implements OnInit {
     this.project_feature_form.controls['plot_area'].setValue(this.draft_data.PLOT_AREA);
     this.project_feature_form.controls['total_no_of_building'].setValue(this.draft_data.TOTAL_NO_OF_BLD);
     this.project_feature_form.controls['total_buildup_area'].setValue(this.draft_data.TOTAL_BUILT_UP_AREA_SQMT);
-    this.project_feature_form.controls['project_cost'].setValue(this.draft_data.PROJECT_COST);
+    this.project_feature_form.controls['project_cost'].setValue(this.draft_data.PROJECT_COST == null ? '' : this.draft_data.PROJECT_COST);
     this.project_feature_form.controls['plan_approval_auth_name'].setValue(this.draft_data.PLAN_APPROVAL_AUTHORITY);
     this.project_feature_form.controls['total_number'].setValue(this.draft_data.UNITS_ALLOTED_TO_LANDOWN);
     this.project_feature_form.controls['mention_specfic_detail'].setValue(this.draft_data.LANDOWN_SPEC_DETAILS);
@@ -765,8 +781,8 @@ export class ProjectFeaturesComponent implements OnInit {
   }
 
   openModal(name) {
-    const str = name.join().replace(/,/g,'');
-    const modalRef = this.modalService.open(ModalComponentComponent,{size:'sm'});
+    const str = name.join().replace(/,/g, '');
+    const modalRef = this.modalService.open(ModalComponentComponent, { size: 'sm' });
     modalRef.componentInstance.name = str;
 
   }
