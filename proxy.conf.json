@@ -1,11 +1,10 @@
 {
-    "/api": {
-      "target": "https://rpuat.hdfc.com/Devport_dmz/Service1.svc",
-      "secure": false,
-      "pathRewrite": {
-        "^/api": ""
-      },
-      "changeOrigin": true
-    }
+  "/api": {
+    "target": "https://rpuat.hdfc.com/Devport_dmz/Service1.svc",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
   }
-  
+}

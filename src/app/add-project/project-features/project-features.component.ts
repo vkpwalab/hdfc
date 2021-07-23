@@ -196,7 +196,14 @@ export class ProjectFeaturesComponent implements OnInit {
 
         Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
-          messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
+
+          let msg= "";
+          if(key=="bank_name"){
+            msg =  "<li>Update Financial Institute Name</li>"
+          }else{
+            msg = "<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>"
+          }
+          messageArr.push(msg);
 
         });
 
@@ -730,14 +737,14 @@ export class ProjectFeaturesComponent implements OnInit {
       this.hide = true;
     }
 
-    if (this.draft_data.FINANCIAL_INST == "HDFC") {
+    if ( this.draft_data.IS_MORTGAGE_BY_OTH_INST == "Y" && this.draft_data.FINANCIAL_INST == "HDFC") {
       this.financial_institute = "HDFC"
       this.hideclif = true;
       this.project_feature_form.get('hdfc_clip_no').setValidators([Validators.required]);
       this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
       this.project_feature_form.get('bank_name').clearValidators();
       this.project_feature_form.get('bank_name').updateValueAndValidity()
-    } else {
+    } else if(this.draft_data.IS_MORTGAGE_BY_OTH_INST == "Y" &&  this.draft_data.FINANCIAL_INST != "HDFC") {
       this.financial_institute = "Other"
       this.hideclif = false;
       this.project_feature_form.get('bank_name').setValue(this.draft_data.FINANCIAL_INST)
@@ -745,6 +752,12 @@ export class ProjectFeaturesComponent implements OnInit {
       this.project_feature_form.get('bank_name').updateValueAndValidity()
       this.project_feature_form.get('hdfc_clip_no').clearValidators()
       this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
+    }else{
+      this.project_feature_form.get('bank_name').clearValidators();
+      this.project_feature_form.get('bank_name').updateValueAndValidity()
+      this.project_feature_form.get('hdfc_clip_no').clearValidators()
+      this.project_feature_form.get('hdfc_clip_no').updateValueAndValidity()
+
     }
 
     this.project_feature_form.controls['plot_area'].setValue(this.draft_data.PLOT_AREA);
