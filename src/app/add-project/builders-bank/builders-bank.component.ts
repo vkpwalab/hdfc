@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import $ from "jquery";
 import { ModalComponentComponent } from 'src/app/modal-component/modal-component.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -52,6 +52,8 @@ export class BuildersBankComponent implements OnInit {
     this.getBankNames();
     this.getAccountTypes();
     this.getPaymentFor();
+
+
   }
 
   getBankNames() {
@@ -125,7 +127,7 @@ export class BuildersBankComponent implements OnInit {
 
   addBank() {
     let fd = this.fb.group({
-      'payee_name': ['', Validators.required],
+      'payee_name': ['', Validators.required,'snsnsn'],
       'bank_name': ['', Validators.required],
       'bank_acc_no': ['', Validators.required],
       'account_type': ['', Validators.required],
@@ -144,24 +146,70 @@ export class BuildersBankComponent implements OnInit {
   }
 
   uploadBankFile(data,index) {
-    console.log(data)
-    console.log(this.file_uploaded[index]);
-    if (this.file_uploaded[index] == 'Y') {
-      this.shared.uploadDoc(this.file[index], this.file_ext[index], this.project_id, 'CHQ', this.file_name[index]).subscribe(
-        (res) => {
-          if (res == 'OK') {
-            this.shared.updateDocDetail(this.project_id, this.file_name[index], this.file_ext[index], 'CHQ', '').subscribe(
-              (doc_data) => {
-                this.updateBankDetail(data, doc_data.o_srno,index);
-                console.log(doc_data)
-              }
-            )
+
+    const messageArr = [];
+    messageArr.push("<ul>")
+    Object.keys(this.dynamic_forms[index].controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.dynamic_forms[index].get(key).errors;
+      if (controlErrors != null) {
+      
+        Object.keys(controlErrors).forEach((keyError) => {
+          console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+          let msg = "";
+          if(key=="payee_name"){
+           msg= "<li>Payee Name is Required</li>"
+          }else if(key=="bank_name"){
+            msg= "<li>Bank Name is Required</li>"
           }
-        }
-      )
-    }else{
-      this.openModal("Please upload document");
+          else if(key=="bank_acc_no"){
+            msg= "<li>Bank Account No. is Required</li>"
+          }
+          else if(key=="account_type"){
+            msg= "<li>Account Type is Required</li>"
+          }
+          else if(key=="ifcs_code"){
+            msg= "<li>IFCS Code is Required</li>"
+          }
+          else if(key=="bank_branch"){
+            msg= "<li>Bank Branch is Required</li>"
+          }else if(key=="payment_for"){
+            msg="<li>Payment For is Required</li>"
+          }else if(key=="rera_coll_account"){
+            msg= "<li>RERA Collection Account is Required</li>"
+          }
+          messageArr.push(msg);
+
+        });
+       
+      }
+    });
+
+    messageArr.push("</ul>");
+
+    if (messageArr.length > 2) {
+      this.openModal(messageArr.join(" "))
     }
+
+    if(this.dynamic_forms[index].valid){
+      if (this.file_uploaded[index] == 'Y') {
+        this.shared.uploadDoc(this.file[index], this.file_ext[index], this.project_id, 'CHQ', this.file_name[index]).subscribe(
+          (res) => {
+            if (res == 'OK') {
+              this.shared.updateDocDetail(this.project_id, this.file_name[index], this.file_ext[index], 'CHQ', '').subscribe(
+                (doc_data) => {
+                  this.updateBankDetail(data, doc_data.o_srno,index);
+                  console.log(doc_data)
+                }
+              )
+            }
+          }
+        )
+      }else{
+        this.openModal("Please upload document");
+      }
+    }
+   
+   
 
   }
 

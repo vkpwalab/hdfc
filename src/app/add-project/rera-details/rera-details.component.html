@@ -62,7 +62,7 @@
 
   <div class=" col-lg-6 col-12 button mt-4">
     <div class="text-center col-lg-4 ">
-      <button name="next" class="main_btn_log next" type="submit">SAVE & NEXT</button>
+      <button #btn (ngSubmit)="button.setAttribute('is-disabled', 'true')" name="next" class="main_btn_log next" type="submit">SAVE & NEXT</button>
     </div>
     <!-- <div class="text-center col-lg-4">
       <button name="prev" class="main_btn_log draft prev">BACK</button>

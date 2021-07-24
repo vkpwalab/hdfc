@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { SharedService } from 'src/app/services/shared.service';
 import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
@@ -26,9 +26,11 @@ export class RERADetailsComponent implements OnInit {
   to_date: boolean = true;
   launch_date: boolean = false;
   pipe: DatePipe;
-  constructor(private shared: SharedService, private fb: FormBuilder, public modalService:NgbModal) {
+  buttonClickCount = 0;
+  @ViewChild('btn') btn: ElementRef; 
+  constructor(private shared: SharedService, private fb: FormBuilder, public modalService: NgbModal) {
     this.pipe = new DatePipe('en-US');
-   }
+  }
 
   ngOnInit(): void {
     this.builder_id = localStorage.getItem("builder_id");
@@ -80,20 +82,22 @@ export class RERADetailsComponent implements OnInit {
     );
   }
 
-  reraStatusChange(event){
+  reraStatusChange(event) {
+
+
     let status = event.value;
     console.log(status)
     const rera_app_date = this.rera_detail_form.get('rera_app_date')
     const valid_from_date = this.rera_detail_form.get('valid_from_date')
     const valid_to_date = this.rera_detail_form.get('valid_to_date')
     const rera_regi_number = this.rera_detail_form.get('rera_regi_number')
-    if(status == "Registered"){
+    if (status == "Registered") {
 
       rera_app_date.reset();
       rera_regi_number.reset();
       valid_from_date.reset();
       valid_to_date.reset();
-      
+
       this.from_date = false;
       this.to_date = false;
       this.reg_num = false;
@@ -110,7 +114,7 @@ export class RERADetailsComponent implements OnInit {
 
       rera_regi_number.setValidators([Validators.required]);
       rera_regi_number.updateValueAndValidity();
-    }else if(status == "Applied"){
+    } else if (status == "Applied") {
 
       rera_app_date.reset();
       rera_regi_number.reset();
@@ -121,7 +125,7 @@ export class RERADetailsComponent implements OnInit {
       this.to_date = true;
       this.reg_num = true;
       this.app_date = false;
-      
+
       rera_app_date.setValidators([Validators.required]);
       rera_app_date.updateValueAndValidity();
 
@@ -133,8 +137,8 @@ export class RERADetailsComponent implements OnInit {
 
       rera_regi_number.clearValidators();
       rera_regi_number.updateValueAndValidity();
-      
-    }else{
+
+    } else {
       this.from_date = true;
       this.to_date = true;
       this.reg_num = true;
@@ -156,26 +160,25 @@ export class RERADetailsComponent implements OnInit {
       valid_from_date.updateValueAndValidity();
 
       valid_to_date.clearValidators();
-      valid_to_date.updateValueAndValidity();      
+      valid_to_date.updateValueAndValidity();
     }
 
   }
 
   submitReraDetail(data) {
-    console.log(data);
-
+  
     const messageArr = [];
     messageArr.push("<ul>")
     Object.keys(this.rera_detail_form.controls).forEach(key => {
       const controlErrors: ValidationErrors = this.rera_detail_form.get(key).errors;
       if (controlErrors != null) {
-      
+
         Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
           messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
 
         });
-       
+
       }
     });
 
@@ -190,35 +193,38 @@ export class RERADetailsComponent implements OnInit {
     data.valid_from_date = data.valid_from_date ? this.pipe.transform(data.valid_from_date, 'dd-MMM-yyyy') : '';
     data.valid_to_date = data.valid_to_date ? this.pipe.transform(data.valid_to_date, 'dd-MMM-yyyy') : '';
     if (this.rera_detail_form.valid) {
+
+      this.btn.nativeElement.disabled = true;
+
       let body_rera_submit = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
-                                <soapenv:Header/>
-                                <soapenv:Body>
-                                  <tem:Insert_Rera_details>
-                                      <!--Optional:-->
-                                      <tem:I_PROJECT_NO>${this.project_id}</tem:I_PROJECT_NO>
-                                      <!--Optional:-->
-                                      <tem:I_RERA_APPL_STAT>${data.rera_regi_status}</tem:I_RERA_APPL_STAT>
-                                      <!--Optional:-->
-                                      <tem:I_RERA_APPLN_NO>${data.rera_regi_number}</tem:I_RERA_APPLN_NO>
-                                      <!--Optional:-->
-                                      <tem:I_RERA_APPLN_DATE>${ data.rera_app_date}</tem:I_RERA_APPLN_DATE>
-                                      <!--Optional:-->
-                                      <tem:I_RERA_REMARK>${ data.remark}</tem:I_RERA_REMARK>
-                                      <!--Optional:-->
-                                      <tem:I_PROJ_CERT_SRNO></tem:I_PROJ_CERT_SRNO>
-                                      <!--Optional:-->
-                                      <tem:I_RERA_APPRVL_DATE>${data.project_launch_date}</tem:I_RERA_APPRVL_DATE>
-                                      <!--Optional:-->
-                                      <tem:I_VALID_FROM_DATE>${data.valid_from_date}</tem:I_VALID_FROM_DATE>
-                                      <!--Optional:-->
-                                      <tem:I_VALID_TO_DATE>${data.valid_to_date}</tem:I_VALID_TO_DATE>
-                                      <!--Optional:-->
-                                      <tem:i_created_by>${this.builder_id}</tem:i_created_by>
-                                      <!--Optional:-->
-                                      <tem:Token>${this.token}</tem:Token>
-                                  </tem:Insert_Rera_details>
-                                </soapenv:Body>
-                            </soapenv:Envelope>`;
+        <soapenv:Header/>
+        <soapenv:Body>
+          <tem:Insert_Rera_details>
+              <!--Optional:-->
+              <tem:I_PROJECT_NO>${this.project_id}</tem:I_PROJECT_NO>
+              <!--Optional:-->
+              <tem:I_RERA_APPL_STAT>${data.rera_regi_status}</tem:I_RERA_APPL_STAT>
+              <!--Optional:-->
+              <tem:I_RERA_APPLN_NO>${data.rera_regi_number}</tem:I_RERA_APPLN_NO>
+              <!--Optional:-->
+              <tem:I_RERA_APPLN_DATE>${data.rera_app_date}</tem:I_RERA_APPLN_DATE>
+              <!--Optional:-->
+              <tem:I_RERA_REMARK>${data.remark}</tem:I_RERA_REMARK>
+              <!--Optional:-->
+              <tem:I_PROJ_CERT_SRNO></tem:I_PROJ_CERT_SRNO>
+              <!--Optional:-->
+              <tem:I_RERA_APPRVL_DATE>${data.project_launch_date}</tem:I_RERA_APPRVL_DATE>
+              <!--Optional:-->
+              <tem:I_VALID_FROM_DATE>${data.valid_from_date}</tem:I_VALID_FROM_DATE>
+              <!--Optional:-->
+              <tem:I_VALID_TO_DATE>${data.valid_to_date}</tem:I_VALID_TO_DATE>
+              <!--Optional:-->
+              <tem:i_created_by>${this.builder_id}</tem:i_created_by>
+              <!--Optional:-->
+              <tem:Token>${this.token}</tem:Token>
+          </tem:Insert_Rera_details>
+        </soapenv:Body>
+    </soapenv:Envelope>`;
 
       let soapaction = 'http://tempuri.org/IService1/Insert_Rera_details';
       let result_tag = 'Insert_Rera_detailsResult';
@@ -229,19 +235,26 @@ export class RERADetailsComponent implements OnInit {
 
             $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
             $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+            this.btn.nativeElement.disabled = false;
           }
           console.log(data);
+
         }
       );
+
 
     }
 
   }
 
   openModal(name) {
-    const str = name.join().replace(/,/g,'');
-    const modalRef = this.modalService.open(ModalComponentComponent,{size:'sm'});
+    const str = name.join().replace(/,/g, '');
+    const modalRef = this.modalService.open(ModalComponentComponent, { size: 'sm' });
     modalRef.componentInstance.name = str;
 
+  }
+
+  log() {
+    console.log("click");
   }
 }

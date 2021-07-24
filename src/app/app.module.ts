@@ -64,6 +64,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ModalComponentComponent } from './modal-component/modal-component.component';
 import { InterceptorService } from './services/interceptor.service';
+import { DeBounceClickDirective } from './de-bounce-click.directive';
 
 
 @NgModule({
@@ -104,6 +105,7 @@ import { InterceptorService } from './services/interceptor.service';
     ForgotPasswordComponent,
     NotificationComponent,
     ModalComponentComponent,
+    DeBounceClickDirective,
 
   ],
   imports: [
