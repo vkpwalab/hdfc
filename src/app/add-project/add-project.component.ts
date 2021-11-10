@@ -52,7 +52,7 @@ export class AddProjectComponent implements OnInit {
     const inputs = document.getElementsByTagName('input');
     for (var i = 0; i < inputs.length; i++) {
       inputs[i].addEventListener('keyup', () => {
-        
+
         const x = document.getElementsByTagName('input')[i];
         console.log(x)
         x.value = x.value.toUpperCase();
@@ -60,6 +60,7 @@ export class AddProjectComponent implements OnInit {
     }
 
     console.log(this.changeTab);
+
 
     this.builder_id = localStorage.getItem("builder_id")
     this.token = localStorage.getItem("auth-token")

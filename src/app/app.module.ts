@@ -145,9 +145,7 @@ import { DeBounceClickDirective } from './de-bounce-click.directive';
       apiKey: 'CHAVES_GOOGLE_MAPS'
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    NgbModule
-
-
+    NgbModule,
   ],
   providers: [
     {

@@ -40,7 +40,7 @@ export class ProjectDetailsComponent implements OnInit {
       project_type: new FormControl({ value: 'BUILDER/SOCIETY', disabled: true })
     });
 
-    
+
     this.builder_id = localStorage.getItem("builder_id");
     this.token = localStorage.getItem("auth-token")
 
@@ -184,7 +184,7 @@ export class ProjectDetailsComponent implements OnInit {
         this.branch_value = this.builder_detail[0].CD_VAL;
         this.branch_desc= this.builder_detail[0].CD_DESC;
         this.project_detail_form.controls['developer_name'].setValue(this.builder_detail[0].BUILDER_NAME);
-        //this.developer_names.push() 
+        //this.developer_names.push()
         this.project_detail_form.controls['hdfc_branch'].setValue(this.builder_detail[0].CD_DESC);
         console.log(this.builder_detail);
       }
@@ -198,17 +198,19 @@ export class ProjectDetailsComponent implements OnInit {
     Object.keys(this.project_detail_form.controls).forEach(key => {
       const controlErrors: ValidationErrors = this.project_detail_form.get(key).errors;
       if (controlErrors != null) {
-      
+
         Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
 
           if(keyError=="pattern"){
-            keyError = "invalid"
+            messageArr.push("<li>" + key.replace(/_/g, ' ') + " is invalid or if '&' symbol is not allowed</li>");
+          }else{
+            messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
           }
-          messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
+
 
         });
-       
+
       }
     });
 

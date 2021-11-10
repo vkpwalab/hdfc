@@ -35,7 +35,7 @@ export class AddressDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.builder_id = localStorage.getItem("builder_id");
     this.token = localStorage.getItem("auth-token")
-    
+
     this.address_detail_form = this.fb.group({
       'sno': [''],
       'plot_no': [''],
@@ -134,13 +134,19 @@ export class AddressDetailsComponent implements OnInit {
     Object.keys(this.address_detail_form.controls).forEach(key => {
       const controlErrors: ValidationErrors = this.address_detail_form.get(key).errors;
       if (controlErrors != null) {
-      
+
         Object.keys(controlErrors).forEach((keyError) => {
           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
-          messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
+
+          if(keyError=="pattern"){
+            messageArr.push("<li>" + key.replace(/_/g, ' ') + " is invalid or if '&' symbol is not allowed </li>");
+          }else{
+            messageArr.push("<li>" + key.replace(/_/g, ' ') + " is " + keyError + "</li>");
+          }
+
 
         });
-       
+
       }
     });
 
@@ -587,7 +593,7 @@ export class AddressDetailsComponent implements OnInit {
 
   }
 
-  
+
   openModal(name) {
     const str = name.join().replace(/,/g,'');
     const modalRef = this.modalService.open(ModalComponentComponent,{size:'sm'});

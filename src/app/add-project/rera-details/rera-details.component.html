@@ -55,7 +55,7 @@
     <div class="col-lg-6">
       <mat-form-field appearance="standard">
         <mat-label>REMARK</mat-label>
-        <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="remark">
+        <input maxlength="200" oninput="this.value = this.value.toUpperCase()" matInput formControlName="remark" pattern="^[A-Za-z0-9-., ]+$">
       </mat-form-field>
     </div>
   </div>
@@ -64,7 +64,10 @@
     <div class="text-center col-lg-4 ">
       <button #btn name="next" class="main_btn_log next" type="submit">SAVE & NEXT</button>
     </div>
-    <!-- <div class="text-center col-lg-4">
-      <button name="prev" class="main_btn_log draft prev">BACK</button>
-    </div> -->
+    <!-- <div class="text-center col-lg-4 col-6">
+      <button #btn name="prev" class="main_btn_log draft prev">BACK</button>
+  </div> -->
+  <div class="text-center col-lg-4 col-6 margin-cel ">
+      <button name="draft" class="main_btn_log draft" (click)="draftProject(rera_detail_form.value)" type="button">DRAFT</button>
+  </div>
   </div>

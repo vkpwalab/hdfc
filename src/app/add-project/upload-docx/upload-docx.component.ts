@@ -203,7 +203,7 @@ export class UploadDocxComponent implements OnInit {
                                     </tem:project_push_to_lms>
                                   </soapenv:Body>
                               </soapenv:Envelope>`;
-  
+
       let soapaction = 'http://tempuri.org/IService1/project_push_to_lms';
       let result_tag = 'project_push_to_lmsResult';
       this.shared.getData(soapaction, body_submit_project, result_tag).subscribe(
@@ -231,7 +231,7 @@ export class UploadDocxComponent implements OnInit {
                                       </tem:UPD_DRAFT_PROJECT>
                                     </soapenv:Body>
                                 </soapenv:Envelope>`;
-  
+
       let soapaction = 'http://tempuri.org/IService1/UPD_DRAFT_PROJECT';
       let result_tag = 'UPD_DRAFT_PROJECTResult';
       this.shared.getData(soapaction, body_delete_draft, result_tag).subscribe(

@@ -11,7 +11,7 @@
               <p class="fs-12">upload documents you want to share</p>
               <mat-form-field appearance="standard">
                 <mat-label>REMARK</mat-label>
-                <textarea oninput="this.value = this.value.toUpperCase()" matInput type="text" rows="3" formControlName="message"></textarea>
+                <textarea maxlength="200" oninput="this.value = this.value.toUpperCase()" matInput type="text" rows="3" formControlName="message" pattern="^[A-Za-z0-9-., ]+$"></textarea>
               </mat-form-field>
 
               <mat-form-field appearance="standard">
@@ -87,7 +87,7 @@
     <div class="text-center col-lg-4 col-6 mob-center">
         <button name="next" class="main_btn_log next" (click)="saveProject()" >SUBMIT</button>
     </div>
-    <!-- <div class="text-center col-lg-4"> 
+    <!-- <div class="text-center col-lg-4">
     <button  name="prev" class="main_btn_log draft prev">BACK</button>
     </div> -->
 </div>

@@ -15,7 +15,7 @@
             <div class="col-lg-3">
                 <mat-form-field appearance="standard">
                     <mat-label>PAYEE NAME<span class="text-danger">*</span></mat-label>
-                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="payee_name">
+                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="payee_name" pattern="^[A-Za-z0-9-., ]+$">
                 </mat-form-field>
             </div>
             <div class="col-lg-3">
@@ -46,13 +46,13 @@
             <div class="col-lg-3">
                 <mat-form-field appearance="standard">
                     <mat-label>IFSC CODE<span class="text-danger">*</span></mat-label>
-                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="ifcs_code">
+                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="ifcs_code" pattern="^[A-Za-z0-9-., ]+$">
                 </mat-form-field>
             </div>
             <div class="col-lg-3">
                 <mat-form-field appearance="standard">
                     <mat-label>BANK BRANCH<span class="text-danger">*</span></mat-label>
-                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="bank_branch">
+                    <input oninput="this.value = this.value.toUpperCase()" matInput formControlName="bank_branch" pattern="^[A-Za-z0-9-., ]+$">
                 </mat-form-field>
             </div>
             <div class="col-lg-6">
@@ -103,7 +103,7 @@
     <div class="text-center col-lg-4 col-12 mob-center">
         <button name="next" class="main_btn_log next" (click)="next()" >NEXT</button>
     </div>
-    <!-- <div class="text-center col-lg-4"> 
+    <!-- <div class="text-center col-lg-4">
     <button  name="prev" class="main_btn_log draft prev">BACK</button>
     </div> -->
 </div>

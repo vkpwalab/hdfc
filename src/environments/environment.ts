@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  //  Baseurl:'https://pws.hdfc.com/Devport_dmz/Service1.svc',
-  //  Baseurl:'https://rpuat.hdfc.com/Devport_dmz/Service1.svc',
-  Baseurl:'http://localhost:4200/api',
+   Baseurl:'https://pws.hdfc.com/Devport_dmz/Service1.svc',
+  // Baseurl:'https://rpuat.hdfc.com/Devport_dmz/Service1.svc',
+  //Baseurl:'http://localhost:4200/api',
 };
 
 /*

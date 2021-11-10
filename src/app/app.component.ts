@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserIdleService } from 'angular-user-idle';
 import { ConnectionService } from 'ng-connection-service';
 import { SharedService } from './services/shared.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  host:{
+    '(document:keyup)': 'onKeyUp($event)',
+    '(document:keydown)': 'onKeyDown($event)',
+    '(document:click)': 'onClick($event)',
+    '(document:mousemove)': 'onMouseMove($event)'
+  }
 })
 export class AppComponent {
   title = 'hdfc-loan';
@@ -13,9 +20,12 @@ export class AppComponent {
   ans: string;
   status = 'ONLINE'; //initializing as online by default
   isConnected = true;
-  token:any;
+  token: any;
   notificationCount = 0;
-  constructor(private router: Router, private connectionService: ConnectionService,public shared:SharedService) {
+  constructor(private router: Router,
+    private connectionService: ConnectionService,
+    public shared: SharedService,
+  ) {
     this.connectionService.monitor().subscribe(isConnected => {
       this.isConnected = isConnected;
       if (this.isConnected) {
@@ -28,12 +38,35 @@ export class AppComponent {
     console.log("app called");
   }
 
+  onKeyUp(ev) {
+    // do something meaningful with it
+    localStorage.setItem('login_time','0');
+    console.log(`keyup`);
+  }
+
+  onKeyDown(ev) {
+    // do something meaningful with it
+    localStorage.setItem('login_time','0');
+    console.log(`keydown`);
+  }
+
+  onMouseMove(ev) {
+    // do something meaningful with it
+    localStorage.setItem('login_time','0');
+    console.log(`mousemove`);
+  }
+
+  onClick(ev) {
+    // do something meaningful with it
+    localStorage.setItem('login_time','0');
+    console.log(`keyup`);
+  }
 
   ngOnInit(): void {
-    console.log("app called");
+
     this.token = localStorage.getItem("auth-token");
 
-    if(this.token==null){
+    if (this.token == null) {
       this.router.navigate(['login'])
     }
     this.getNOtification()
@@ -42,7 +75,7 @@ export class AppComponent {
     return this.router.url.includes(route);
     // return this.router.url;
   }
-  
+
   getNOtification() {
     let body_builders_details = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
     <soapenv:Header/>

@@ -154,7 +154,7 @@
                             <div class="col-lg-6">
                                 <mat-form-field appearance="standard">
                                     <mat-label>REMARK</mat-label>
-                                    <textarea matInput formControlName="I_REMARKS" type="text"></textarea>
+                                    <textarea maxlength="200" matInput formControlName="I_REMARKS" type="text"></textarea>
                                 </mat-form-field>
                                 <span class="text-danger fs-12"
                                     *ngIf="customer_lead_form.controls['I_REMARKS'].hasError('required') && (customer_lead_form.controls['I_REMARKS'].touched)">

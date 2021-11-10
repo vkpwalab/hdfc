@@ -16,9 +16,13 @@ export class LoginComponent implements OnInit {
   loading: boolean;
   err: boolean;
   captcha: string;
-  loginSlider:any;
+  loginSlider: any = [];
 
-  constructor(private router: Router, private login_fb: FormBuilder, private shared: SharedService) { }
+  constructor(
+    private router: Router,
+    private login_fb: FormBuilder,
+    private shared: SharedService
+  ) { }
 
   ngOnInit() {
     // if (localStorage.getItem('auth-token')) {
@@ -137,6 +141,7 @@ export class LoginComponent implements OnInit {
 
         let soapaction = 'http://tempuri.org/IService1/authBuilderUser';
         let result_tag = 'authBuilderUserResult';
+
         this.shared.getData(soapaction, body_login, result_tag).subscribe(
           (data) => {
             if (data.o_msg == 'Success') {
@@ -150,6 +155,9 @@ export class LoginComponent implements OnInit {
               this.loading = false;
               this.err = true;
             }
+          },
+          (err) => {
+            console.log(err);
           }
         );
       }
@@ -163,13 +171,13 @@ export class LoginComponent implements OnInit {
   }
 
   getLoginSliderData() {
-   
+
     let body_government_link = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
                                   <soapenv:Header/>
                                   <soapenv:Body>
                                     <tem:GET_LINK_DETAILS>
                                         <!--Optional:-->
-                                        
+
                                         <!--Optional:-->
                                         <tem:I_LINK_TYPE>LP_LINK</tem:I_LINK_TYPE>
                                         <!--Optional:-->
@@ -180,13 +188,13 @@ export class LoginComponent implements OnInit {
 
     let soapaction = 'http://tempuri.org/IService1/GET_LINK_DETAILS';
     let result_tag = 'GET_LINK_DETAILSResult';
-    
+
     this.shared.getData(soapaction, body_government_link, result_tag).subscribe(
       (data) => {
         this.loginSlider = data.Table;
         console.log(this.loginSlider)
       },
-      (error)=>{
+      (error) => {
         console.log(error)
       }
     );
