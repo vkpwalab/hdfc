@@ -49,6 +49,7 @@ export class RERADetailsComponent implements OnInit {
     this.shared.project_id.subscribe(
       (res) => {
         this.project_id = res;
+        console.log('pId',this.project_id);
       }
     )
 
@@ -211,7 +212,7 @@ export class RERADetailsComponent implements OnInit {
     data.valid_to_date = data.valid_to_date ? this.pipe.transform(data.valid_to_date, 'dd-MMM-yyyy') : '';
     if (this.rera_detail_form.valid) {
 
-      this.btn.nativeElement.disabled = true;
+      // this.btn.nativeElement.disabled = true;
 
       let body_rera_submit = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
         <soapenv:Header/>

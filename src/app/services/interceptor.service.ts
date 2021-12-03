@@ -12,17 +12,26 @@ export class InterceptorService implements HttpInterceptor {
   constructor(public router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("inte call")
+    //console.log("inte call")
     const reqBody = req.body;
-    if (reqBody.search("authBuilderUser") == -1 || reqBody.search("GET_LINK_DETAILS") == -1) {
-      if (localStorage.getItem("auth-token") == null) {
-        this.router.navigate(['/login'])
+    console.log(reqBody);
+    console.log(typeof reqBody);
+
+    if(typeof reqBody =="string"){
+      if ( reqBody.search("authBuilderUser") == -1 || reqBody.search("GET_LINK_DETAILS") == -1) {
+        if (localStorage.getItem("auth-token") == null) {
+          this.router.navigate(['/login'])
+        } else {
+          return next.handle(req)
+        }
       } else {
         return next.handle(req)
       }
-    } else {
+    }else{
       return next.handle(req)
     }
+
+
 
     return next.handle(req)
   }

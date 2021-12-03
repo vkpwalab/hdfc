@@ -34,6 +34,7 @@ export class SharedService {
   }
 
   project_id = new BehaviorSubject('')
+  public project_id$ = this.project_id.asObservable();
   projectId(v) {
     this.project_id.next(v)
   }
@@ -65,7 +66,7 @@ export class SharedService {
       }else{
         return json_res;
       }
-      
+
     }))
 
   }

@@ -33,6 +33,7 @@
       if (time >= 29) {
         localStorage.removeItem("auth-token");
         localStorage.removeItem("login_time")
+        window.alert("No activity since 30 minutes please try to login again!!")
         location.href = "/login";
 
       } else {
