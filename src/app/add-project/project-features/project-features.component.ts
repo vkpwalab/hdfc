@@ -475,14 +475,18 @@ export class ProjectFeaturesComponent implements OnInit {
       let soapaction = 'http://tempuri.org/IService1/Create_project';
       let result_tag = 'Create_projectResult';
 
-      if (localStorage.getItem(body_create_project.Project_Name) == null) {
         this.shared.getData(soapaction, body_draft_xml, result_tag).subscribe(
           (data) => {
-            if (data.O_Project_id) {
-
-              localStorage.setItem(body_create_project.Project_Name, data.O_Project_id)
+            if (data.O_Project_id == "null") {
+              const projectId = this.retnum(data.O_Msg)
+              localStorage.setItem(body_create_project.Project_Name,projectId.toString())
               this.shared.sharedTab2.tab = false;
-
+              this.shared.projectId(projectId);
+              $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
+              $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
+            } else {
+              localStorage.setItem(body_create_project.Project_Name,data.O_Project_id)
+              this.shared.sharedTab2.tab = false;
               this.shared.projectId(data.O_Project_id);
               $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
               $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
@@ -490,18 +494,12 @@ export class ProjectFeaturesComponent implements OnInit {
             console.log(data);
           }
         );
-      } else {
-
-        this.shared.sharedTab2.tab = false;
-
-        this.shared.projectId(parseInt(localStorage.getItem(body_create_project.Project_Name)));
-        $('#pills-tabContent > .active').next().addClass('active').prev().removeClass('active')
-        $('#pills-tab > li > .active').parent('li').next().children('a').addClass('active').parent().prev().children().removeClass('active');
-
-      }
-
-
     }
+  }
+
+  retnum(str) {
+    var num = str.replace(/[^0-9]/g, '');
+    return parseInt(num, 10);
   }
 
   draftProject(data) {
