@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./all-projects.component.css']
 })
 export class AllProjectsComponent implements OnInit {
-  maxChars = 4000;
+  maxChars = 1000;
   role = '';
   chars = 0;
   builder_details: any = [];
@@ -82,7 +82,7 @@ export class AllProjectsComponent implements OnInit {
         this.getPacProjectList();
 
         }
-        
+
       }
     );
   }
